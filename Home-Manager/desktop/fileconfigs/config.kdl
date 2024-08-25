@@ -1,0 +1,309 @@
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
+
+input {
+  keyboard {
+    xkb {
+      layout "us,kz"
+      options "grp:caps_toggle"
+    }
+  }
+//Libinput method
+  touchpad {
+    tap
+    // dwt
+    // dwtp
+    natural-scroll
+    // accel-speed 0.2
+    // accel-profile "flat"
+  }
+
+  mouse {
+    // natural-scroll
+    // accel-speed 0.2
+   accel-profile "flat"
+  }
+
+  // Uncomment this to make the mouse warp to the center of newly focused windows.
+  // warp-mouse-to-focus
+
+  // Focus windows and outputs automatically when moving the mouse into them.
+  // focus-follows-mouse
+}
+
+// Settings that influence how windows are positioned and sized.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
+layout {
+  gaps 12
+
+  center-focused-column "on-overflow"
+
+  preset-column-widths {
+    proportion 0.25
+    proportion 0.5
+    proportion 0.75
+    proportion 1.0
+  }
+
+  // You can change the default width of the new windows.
+  default-column-width { proportion 0.5; }
+  // If you leave the brackets empty, the windows themselves will decide their initial width.
+  // default-column-width {}
+
+  // You can change how the focus ring looks.
+  focus-ring {
+    // Uncomment this line to disable the focus ring.
+    // off
+
+    // How many logical pixels the ring extends out from the windows.
+    width 4
+
+    // Colors can be set in a variety of ways:
+    // - CSS named colors: "red"
+    // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
+    // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
+
+    // Color of the ring on the active monitor.
+    // active-color "#7fc8ff"
+    active-color "#0060FF"
+
+    // Color of the ring on inactive monitors.
+    // inactive-color "#505050"
+    inactive-color "#7700AE"
+
+    // active-gradient from="#80c8ff" to="#bbddff" angle=45
+
+    // You can also color the gradient relative to the entire view
+    // of the workspace, rather than relative to just the window itself.
+    // To do that, set relative-to="workspace-view".
+    //
+    // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+  }
+
+  // You can also add a border. It's similar to the focus ring, but always visible.
+  border {
+    // The settings are the same as for the focus ring.
+    // If you enable the border, you probably want to disable the focus ring.
+    off
+
+    width 4
+    // active-color "#ffc87f"
+    active-color "#0060FF"
+    // inactive-color "#505050"
+    inactive-color "#7700AE"
+
+    // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
+    // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+  }
+
+  // Struts shrink the area occupied by windows, similarly to layer-shell panels.
+  // You can think of them as a kind of outer gaps. They are set in logical pixels.
+  // Left and right struts will cause the next window to the side to always be visible.
+  // Top and bottom struts will simply add outer gaps in addition to the area occupied by
+  // layer-shell panels and regular gaps.
+  struts {
+    // left 64
+    // right 64
+    // top 64
+    // bottom 64
+  }
+}
+// AutoStart
+
+//spawn-at-startup "xfce4-panel"
+
+// No Decorations
+prefer-no-csd
+
+// You can change the path where screenshots are saved.
+// The path is formatted with strftime(3) to give you the screenshot date and time.
+screenshot-path "~/Pictures/screenshots/Niri%Y-%m-%d %H-%M-%S.png"
+
+// You can also set this to null to disable saving screenshots to disk.
+// screenshot-path null
+
+// Animation settings.
+// The wiki explains how to configure individual animations:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
+animations {
+  // Uncomment to turn off all animations.
+  // off
+
+  // Slow down all animations by this factor. Values below 1 speed them up instead.
+  // slowdown 3.0
+}
+
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+
+window-rule {
+  match app-id="vesktop"
+
+  default-column-width { proportion 1.00; }
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+  match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+  match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+  block-out-from "screen-capture"
+
+  // Use this instead if you want them visible on third-party screenshot tools.
+  // block-out-from "screencast"
+}
+// Keybinds
+binds {
+  // shows a list of important hotkeys.
+  Mod+Shift+T { show-hotkey-overlay; }
+
+  // Apps
+
+  Mod+T { spawn "kitty"; }
+  Mod+Space { spawn "rofi -show"; }
+  Super+Alt+L { spawn "swaylock"; }
+  Super+W { spawn "floorp"; }
+
+  // You can also use a shell:
+  // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
+
+  // Example volume keys mappings for PipeWire & WirePlumber.
+  // The allow-when-locked=true property makes them work even when the session is locked.
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+  Mod+Q { close-window; }
+
+  Mod+Left  { focus-column-left; }
+  Mod+Down  { focus-window-down; }
+  Mod+Up    { focus-window-up; }
+  Mod+Right { focus-column-right; }
+  Mod+A     { focus-column-left; }
+  Mod+S     { focus-column-right; }
+  Mod+J     { focus-window-down; }
+  Mod+K     { focus-window-up; }
+
+  Mod+Shift+Left  { move-column-left; }
+  Mod+Shift+Down  { move-window-down; }
+  Mod+Shift+Up    { move-window-up; }
+  Mod+Shift+Right { move-column-right; }
+  Mod+Shift+A     { move-column-left; }
+  Mod+Shift+S     { move-column-right; }
+  Mod+Ctrl+H      { move-column-left; }
+  Mod+Ctrl+J      { move-window-down; }
+  Mod+Ctrl+K      { move-window-up; }
+  Mod+Ctrl+L      { move-column-right; }
+
+  Mod+Home { focus-column-first; }
+  Mod+End  { focus-column-last; }
+  Mod+Ctrl+Home { move-column-to-first; }
+  Mod+Ctrl+End  { move-column-to-last; }
+
+  Mod+Shift+H     { focus-monitor-left; }
+  Mod+Shift+J     { focus-monitor-down; }
+  Mod+Shift+K     { focus-monitor-up; }
+  Mod+Shift+L     { focus-monitor-right; }
+
+  Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+  Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+  Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+  Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+  Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+  Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+  Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+  Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+  Mod+Page_Up        { focus-workspace-up; }
+  Mod+Page_Down      { focus-workspace-down; }
+  Mod+Ctrl+A         { focus-workspace-up; }
+  Mod+Ctrl+S         { focus-workspace-down; }
+  Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+  Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+  Mod+Shift+Ctrl+A   { move-column-to-workspace-up; }
+  Mod+Shift+Ctrl+S   { move-column-to-workspace-down; }
+
+  Mod+Shift+Page_Down { move-workspace-down; }
+  Mod+Shift+Page_Up   { move-workspace-up; }
+
+  Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+  Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+  Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+  Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+  Mod+WheelScrollRight      { focus-column-right; }
+  Mod+WheelScrollLeft       { focus-column-left; }
+  Mod+Ctrl+WheelScrollRight { move-column-right; }
+  Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+  // Usually scrolling up and down with Shift in applications results in
+  // horizontal scrolling; these binds replicate that.
+  Mod+Shift+WheelScrollDown      { focus-column-right; }
+  Mod+Shift+WheelScrollUp        { focus-column-left; }
+  Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+  Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+  // Worlspaces
+
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+Shift+1 { move-column-to-workspace 1; }
+  Mod+Shift+2 { move-column-to-workspace 2; }
+  Mod+Shift+3 { move-column-to-workspace 3; }
+
+  // Switches focus between the current and the previous workspace.
+  Mod+Tab { focus-workspace-previous; }
+
+  Mod+Comma  { consume-window-into-column; }
+  Mod+Period { expel-window-from-column; }
+
+  // There are also commands that consume or expel a single window to the side.
+   Mod+BracketLeft  { consume-or-expel-window-left; }
+   Mod+BracketRight { consume-or-expel-window-right; }
+
+  Mod+R { switch-preset-column-width; }
+  Mod+F { maximize-column; }
+  Mod+Shift+F { fullscreen-window; }
+  Mod+C { center-column; }
+
+  // Finer width adjustments.
+  // This command can also:
+  // * set width in pixels: "1000"
+  // * adjust width in pixels: "-5" or "+5"
+  // * set width as a percentage of screen width: "25%"
+  // * adjust width as a percentage of screen width: "-10%" or "+10%"
+  // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
+  // set-column-width "100" will make the column occupy 200 physical screen pixels.
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Equal { set-column-width "+10%"; }
+
+  // Finer height adjustments when in column with other windows.
+  Mod+Shift+Minus { set-window-height "-10%"; }
+  Mod+Shift+Equal { set-window-height "+10%"; }
+
+  // Actions to switch layouts.
+  // Note: if you uncomment these, make sure you do NOT have
+  // a matching layout switch hotkey configured in xkb options above.
+  // Having both at once on the same hotkey will break the switching,
+  // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
+  // Mod+Space       { switch-layout "next"; }
+  // Mod+Shift+Space { switch-layout "prev"; }
+
+  Print { screenshot; }
+  Ctrl+Print { screenshot-screen; }
+  Alt+Print { screenshot-window; }
+
+  // The quit action will show a confirmation dialog to avoid accidental exits.
+  Mod+Ctrl+Shift+Q { quit; }
+
+  // Powers off the monitors. To turn them back on, do any input like
+  // moving the mouse or pressing any other key.
+  Mod+Shift+P { power-off-monitors; }
+}

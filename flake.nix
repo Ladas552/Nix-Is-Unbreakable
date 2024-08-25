@@ -1,0 +1,98 @@
+{
+  description = "NixToks NixOS config";
+
+  inputs = {
+    # nixpkgs links
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/release-24.05";
+
+    # Home-manager
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    stylix.url = "github:danth/stylix";
+    # Neovim
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+
+    # Secrets
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Games
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    aagl.inputs.nixpkgs.follows = "nixpkgs"; # Name of nixpkgs input you want to use
+
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";    
+  };
+
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ...} @ inputs: 
+    let
+      system = "x86_64-linux";
+      # why pkgs-stable works? here https://discourse.nixos.org/t/allow-unfree-in-flakes/29904/2
+      pkgs-stable = import nixpkgs-stable { system = "x86_64-linux"; config.allowUnfree = true; };
+      pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
+    in {
+      nixosConfigurations = {
+        NixToks = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit system inputs pkgs-stable pkgs; };
+
+          modules = [
+            ./hosts/NixToks/configuration.nix
+            inputs.aagl.nixosModules.default
+            inputs.sops-nix.nixosModules.sops
+            inputs.nix-minecraft.nixosModules.minecraft-servers
+            inputs.nixvim.nixosModules.nixvim
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
+
+        # NixFlash = nixpkgs.lib.nixosSystem {
+        #   specialArgs = { inherit system; inherit inputs; };
+        #
+        #   modules = [
+        #     ./hosts/NixFlash/configuration.nix
+        #     #           inputs.nixvim.nixosModules.nixvim
+        #     #           inputs.stylix.nixosModules.stylix
+        #     #           inputs.home-manager.nixosModules.home-manager
+        #     # {
+        #     #   home-manager.useGlobalPkgs = true;
+        #     #   home-manager.useUserPackages = true;
+        #     #   home-manager.users.fixnix = import ./hosts/NixFlash/apps.nix;
+        #     # }
+        #   ];
+        # };
+      };
+    };
+
+
+  # homeConfigurations."ladas552" = home-manager.lib.homeManagerConfiguration {
+  #   inherit pkgs;
+  #   extraSpecialArgs = {inherit inputs;};
+  #   modules = [./Home-Manager/home.nix];
+  # };
+  #
+  # nixosConfigurations.NixToks = nixpkgs.lib.nixosSystem {
+  #   specialArgs = {inherit inputs system pkgs-stable;};
+  #   modules = [
+  #     ./hosts/NixToks/configuration.nix
+  #
+  #     inputs.aagl.nixosModules.default
+  #     inputs.sops-nix.nixosModules.sops
+  #     inputs.nix-minecraft.nixosModules.minecraft-servers
+  #     inputs.home-manager.nixosModules.home-manager
+  #     inputs.nixvim.nixosModules.nixvim
+  #     inputs.stylix.nixosModules.stylix
+  #     {
+  #       home-manager.useGlobalPkgs = true;
+  #       home-manager.useUserPackages = true;
+  #       home-manager.users.ladas552 = import ./Home-Manager/home.nix;
+  #
+  #       # Optionally, use home-manager.extraSpecialArgs to pass
+  #       # arguments to home.nix
+  #     }
+  #   ];
+  # };
+}
