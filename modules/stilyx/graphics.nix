@@ -3,7 +3,7 @@
   #Themes
   stylix = {
     enable = true;
-    image = ./wallpapers/Bones.png;
+    image = ./wallpapers/Stars.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     autoEnable = true;
     polarity = "dark";

@@ -16,6 +16,9 @@
         disableWhileTyping = false;
         clickMethod = "clickfinger";
       };
+      mouse = {
+        middleEmulation = false;
+      };
     };
   };
 }

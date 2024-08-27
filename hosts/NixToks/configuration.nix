@@ -1,11 +1,11 @@
-{ config, lib, pkgs, inputs, home-manager, ... }:
+{ config, lib, pkgs, inputs, pkgs-stable, home-manager, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./../../nixos/modules.nix
       ./../../modules/modules.nix
-      ./../../modules/nixvim/default.nix
       inputs.home-manager.nixosModules.default
     ];
 programs.kdeconnect.enable = true;
@@ -22,18 +22,18 @@ programs.kdeconnect.enable = true;
   bluetooth.enable = true;
   printers.enable = true;
   touchpad.enable = true;
-  powermanager.enable = true;
+   powermanager.enable = true;
   # virtualisation.enable = true;
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users."ladas552" = import ./../../Home-Manager/home.nix;
+    extraSpecialArgs = { inherit inputs pkgs-stable; };
+    users."ladas552" = import ./../../home/home.nix;
   };
 
   #trim your SSD
   services.fstrim.enable = true;
   # Latest kernel
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   # Bootloader.
   boot.loader = {
     grub = {
@@ -125,7 +125,7 @@ programs.kdeconnect.enable = true;
   services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
   hardware.nvidia = {
     modesetting.enable = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_535;
     prime = {
       sync.enable = true;
       intelBusId = "PCI:0:2:0";

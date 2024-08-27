@@ -65,34 +65,18 @@
         #   ];
         # };
       };
+      # hmConfig = {
+      #   ladas552 = home-manager.lib.homeManagerConfiguration {
+      #     inherit inputs system pkgs;
+      #     username = "ladas552";
+      #     homeDirecotry = "/home/ladas552";
+      #     stateVersion = "23.11";
+      #     configuration = {
+      #       imports = [
+      #         ./home/home.nix
+      #       ];
+      #     };
+      #   };
+      # };
     };
-
-
-  # homeConfigurations."ladas552" = home-manager.lib.homeManagerConfiguration {
-  #   inherit pkgs;
-  #   extraSpecialArgs = {inherit inputs;};
-  #   modules = [./Home-Manager/home.nix];
-  # };
-  #
-  # nixosConfigurations.NixToks = nixpkgs.lib.nixosSystem {
-  #   specialArgs = {inherit inputs system pkgs-stable;};
-  #   modules = [
-  #     ./hosts/NixToks/configuration.nix
-  #
-  #     inputs.aagl.nixosModules.default
-  #     inputs.sops-nix.nixosModules.sops
-  #     inputs.nix-minecraft.nixosModules.minecraft-servers
-  #     inputs.home-manager.nixosModules.home-manager
-  #     inputs.nixvim.nixosModules.nixvim
-  #     inputs.stylix.nixosModules.stylix
-  #     {
-  #       home-manager.useGlobalPkgs = true;
-  #       home-manager.useUserPackages = true;
-  #       home-manager.users.ladas552 = import ./Home-Manager/home.nix;
-  #
-  #       # Optionally, use home-manager.extraSpecialArgs to pass
-  #       # arguments to home.nix
-  #     }
-  #   ];
-  # };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{pkgs, lib, config, inputs, ...}:
 
 {
   programs.fish = {
@@ -14,8 +14,8 @@
     shellAbbrs = {
       clean = "nh clean all";
       yy = "nh os switch -u ~/Nix-dots/";
-      en = "nvim ~/Nix-dots/NixOS/";
-      eh = "nvim ~/Nix-dots/Home-Manager/home.nix";
+      en = "nvim ~/Nix-dots/";
+      eh = "nvim ~/Nix-dots/home/";
       v = "nvim";
       dl-video = "yt-dlp --embed-thumbnail -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 --output '%(title)s.%(ext)s'";
       dl-clips = "yt-dlp --embed-thumbnail -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 --ignore-errors --output '/home/ladas552/Videos/clips/%(playlist)s/%(playlist_index)s-%(title)s.%(ext)s' --yes-playlist";

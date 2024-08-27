@@ -219,6 +219,58 @@
         enable = true;
         folding = true;
         nixvimInjections = true;
+        grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+          bash
+          bibtex
+          c
+          cmake
+          comment
+          cpp
+          css
+          csv
+          diff
+          dockerfile
+          fish
+          git_rebase
+          gitcommit
+          gitignore
+          go
+          html
+          ini
+          javascript
+          json
+          jsonc
+          julia
+          kotlin
+          latex
+          lua
+          lua
+          luadoc
+          make
+          make
+          markdown
+          markdown_inline
+          meson
+          ninja
+          nix
+          norg
+          org
+          python
+          rasi
+          requirements
+          rust
+          sql
+          sxhkdrc
+          todotxt
+          toml
+          typescript
+          typst
+          vim
+          vimdoc
+          xml
+          yaml
+          zathurarc
+        ];
         settings = {
           indent.enable = true;
           ensure_installed = [
