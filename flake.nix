@@ -14,12 +14,14 @@
     # Neovim
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     # Secrets
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Overlays
+    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     # Games
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
@@ -44,7 +46,6 @@
             inputs.aagl.nixosModules.default
             inputs.sops-nix.nixosModules.sops
             inputs.nix-minecraft.nixosModules.minecraft-servers
-            inputs.nixvim.nixosModules.nixvim
             inputs.stylix.nixosModules.stylix
           ];
         };

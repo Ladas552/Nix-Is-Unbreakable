@@ -6,7 +6,6 @@
 
   nixpkgs = {
     overlays =  [
-      inputs.neorg-overlay.overlays.default
       inputs.emacs-overlay.overlays.default
     ];
   };
@@ -14,6 +13,8 @@
   imports = [
     ./programs/apps.nix
     ./environment/DEs.nix
+    ./programs/nixvim
+    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   # Me

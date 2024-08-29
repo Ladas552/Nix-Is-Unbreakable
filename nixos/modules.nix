@@ -25,6 +25,7 @@
     ./services/sound.nix
     ./services/virtualisation.nix
     ./services/powermanager.nix
+    ./desktop/stilyx
   ];
 
   defaultc.enable = lib.mkDefault true;

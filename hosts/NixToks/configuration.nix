@@ -1,11 +1,10 @@
-{ config, lib, pkgs, inputs, pkgs-stable, home-manager, ... }:
+{ config, lib, pkgs, inputs, pkgs-stable, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./../../nixos/modules.nix
-      ./../../modules/modules.nix
       inputs.home-manager.nixosModules.default
     ];
 programs.kdeconnect.enable = true;
