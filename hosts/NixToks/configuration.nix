@@ -27,6 +27,8 @@ programs.kdeconnect.enable = true;
   home-manager = {
     extraSpecialArgs = { inherit inputs pkgs-stable; };
     users."ladas552" = import ./../../home/home.nix;
+    useUserPackages = true;
+    #useGlobalPkgs = true;
   };
 
   #trim your SSD

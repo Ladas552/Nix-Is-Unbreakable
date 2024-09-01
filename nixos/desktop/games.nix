@@ -20,24 +20,26 @@
     environment.sessionVariables.STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
     programs.gamemode.enable = true;
     environment.systemPackages = with pkgs; [
-      # PC games
+      # Launchers
       heroic
       prismlauncher
-      xclicker
       bottles
+      # PC games
+      osu-lazer-bin
+      stepmania
+      openmw
+      # Utilities
+      xclicker
+      # Dependencies
       winePackages.stagingFull
       winePackages.fonts
       winetricks
       steam-run
-      stepmania
       # Emulators
       duckstation
       mgba
       # doesn't work       retroarchFull
       # too complex and need a special controller      mame
-
-      # osu
-      osu-lazer-bin
     ];
   };
 }

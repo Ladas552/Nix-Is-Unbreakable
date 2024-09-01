@@ -17,9 +17,6 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     autoEnable = true;
     polarity = "dark";
-    targets = {
-      grub.useImage = true;
-    };
     fonts = {
       serif = config.stylix.fonts.monospace;
       sansSerif = config.stylix.fonts.monospace;
