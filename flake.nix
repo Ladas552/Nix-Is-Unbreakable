@@ -21,7 +21,7 @@
 
     # Overlays
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    #   emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     # Games
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
@@ -43,41 +43,26 @@
 
           modules = [
             ./hosts/NixToks/configuration.nix
-            inputs.aagl.nixosModules.default
             inputs.sops-nix.nixosModules.sops
-            inputs.nix-minecraft.nixosModules.minecraft-servers
             inputs.stylix.nixosModules.stylix
           ];
         };
 
-        # NixFlash = nixpkgs.lib.nixosSystem {
-        #   specialArgs = { inherit system; inherit inputs; };
-        #
-        #   modules = [
-        #     ./hosts/NixFlash/configuration.nix
-        #     #           inputs.nixvim.nixosModules.nixvim
-        #     #           inputs.stylix.nixosModules.stylix
-        #     #           inputs.home-manager.nixosModules.home-manager
-        #     # {
-        #     #   home-manager.useGlobalPkgs = true;
-        #     #   home-manager.useUserPackages = true;
-        #     #   home-manager.users.fixnix = import ./hosts/NixFlash/apps.nix;
-        #     # }
-        #   ];
-        # };
+        NixFlash = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit system; inherit inputs; };
+
+          modules = [
+            ./hosts/NixFlash/configuration.nix
+            #           inputs.nixvim.nixosModules.nixvim
+            #           inputs.stylix.nixosModules.stylix
+            #           inputs.home-manager.nixosModules.home-manager
+            # {
+            #   home-manager.useGlobalPkgs = true;
+            #   home-manager.useUserPackages = true;
+            #   home-manager.users.fixnix = import ./hosts/NixFlash/apps.nix;
+            # }
+          ];
+        };
       };
-      # hmConfig = {
-      #   ladas552 = home-manager.lib.homeManagerConfiguration {
-      #     inherit inputs system pkgs;
-      #     username = "ladas552";
-      #     homeDirecotry = "/home/ladas552";
-      #     stateVersion = "23.11";
-      #     configuration = {
-      #       imports = [
-      #         ./home/home.nix
-      #       ];
-      #     };
-      #   };
-      # };
     };
 }

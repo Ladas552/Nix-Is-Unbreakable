@@ -4,12 +4,6 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
 
-  nixpkgs = {
-    overlays =  [
-      inputs.emacs-overlay.overlays.default
-    ];
-  };
-
   imports = [
     ./programs/apps.nix
     ./environment/DEs.nix

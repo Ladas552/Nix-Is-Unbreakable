@@ -9,6 +9,7 @@
       vesktop.enable = true;
       fish.enable = false;
       nixvim.enable = false;
+      hyprland.enable = false;
     };
   };
   stylix = {

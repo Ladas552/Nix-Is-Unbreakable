@@ -5,8 +5,11 @@
     games.enable = lib.mkEnableOption "enable games";
   };
 
-  config = lib.mkIf config.games.enable {
+  imports = [
+    inputs.aagl.nixosModules.default
+  ];
 
+  config = lib.mkIf config.games.enable {
     # Genshin Imapct
     programs.sleepy-launcher.enable = true;
     # Steam

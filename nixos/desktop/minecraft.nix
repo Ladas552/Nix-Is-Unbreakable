@@ -4,7 +4,9 @@
   options = {
     minecraft.enable = lib.mkEnableOption "enable minecraft";
   };
-
+  imports = [
+    inputs.nix-minecraft.nixosModules.minecraft-servers
+  ];
   config = lib.mkIf config.minecraft.enable {
     nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
     services.minecraft-servers = {
