@@ -1,10 +1,10 @@
 { config, lib, pkgs, ...}:
 {
-  options = {
+  options.custom = {
     plymouth.enable = lib.mkEnableOption "enable plymouth";
   };
 
-  config = lib.mkIf config.plymouth.enable {
+  config = lib.mkIf config.custom.plymouth.enable {
 
     #eyecandy on boot, my boot is too fast tho
     boot.plymouth = {
@@ -13,14 +13,14 @@
       themePackages = [
         pkgs.nixos-bgrt-plymouth
       ];
-      extraConfig = "
+      extraConfig = ''
     [Daemon]
     ShowDelay=5
     [Unit]
     Conflicts=plymouth-quit.service
     After=plymouth-quit.service rc-local.service plymouth-start.service systemd-user-sessions.service
     OnFailure=plymouth-quit.service
-        ";    
+        '';
       # if something doesn't work, try to uncomment this
       #    [Service]
       #    ExecStartPost=-${pkgs.coreutils}/bin/sleep 30

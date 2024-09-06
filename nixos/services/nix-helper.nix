@@ -1,11 +1,11 @@
 { config, lib, pkgs, ...}:
 
 {
-  options = {
+  options.custom = {
     nix-helper.enable = lib.mkEnableOption "enable nix-helper";
   };
 
-  config = lib.mkIf config.nix-helper.enable {
+  config = lib.mkIf config.custom.nix-helper.enable {
 
     # nix helper not available in HomeM right now
     programs.nh = {

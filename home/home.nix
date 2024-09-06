@@ -18,7 +18,8 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
   # Standalone Packages for user
   home.packages = with pkgs; [
-    pkgs-stable.floorp
+    #pkgs-stable.
+    floorp
     blender
     candy-icons
     catppuccin-cursors
@@ -30,6 +31,7 @@
     keepassxc
     libqalculate
     libreoffice-fresh
+    losslesscut-bin
     lshw
     manix
     numlockx

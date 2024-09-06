@@ -5,24 +5,27 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./../../nixos/modules.nix
+      ./../../scripts/rofi-wifi.nix
       inputs.home-manager.nixosModules.default
     ];
-programs.kdeconnect.enable = true;
+  programs.kdeconnect.enable = true;
   #modules
-  otd.enable = true;
-  bspwm.enable = true;
-  fonts.enable = true;
-  games.enable = true;
-  # minecraft.enable = true; Don't need right now
-  lightdm.enable = true;
-  # ly.enable = true;
-  openssh.enable = true;
-  zerotier.enable = true; 
-  bluetooth.enable = true;
-  printers.enable = true;
-  touchpad.enable = true;
-   powermanager.enable = true;
-  # virtualisation.enable = true;
+  custom = {
+    bluetooth.enable = true;
+    bspwm.enable = true;
+    fonts.enable = true;
+    games.enable = true;
+    lightdm.enable = true;
+    openssh.enable = true;
+    otd.enable = true;
+    powermanager.enable = true;
+    printers.enable = true;
+    touchpad.enable = true;
+    virtualisation.enable = true;
+    zerotier.enable = true; 
+    # ly.enable = true;
+    # minecraft.enable = true; Don't need right now
+  };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs pkgs-stable; };
@@ -34,7 +37,7 @@ programs.kdeconnect.enable = true;
   #trim your SSD
   services.fstrim.enable = true;
   # Latest kernel
-  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   # Bootloader.
   boot.loader = {
     grub = {
@@ -126,7 +129,8 @@ programs.kdeconnect.enable = true;
   services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
   hardware.nvidia = {
     modesetting.enable = true;
-    package = config.boot.kernelPackages.nvidiaPackages.legacy_535;
+    open = false;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
     prime = {
       sync.enable = true;
       intelBusId = "PCI:0:2:0";

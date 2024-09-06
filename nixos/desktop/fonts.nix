@@ -1,11 +1,11 @@
 { config, lib, pkgs, ...}:
 
 {
-  options = {
+  options.custom = {
     fonts.enable = lib.mkEnableOption "enable fonts";
   };
 
-  config = lib.mkIf config.fonts.enable {
+  config = lib.mkIf config.custom.fonts.enable {
     fonts.packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk

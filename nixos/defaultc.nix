@@ -1,11 +1,11 @@
 { config, lib, pkgs, ...}:
 
 {
-  options = {
+  options.custom = {
     defaultc.enable = lib.mkEnableOption "enable defaultc";
   };
 
-  config = lib.mkIf config.defaultc.enable {
+  config = lib.mkIf config.custom.defaultc.enable {
     # Disable X11 prompt for Git. Changes work only after Reboot for some reason
     # Here is the issue: https://github.com/NixOS/nixpkgs/issues/24311
     programs.ssh.askPassword = "";

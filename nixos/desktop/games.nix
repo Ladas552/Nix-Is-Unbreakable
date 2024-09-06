@@ -1,7 +1,7 @@
 {config, lib, pkgs, inputs, ...}:
 
 {
-  options = {
+  options.custom = {
     games.enable = lib.mkEnableOption "enable games";
   };
 
@@ -9,7 +9,7 @@
     inputs.aagl.nixosModules.default
   ];
 
-  config = lib.mkIf config.games.enable {
+  config = lib.mkIf config.custom.games.enable {
     # Genshin Imapct
     programs.sleepy-launcher.enable = true;
     # Steam

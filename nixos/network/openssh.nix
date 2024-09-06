@@ -1,11 +1,11 @@
 { config, lib, pkgs, ...}:
 
 {
-  options = {
+  options.custom = {
     openssh.enable = lib.mkEnableOption "enable openssh";
   };
 
-  config = lib.mkIf config.openssh.enable {
+  config = lib.mkIf config.custom.openssh.enable {
 
     # SSH connections
     services.openssh = {

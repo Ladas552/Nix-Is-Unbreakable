@@ -1,11 +1,11 @@
 { config, lib, pkgs, ...}:
 
 {
-  options = {
+  options.custom = {
     clamav.enable = lib.mkEnableOption "enable clamav";
   };
 
-  config = lib.mkIf config.clamav.enable {
+  config = lib.mkIf config.custom.clamav.enable {
 
     # antivirus? Idk sounds cool. Don't need it on desktop tho
     services.clamav = {

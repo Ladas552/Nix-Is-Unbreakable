@@ -26,11 +26,13 @@
     ./services/virtualisation.nix
     ./services/powermanager.nix
     ./desktop/stilyx
+    ./network/rtorrent.nix
   ];
-
-  defaultc.enable = lib.mkDefault true;
-  nix-helper.enable = lib.mkDefault true;
-  fonts.enable = lib.mkDefault true;
-  sounds.enable = lib.mkDefault true;
-  secrets.enable = lib.mkDefault true;
+  custom = {
+    defaultc.enable = lib.mkDefault true;
+    nix-helper.enable = lib.mkDefault true;
+    fonts.enable = lib.mkDefault true;
+    sounds.enable = lib.mkDefault true;
+    secrets.enable = lib.mkDefault true;
+  };
 }

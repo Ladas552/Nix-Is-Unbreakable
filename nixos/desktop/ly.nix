@@ -1,11 +1,11 @@
 { config, lib, pkgs, ...}:
 
 {
-  options = {
+  options.custom = {
     ly.enable = lib.mkEnableOption "enable ly";
   };
 
-  config = lib.mkIf config.ly.enable {
+  config = lib.mkIf config.custom.ly.enable {
     services.displayManager.ly = {
       enable = true;
       settings = {

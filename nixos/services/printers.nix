@@ -1,10 +1,10 @@
 { config, lib, pkgs, ...}:
 {
-  options = {
+  options.custom = {
     printers.enable = lib.mkEnableOption "enable printers";
   };
 
-  config = lib.mkIf config.printers.enable {
+  config = lib.mkIf config.custom.printers.enable {
     # Enable CUPS to print documents.
     services.printing.enable = true;
   };

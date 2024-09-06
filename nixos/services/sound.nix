@@ -1,10 +1,10 @@
 { config, lib, pkgs, ...}:
 {
-  options = {
+  options.custom = {
     sounds.enable = lib.mkEnableOption "enable sounds";
   };
 
-  config = lib.mkIf config.sounds.enable {
+  config = lib.mkIf config.custom.sounds.enable {
     # Enable sound with pipewire.
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;

@@ -1,11 +1,11 @@
 { config, lib, pkgs, ...}:
 
 {
-  options = {
+  options.custom = {
     lightdm.enable = lib.mkEnableOption "enable lightdm";
   };
 
-  config = lib.mkIf config.lightdm.enable {
+  config = lib.mkIf config.custom.lightdm.enable {
     services = {
       xserver = {
         desktopManager.xterm.enable = false;

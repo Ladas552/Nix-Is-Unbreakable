@@ -302,7 +302,7 @@
         enable = true;
         settings = {
           auto_close_toc = true;
-          pdf_viewer = "floorp";
+          pdf_viewer = "zathura";
         };
       };
 

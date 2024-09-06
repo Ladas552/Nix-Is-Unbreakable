@@ -2,11 +2,11 @@
 
 {
 
-  options = {
+  options.custom = {
     secrets.enable = lib.mkEnableOption "enable secrets";
   };
 
-  config = lib.mkIf config.secrets.enable {
+  config = lib.mkIf config.custom.secrets.enable {
 
     sops.defaultSopsFile = ../../secrets/secrets.yaml;
     sops.defaultSopsFormat = "yaml";

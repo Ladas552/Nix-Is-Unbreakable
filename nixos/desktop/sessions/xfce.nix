@@ -1,11 +1,11 @@
 { config, lib, pkgs, ...}:
 
 {
-  options = {
+  options.custom = {
     xfce.enable = lib.mkEnableOption "enable xfce";
   };
 
-  config = lib.mkIf config.xfce.enable {
+  config = lib.mkIf config.custom.xfce.enable {
     services.xserver = {
         enable = true;
         desktopManager.xfce = {

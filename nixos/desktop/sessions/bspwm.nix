@@ -1,13 +1,13 @@
 { config, lib, pkgs, ...}:
 
 {
-  options = {
+  options.custom = {
     bspwm.enable = lib.mkEnableOption "enable bspwm";
   };
 
-  config = lib.mkIf config.bspwm.enable {
+  config = lib.mkIf config.custom.bspwm.enable {
     services.displayManager.defaultSession = "xfce+bspwm";
-    xfce.enable = true;
+    custom.xfce.enable = true; # enable a different custom module
     services.xserver = {
       enable = true;
       desktopManager.xfce = {

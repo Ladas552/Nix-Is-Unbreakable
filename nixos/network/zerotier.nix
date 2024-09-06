@@ -1,11 +1,11 @@
 { config, lib, pkgs, pkgs-stable, ...}:
 
 {
-  options = {
+  options.custom = {
     zerotier.enable = lib.mkEnableOption "enable zerotier";
   };
 
-  config = lib.mkIf config.zerotier.enable {
+  config = lib.mkIf config.custom.zerotier.enable {
 
     services.zerotierone = {
       package = pkgs-stable.zerotierone;
