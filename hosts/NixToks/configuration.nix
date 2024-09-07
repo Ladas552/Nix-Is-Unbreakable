@@ -174,7 +174,6 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
-    22
     22067
     9993
   ];

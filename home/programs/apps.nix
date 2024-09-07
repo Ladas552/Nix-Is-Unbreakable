@@ -57,9 +57,5 @@
     flameshot = {
       enable = true;
     };
-    syncthing = {
-      enable = true;
-      tray.enable = true;
-    };
   };
 }

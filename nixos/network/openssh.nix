@@ -11,6 +11,7 @@
     services.openssh = {
       enable = true;
       ports = [ 22 ];
+      openFirewall = true;
       banner = "You shell not pass!";
       startWhenNeeded = true;
       settings = {

@@ -16,6 +16,7 @@
     ./network/bluetooth.nix
     ./network/openssh.nix
     ./network/zerotier.nix
+    ./network/syncthing.nix
     ./secrets/sops.nix
     ./services/clamav.nix
     ./services/ld-nix.nix
