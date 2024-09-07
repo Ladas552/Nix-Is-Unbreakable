@@ -5,10 +5,11 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./../../nixos/modules.nix
-      ./../../scripts/rofi-wifi.nix
+      ./../../scripts
       inputs.home-manager.nixosModules.default
     ];
   programs.kdeconnect.enable = true;
+  nix.package = pkgs.nixVersions.latest;
   #modules
   custom = {
     bluetooth.enable = true;

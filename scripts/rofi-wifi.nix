@@ -1,12 +1,6 @@
-{
-  pkgs,
-lib,
-...
-}:
-{
-  environment.systemPackages = [
-    (pkgs.writeShellScriptBin "wifiMenu" ''
-    notify-send "Getting list of available Wi-Fi networks..."
+{ pkgs, lib}:
+    pkgs.writeShellScriptBin "wifiMenu" ''
+    ${lib.getExe pkgs.libnotify} "Getting list of available Wi-Fi networks..."
     # Get a list of available wifi connections and morph it into a nice-looking list
     wifi_list=$(nmcli --fields "SECURITY,SSID" device wifi list | sed 1d | sed 's/  */ /g' | sed -E "s/WPA*.?\S/ /g" | sed "s/^--/ /g" | sed "s/  //g" | sed "/--/d")
 
@@ -34,15 +28,12 @@ lib,
       # Get saved connections
       saved_connections=$(nmcli -g NAME connection)
       if [[ $(echo "$saved_connections" | grep -w "$chosen_id") = "$chosen_id" ]]; then
-        nmcli connection up id "$chosen_id" | grep "successfully" && notify-send "Connection Established" "$success_message"
+        nmcli connection up id "$chosen_id" | grep "successfully" && ${lib.getExe pkgs.libnotify} "Connection Established" "$success_message"
       else
         if [[ "$chosen_network" =~ "" ]]; then
           wifi_password=$(rofi -dmenu -p "Password: " )
         fi
-        nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully" && notify-send "Connection Established" "$success_message"
+        nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully" && ${lib.getExe pkgs.libnotify}  "Connection Established" "$success_message"
         fi
     fi
   ''
-  )
-  ];
-}
