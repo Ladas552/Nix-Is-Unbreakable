@@ -14,12 +14,10 @@
         options.urAccepted = -1;
         devices = {
           "RMX3081" = {
-            # Here is an explanation to sops templates
-            # https://www.reddit.com/r/NixOS/comments/1draqf1/i_cannot_get_sopsnix_to_import_my_secrets_properly/
-            id = config.sops.templates."phone".content;
+            id = "cat ${config.sops.secrets."mystuff/syncthing/devices/phone".path}";
           };
           "Tab 12" = {
-            id = config.sops.templates."tablet".content;
+            id = "cat ${config.sops.secrets."mystuff/syncthing/devices/tablet".path}";
           };
         };
         folders = {
@@ -29,7 +27,7 @@
               params.cleanoutDays = "7";
             };
             path = "~/Documents/Norg";
-            id = config.sops.templates."Norg".content;
+            id = "cat ${config.sops.secrets."mystuff/syncthing/folders/Norg".path}";
             devices = [
               "Tab 12"
               "RMX3081"
@@ -37,7 +35,7 @@
           };
           "Share" = {
             path = "~/Share";
-            id = config.sops.templates."Share".content;
+            id = "cat ${config.sops.secrets."mystuff/syncthing/folders/Share".path}";
             devices = [
               "Tab 12"
               "RMX3081"
@@ -49,7 +47,7 @@
               params.cleanoutDays = "7";
             };
             path = "~/Documents/Keepass";
-            id = config.sops.templates."keepass".content;
+            id = "cat ${config.sops.secrets."mystuff/syncthing/folders/keepass".path}";
             devices = [
               "Tab 12"
               "RMX3081"

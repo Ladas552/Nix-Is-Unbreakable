@@ -8,7 +8,7 @@
   config = lib.mkIf config.custom.zerotier.enable {
 
     services.zerotierone = {
-      package = pkgs-stable.zerotierone;
+      #     package = pkgs-stable.zerotierone;
       enable = true;
       joinNetworks = [ 
         "$(cat ${config.sops.secrets."mystuff/zero_net_id".path})"
