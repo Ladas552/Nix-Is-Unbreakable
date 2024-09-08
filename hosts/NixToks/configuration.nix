@@ -22,8 +22,9 @@
     powermanager.enable = true;
     printers.enable = true;
     touchpad.enable = true;
-    virtualisation.enable = true;
+    syncthing.enable = true;
     zerotier.enable = true; 
+    # virtualisation.enable = true;
     # ly.enable = true;
     # minecraft.enable = true; Don't need right now
   };
@@ -174,7 +175,6 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
-    22067
     9993
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];

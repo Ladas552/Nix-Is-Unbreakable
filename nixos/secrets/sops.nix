@@ -19,5 +19,25 @@
 
     sops.secrets."mystuff/zero_net_id".neededForUsers = true;
     sops.secrets."mystuff/zero_net_id" = {};
+
+    sops.secrets."mystuff/syncthing/devices/phone".neededForUsers = true;
+    sops.secrets."mystuff/syncthing/devices/phone" = {};
+    sops.templates."phone".content = ''${config.sops.placeholder."mystuff/syncthing/devices/phone"}'';
+
+    sops.secrets."mystuff/syncthing/devices/tablet".neededForUsers = true;
+    sops.secrets."mystuff/syncthing/devices/tablet" = {};
+    sops.templates."tablet".content = ''${config.sops.placeholder."mystuff/syncthing/devices/tablet"}'';
+
+    sops.secrets."mystuff/syncthing/folders/Norg".neededForUsers = true;
+    sops.secrets."mystuff/syncthing/folders/Norg" = {};
+    sops.templates."Norg".content = ''${config.sops.placeholder."mystuff/syncthing/folders/Norg"}'';
+
+    sops.secrets."mystuff/syncthing/folders/Share".neededForUsers = true;
+    sops.secrets."mystuff/syncthing/folders/Share" = {};
+    sops.templates."Share".content = ''${config.sops.placeholder."mystuff/syncthing/folders/Share"}'';
+
+    sops.secrets."mystuff/syncthing/folders/keepass".neededForUsers = true;
+    sops.secrets."mystuff/syncthing/folders/keepass" = {};
+    sops.templates."keepass".content = ''${config.sops.placeholder."mystuff/syncthing/folders/keepass"}'';
   };
 }

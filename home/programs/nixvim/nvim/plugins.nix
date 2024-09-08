@@ -301,7 +301,7 @@
       typst-vim = {
         enable = true;
         settings = {
-          auto_close_toc = true;
+          auto_close_toc = 1;
           pdf_viewer = "zathura";
         };
       };
