@@ -3,7 +3,9 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./../../modules/modules.nix
+      ./../../nixos/modules.nix
+      ./../../scripts
+      inputs.home-manager.nixosModules.default
       # "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
     ];
 

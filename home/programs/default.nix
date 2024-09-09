@@ -8,12 +8,16 @@
     ./kitty
     ./mpd
     ./mpv
-    #   ./nixvim
+    ./nixvim
     ./ranger
     ./vim
     # ./qutebrowser
     #   ./emacs
   ];
+  customhm = {
+    nixvim.enable = lib.mkDefault true;
+  };
+
   programs = {
     zathura = {
       enable = true;

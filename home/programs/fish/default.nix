@@ -13,7 +13,8 @@
     ];
     shellAbbrs = {
       clean = "nh clean all";
-      yy = "nh os switch -u ~/Nix-dots/";
+      yy = "nh os switch ~/Nix-dots/";
+      yyy = "nh os switch -u ~/Nix-dots/";
       en = "nvim ~/Nix-dots/";
       eh = "nvim ~/Nix-dots/home/";
       v = "nvim";
@@ -21,6 +22,8 @@
       dl-clips = "yt-dlp --embed-thumbnail -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 --ignore-errors --output '/home/ladas552/Videos/clips/%(playlist)s/%(playlist_index)s-%(title)s.%(ext)s' --yes-playlist";
       dl-vocaloid = "yt-dlp --add-metadata --parse-metadata 'playlist_title:%(album)s' --embed-thumbnail --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --output '/home/ladas552/Music/vocaloid/%(playlist_uploader)s/%(playlist)s/%(title)s.%(ext)s' --yes-playlist";
       mc = "ranger";
+      mcv = "ranger ~/Videos/";
+      mcva = "ranger ~/Videos/Anime/";
       mcm = "ranger ~/Music/";
       mcc = "ranger ~/.config/";
       mcp = "ranger ~/Pictures/";

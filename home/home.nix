@@ -5,10 +5,8 @@
   # manage.
 
   imports = [
-    ./programs/apps.nix
-    ./environment/DEs.nix
-    ./programs/nixvim
-    inputs.nixvim.homeManagerModules.nixvim
+    ./programs
+    ./environment
   ];
 
   # Me
@@ -81,12 +79,12 @@
     #    };
   };
 
-  dconf.settings = {
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system"];
-      uris = ["qemu:///system"];
-    };
-  };
+  # dconf.settings = {
+  #   "org/virt-manager/virt-manager/connections" = {
+  #     autoconnect = ["qemu:///system"];
+  #     uris = ["qemu:///system"];
+  #   };
+  # };
   # Environmental Variables
   home.sessionVariables = {
     EDITOR = "nvim";

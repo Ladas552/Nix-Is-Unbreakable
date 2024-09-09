@@ -14,7 +14,7 @@
         naturalScrolling = true;
         scrollMethod = "edge";
         disableWhileTyping = false;
-        clickMethod = "clickfinger";
+        clickMethod = "buttonareas";
       };
       mouse = {
         middleEmulation = false;
