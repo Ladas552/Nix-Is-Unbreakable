@@ -3,10 +3,10 @@
 
 {
   options.custom = {
-    touchpad.enable = lib.mkEnableOption "enable touchpad";
+    libinput.enable = lib.mkEnableOption "enable libinput";
   };
 
-  config = lib.mkIf config.custom.touchpad.enable {
+  config = lib.mkIf config.custom.libinput.enable {
     services.libinput = {
       enable = true;
       touchpad = {

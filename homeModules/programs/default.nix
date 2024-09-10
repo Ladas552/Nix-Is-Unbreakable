@@ -12,10 +12,12 @@
     ./ranger
     ./vim
     # ./qutebrowser
-    #   ./emacs
+    ./emacs
   ];
   customhm = {
     nixvim.enable = lib.mkDefault true;
+    fish.enable = lib.mkDefault true;
+
   };
 
   programs = {

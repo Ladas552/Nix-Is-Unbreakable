@@ -3,7 +3,7 @@
 {
 
   imports = [
-    ./defaultc.nix
+    ./general.nix
     ./desktop/fonts.nix
     ./desktop/games.nix
     ./desktop/libinput.nix

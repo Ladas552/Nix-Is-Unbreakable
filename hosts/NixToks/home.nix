@@ -5,10 +5,12 @@
   # manage.
 
   imports = [
-    ./programs
-    ./environment
+    ./../../homeModules
   ];
 
+  customhm = {
+    fastfetch.enable = true;
+  };
   # Me
   home.username = "ladas552";
   home.homeDirectory = "/home/ladas552";
@@ -79,19 +81,8 @@
     #    };
   };
 
-  # dconf.settings = {
-  #   "org/virt-manager/virt-manager/connections" = {
-  #     autoconnect = ["qemu:///system"];
-  #     uris = ["qemu:///system"];
-  #   };
-  # };
   # Environmental Variables
   home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    SUDO_EDITOR = "nvim";
-    TERMINAL = "kitty";
-    TERM = "kitty";
     BROWSER = "floorp"; 
     #XDG_BIN_HOME = "$HOME/.local/bin";
     #PATH = "$HOME/.local/bin";

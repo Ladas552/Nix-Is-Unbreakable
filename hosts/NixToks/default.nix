@@ -4,7 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./../../nixos/modules.nix
+      ./../../nixosModules
       ./../../scripts
       inputs.home-manager.nixosModules.default
     ];
@@ -21,7 +21,7 @@
     otd.enable = true;
     powermanager.enable = true;
     printers.enable = true;
-    touchpad.enable = true;
+    libinput.enable = true;
     syncthing.enable = true;
     zerotier.enable = true; 
     # virtualisation.enable = true;
@@ -31,7 +31,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs pkgs-stable; };
-    users."ladas552" = import ./../../home/home.nix;
+    users."ladas552" = import ./home.nix;
     useUserPackages = true;
     #useGlobalPkgs = true;
   };

@@ -42,7 +42,7 @@
           specialArgs = { inherit system inputs pkgs-stable pkgs; };
 
           modules = [
-            ./hosts/NixToks/configuration.nix
+            ./hosts/NixToks
             inputs.sops-nix.nixosModules.sops
             inputs.stylix.nixosModules.stylix
           ];
