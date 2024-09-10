@@ -1,9 +1,16 @@
 {pkgs, lib, config, inputs, ...}:
 
 {
-  programs.git = {
-    enable = true;
-    userName = "Ladas552";
-    userEmail = "l.tokshalov@gmail.com";
+
+  options.customhm = {
+    git.enable = lib.mkEnableOption "enable git";
+  };
+
+  config = lib.mkIf config.customhm.git.enable {
+    programs.git = {
+      enable = true;
+      userName = "Ladas552";
+      userEmail = "l.tokshalov@gmail.com";
+    };
   };
 }

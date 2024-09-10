@@ -1,6 +1,11 @@
 {pkgs, lib, config, inputs, ...}:
 
 {
+  options.customhm = {
+    ranger.enable = lib.mkEnableOption "enable ranger";
+  };
+
+  config = lib.mkIf config.customhm.ranger.enable {
   programs.ranger = {
     enable = true;
     extraConfig = ''
@@ -678,4 +683,5 @@
           copytmap <ESC> q Q w <C-c>   
           '';
       };
+  };
 }

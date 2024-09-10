@@ -10,6 +10,15 @@
 
   customhm = {
     fastfetch.enable = true;
+    kitty.enable = true;
+    mpd.enable = true;
+    mpv.enable = true;
+    obs.enable = true;
+    flameshot.enable = true;
+    imv.enable = true;
+    mangohud.enable = true;
+    yt-dlp.enable = true;
+    zathura.enable = true;
   };
   # Me
   home.username = "ladas552";
