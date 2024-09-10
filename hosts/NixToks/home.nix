@@ -9,7 +9,6 @@
   ];
 
   customhm = {
-    fastfetch.enable = true;
     kitty.enable = true;
     mpd.enable = true;
     mpv.enable = true;
@@ -28,11 +27,12 @@
   # Standalone Packages for user
   home.packages = with pkgs; [
     #pkgs-stable.
-    floorp
+    ffmpeg
     blender
     candy-icons
     catppuccin-cursors
     cowsay
+    floorp
     hello
     hunspell
     hunspellDicts.en-us-large

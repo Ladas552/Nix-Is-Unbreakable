@@ -19,5 +19,6 @@
     btop.enable = lib.mkDefault true;
     fd.enable = lib.mkDefault true;
     ripgrep.enable = lib.mkDefault true;
+    fastfetch.enable = lib.mkDefault true;
   };
 }

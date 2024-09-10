@@ -40,7 +40,7 @@
         copypaste = ''${lib.getExe pkgs.wgetpaste}'';
         cmatrix = ''${lib.getExe pkgs.unimatrix} -f -s 95'';
         ls = ''ls --hyperlink=auto'';
-        fastfetch = ''${lib.getExe pkgs.fastfetch} | ${lib.getExe pkgs.lolcat}'';
+        fastfetch = ''fastfetch | ${lib.getExe pkgs.lolcat}'';
       };
     };
   };

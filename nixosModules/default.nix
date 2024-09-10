@@ -30,7 +30,7 @@
     ./services/virtualisation.nix
   ];
   custom = {
-    defaultc.enable = lib.mkDefault true;
+    general.enable = lib.mkDefault true;
     nix-helper.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
     sounds.enable = lib.mkDefault true;

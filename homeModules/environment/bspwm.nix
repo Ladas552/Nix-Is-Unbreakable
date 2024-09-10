@@ -107,40 +107,41 @@
       "super + alt + shift + {Left,Down,Up,Right}" = "bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}";
       # move a floating window
       "alt + shift + {Left,Down,Up,Right}" = "bspc node -v {-20 0,0 20,0 -20,20 0}";
+      # Scripts
+      "super + c" = "word-lookup";
+      "shift + alt + m" = "musnow";
     };
-    extraConfig = /*sxhkdrc*/ ''
-super + c
-  /home/ladas552/.local/bin/word-lookup.sh
-super + l
-  betterlockscreen -l dimblur
-shift + alt + m
-  /home/ladas552/.local/bin/musnow.sh
-## send the newest marked node to the newest preselected node
-##super + y
-##	bspc node newest.marked.local -n newest.!automatic.local
-## swap the current node and the biggest window
-##super + g
-##	bspc node -s biggest.window
-## state/flags
-## set the node flags
-##super + ctrl + {m,x,y,z}
-##	bspc node -g {marked,locked,sticky,private}
-## focus/swap
-## focus the node for the given path jump
-##super + {p,b,comma,period}
-##	bspc node -f @{parent,brother,first,second}
-## focus the last node/desktop
-##super + {grave,Tab}
-##	bspc {node,desktop} -f last
-## focus the older or newer node in the focus history
-##super + {o,i}
-##	bspc wm -h off; \
-##	bspc node {older,newer} -f; \
-##	bspc wm -h on
-## preselect
-## cancel the preselection for the focused desktop
-super + ctrl + shift + space
-  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-#    '';
+#     extraConfig = /*sxhkdrc*/ ''
+# super + l
+#   betterlockscreen -l dimblur
+# shift + alt + m
+#   /home/ladas552/.local/bin/musnow.sh
+# ## send the newest marked node to the newest preselected node
+# ##super + y
+# ##	bspc node newest.marked.local -n newest.!automatic.local
+# ## swap the current node and the biggest window
+# ##super + g
+# ##	bspc node -s biggest.window
+# ## state/flags
+# ## set the node flags
+# ##super + ctrl + {m,x,y,z}
+# ##	bspc node -g {marked,locked,sticky,private}
+# ## focus/swap
+# ## focus the node for the given path jump
+# ##super + {p,b,comma,period}
+# ##	bspc node -f @{parent,brother,first,second}
+# ## focus the last node/desktop
+# ##super + {grave,Tab}
+# ##	bspc {node,desktop} -f last
+# ## focus the older or newer node in the focus history
+# ##super + {o,i}
+# ##	bspc wm -h off; \
+# ##	bspc node {older,newer} -f; \
+# ##	bspc wm -h on
+# ## preselect
+# ## cancel the preselection for the focused desktop
+# super + ctrl + shift + space
+#   bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+# #    '';
   };
 }
