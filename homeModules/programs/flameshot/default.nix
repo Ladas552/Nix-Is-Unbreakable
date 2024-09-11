@@ -8,10 +8,12 @@
   config = lib.mkIf config.customhm.flameshot.enable {
     services.flameshot = {
       enable = true;
-      settingss = {
-        savePath = "~/Pictures/screenshots";
-        showHelp = false;
-        showDesktopNotification = false;
+      settings = {
+        General = {
+          savePath = "~/Pictures/screenshots";
+          showHelp = false;
+          showDesktopNotification = false;
+        };
       };
     };
   };
