@@ -16,9 +16,9 @@
           "RMX3081" = {
             id = "$(cat ${config.sops.secrets."mystuff/syncthing/devices/phone".path})";
           };
-          "Tab 12" = {
-            id = "cat ${config.sops.secrets."mystuff/syncthing/devices/tablet".path}";
-          };
+          # "Tab 12" = {
+          #   id = "cat ${config.sops.secrets."mystuff/syncthing/devices/tablet".path}";
+          # };
         };
       };
       #   folders = {
