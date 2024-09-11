@@ -108,8 +108,8 @@
       # move a floating window
       "alt + shift + {Left,Down,Up,Right}" = "bspc node -v {-20 0,0 20,0 -20,20 0}";
       # Scripts
-      "super + c" = "word-lookup";
-      "shift + alt + m" = "musnow";
+      "super + c" = "word-lookup.sh";
+      "shift + alt + m" = "musnow.sh";
     };
 #     extraConfig = /*sxhkdrc*/ ''
 # super + l

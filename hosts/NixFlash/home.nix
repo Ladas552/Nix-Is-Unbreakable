@@ -10,14 +10,9 @@
 
   customhm = {
     kitty.enable = true;
-    mpd.enable = true;
     mpv.enable = true;
-    obs.enable = true;
     flameshot.enable = true;
     imv.enable = true;
-    mangohud.enable = true;
-    yt-dlp.enable = true;
-    zathura.enable = true;
   };
   # Me
   home.username = "ladas552";
@@ -27,36 +22,22 @@
   # Standalone Packages for user
   home.packages = with pkgs; [
     #pkgs-stable.
-    blender
     candy-icons
     catppuccin-cursors
-    cowsay
-    ffmpeg
-    floorp
-    hello
-    hunspell
-    hunspellDicts.en-us-large
-    hunspellDicts.ru-ru
-    keepassxc
+    librewolf
     libqalculate
-    libreoffice-fresh
-    losslesscut-bin
     lshw
     manix
     numlockx
-    nuspell
     pamixer
     pavucontrol
-    peek
-    python3
     qbittorrent
     rofi-wayland
     telegram-desktop
-    texlive.combined.scheme-small
-    typst
     vesktop
     xarchiver
     xclip
+    gparted
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -88,13 +69,6 @@
     #        "video/*" = ["mpv.desktop"];
     #      };
     #    };
-  };
-
-  # Environmental Variables
-  home.sessionVariables = {
-    BROWSER = "floorp"; 
-    #XDG_BIN_HOME = "$HOME/.local/bin";
-    #PATH = "$HOME/.local/bin";
   };
 
   # Let Home Manager install and manage itself.

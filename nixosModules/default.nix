@@ -37,6 +37,5 @@
     secrets.enable = lib.mkDefault true;
     openssh.enable = lib.mkDefault true;
     zerotier.enable = lib.mkDefault true;
-
   };
 }

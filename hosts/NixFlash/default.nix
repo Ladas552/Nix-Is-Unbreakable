@@ -1,28 +1,41 @@
-{ config, modulesPath, lib, pkgs, inputs, ... }:
+{ config, modulesPath, lib, pkgs, inputs, pkgs-stable, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./../../nixos/modules.nix
+      ./../../nixosModules
       ./../../scripts
       inputs.home-manager.nixosModules.default
-      # "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+      "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
     ];
 
   #modules
-  bluetooth.enable = true;
-  fonts.enable = true;
-  lightdm.enable = true;
-  openssh.enable = true;
-  printers.enable = true;
-  sessions.enable = true;
-  zerotier.enable = true;
+  custom = {
+    bluetooth.enable = true;
+    bspwm.enable = true;
+    fonts.enable = true;
+    lightdm.enable = true;
+    openssh.enable = true;
+    printers.enable = true;
+    libinput.enable = true;
+    zerotier.enable = true; 
+    # virtualisation.enable = true;
+    # ly.enable = true;
+    # minecraft.enable = true; Don't need right now
+  };
 
+  home-manager = {
+    extraSpecialArgs = { inherit inputs pkgs-stable; };
+    users."ladas552" = import ./home.nix;
+    useUserPackages = true;
+    #useGlobalPkgs = true;
+  };
   # Bootloader.
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+
   nixpkgs.hostPlatform = "x86_64-linux";
   networking.hostName = "NixIso"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -33,6 +46,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.wireless.enable = false;
 
   # Set your time zone.
   time.timeZone = "Asia/Almaty";
@@ -83,9 +97,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.fixnix = {
+  users.users.ladas552 = {
     isNormalUser = true;
-    description = "Fixnix";
+    description = "Ladas552";
     extraGroups = [ "networkmanager" "wheel"];
     initialPassword = "";
     #packages = with pkgs; [
@@ -113,8 +127,7 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
-    22
-    22067
+    9993
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.

@@ -52,7 +52,9 @@
           specialArgs = { inherit system; inherit inputs; };
 
           modules = [
-            ./hosts/NixFlash/configuration.nix
+            ./hosts/NixFlash
+            inputs.sops-nix.nixosModules.sops
+            inputs.stylix.nixosModules.stylix
             #           inputs.nixvim.nixosModules.nixvim
             #           inputs.stylix.nixosModules.stylix
             #           inputs.home-manager.nixosModules.home-manager
