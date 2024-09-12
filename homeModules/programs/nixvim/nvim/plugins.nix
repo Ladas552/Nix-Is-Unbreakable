@@ -7,6 +7,7 @@
       pkgs.vimPlugins."lspkind-nvim"
       pkgs.vimPlugins."overseer-nvim"
       pkgs.vimPlugins."telescope-manix"
+      pkgs.vimPlugins.nvim-treesitter-parsers.org
       # (pkgs.vimUtils.buildVimPlugin {
       #   name = "markview.nvim";
       #   src = pkgs.fetchFromGitHub {
@@ -224,6 +225,7 @@
           bibtex
           c
           cmake
+          org
           comment
           cpp
           css
@@ -244,9 +246,7 @@
           kotlin
           latex
           lua
-          lua
           luadoc
-          make
           make
           markdown
           markdown_inline
@@ -273,6 +273,7 @@
         ];
         settings = {
           indent.enable = true;
+          highlight.enable = true;
           ensure_installed = [
             "bash"
             "fish"
@@ -312,6 +313,18 @@
       };
 
       auto-save = {
+        enable = true;
+      };
+
+      orgmode = {
+        enable = true;
+        settings = {
+          org_agenda_files = "~/Documents/Org/**/*";
+          org_default_notes_file = "~/Documents/Org/refile.org";
+        };
+      };
+
+      otter = {
         enable = true;
       };
       # Guffy

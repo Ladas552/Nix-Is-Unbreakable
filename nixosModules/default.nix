@@ -17,7 +17,6 @@
     ./network/bluetooth.nix
     ./network/openssh.nix
     ./network/rtorrent.nix
-    ./network/syncthing.nix
     ./network/zerotier.nix
     ./secrets/sops.nix
     ./services/clamav.nix

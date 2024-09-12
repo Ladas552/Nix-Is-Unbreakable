@@ -9,13 +9,14 @@
   ];
 
   customhm = {
+    flameshot.enable = true;
+    imv.enable = true;
     kitty.enable = true;
+    mangohud.enable = true;
     mpd.enable = true;
     mpv.enable = true;
     obs.enable = true;
-    flameshot.enable = true;
-    imv.enable = true;
-    mangohud.enable = true;
+    syncthing.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
   };

@@ -22,7 +22,6 @@
     powermanager.enable = true;
     printers.enable = true;
     libinput.enable = true;
-    syncthing.enable = true;
     zerotier.enable = true; 
     # virtualisation.enable = true;
     # ly.enable = true;

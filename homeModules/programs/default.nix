@@ -2,26 +2,27 @@
 
 {
   imports = [
-    ./zathura
     ./btop
-    ./fd
-    ./fzf
-    ./mangohud
-    ./yt-dlp
-    ./ripgrep
-    ./imv
-    ./flameshot
+    ./emacs
     ./fastfetch
+    ./fd
     ./fish
+    ./flameshot
+    ./fzf
     ./git
+    ./imv
     ./kitty
+    ./mangohud
     ./mpd
     ./mpv
     ./nixvim
-    ./ranger
-    ./vim
-    ./qutebrowser
-    ./emacs
     ./obs
+    ./qutebrowser
+    ./ranger
+    ./ripgrep
+    ./syncthing
+    ./vim
+    ./yt-dlp
+    ./zathura
   ];
 }
