@@ -10,7 +10,6 @@
       enable = true;
       settings = {
         General = {
-          savePath = "~/Pictures/screenshots";
           showHelp = false;
           showDesktopNotification = false;
         };

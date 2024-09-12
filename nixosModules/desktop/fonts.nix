@@ -11,7 +11,8 @@
       noto-fonts-cjk
       noto-fonts-emoji
       jetbrains-mono
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      #(nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
   };
 }
