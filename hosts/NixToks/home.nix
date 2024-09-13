@@ -9,6 +9,7 @@
   ];
 
   customhm = {
+    chromium.enable = true;
     flameshot.enable = true;
     imv.enable = true;
     kitty.enable = true;

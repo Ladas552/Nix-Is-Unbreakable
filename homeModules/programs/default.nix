@@ -3,6 +3,7 @@
 {
   imports = [
     ./btop
+    ./chromium
     ./emacs
     ./fastfetch
     ./fd
