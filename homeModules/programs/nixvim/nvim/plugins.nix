@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 {
   programs.nixvim = {
     extraPlugins = [
@@ -36,6 +36,14 @@
       friendly-snippets.enable = true;
       #UI
       which-key = {
+        enable = true;
+      };
+
+      lsp-lines = {
+        enable = true;
+      };
+
+      lsp-status = {
         enable = true;
       };
 
@@ -307,6 +315,13 @@
         };
       };
 
+      vimtex = {
+        enable = true;
+        texlivePackage = pkgs.texliveFull;
+        settings = {
+          view_method = "zathura";
+        };
+      };
 
       neogit = {
         enable = true;

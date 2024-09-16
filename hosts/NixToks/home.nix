@@ -1,4 +1,4 @@
-{config, pkgs, inputs, pkgs-stable, ... }:
+{ pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -9,7 +9,7 @@
   ];
 
   customhm = {
-    chromium.enable = true;
+    #   chromium.enable = true;
     flameshot.enable = true;
     imv.enable = true;
     kitty.enable = true;
@@ -54,7 +54,8 @@
     qbittorrent
     rofi-wayland
     telegram-desktop
-    texlive.combined.scheme-small
+    #   texlive.combined.scheme-small
+    texliveFull
     typst
     vesktop
     xarchiver

@@ -1,4 +1,4 @@
-{config, lib, pkgs, inputs, ...}:
+{ config, lib, pkgs, inputs, ...}:
 
 {
   options.custom = {
@@ -10,8 +10,10 @@
   ];
 
   config = lib.mkIf config.custom.games.enable {
-    # Genshin Imapct
+    # Hoyoverse Games
+    nix.settings = inputs.aagl.nixConfig;
     programs.sleepy-launcher.enable = true;
+    programs.sleepy-launcher.package = inputs.aagl.packages.x86_64-linux.sleepy-launcher;
     # Steam
     programs.steam = {
       enable = true;

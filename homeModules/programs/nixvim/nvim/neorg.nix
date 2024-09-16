@@ -48,6 +48,12 @@
             },
           },
           ["core.summary"] = {},
+          ["core.tangle"] = {
+            config = {
+              report_on_empty = false,
+              tangle_on_write = true,
+            },
+          },
           ["core.ui.calendar"] = {},
           -- ["core.latex.renderer"] = { 
           --   config = { 
