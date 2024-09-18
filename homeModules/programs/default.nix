@@ -1,4 +1,4 @@
-{pkgs, lib, config, inputs, ...}:
+{ ... }:
 
 {
   imports = [
@@ -23,6 +23,7 @@
     ./ripgrep
     ./syncthing
     ./vim
+    ./yazi
     ./yt-dlp
     ./zathura
   ];

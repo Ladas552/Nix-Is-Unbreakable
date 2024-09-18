@@ -1,4 +1,4 @@
-{pkgs, lib, config, inputs, ...}:
+{ lib, config, ...}:
 
 {
 
@@ -8,6 +8,9 @@
   config = lib.mkIf config.customhm.imv.enable {
     programs.imv = {
       enable = true;
+    };
+    home.file.".config/imv/config" = {
+      source = ./config;
     };
   };
 }

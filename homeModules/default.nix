@@ -14,6 +14,7 @@
     fish.enable = lib.mkDefault true;
     git.enable = lib.mkDefault true;
     ranger.enable = lib.mkDefault true;
+    yazi.enable = lib.mkDefault true;
     vim.enable = lib.mkDefault true;
     fzf.enable = lib.mkDefault true;
     btop.enable = lib.mkDefault true;
