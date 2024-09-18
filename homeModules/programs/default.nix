@@ -2,15 +2,13 @@
 
 {
   imports = [
-    ./btop
     ./chromium
     ./emacs
     ./fastfetch
-    ./fd
     ./fish
     ./flameshot
-    ./fzf
     ./git
+    ./tui-tools
     ./imv
     ./kitty
     ./mangohud
@@ -20,7 +18,6 @@
     ./obs
     ./qutebrowser
     ./ranger
-    ./ripgrep
     ./syncthing
     ./vim
     ./yazi
