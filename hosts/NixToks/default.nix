@@ -104,9 +104,11 @@
   nix.settings = {
     substituters = [
       "https://ezkea.cachix.org"
+      "https://ghostty.cachix.org/"
     ];
     trusted-public-keys = [
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+      "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
     ];
     extra-substituters = [ 
       "https://cache.garnix.io"

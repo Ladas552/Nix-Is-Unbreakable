@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -29,6 +29,7 @@
   # Standalone Packages for user
   home.packages = with pkgs; [
     #pkgs-stable.
+       inputs.ghostty.packages.x86_64-linux.default
     blender
     candy-icons
     catppuccin-cursors

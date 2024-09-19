@@ -62,7 +62,7 @@
   services.sxhkd = {
     enable = true;
     keybindings = {
-      "super + t" = "kitty";
+      "super + t" = "ghostty";
       "super + space" = "rofi -show";
       "super + x" = "xfce4-session-logout";
       # Gui apps

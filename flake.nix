@@ -10,6 +10,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Ghostty, yeap
+    ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
+
     stylix.url = "github:danth/stylix";
     # Neovim
     nixvim.url = "github:nix-community/nixvim";

@@ -8,6 +8,16 @@
   config = lib.mkIf config.custom.openssh.enable {
 
     # SSH connections
+    services.gnome.gnome-keyring.enable = true;
+    security.pam.services.login.enableGnomeKeyring = true;
+
+    programs.gnupg.agent = {
+      enable = true;
+      #     enableSSHSupport = true;
+    };
+
+    programs.ssh.startAgent = true;
+
     services.openssh = {
       enable = true;
       ports = [ 22 ];
