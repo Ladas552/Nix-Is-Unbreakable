@@ -68,7 +68,7 @@
       # Gui apps
       "super + {w,f}" = "{floorp,thunar}";
       # Tuu apps
-      "super + {g,m,h,n}" = "kitty -e {qalc,ncmpcpp,btop,nvim}";
+      "super + {g,m,h,n}" = "ghostty -e {qalc,ncmpcpp,btop,nvim}";
       # Screenshot
       "Print" = "flameshot gui";
       # MPD

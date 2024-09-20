@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, stylix, ... }:
+{ config, pkgs, ... }:
 {
   #To always use the dark theme
   home-manager.users."ladas552".dconf.settings = {
@@ -27,8 +27,8 @@
   };
   stylix = {
     enable = true;
-    image = ./wallpapers/Stars.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    image = ./wallpapers/Sacrifice.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     autoEnable = true;
     polarity = "dark";
     fonts = {

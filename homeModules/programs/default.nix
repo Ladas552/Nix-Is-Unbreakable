@@ -7,6 +7,7 @@
     ./fastfetch
     ./fish
     ./flameshot
+    ./ghostty
     ./git
     ./tui-tools
     ./imv

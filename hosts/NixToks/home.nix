@@ -11,8 +11,9 @@
   customhm = {
     #   chromium.enable = true;
     flameshot.enable = true;
+    ghostty.enable = true;
     imv.enable = true;
-    kitty.enable = true;
+    #kitty.enable = true;
     mangohud.enable = true;
     mpd.enable = true;
     mpv.enable = true;
@@ -21,6 +22,8 @@
     yt-dlp.enable = true;
     zathura.enable = true;
   };
+
+
   # Me
   home.username = "ladas552";
   home.homeDirectory = "/home/ladas552";
@@ -29,7 +32,7 @@
   # Standalone Packages for user
   home.packages = with pkgs; [
     #pkgs-stable.
-       inputs.ghostty.packages.x86_64-linux.default
+    inputs.ghostty.packages.x86_64-linux.default
     blender
     candy-icons
     catppuccin-cursors
@@ -97,6 +100,8 @@
   # Environmental Variables
   home.sessionVariables = {
     BROWSER = "floorp"; 
+    TERMINAL = "kitty";
+    TERM = "kitty";
     #XDG_BIN_HOME = "$HOME/.local/bin";
     #PATH = "$HOME/.local/bin";
   };

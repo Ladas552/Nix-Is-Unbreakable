@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 {
   nixpkgs = {
     overlays =  [
@@ -48,6 +48,7 @@
             },
           },
           ["core.summary"] = {},
+          ["core.todo-introspector"] = {},
           ["core.tangle"] = {
             config = {
               report_on_empty = false,
