@@ -1,7 +1,14 @@
-{ modulesPath, pkgs, inputs, pkgs-stable, ... }:
+{
+  modulesPath,
+  pkgs,
+  inputs,
+  pkgs-stable,
+  ...
+}:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./../../nixosModules
     ./../../scripts
     inputs.home-manager.nixosModules.default
@@ -24,7 +31,9 @@
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs pkgs-stable; };
+    extraSpecialArgs = {
+      inherit inputs pkgs-stable;
+    };
     users."ladas552" = import ./home.nix;
     useUserPackages = true;
     #useGlobalPkgs = true;
@@ -99,7 +108,10 @@
   users.users.ladas552 = {
     isNormalUser = true;
     description = "Ladas552";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     initialPassword = "";
     #packages = with pkgs; [
     # firefox

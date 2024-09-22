@@ -1,18 +1,37 @@
-{ lib, config, pkgs, inputs, ... }:
+{ lib, ... }:
 
 {
   xsession.windowManager.bspwm = {
     enable = true;
-    monitors = { eDP-1-1 = [ "[1]" "[2]" "[3]" "[4]" "[5]" "[6]" ]; };
+    monitors = {
+      eDP-1-1 = [
+        "[1]"
+        "[2]"
+        "[3]"
+        "[4]"
+        "[5]"
+        "[6]"
+      ];
+    };
     rules = {
-      "mpv" = { state = "pseudo_tiled"; };
-      "TelegramDesktop" = { state = "floating"; };
+      "mpv" = {
+        state = "pseudo_tiled";
+      };
+      "TelegramDesktop" = {
+        state = "floating";
+      };
       # "Zathura" = {
       #   state = "floating";
       # };
-      "Peek" = { state = "floating"; };
-      "ZenlessZoneZero.exe" = { state = "floating"; };
-      "floorp" = { desktop = "^1"; };
+      "Peek" = {
+        state = "floating";
+      };
+      "ZenlessZoneZero.exe" = {
+        state = "floating";
+      };
+      "floorp" = {
+        desktop = "^1";
+      };
       "vesktop" = {
         desktop = "^6";
         state = "fullscreen";
@@ -52,8 +71,7 @@
       # Screenshot
       "Print" = "flameshot gui";
       # MPD
-      "shift + alt + {p,n,b,k,l,c}" =
-        "mpc {toggle,next,prev,volume -5,volume +5,clear}";
+      "shift + alt + {p,n,b,k,l,c}" = "mpc {toggle,next,prev,volume -5,volume +5,clear}";
       # Media keys
       "{XF86AudioRaiseVolume,XF86AudioLowerVolume}" = "pamixer -{i,d} 2";
       "XF86AudioMute" = "pamixer -t";
@@ -69,8 +87,7 @@
       # set the window state
       "super + shift +  {t,s,f}" = "bspc node -t {tiled,floating,fullscreen}";
       # focus the node in the given direction
-      "super + {_,shift + }{Left,Down,Up,Right}" =
-        "bspc node -{f,s} {west,south,north,east}";
+      "super + {_,shift + }{Left,Down,Up,Right}" = "bspc node -{f,s} {west,south,north,east}";
       # focus the next/previous window in the current desktop
       "alt + {_,shift + }Tab" = "bspc node -f {next,prev}.local.!hidden.window";
       # focus the next/previous desktop in the current monitor
@@ -78,21 +95,17 @@
       # focus or send to the given desktop
       "super + {_,shift + }{1-9,0}" = "bspc {desktop -f,node -d} '^{1-9,10}'";
       # preselect the direction
-      "super + ctrl + {Left,Down,Up,Right}" =
-        "bspc node -p {west,south,north,east}";
+      "super + ctrl + {Left,Down,Up,Right}" = "bspc node -p {west,south,north,east}";
       # preselect the ratio
       "super + ctrl + {1-9}" = "bspc node -o 0.{1-9}";
       # cancel the preselection for the focused node
       "super + ctrl + space" = "bspc node -p cancel";
       # expand a window by moving one of its side outward
-      "super + alt + {Left,Down,Up,Right}" =
-        "bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}";
+      "super + alt + {Left,Down,Up,Right}" = "bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}";
       # contract a window by moving one of its side inward
-      "super + alt + shift + {Left,Down,Up,Right}" =
-        "bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}";
+      "super + alt + shift + {Left,Down,Up,Right}" = "bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}";
       # move a floating window
-      "alt + shift + {Left,Down,Up,Right}" =
-        "bspc node -v {-20 0,0 20,0 -20,20 0}";
+      "alt + shift + {Left,Down,Up,Right}" = "bspc node -v {-20 0,0 20,0 -20,20 0}";
       # Scripts
       "super + c" = "word-lookup.sh";
       "shift + alt + m" = "musnow.sh";

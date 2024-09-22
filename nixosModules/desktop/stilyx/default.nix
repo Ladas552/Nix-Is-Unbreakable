@@ -1,7 +1,10 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   #To always use the dark theme
   home-manager.users."ladas552".dconf.settings = {
-    "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
   };
   environment = {
     etc = {
