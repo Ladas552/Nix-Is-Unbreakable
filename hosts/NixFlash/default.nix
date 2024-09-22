@@ -1,13 +1,12 @@
-{ config, modulesPath, lib, pkgs, inputs, pkgs-stable, ... }:
+{ modulesPath, pkgs, inputs, pkgs-stable, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./../../nixosModules
-      ./../../scripts
-      inputs.home-manager.nixosModules.default
-      "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./../../nixosModules
+    ./../../scripts
+    inputs.home-manager.nixosModules.default
+    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+  ];
 
   #modules
   custom = {
@@ -18,7 +17,7 @@
     openssh.enable = true;
     printers.enable = true;
     libinput.enable = true;
-    zerotier.enable = true; 
+    zerotier.enable = true;
     # virtualisation.enable = true;
     # ly.enable = true;
     # minecraft.enable = true; Don't need right now
@@ -100,7 +99,7 @@
   users.users.ladas552 = {
     isNormalUser = true;
     description = "Ladas552";
-    extraGroups = [ "networkmanager" "wheel"];
+    extraGroups = [ "networkmanager" "wheel" ];
     initialPassword = "";
     #packages = with pkgs; [
     # firefox
@@ -110,7 +109,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -126,9 +124,7 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    9993
-  ];
+  networking.firewall.allowedTCPPorts = [ 9993 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;

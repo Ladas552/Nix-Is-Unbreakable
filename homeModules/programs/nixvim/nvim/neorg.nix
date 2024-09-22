@@ -1,9 +1,7 @@
 { pkgs, inputs, ... }:
 {
   nixpkgs = {
-    overlays =  [
-      inputs.neorg-overlay.overlays.default
-    ];
+    overlays = [ inputs.neorg-overlay.overlays.default ];
   };
 
   programs.nixvim = {
@@ -30,75 +28,75 @@
       #   };
       # })
     ];
-    extraConfigLua = /*lua*/''
-      vim.g.maplocalleader = "  "
-      vim.wo.foldlevel = 99
-      vim.wo.conceallevel = 2
-      require("nvim-treesitter.configs").setup {
-        highlight = {
-          enable = true,
+    extraConfigLua = # lua
+      ''
+        vim.g.maplocalleader = "  "
+        vim.wo.foldlevel = 99
+        vim.wo.conceallevel = 2
+        require("nvim-treesitter.configs").setup {
+          highlight = {
+            enable = true,
+          }
         }
-      }
-      require("neorg").setup({
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {
-            config = {
-              icon_preset = "diamond",
-            },
-          },
-          ["core.summary"] = {},
-          ["core.todo-introspector"] = {},
-          ["core.tangle"] = {
-            config = {
-              report_on_empty = false,
-              tangle_on_write = true,
-            },
-          },
-          ["core.ui.calendar"] = {},
-          -- ["core.latex.renderer"] = { 
-          --   config = { 
-          --     render_on_enter = true, }, },
-          -- ["core.integrations.image"] = {},
-          ["core.esupports.metagen"] = { config = { timezone = "implicit-local", type = "empty", undojoin_updates = "false"} },
-          ["core.keybinds"] = {
-            config = {
-              default_keybinds = true,
-              neorg_leader = "<Leader><Leader>",
-            },
-          },
-          ["core.journal"] = {
-            config = {
-              workspace = "journal",
-              journal_folder = "/./"
-            },
-          },
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                general = "~/Documents/Norg/",
-                life = "~/Documents/Norg/Life/",
-                work = "~/Documents/Norg/Study/",
-                journal = "~/Documents/Norg/Journal/",
+        require("neorg").setup({
+          load = {
+            ["core.defaults"] = {},
+            ["core.concealer"] = {
+              config = {
+                icon_preset = "diamond",
               },
-              default_workspace = "general",
             },
+            ["core.summary"] = {},
+            ["core.todo-introspector"] = {},
+            ["core.tangle"] = {
+              config = {
+                report_on_empty = false,
+                tangle_on_write = true,
+              },
+            },
+            ["core.ui.calendar"] = {},
+            -- ["core.latex.renderer"] = { 
+            --   config = { 
+            --     render_on_enter = true, }, },
+            -- ["core.integrations.image"] = {},
+            ["core.esupports.metagen"] = { config = { timezone = "implicit-local", type = "empty", undojoin_updates = "false"} },
+            ["core.keybinds"] = {
+              config = {
+                default_keybinds = true,
+                neorg_leader = "<Leader><Leader>",
+              },
+            },
+            ["core.journal"] = {
+              config = {
+                workspace = "journal",
+                journal_folder = "/./"
+              },
+            },
+            ["core.dirman"] = {
+              config = {
+                workspaces = {
+                  general = "~/Documents/Norg/",
+                  life = "~/Documents/Norg/Life/",
+                  work = "~/Documents/Norg/Study/",
+                  journal = "~/Documents/Norg/Journal/",
+                },
+                default_workspace = "general",
+              },
+            },
+            -- ["core.completion"] = { config = { engine =  { module_name = "external.lsp-completion" } } },
+            -- ["external.conceal-wrap"] = {},
+            -- ["external.interim-ls"] = {
+            --   config = {
+            --     completion_provider = {
+            --       -- enable/disable the completion provider. On by default.
+            --       enable = true,
+            --       -- Try to complete categories. Requires benlubas/neorg-se
+            --       categories = false,
+            --     }
+            --   }
+            -- },
           },
-          -- ["core.completion"] = { config = { engine =  { module_name = "external.lsp-completion" } } },
-          -- ["external.conceal-wrap"] = {},
-          -- ["external.interim-ls"] = {
-          --   config = {
-          --     completion_provider = {
-          --       -- enable/disable the completion provider. On by default.
-          --       enable = true,
-          --       -- Try to complete categories. Requires benlubas/neorg-se
-          --       categories = false,
-          --     }
-          --   }
-          -- },
-        },
-      })
-      ''; 
+        })
+      '';
   };
 }
-

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ...}:
+{ config, lib, ... }:
 
 {
   options.custom = {
@@ -13,7 +13,7 @@
         default_input = "password";
         numlock = true;
         xinitrc = null;
-     };
+      };
     };
   };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ ... }:
 {
   programs.nixvim = {
     opts = {
@@ -41,4 +41,3 @@
     };
   };
 }
-

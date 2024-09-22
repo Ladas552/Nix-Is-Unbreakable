@@ -1,9 +1,8 @@
-{ pkgs, lib, ...}:
-{
+{ pkgs, lib, ... }: {
   environment.systemPackages = [
     (import ./rofi-wifi.nix { inherit pkgs lib; })
     (import ./word-lookup.nix { inherit pkgs lib; })
-    (import ./Subtitlenator.nix { inherit pkgs ; })
-    (import ./musnow.nix { inherit pkgs ; })
+    (import ./Subtitlenator.nix { inherit pkgs; })
+    (import ./musnow.nix { inherit pkgs; })
   ];
 }

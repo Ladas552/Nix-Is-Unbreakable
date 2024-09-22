@@ -28,17 +28,24 @@
 
     # Games
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
-    aagl.inputs.nixpkgs.follows = "nixpkgs"; # Name of nixpkgs input you want to use
+    aagl.inputs.nixpkgs.follows =
+      "nixpkgs"; # Name of nixpkgs input you want to use
 
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";    
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ...} @ inputs: 
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       # why pkgs-stable works? here https://discourse.nixos.org/t/allow-unfree-in-flakes/29904/2
-      pkgs-stable = import nixpkgs-stable { system = "x86_64-linux"; config.allowUnfree = true; };
-      pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
+      pkgs-stable = import nixpkgs-stable {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
     in {
       nixosConfigurations = {
         NixToks = nixpkgs.lib.nixosSystem {
@@ -52,7 +59,10 @@
         };
 
         NixFlash = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit system; inherit inputs; };
+          specialArgs = {
+            inherit system;
+            inherit inputs;
+          };
 
           modules = [
             ./hosts/NixFlash

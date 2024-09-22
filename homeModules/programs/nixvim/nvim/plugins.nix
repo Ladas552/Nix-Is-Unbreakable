@@ -1,5 +1,13 @@
 { config, pkgs, ... }:
 {
+  #formatters
+  home.packages = with pkgs; [
+    black
+    nixfmt-rfc-style
+    prettierd
+    stylua
+  ];
+
   programs.nixvim = {
     extraPlugins = [
       pkgs.vimPlugins."nvim-web-devicons"
@@ -31,7 +39,45 @@
           lua-ls.enable = true;
           nil-ls.enable = true;
         };
+        keymaps = {
+          silent = true;
+          diagnostic = {
+            # Navigate in diagnostics
+            "<leader>[" = "goto_prev";
+            "<leader>]" = "goto_next";
+          };
+          lspBuf = {
+            "<leader>ld" = "definition";
+            "<C-LeftMouse>" = "definition";
+            "<F2>" = "rename";
+            "<leader>lD" = "implementation";
+            "<leader>lc" = "code_action";
+            K = "hover";
+          };
+        };
       };
+
+      conform-nvim = {
+        enable = true;
+        settings = {
+          format_on_save = {
+            lspFallback = true;
+            timeoutMs = 500;
+          };
+          formatters_by_ft = {
+            python = [ "black" ];
+            lua = [ "stylua" ];
+            nix = [ "nixfmt" ];
+            markdown = [
+              [
+                "prettierd"
+                "prettier"
+              ]
+            ];
+          };
+        };
+      };
+
       luasnip.enable = true;
       friendly-snippets.enable = true;
       #UI
@@ -51,9 +97,7 @@
         enable = true;
         settings = {
           show_icons = true;
-          full_path_list = [
-            "update_stuff"
-          ];
+          full_path_list = [ "update_stuff" ];
           save_path = ''
             function()
               return vim.fn.stdpath("cache") .. "/arrow"
@@ -85,11 +129,9 @@
 
       telescope = {
         enable = true;
-        enabledExtensions = [
-          "manix"
-        ];
+        enabledExtensions = [ "manix" ];
         settings.defaults = {
-          path_display = "truncate "; 
+          path_display = "truncate ";
         };
       };
 
@@ -100,23 +142,58 @@
           shortcut_type = "number";
           config = {
             header = [
-              ''                                                     ''          
-              ''  |                 |               ___|  ___| ___ \ ''
-              ''  |       _` |   _` |   _` |   __|  __ \  __ \    ) |''
-              ''  |      (   |  (   |  (   | \__ \    ) |   ) |  __/ ''
-              '' _____| \__,_| \__,_| \__,_| ____/ ____/ ____/ _____|''
-              ''                                                     ''        
+              ""
+              "|                 |               ___|  ___| ___ \\ "
+              "|       _` |   _` |   _` |   __|  __ \\  __ \\    ) |"
+              "|      (   |  (   |  (   | \\__ \\    ) |   ) |  __/ "
+              "_____| \\__,_| \\__,_| \\__,_| ____/ ____/ ____/ _____|"
+              ""
             ];
             center = [
-              { action = "Telescope oldfiles";   desc = " Recent files"; icon = "󰥔 ";  key = "R";}
-              { action = "Telescope find_files"; desc = " Find files";   icon = " ";  key = "F";}
-              { action = "ene | startinsert";    desc = " New file";     icon = " ";  key = "N";}
-              { action = "Neorg workspace life"; desc = " Neorg Life";   icon = "󰠮 ";  key = "E";}
-              { action = "Neorg workspace work"; desc = " Neorg Work";   icon = " ";  key = "W";}
-              { action = "Neorg journal today";  desc = " Neorg Journal";icon = "󰛓 ";  key = "J";}
-              { action = "qa";                   desc = " Quit";         icon = "󰩈 ";  key = "Q";}
+              {
+                action = "Telescope oldfiles";
+                desc = " Recent files";
+                icon = "󰥔 ";
+                key = "R";
+              }
+              {
+                action = "Telescope find_files";
+                desc = " Find files";
+                icon = " ";
+                key = "F";
+              }
+              {
+                action = "ene | startinsert";
+                desc = " New file";
+                icon = " ";
+                key = "N";
+              }
+              {
+                action = "Neorg workspace life";
+                desc = " Neorg Life";
+                icon = "󰠮 ";
+                key = "E";
+              }
+              {
+                action = "Neorg workspace work";
+                desc = " Neorg Work";
+                icon = " ";
+                key = "W";
+              }
+              {
+                action = "Neorg journal today";
+                desc = " Neorg Journal";
+                icon = "󰛓 ";
+                key = "J";
+              }
+              {
+                action = "qa";
+                desc = " Quit";
+                icon = "󰩈 ";
+                key = "Q";
+              }
             ];
-            footer = ["Just Do Something Already!"];
+            footer = [ "Just Do Something Already!" ];
           };
         };
       };
@@ -126,50 +203,54 @@
         autoEnableSources = false;
         settings = {
           completion.completeopt = "menu,menuone,preview,noselect";
-          snippet.expand = /*lua*/ ''
-            function(args)
-              require("luasnip").lsp_expand(args.body)
-            end,
+          snippet.expand = # lua
+            ''
+              function(args)
+                require("luasnip").lsp_expand(args.body)
+              end,
             '';
-            sources = {
-            __raw = /*lua*/ ''
-            cmp.config.sources({
-              { name = "nvim_lsp" },
-              { name = "luasnip" }, -- snippets
-              { name = "buffer" }, -- text within current buffer
-              { name = "path" }, -- file system paths
-              { name = "neorg" },
-              { name = "vimtex" }, 
-              --  { name = "codeium" },
-              { name = "copilot" },    
-              { name = "bashls" },
-              { name = "lua_ls" },
-              { name = "nil_ls" },
-            }),
-            '';
-            };
-            mapping = {
-            __raw = /*lua*/ ''
-            cmp.mapping.preset.insert({
-              ["<S-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-              ["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
-              ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-              ["<C-f>"] = cmp.mapping.scroll_docs(4),
-              ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-              ["<ESC>"] = cmp.mapping.abort(), -- close completion window
-              ["<CR>"] = cmp.mapping.confirm({ select = false }),
-            })
-            '';
-            };
-            formatting = {
-            format = /*lua*/ ''
-            require("lspkind").cmp_format({
-              maxwidth = 50,
-              ellipsis_char = "...",
-              mode = "symbol",
-              symbol_map = { Copilot = "" },
-            }),
-            '';
+          sources = {
+            __raw = # lua
+              ''
+                cmp.config.sources({
+                  { name = "nvim_lsp" },
+                  { name = "luasnip" }, -- snippets
+                  { name = "buffer" }, -- text within current buffer
+                  { name = "path" }, -- file system paths
+                  { name = "neorg" },
+                  { name = "vimtex" }, 
+                  --  { name = "codeium" },
+                  { name = "copilot" },    
+                  { name = "bashls" },
+                  { name = "lua_ls" },
+                  { name = "nil_ls" },
+                }),
+              '';
+          };
+          mapping = {
+            __raw = # lua
+              ''
+                cmp.mapping.preset.insert({
+                  ["<S-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+                  ["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
+                  ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                  ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                  ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+                  ["<ESC>"] = cmp.mapping.abort(), -- close completion window
+                  ["<CR>"] = cmp.mapping.confirm({ select = false }),
+                })
+              '';
+          };
+          formatting = {
+            format = # lua
+              ''
+                require("lspkind").cmp_format({
+                  maxwidth = 50,
+                  ellipsis_char = "...",
+                  mode = "symbol",
+                  symbol_map = { Copilot = "" },
+                }),
+              '';
           };
         };
       };
@@ -355,4 +436,3 @@
     };
   };
 }
-

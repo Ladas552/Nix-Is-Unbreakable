@@ -1,4 +1,4 @@
-{pkgs, lib, config, inputs, ...}:
+{ lib, config, ... }:
 
 {
   options.customhm = {

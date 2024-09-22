@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ ... }:
 {
   programs.nixvim = {
     colorschemes.catppuccin = {

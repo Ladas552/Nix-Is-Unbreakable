@@ -1,10 +1,7 @@
-{ config, lib, pkgs, ...}:
-
+{ config, lib, pkgs, ... }:
 
 {
-  options.custom = {
-    otd.enable = lib.mkEnableOption "enable otd";
-  };
+  options.custom = { otd.enable = lib.mkEnableOption "enable otd"; };
 
   config = lib.mkIf config.custom.otd.enable {
     # Configure mouse/tablet in x11 

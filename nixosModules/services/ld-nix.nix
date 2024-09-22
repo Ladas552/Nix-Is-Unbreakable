@@ -1,9 +1,7 @@
-{ config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 {
-  options.custom = {
-    nix-ld.enable = lib.mkEnableOption "enable nix-ld";
-  };
+  options.custom = { nix-ld.enable = lib.mkEnableOption "enable nix-ld"; };
   # Dynamically linked libraries, they generate paths for some programms to work properly, like app images. If you add new programm to create paths for, need to reboot
   config = lib.mkIf config.custom.nix-ld.enable {
 

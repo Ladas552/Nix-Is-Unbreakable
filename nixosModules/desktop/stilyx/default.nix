@@ -1,16 +1,15 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
   #To always use the dark theme
   home-manager.users."ladas552".dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
+    "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
   };
   environment = {
     etc = {
-      "xdg/gtk-3.0/settings.ini".text = config.home-manager.users."ladas552".xdg.configFile."gtk-3.0/settings.ini".text;
-      "xdg/gtk-4.0/settings.ini".text = config.home-manager.users."ladas552".xdg.configFile."gtk-4.0/settings.ini".text;
-    };      
+      "xdg/gtk-3.0/settings.ini".text =
+        config.home-manager.users."ladas552".xdg.configFile."gtk-3.0/settings.ini".text;
+      "xdg/gtk-4.0/settings.ini".text =
+        config.home-manager.users."ladas552".xdg.configFile."gtk-4.0/settings.ini".text;
+    };
   };
 
   # Themes

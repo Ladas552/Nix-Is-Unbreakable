@@ -1,9 +1,7 @@
-{ config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 {
-  options.custom = {
-    clamav.enable = lib.mkEnableOption "enable clamav";
-  };
+  options.custom = { clamav.enable = lib.mkEnableOption "enable clamav"; };
 
   config = lib.mkIf config.custom.clamav.enable {
 

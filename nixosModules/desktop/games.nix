@@ -1,13 +1,17 @@
-{ config, lib, pkgs, inputs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   options.custom = {
     games.enable = lib.mkEnableOption "enable games";
   };
 
-  imports = [
-    inputs.aagl.nixosModules.default
-  ];
+  imports = [ inputs.aagl.nixosModules.default ];
 
   config = lib.mkIf config.custom.games.enable {
     # Hoyoverse Games

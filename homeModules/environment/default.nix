@@ -1,8 +1,5 @@
-{pkgs, lib, config, inputs, ...}:
+{ pkgs, lib, config, inputs, ... }:
 
 {
-  imports = [
-    ./bspwm.nix
-    ./niri.nix
-  ];
+  imports = [ ./bspwm.nix ./niri.nix ];
 }

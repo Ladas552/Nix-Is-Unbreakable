@@ -1,4 +1,9 @@
-{pkgs, lib, config, ...}:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   options.customhm = {
@@ -9,10 +14,11 @@
     programs.emacs = {
       enable = true;
       package = pkgs.emacs-git-nox;
-      extraPackages = epkgs: with pkgs.emacsPackages; [
-        org
-        zk
-      ];
+      extraPackages =
+        epkgs: with pkgs.emacsPackages; [
+          org
+          zk
+        ];
     };
     services.emacs.enable = true;
   };

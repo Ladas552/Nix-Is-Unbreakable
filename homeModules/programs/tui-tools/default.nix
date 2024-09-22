@@ -1,4 +1,4 @@
-{ lib, config, ...}:
+{ lib, config, ... }:
 
 {
 
@@ -22,9 +22,7 @@
     programs.eza = {
       enable = true;
       enableFishIntegration = true;
-      extraOptions = [
-        "--icons"
-      ];
+      extraOptions = [ "--icons" ];
     };
     programs.zoxide = {
       enable = true;

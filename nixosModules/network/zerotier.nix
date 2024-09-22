@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-stable, ...}:
+{ config, lib, ... }:
 
 {
   options.custom = {
@@ -10,11 +10,9 @@
     services.zerotierone = {
       #     package = pkgs-stable.zerotierone;
       enable = true;
-      joinNetworks = [ 
-        "$(cat ${config.sops.secrets."mystuff/zero_net_id".path})"
-      ];
-      localConf = { 
-        settings = { 
+      joinNetworks = [ "$(cat ${config.sops.secrets."mystuff/zero_net_id".path})" ];
+      localConf = {
+        settings = {
           softwareUpdate = "disable";
         };
       };

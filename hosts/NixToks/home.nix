@@ -4,9 +4,7 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
 
-  imports = [
-    ./../../homeModules
-  ];
+  imports = [ ./../../homeModules ];
 
   customhm = {
     #   chromium.enable = true;
@@ -23,7 +21,6 @@
     zathura.enable = true;
   };
 
-
   # Me
   home.username = "ladas552";
   home.homeDirectory = "/home/ladas552";
@@ -33,6 +30,7 @@
   home.packages = with pkgs; [
     #pkgs-stable.
     inputs.ghostty.packages.x86_64-linux.default
+    shotcut
     blender
     candy-icons
     catppuccin-cursors
@@ -99,9 +97,7 @@
 
   # Environmental Variables
   home.sessionVariables = {
-    BROWSER = "floorp"; 
-    TERMINAL = "kitty";
-    TERM = "kitty";
+    BROWSER = "floorp";
     #XDG_BIN_HOME = "$HOME/.local/bin";
     #PATH = "$HOME/.local/bin";
   };

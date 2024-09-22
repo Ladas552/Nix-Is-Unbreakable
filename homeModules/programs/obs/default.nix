@@ -1,4 +1,9 @@
-{lib, config, pkgs, ...}:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   options.customhm = {
     obs.enable = lib.mkEnableOption "enable obs";

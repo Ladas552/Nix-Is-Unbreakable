@@ -1,4 +1,9 @@
-{ lib, config, pkgs, inputs, ... }:
+{
+  lib,
+  config,
+  inputs,
+  ...
+}:
 {
   options.customhm = {
     nixvim.enable = lib.mkEnableOption "enable nixvim";

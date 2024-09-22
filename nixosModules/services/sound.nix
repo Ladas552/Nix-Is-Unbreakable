@@ -1,8 +1,5 @@
-{ config, lib, pkgs, ...}:
-{
-  options.custom = {
-    sounds.enable = lib.mkEnableOption "enable sounds";
-  };
+{ config, lib, pkgs, ... }: {
+  options.custom = { sounds.enable = lib.mkEnableOption "enable sounds"; };
 
   config = lib.mkIf config.custom.sounds.enable {
     # Enable sound with pipewire.

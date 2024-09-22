@@ -1,13 +1,12 @@
-{ config, lib, pkgs, inputs, pkgs-stable, ... }:
+{ config, pkgs, inputs, pkgs-stable, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./../../nixosModules
-      ./../../scripts
-      inputs.home-manager.nixosModules.default
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./../../nixosModules
+    ./../../scripts
+    inputs.home-manager.nixosModules.default
+  ];
   programs.kdeconnect.enable = true;
   nix.package = pkgs.nixVersions.latest;
   #modules
@@ -22,7 +21,7 @@
     powermanager.enable = true;
     printers.enable = true;
     libinput.enable = true;
-    zerotier.enable = true; 
+    zerotier.enable = true;
     # virtualisation.enable = true;
     # ly.enable = true;
     # minecraft.enable = true; Don't need right now
@@ -102,18 +101,13 @@
   };
   # Experiment stuff
   nix.settings = {
-    substituters = [
-      "https://ezkea.cachix.org"
-      "https://ghostty.cachix.org/"
-    ];
+    substituters = [ "https://ezkea.cachix.org" "https://ghostty.cachix.org/" ];
     trusted-public-keys = [
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
     ];
-    extra-substituters = [ 
-      "https://cache.garnix.io"
-      "https://niri.cachix.org"    
-    ];
+    extra-substituters =
+      [ "https://cache.garnix.io" "https://niri.cachix.org" ];
     extra-trusted-public-keys = [
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
@@ -129,7 +123,7 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
+  services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
   hardware.nvidia = {
     modesetting.enable = true;
     open = false;
@@ -141,7 +135,6 @@
     };
   };
 
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -149,7 +142,7 @@
   users.users.ladas552 = {
     isNormalUser = true;
     description = "Ladas552";
-    extraGroups = [ "networkmanager" "wheel"];
+    extraGroups = [ "networkmanager" "wheel" ];
     hashedPasswordFile = config.sops.secrets."mystuff/host_pwd".path;
     #packages = with pkgs; [
     # firefox
@@ -158,9 +151,7 @@
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    9993
-  ];
+  networking.firewall.allowedTCPPorts = [ 9993 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;

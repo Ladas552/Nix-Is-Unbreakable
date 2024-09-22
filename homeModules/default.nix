@@ -4,10 +4,7 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
 
-  imports = [
-    ./programs
-    ./environment
-  ];
+  imports = [ ./programs ./environment ];
 
   customhm = {
     nixvim.enable = lib.mkDefault true;

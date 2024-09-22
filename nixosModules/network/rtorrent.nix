@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ...}:
+{ config, lib, ... }:
 
 {
   options.custom = {
@@ -11,8 +11,6 @@
       downloadDir = "~/Downloads/Browser_Saves/torrents";
       openFirewall = true;
     };
-    networking.firewall.allowedTCPPorts = [
-      50000
-    ];
+    networking.firewall.allowedTCPPorts = [ 50000 ];
   };
 }

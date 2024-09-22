@@ -1,12 +1,10 @@
-{config, pkgs, inputs, pkgs-stable, ... }:
+{ pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
 
-  imports = [
-    ./../../homeModules
-  ];
+  imports = [ ./../../homeModules ];
 
   customhm = {
     kitty.enable = true;
