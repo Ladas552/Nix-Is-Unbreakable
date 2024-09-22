@@ -118,9 +118,27 @@
       };
     };
 
+    services.mpd-discord-rpc = {
+      enable = true;
+      settings = {
+        format = {
+          details = "$title";
+          state = "By $artist";
+          large_image = ":nerd:";
+          large_text = "WW91IGhhdmUgbm8gbGlmZQ==";
+          small_image = "";
+        };
+      };
+    };
+    services.mpdris2 = {
+      enable = true;
+      multimediaKeys = true;
+      notifications = true;
+    };
+
     services.mpd = {
       enable = true;
-      musicDirectory = "~/Music/";
+      musicDirectory = config.xdg.userDirs.music;
       extraConfig = ''
         audio_output {
           type "pipewire"
