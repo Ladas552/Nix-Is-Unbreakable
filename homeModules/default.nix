@@ -11,7 +11,7 @@
 
   customhm = {
     nixvim.enable = lib.mkDefault true;
-    fish.enable = lib.mkDefault true;
+    shell.enable = lib.mkDefault true;
     git.enable = lib.mkDefault true;
     ranger.enable = lib.mkDefault true;
     yazi.enable = lib.mkDefault true;

@@ -10,7 +10,6 @@
 
   programs.nixvim = {
     extraPlugins = [
-      pkgs.vimPlugins."nvim-web-devicons"
       pkgs.vimPlugins."gitsigns-nvim"
       pkgs.vimPlugins."lspkind-nvim"
       pkgs.vimPlugins."overseer-nvim"
@@ -118,6 +117,7 @@
         };
       };
 
+      web-devicons = { enable = true; };
       ccc = {
         enable = true;
         settings = {

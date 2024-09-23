@@ -126,7 +126,7 @@
           state = "By $artist";
           large_image = ":nerd:";
           large_text = "WW91IGhhdmUgbm8gbGlmZQ==";
-          small_image = "";
+          small_text = "WW91IGhhdmUgbm8gbGlmZQ==";
         };
       };
     };

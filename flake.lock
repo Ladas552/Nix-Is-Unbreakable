@@ -417,11 +417,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1727028345,
-        "narHash": "sha256-MSxU8fFPBO83zaYRP1HTHBEYbXytHH8dNUWNk8tyoVs=",
+        "lastModified": 1727039532,
+        "narHash": "sha256-1mdSKgALbnmJv+YlfN23CqLpvZ5PfZpWavOR4DBzfRA=",
         "ref": "refs/heads/main",
-        "rev": "826ba6e46e85bb42a2cc48a08c0da1d5a95df75e",
-        "revCount": 7407,
+        "rev": "599934d5dee2115cd905fc7e13e262d13943d68a",
+        "revCount": 7418,
         "type": "git",
         "url": "ssh://git@github.com/ghostty-org/ghostty"
       },
@@ -644,11 +644,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1726969877,
-        "narHash": "sha256-X7qMB9/Uf5k+Sj2kwqWYKYNRmZV8tI3VJoAQKyUsya4=",
+        "lastModified": 1727055965,
+        "narHash": "sha256-AwuP8GjQzN25rXCYaTd+oVmHw//ZcQrNB0ecg6EkM+c=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "6ecd0712ed0a184e43b0c530fa698e9d5ef80a69",
+        "rev": "854f1325faccc24f37c8e791b34937f99b7fec39",
         "type": "github"
       },
       "original": {
@@ -691,11 +691,11 @@
     },
     "nixpkgs-stable_2": {
       "locked": {
-        "lastModified": 1727031497,
-        "narHash": "sha256-HoC1svyUtfMhPYufkE+dOS/c9R+0YWtvfz/oo0oz+uc=",
+        "lastModified": 1727082214,
+        "narHash": "sha256-MXOo3P4De43AdjpTF0KIXNxNJt0HAJetWyPOkMSDP40=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4b20ad9d1e83e96d32bde29a59eb52efc164ea75",
+        "rev": "af90e5e261b130b4076934319849251e4814a506",
         "type": "github"
       },
       "original": {
@@ -832,11 +832,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1727031271,
-        "narHash": "sha256-OvekOLCj7kEq6X8Ncgyda1ud4BMD+OxHu7bdIsCtl/g=",
+        "lastModified": 1727050833,
+        "narHash": "sha256-uq8pP+WsJsZ3QA+GoSftUsAvhx3btBOCWAqKQSFcL1M=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "b473bdc5ae1260296d0f43f8f1fba6248b1ee078",
+        "rev": "a9345dcfc31519734361fecd246d32164feafbca",
         "type": "github"
       },
       "original": {

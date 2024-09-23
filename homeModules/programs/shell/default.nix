@@ -7,10 +7,10 @@
 
 {
   options.customhm = {
-    fish.enable = lib.mkEnableOption "enable fish";
+    shell.enable = lib.mkEnableOption "enable shell";
   };
 
-  config = lib.mkIf config.customhm.fish.enable {
+  config = lib.mkIf config.customhm.shell.enable {
     programs.fish = {
       enable = true;
       plugins = with pkgs.fishPlugins; [
@@ -58,14 +58,28 @@
         mcc = "ranger ~/.config/";
         mcp = "ranger ~/Pictures/";
       };
-      shellAliases = {
-        cat = "${lib.getExe pkgs.bat}";
-        wiki = "${lib.getExe pkgs.wiki-tui}";
-        df = "${lib.getExe pkgs.duf}";
-        copypaste = "${lib.getExe pkgs.wgetpaste}";
-        cmatrix = "${lib.getExe pkgs.unimatrix} -f -s 95";
-        fastfetch = "fastfetch | ${lib.getExe pkgs.lolcat}";
-      };
+      shellAliases = { };
+    };
+    programs.bash = {
+      enable = true;
+      enableCompletion = true;
+    };
+    home.shellAliases = {
+      cat = "${lib.getExe pkgs.bat}";
+      wiki = "${lib.getExe pkgs.wiki-tui}";
+      df = "${lib.getExe pkgs.duf}";
+      copypaste = "${lib.getExe pkgs.wgetpaste}";
+      cmatrix = "${lib.getExe pkgs.unimatrix} -f -s 95";
+      fastfetch = "fastfetch | ${lib.getExe pkgs.lolcat}";
+      en = "nvim ~/Nix-dots/";
+      enn = "nvim ~/Nix-dots/hosts/NixToks/";
+      eh = "nvim ~/Nix-dots/homeModules/programs/";
+      v = "nvim";
+      ls = "eza";
+      mc = "ranger";
+      clean = "nh clean all";
+      yy = "nh os switch ~/Nix-dots/";
+      yyy = "nh os switch -u ~/Nix-dots/";
     };
   };
 }

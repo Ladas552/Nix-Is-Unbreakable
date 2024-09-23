@@ -5,7 +5,7 @@
     ./chromium
     ./emacs
     ./fastfetch
-    ./fish
+    ./shell
     ./flameshot
     ./ghostty
     ./git
