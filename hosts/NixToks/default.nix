@@ -29,6 +29,7 @@
     printers.enable = true;
     libinput.enable = true;
     zerotier.enable = true;
+    # clamav.enable = true;
     # virtualisation.enable = true;
     # ly.enable = true;
     # minecraft.enable = true; Don't need right now

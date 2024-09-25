@@ -164,7 +164,7 @@ binds {
 
   // Apps
 
-  Mod+T { spawn "kitty"; }
+  Mod+T { spawn "ghostty"; }
   Mod+Space { spawn "rofi -show"; }
   Super+Alt+L { spawn "swaylock"; }
   Super+W { spawn "floorp"; }

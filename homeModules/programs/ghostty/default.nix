@@ -10,9 +10,9 @@
       source = ./config;
     };
 
-    home.sessionVariables = {
-      TERMINAL = "xterm-ghostty";
-      TERM = "xterm-ghostty";
-    };
+  #  home.sessionVariables = {
+   #   TERMINAL = "xterm-ghostty";
+    #  TERM = "xterm-ghostty";
+    #};
   };
 }
