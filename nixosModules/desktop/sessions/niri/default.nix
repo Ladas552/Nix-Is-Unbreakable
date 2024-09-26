@@ -12,6 +12,9 @@
   };
 
   config = lib.mkIf config.custom.niri.enable {
+
+    environment.systemPackages = with pkgs; [ niri ];
+
     xdg.portal = {
       enable = true;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];

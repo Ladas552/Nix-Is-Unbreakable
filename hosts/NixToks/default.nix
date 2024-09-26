@@ -90,18 +90,15 @@
     LC_TIME = "ru_RU.UTF-8";
   };
 
-  environment = {
-    systemPackages = with pkgs; [
-      # whatever I couldn't install in Home Manager
-      python3
-      #      nvtopPackages.full # they need to update cuda for unstable to use it in home manager
-      cachix
-      gcc
-      gnumake
-      niri
-      sops
-    ];
-  };
+  environment.systemPackages = with pkgs; [
+    # whatever I couldn't install in Home Manager
+    python3
+    #      nvtopPackages.full # they need to update cuda for unstable to use it in home manager
+    cachix
+    gcc
+    gnumake
+    sops
+  ];
   # Configure keymap in X11
   services.xserver = {
     xkb.layout = "us,kz";

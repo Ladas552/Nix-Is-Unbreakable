@@ -17,12 +17,14 @@ I start to have a life other than computers so I kinda begin to forget what I di
      I follow {https://github.com/DarkKronicle/nazarick/blob/d85c7236bf51a6c1fa3c7e5721c2cf376205d508/modules/home/tui/yazi/default.nix}[this] config for  examples 
      And configuration {https://yazi-rs.github.io/docs/configuration/yazi}[manual] from yazi 
    - *Neorg*. The PR got pushed, so I can start thinking about using nixvim for configuration of neorg, instead of Embeded Lua.
-   - *Portals*. Wayland portals. Why not
+   - -*Portals*. Wayland portals. Why not- 
 
 ** Modulations
 *** Home manager files in nixos modules
-    I don't want to polute my nixos modules with the configs from home manager, because that will be messy. But, Having configs for WMs or DEs in the same place as system stuff that I use to enables this environments should be good enough. 
-    So the basic plan is to have another directory under NixosModules, and it will contain any WM files, either enabling for display managers or Configs files, like keyboard shortcuts, autostart scripts, and specific environment vatiables. 
+    I don't want to pollute my nixos modules with the configs from home manager, because that will be messy. But, Having configs for WMs or DEs in the same place as system stuff that I use to enables this environments should be good enough. 
+    So the basic plan is to have another directory under NixosModules, and it will contain any WM files, either enabling for display managers or Configs files, like keyboard shortcuts, autostart scripts, and specific environment variables. 
+
+    Update 1: I have manager to bind Home and System Configs for DE's, certainly for Niri and BSPWM. So no it should work in the future also. On the next step would be nice to add different modules like launcher and picom for example to launch with them. Automatically. It sounds like a pain to deal with later. But in fact will be better for switching between sessions rather quickly. For example if I want to switch from X11 to Wayland for a day.
 
 *** Sessions
     - I want to make wm independent variables for applications. So that I can have For example, 2 configured Launcher applications, but I only want one. Then I just change the variable, and every other module that uses variable `isLauncher` also follows. Basically to have a dozen of WM configs, but if I one day want to switch rofi for dmenu, keybinds would stay the same.
