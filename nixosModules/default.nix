@@ -1,9 +1,8 @@
-{ config, lib, pkgs, inputs, ... }:
+{ lib, ... }:
 
 {
 
   imports = [
-    ./general.nix
     ./desktop/fonts.nix
     ./desktop/games.nix
     ./desktop/libinput.nix
@@ -11,9 +10,9 @@
     ./desktop/ly.nix
     ./desktop/minecraft.nix
     ./desktop/otd.nix
-    ./desktop/sessions/bspwm.nix
-    ./desktop/sessions/xfce.nix
+    ./desktop/sessions
     ./desktop/stilyx
+    ./general.nix
     ./network/bluetooth.nix
     ./network/openssh.nix
     ./network/rtorrent.nix

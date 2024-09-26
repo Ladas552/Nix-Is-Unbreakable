@@ -1,8 +1,10 @@
-{ pkgs, inputs, lib, config, sops-nix, ... }:
+{ lib, config, ... }:
 
 {
 
-  options.custom = { secrets.enable = lib.mkEnableOption "enable secrets"; };
+  options.custom = {
+    secrets.enable = lib.mkEnableOption "enable secrets";
+  };
 
   config = lib.mkIf config.custom.secrets.enable {
 

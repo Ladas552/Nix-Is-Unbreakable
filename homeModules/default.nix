@@ -1,12 +1,29 @@
 { lib, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-
   imports = [
-    ./programs
-    ./environment
+    ./chromium
+    ./emacs
+    ./fastfetch
+    ./shell
+    ./flameshot
+    ./ghostty
+    ./git
+    ./tui-tools
+    ./imv
+    ./kitty
+    ./mangohud
+    ./mpd
+    ./mpv
+    ./nixvim
+    ./obs
+    ./qutebrowser
+    ./ranger
+    ./syncthing
+    ./vim
+    ./yazi
+    ./yt-dlp
+    ./zathura
   ];
 
   customhm = {
