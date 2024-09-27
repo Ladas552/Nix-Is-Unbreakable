@@ -11,6 +11,15 @@
       enable = true;
       userName = "Ladas552";
       userEmail = "l.tokshalov@gmail.com";
+      ignores = [
+          ".pre-commit-config.yaml"
+          "result"
+          "result-bin"
+          "result-man"
+          "target"
+          ".devenv"
+          ".direnv"
+      ]
     };
   };
 }
