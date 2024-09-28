@@ -45,7 +45,7 @@
         yyy = "nh os switch -u ~/Nix-dots/";
         en = "nvim ~/Nix-dots/";
         enn = "nvim ~/Nix-dots/hosts/NixToks/";
-        eh = "nvim ~/Nix-dots/homeModules/programs/";
+        eh = "nvim ~/Nix-dots/homeModules/";
         v = "nvim";
         ls = "eza";
         dl-video = "yt-dlp --embed-thumbnail -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 --output '%(title)s.%(ext)s'";

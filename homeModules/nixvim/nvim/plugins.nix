@@ -117,7 +117,9 @@
         };
       };
 
-      web-devicons = { enable = true; };
+      web-devicons = {
+        enable = true;
+      };
       ccc = {
         enable = true;
         settings = {
@@ -130,9 +132,9 @@
       telescope = {
         enable = true;
         enabledExtensions = [ "manix" ];
-        settings.defaults = {
-          path_display = "truncate ";
-        };
+        # settings.defaults = {
+        #   path_display = "truncate";
+        # };
       };
 
       dashboard = {

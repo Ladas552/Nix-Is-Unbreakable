@@ -26,9 +26,9 @@
     openssh.enable = true;
     otd.enable = true;
     powermanager.enable = true;
-    printers.enable = true;
     libinput.enable = true;
     zerotier.enable = true;
+    #   printers.enable = true;
     # clamav.enable = true;
     # virtualisation.enable = true;
     # ly.enable = true;
