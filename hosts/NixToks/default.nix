@@ -19,19 +19,21 @@
   #modules
   custom = {
     bluetooth.enable = true;
-    bspwm.enable = true;
+    #   bspwm.enable = true;
+    niri.enable = true;
     fonts.enable = true;
     games.enable = true;
-    lightdm.enable = true;
+    #lightdm.enable = true;
     openssh.enable = true;
     otd.enable = true;
     powermanager.enable = true;
     libinput.enable = true;
     zerotier.enable = true;
-    #   printers.enable = true;
+    # printers.enable = true;
     # clamav.enable = true;
     # virtualisation.enable = true;
     # ly.enable = true;
+    # xfce.enable = true;
     # minecraft.enable = true; Don't need right now
   };
 

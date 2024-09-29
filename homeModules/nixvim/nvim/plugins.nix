@@ -334,6 +334,7 @@
           json
           jsonc
           julia
+          kdl
           kotlin
           latex
           lua

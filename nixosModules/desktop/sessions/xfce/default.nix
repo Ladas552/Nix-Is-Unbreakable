@@ -11,6 +11,9 @@
   };
 
   config = lib.mkIf config.custom.xfce.enable {
+    custom = {
+      thunar.enable = true;
+    };
     services.xserver = {
       enable = true;
       desktopManager.xfce = {
@@ -34,14 +37,5 @@
         xfce4-weather-plugin
       ];
     };
-    programs.thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-volman
-        thunar-archive-plugin
-        thunar-media-tags-plugin
-      ];
-    };
-
   };
 }

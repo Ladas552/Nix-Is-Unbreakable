@@ -10,6 +10,7 @@
     ./desktop/ly.nix
     ./desktop/minecraft.nix
     ./desktop/otd.nix
+    ./desktop/thunar.nix
     ./desktop/sessions
     ./desktop/stilyx
     ./general.nix

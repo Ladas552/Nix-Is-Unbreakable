@@ -11,7 +11,7 @@
     flameshot.enable = true;
     ghostty.enable = true;
     imv.enable = true;
-    #kitty.enable = true;
+    kitty.enable = true;
     mangohud.enable = true;
     mpd.enable = true;
     mpv.enable = true;
@@ -28,8 +28,9 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
   # Standalone Packages for user
   home.packages = with pkgs; [
-    #pkgs-stable.
+    #pkgs-stable
     inputs.ghostty.packages.x86_64-linux.default
+    cage
     shotcut
     blender
     candy-icons
@@ -98,6 +99,7 @@
   # Environmental Variables
   home.sessionVariables = {
     BROWSER = "floorp";
+    #   ELECTRON_LAUNCH_FLAGS = "--ozone-platform-hint=auto --ozone-platform=wayland --enable-webrtc-pipewire-capturer --enable-features=WaylandWindowDecorations";
     #XDG_BIN_HOME = "$HOME/.local/bin";
     #PATH = "$HOME/.local/bin";
   };

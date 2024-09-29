@@ -12,7 +12,7 @@
         bigclock = "en";
         default_input = "password";
         numlock = true;
-        xinitrc = null;
+        xinitrc = "niri";
       };
     };
   };

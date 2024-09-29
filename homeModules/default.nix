@@ -13,6 +13,7 @@
     ./imv
     ./kitty
     ./mangohud
+    ./mako
     ./mpd
     ./mpv
     ./nixvim
