@@ -18,6 +18,7 @@
     ./network/openssh.nix
     ./network/rtorrent.nix
     ./network/zerotier.nix
+    ./network/kde-connect.nix
     ./secrets/sops.nix
     ./services/clamav.nix
     ./services/ld-nix.nix

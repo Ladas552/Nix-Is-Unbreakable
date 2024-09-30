@@ -20,6 +20,8 @@ I start to have a life other than computers so I kinda begin to forget what I di
    - *Fish*. Change abbr path for Video and Music to follow xdg in home-manager
    - *Rofi*. Define Rofi in Home manager, to enable and reanable module in X11 sessions
    - *Vesktop*. I launch vesktop from a custom undeclared desktop entry, because I don't know how to input option into the orginal one `--ozone-platform=wayland`. Need to change that somehow.
+   - *Kitty*. Stops working after sleep on wayland Niri.
+   - *Ghostty*. Doesn't work on Wayland  Niri at all.
 
 ** Modulations
 *** Home manager files in nixos modules

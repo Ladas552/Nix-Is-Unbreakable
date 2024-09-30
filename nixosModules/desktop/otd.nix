@@ -6,7 +6,7 @@
   };
 
   config = lib.mkIf config.custom.otd.enable {
-    # Configure mouse/tablet in x11 
+    # Configure tablet 
     hardware.opentabletdriver = {
       enable = true;
       daemon.enable = true;

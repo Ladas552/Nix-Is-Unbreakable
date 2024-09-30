@@ -16,6 +16,8 @@ input {
     // dwt
     // dwtp
     natural-scroll
+    // scroll-method "edge"
+    middle-emulation
     // accel-speed 0.2
     // accel-profile "flat"
   }
@@ -25,6 +27,7 @@ input {
     // accel-speed 0.2
     accel-profile "flat"
   }
+  workspace-auto-back-and-forth
 
   // Uncomment this to make the mouse warp to the center of newly focused windows.
   // warp-mouse-to-focus
@@ -37,7 +40,7 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
-  gaps 12
+  gaps 4
 
   center-focused-column "on-overflow"
 
@@ -112,6 +115,9 @@ layout {
   }
 }
 
+hotkey-overlay {
+    skip-at-startup
+}
 // No Decorations
 prefer-no-csd
 

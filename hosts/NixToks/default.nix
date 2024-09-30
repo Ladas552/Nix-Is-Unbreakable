@@ -14,26 +14,30 @@
     ./../../scripts
     inputs.home-manager.nixosModules.default
   ];
-  programs.kdeconnect.enable = true;
   nix.package = pkgs.nixVersions.latest;
   #modules
   custom = {
-    bluetooth.enable = true;
+    # X11
+    libinput.enable = true;
     #   bspwm.enable = true;
+    #lightdm.enable = true;
+    # ly.enable = true;
+    # xfce.enable = true;
+    # Wayland
     niri.enable = true;
+    # Network
+    openssh.enable = true;
+    bluetooth.enable = true;
+    zerotier.enable = true;
+    kde-connect.enable = true;
+    #host services
     fonts.enable = true;
     games.enable = true;
-    #lightdm.enable = true;
-    openssh.enable = true;
     otd.enable = true;
     powermanager.enable = true;
-    libinput.enable = true;
-    zerotier.enable = true;
     # printers.enable = true;
     # clamav.enable = true;
     # virtualisation.enable = true;
-    # ly.enable = true;
-    # xfce.enable = true;
     # minecraft.enable = true; Don't need right now
   };
 

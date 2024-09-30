@@ -13,6 +13,7 @@
   config = lib.mkIf config.custom.xfce.enable {
     custom = {
       thunar.enable = true;
+      libinput.enable = true;
     };
     services.xserver = {
       enable = true;

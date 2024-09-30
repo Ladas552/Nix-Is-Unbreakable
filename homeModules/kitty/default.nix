@@ -58,10 +58,10 @@
         tab_bar_background = "#181926";
       };
     };
-
-    home.sessionVariables = {
-      TERMINAL = "kitty";
-      TERM = "kitty";
-    };
+# Breaks ssh
+ #   home.sessionVariables = {
+  #  TERMINAL = "kitty";
+   #   TERM = "kitty";
+  #  };
   };
 }
