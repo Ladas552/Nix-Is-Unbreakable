@@ -2,6 +2,11 @@
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
+environment {
+  DISPLAY ":0"
+  __NV_PRIME_RENDER_OFFLOAD "1"
+  __GLX_VENDOR_LIBRARY_NAME "nvidia"
+}
 
 input {
   keyboard {
@@ -116,7 +121,7 @@ layout {
 }
 
 hotkey-overlay {
-    skip-at-startup
+  skip-at-startup
 }
 // No Decorations
 prefer-no-csd
@@ -151,10 +156,15 @@ animations {
 
 window-rule {
   match app-id="vesktop"
-  match app-id="wlroots"
-  match title="DARK SOULS II"
-
   open-fullscreen true
+}
+
+window-rule {
+  match app-id="steam-"
+  match title="DARK SOULS II"
+  match app-id="darksoulsii.exe"
+  open-fullscreen true
+  variable-refresh-rate false
 }
 
 window-rule {
@@ -163,8 +173,10 @@ window-rule {
   // default-column-width { proportion 1.00; }
 }
 window-rule {
+  // Only works  in non full screen
   match app-id="osu!"
-  open-maximized true
+  match title="osu!"
+  default-column-width { proportion 1.00; }
   focus-ring {
     off
   }
@@ -191,8 +203,8 @@ binds {
 
   // Apps
 
-  Super+T { spawn "kitty"; }
-  Super+Ctrl+T { spawn "ghostty"; }
+  Super+T { spawn "ghostty"; }
+  Super+Ctrl+T { spawn "kitty"; }
   Super+Space { spawn "rofi" "-show"; }
   Super+Alt+L { spawn "swaylock"; }
 
@@ -225,8 +237,8 @@ binds {
 
   // Example volume keys mappings for PipeWire & WirePlumber.
   // The allow-when-locked=true property makes them work even when the session is locked.
-  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
   XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
   XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 

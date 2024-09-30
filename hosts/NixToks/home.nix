@@ -30,7 +30,6 @@
   home.packages = with pkgs; [
     #pkgs-stable
     inputs.ghostty.packages.x86_64-linux.default
-    cage
     shotcut
     wl-clipboard
     blender

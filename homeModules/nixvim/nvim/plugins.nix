@@ -437,38 +437,25 @@
 
       };
       # Neorg
-      neorg = {
-        enable = true;
-        modules = {
-          "core.defaults" = {
-            __empty = null;
-          };
-          "core.dirman" = {
-            config = {
-              workspaces = {
-                general = "~/Norg";
-              };
-            };
-          };
-          "core.esupports.metagen" = {
-            config = {
-              timezone = "implicit-local";
-              type = "empty";
-              undojoin_updates = "false";
-            };
-          };
-          "core.journal" = {
-            config = {
-              workspace = "general";
-              journal_folder = "/./";
-            };
-          };
-          "core.tangle" = {
-            config = {
-              report_on_empty = false;
-              tangle_on_write = true;
-            };
-          };
+      # neorg = {
+      #   enable = true;
+      #   modules = {
+      #     "core.defaults" = {
+      #       __empty = null;
+      #     };
+      #     "core.esupports.metagen" = {
+      #       config = {
+      #         timezone = "implicit-local";
+      #         type = "empty";
+      #         undojoin_updates = "false";
+      #       };
+      #     };
+      #     "core.tangle" = {
+      #       config = {
+      #         report_on_empty = false;
+      #         tangle_on_write = true;
+      #       };
+      #     };
           #         timezone = "implicit-local";
           #         type = "empty";
           #         undojoin_updates = "false";
@@ -511,8 +498,8 @@
           # "core.ui.calendar" = {
           #   __empty = null;
           # };
-        };
-      };
+      #   };
+      # };
     };
   };
 }
