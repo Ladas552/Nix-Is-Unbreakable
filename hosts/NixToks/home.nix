@@ -32,6 +32,7 @@
     inputs.ghostty.packages.x86_64-linux.default
     cage
     shotcut
+    wl-clipboard
     blender
     candy-icons
     catppuccin-cursors

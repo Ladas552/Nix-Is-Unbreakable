@@ -436,6 +436,83 @@
         neovimImageText = "I am showing off, yeah";
 
       };
+      # Neorg
+      neorg = {
+        enable = true;
+        modules = {
+          "core.defaults" = {
+            __empty = null;
+          };
+          "core.dirman" = {
+            config = {
+              workspaces = {
+                general = "~/Norg";
+              };
+            };
+          };
+          "core.esupports.metagen" = {
+            config = {
+              timezone = "implicit-local";
+              type = "empty";
+              undojoin_updates = "false";
+            };
+          };
+          "core.journal" = {
+            config = {
+              workspace = "general";
+              journal_folder = "/./";
+            };
+          };
+          "core.tangle" = {
+            config = {
+              report_on_empty = false;
+              tangle_on_write = true;
+            };
+          };
+          #         timezone = "implicit-local";
+          #         type = "empty";
+          #         undojoin_updates = "false";
+          #       };
+          #     };
+          # "core.keybinds" = {
+          #   config = {
+          #     default_keybinds = true;
+          #     neorg_leader = "<Leader><Leader>";
+          #   };
+          # };
+          #     "core.journal" = {
+          #       config = {
+          #         workspace = "journal";
+          #         journal_folder = "/./";
+          #       };
+          #     };
+          #     "core.dirman" = {
+          #       config = {
+          #         workspaces = {
+          #           general = "~/Documents/Norg";
+          #           life = "~/Documents/Norg/Life";
+          #           work = "~/Documents/Norg/Study";
+          #           journal = "~/Documents/Norg/Journal";
+          #         };
+          #         default_workspace = "general";
+          #       };
+          #     };
+          # "core.concealer" = {
+          #   config = {
+          #     icon_preset = "diamond";
+          #   };
+          # };
+          # "core.summary" = {
+          #   __empty = null;
+          # };
+          # "core.todo-introspector" = {
+          #   __empty = null;
+          # };
+          # "core.ui.calendar" = {
+          #   __empty = null;
+          # };
+        };
+      };
     };
   };
 }
