@@ -35,6 +35,7 @@
     games.enable = true;
     otd.enable = true;
     powermanager.enable = true;
+    pam.enable = true;
     # printers.enable = true;
     # clamav.enable = true;
     # virtualisation.enable = true;

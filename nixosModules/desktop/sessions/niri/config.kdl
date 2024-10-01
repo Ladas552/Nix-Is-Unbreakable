@@ -206,7 +206,7 @@ binds {
   Super+T { spawn "ghostty"; }
   Super+Ctrl+T { spawn "kitty"; }
   Super+Space { spawn "rofi" "-show"; }
-  Super+Alt+L { spawn "swaylock"; }
+  Super+L { spawn "swaylock"; }
 
   // You can also use a shell:
   // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
@@ -372,3 +372,4 @@ binds {
 // AutoStart
 
 //spawn-at-startup "xfce4-panel"
+spawn-at-startup "wpaperd"

@@ -34,7 +34,6 @@
     wl-clipboard
     blender
     candy-icons
-    catppuccin-cursors
     cowsay
     ffmpeg
     floorp

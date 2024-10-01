@@ -23,6 +23,8 @@
       };
       customhm = {
         mako.enable = lib.mkDefault true;
+        swaylock.enable = lib.mkDefault true;
+        wpaperd.enable = lib.mkDefault true;
       };
     };
 

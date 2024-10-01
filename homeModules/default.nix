@@ -5,22 +5,24 @@
     ./chromium
     ./emacs
     ./fastfetch
-    ./shell
     ./flameshot
     ./ghostty
     ./git
-    ./tui-tools
     ./imv
     ./kitty
-    ./mangohud
     ./mako
+    ./mangohud
     ./mpd
     ./mpv
     ./nixvim
     ./obs
     ./qutebrowser
     ./ranger
+    ./shell
+    ./swaylock
     ./syncthing
+    ./wpaperd
+    ./tui-tools
     ./vim
     ./yazi
     ./yt-dlp

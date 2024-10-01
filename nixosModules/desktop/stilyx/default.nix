@@ -24,7 +24,6 @@
       vesktop.enable = true;
       fish.enable = false;
       nixvim.enable = false;
-      hyprland.enable = false;
     };
   };
   stylix = {
@@ -33,6 +32,11 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     autoEnable = true;
     polarity = "dark";
+    cursor = {
+      package = pkgs.catppuccin-cursors;
+      name = "Catppuccino";
+      size = 12;
+    };
     fonts = {
       serif = config.stylix.fonts.monospace;
       sansSerif = config.stylix.fonts.monospace;
