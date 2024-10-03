@@ -29,20 +29,21 @@
     };
 
     # How to write a custom sessions for display manager
-    services.displayManager.sessionPackages = [
-      (
-        (pkgs.writeTextDir "share/wayland-sessions/niri.desktop" ''
-          [Desktop Entry]
-          Name=Niri
-          Comment=why not
-          Exec=${pkgs.niri}/bin/niri
-          Type=Application
-        '').overrideAttrs
-        (_: {
-          passthru.providedSessions = [ "niri" ];
-        })
-      )
-    ];
+
+    # services.displayManager.sessionPackages = [
+    #   (
+    #     (pkgs.writeTextDir "share/wayland-sessions/niri.desktop" ''
+    #       [Desktop Entry]
+    #       Name=Niri
+    #       Comment=why not
+    #       Exec=${pkgs.niri}/bin/niri
+    #       Type=Application
+    #     '').overrideAttrs
+    #     (_: {
+    #       passthru.providedSessions = [ "niri" ];
+    #     })
+    #   )
+    # ];
 
     environment.systemPackages = with pkgs; [
       niri
@@ -56,8 +57,6 @@
     };
 
     environment.variables = {
-      __NV_PRIME_RENDER_OFFLOAD = 1;
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       # Display is for xwayland-satellite, and it doesn't work here. But if this variable is set in niri config it seems to work
       DISPLAY = ":0";
     };

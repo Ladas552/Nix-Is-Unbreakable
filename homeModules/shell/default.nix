@@ -76,6 +76,7 @@
       eh = "nvim ~/Nix-dots/homeModules/programs/";
       v = "nvim";
       ls = "eza";
+      cd = "z";
       mc = "ranger";
       clean = "nh clean all";
       yy = "nh os switch ~/Nix-dots/";

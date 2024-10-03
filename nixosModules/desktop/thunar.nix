@@ -19,5 +19,9 @@
         thunar-media-tags-plugin
       ];
     };
+    services = {
+      gvfs.enable = true;
+      tumbler.enable = true;
+    };
   };
 }
