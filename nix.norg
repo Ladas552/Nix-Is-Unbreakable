@@ -18,7 +18,6 @@ I start to have a life other than computers so I kinda begin to forget what I di
      And configuration {https://yazi-rs.github.io/docs/configuration/yazi}[manual] from yazi
    - *Fish*. Change abbr path for Video and Music to follow xdg in home-manager
    - *Rofi*. Define Rofi in Home manager, to enable and reanable module in X11 sessions
-   - *Vesktop*. I launch vesktop from a custom undeclared desktop entry, because I don't know how to input option into the orginal one `--ozone-platform=wayland`. Need to change that somehow.
    - *Niri*. Terminals stop working after sleep
 
 ** Modulations

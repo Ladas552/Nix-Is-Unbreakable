@@ -30,6 +30,7 @@ in
     nixfmt-rfc-style
     prettierd
     stylua
+    typstyle
   ];
 
   programs.nixvim = {
@@ -56,10 +57,19 @@ in
       lsp = {
         enable = true;
         servers = {
-          bashls.enable = true;
-          lua-ls.enable = true;
+          lua-ls = {
+            enable = true;
+            settings.diagnostics.globals = [ "vim" ];
+          };
           nil-ls.enable = true;
           yamlls.enable = true;
+          tinymist = {
+            enable = true;
+            settings = {
+              exportPdf = "onType";
+              formatterMode = "typstyle";
+            };
+          };
         };
         keymaps = {
           silent = true;
@@ -90,10 +100,10 @@ in
             python = [ "black" ];
             lua = [ "stylua" ];
             nix = [ "nixfmt" ];
+            typst = [ "typstyle" ];
             markdown = [
               [
                 "prettierd"
-                "prettier"
               ]
             ];
           };
@@ -421,6 +431,7 @@ in
         enable = true;
         settings = {
           auto_close_toc = 1;
+          typst_auto_open_quickfix = 0;
           pdf_viewer = "zathura";
         };
       };
