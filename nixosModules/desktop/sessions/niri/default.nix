@@ -17,7 +17,6 @@
     };
 
     home-manager.users."ladas552" = {
-
       home.shellAliases = {
         niv = "niri validate -c ~/Nix-dots/nixosModules/desktop/sessions/niri/config.kdl ";
       };
@@ -27,7 +26,6 @@
         wpaperd.enable = lib.mkDefault true;
       };
     };
-
     # How to write a custom sessions for display manager
 
     # services.displayManager.sessionPackages = [

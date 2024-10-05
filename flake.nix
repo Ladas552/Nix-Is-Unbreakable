@@ -23,8 +23,8 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     # Overlays
-    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
-    #   emacs-overlay.url = "github:nix-community/emacs-overlay";
+    # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+    # emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     # Games
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";

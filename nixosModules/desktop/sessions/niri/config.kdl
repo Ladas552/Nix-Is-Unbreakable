@@ -99,9 +99,10 @@ layout {
 
     width 4
     // active-color "#ffc87f"
-    active-color "#0060FF"
+    // active-color "#0060FF"
     // inactive-color "#505050"
     inactive-color "#7700AE"
+    active-gradient from="#7700AE" to="#0060FF" angle=45
 
     // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
     // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
@@ -125,7 +126,6 @@ hotkey-overlay {
 }
 // No Decorations
 prefer-no-csd
-
 // You can change the path where screenshots are saved.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Pictures/screenshots/Niri%Y-%m-%d %H-%M-%S.png"

@@ -1,5 +1,29 @@
 { config, pkgs, ... }:
+let
+  #Norg meta treesitter-parser
+
+  treesitter-norg-meta = pkgs.tree-sitter.buildGrammar {
+    language = "norg-meta";
+    version = "0.1.0";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-neorg";
+      repo = "tree-sitter-norg-meta";
+      rev = "refs/tags/v0.1.0";
+      hash = "sha256-8qSdwHlfnjFuQF4zNdLtU2/tzDRhDZbo9K54Xxgn5+8=";
+    };
+
+    fixupPhase = ''
+      mkdir -p $out/queries/norg-meta
+      mv $out/queries/*.scm $out/queries/norg-meta/
+    '';
+
+    meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg-meta";
+  };
+
+in
 {
+
   #formatters
   home.packages = with pkgs; [
     black
@@ -15,6 +39,7 @@
       pkgs.vimPlugins."overseer-nvim"
       pkgs.vimPlugins."telescope-manix"
       pkgs.vimPlugins.nvim-treesitter-parsers.org
+      treesitter-norg-meta
       # (pkgs.vimUtils.buildVimPlugin {
       #   name = "markview.nvim";
       #   src = pkgs.fetchFromGitHub {
@@ -27,9 +52,6 @@
       # })
     ];
     plugins = {
-      #  neorg = {
-      #    enable = true;
-      #  };
       #LSP
       lsp = {
         enable = true;
@@ -37,6 +59,7 @@
           bashls.enable = true;
           lua-ls.enable = true;
           nil-ls.enable = true;
+          yamlls.enable = true;
         };
         keymaps = {
           silent = true;
@@ -79,6 +102,8 @@
 
       luasnip.enable = true;
       friendly-snippets.enable = true;
+      lint.enable = true;
+      trim.enable = true;
       #UI
       which-key = {
         enable = true;
@@ -220,9 +245,9 @@
                   { name = "buffer" }, -- text within current buffer
                   { name = "path" }, -- file system paths
                   { name = "neorg" },
-                  { name = "vimtex" }, 
+                  { name = "vimtex" },
                   --  { name = "codeium" },
-                  { name = "copilot" },    
+                  { name = "copilot" },
                   { name = "bashls" },
                   { name = "lua_ls" },
                   { name = "nil_ls" },
@@ -312,6 +337,7 @@
         folding = true;
         nixvimInjections = true;
         grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+          treesitter-norg-meta
           bash
           bibtex
           c
@@ -437,69 +463,71 @@
 
       };
       # Neorg
-      # neorg = {
-      #   enable = true;
-      #   modules = {
-      #     "core.defaults" = {
-      #       __empty = null;
-      #     };
-      #     "core.esupports.metagen" = {
-      #       config = {
-      #         timezone = "implicit-local";
-      #         type = "empty";
-      #         undojoin_updates = "false";
-      #       };
-      #     };
-      #     "core.tangle" = {
-      #       config = {
-      #         report_on_empty = false;
-      #         tangle_on_write = true;
-      #       };
-      #     };
-          #         timezone = "implicit-local";
-          #         type = "empty";
-          #         undojoin_updates = "false";
-          #       };
-          #     };
-          # "core.keybinds" = {
-          #   config = {
-          #     default_keybinds = true;
-          #     neorg_leader = "<Leader><Leader>";
-          #   };
-          # };
-          #     "core.journal" = {
-          #       config = {
-          #         workspace = "journal";
-          #         journal_folder = "/./";
-          #       };
-          #     };
-          #     "core.dirman" = {
-          #       config = {
-          #         workspaces = {
-          #           general = "~/Documents/Norg";
-          #           life = "~/Documents/Norg/Life";
-          #           work = "~/Documents/Norg/Study";
-          #           journal = "~/Documents/Norg/Journal";
-          #         };
-          #         default_workspace = "general";
-          #       };
-          #     };
-          # "core.concealer" = {
-          #   config = {
-          #     icon_preset = "diamond";
-          #   };
-          # };
-          # "core.summary" = {
-          #   __empty = null;
-          # };
-          # "core.todo-introspector" = {
-          #   __empty = null;
-          # };
-          # "core.ui.calendar" = {
-          #   __empty = null;
-          # };
-      #   };
-      # };
+      neorg = {
+        enable = true;
+        modules = {
+          "core.defaults" = {
+            __empty = null;
+          };
+          "core.esupports.metagen" = {
+            config = {
+              timezone = "implicit-local";
+              type = "empty";
+              undojoin_updates = "false";
+            };
+          };
+          "core.tangle" = {
+            config = {
+              report_on_empty = false;
+              tangle_on_write = true;
+            };
+          };
+          "core.keybinds" = {
+            config = {
+              default_keybinds = true;
+              neorg_leader = "<Leader><Leader>";
+            };
+          };
+          "core.journal" = {
+            config = {
+              workspace = "journal";
+              journal_folder = "/./";
+            };
+          };
+          "core.dirman" = {
+            config = {
+              workspaces = {
+                general = "~/Documents/Norg";
+                life = "~/Documents/Norg/Life";
+                work = "~/Documents/Norg/Study";
+                journal = "~/Documents/Norg/Journal";
+              };
+              default_workspace = "general";
+            };
+          };
+          "core.concealer" = {
+            config = {
+              icon_preset = "diamond";
+            };
+          };
+          "core.summary" = {
+            __empty = null;
+          };
+          "core.todo-introspector" = {
+            __empty = null;
+          };
+          "core.ui.calendar" = {
+            __empty = null;
+          };
+        };
+      };
     };
+    # Options for Neorg to work well
+    extraConfigLua = # lua
+      ''
+        vim.g.maplocalleader = "  "
+        vim.wo.foldlevel = 99
+        vim.wo.conceallevel = 2
+      '';
   };
 }
