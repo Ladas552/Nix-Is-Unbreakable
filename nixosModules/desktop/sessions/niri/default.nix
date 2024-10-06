@@ -16,7 +16,8 @@
 
   config = lib.mkIf config.custom.niri.enable {
     custom = {
-      thunar.enable = true;
+      thunar.enable = lib.mkDefault true;
+      pam.enable = lib.mkDefault true;
     };
 
     environment.systemPackages = with pkgs; [
@@ -32,6 +33,7 @@
 
     xdg.portal = {
       enable = true;
+      xdgOpenUsePortal = true;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       config.common.default = "*";
     };

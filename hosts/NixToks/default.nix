@@ -3,6 +3,7 @@
   pkgs,
   inputs,
   pkgs-stable,
+  lib,
   ...
 }:
 
@@ -36,8 +37,10 @@
     otd.enable = true;
     powermanager.enable = true;
     pam.enable = true;
+    # nix-ld.enable = true;
     # printers.enable = true;
     # clamav.enable = true;
+    # docker.enable = true;
     # virtualisation.enable = true;
     # minecraft.enable = true; Don't need right now
   };
@@ -158,6 +161,10 @@
     __NV_PRIME_RENDER_OFFLOAD = 1;
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
+  # IF statement to enable vitalization for Nvidia in Docker. If Docker module is disabled it returns false, if enabled returns true
+  hardware.nvidia-container-toolkit.enable = config.custom.docker.enable;
+  # This is the same thing but made harder. It was the firstier attempt and above ifs fixed one
+  # hardware.nvidia-container-toolkit.enable = (lib.mkIf config.custom.docker.enable true);
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 

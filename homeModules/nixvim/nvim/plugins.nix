@@ -20,7 +20,35 @@ let
 
     meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg-meta";
   };
+  volt = pkgs.vimUtils.buildVimPlugin {
+    name = "volt";
+    src = pkgs.fetchFromGitHub {
+      owner = "NvChad";
+      repo = "volt";
+      rev = "43f72b49037c191eb3cfe26ba7a5574b4bfce226";
+      sha256 = "19lxsiphq9i6glc99khn6krf81hjhyhqzxc2rgfa2dryvdmi3b9x";
+    };
+  };
 
+  menu = pkgs.vimUtils.buildVimPlugin {
+    name = "menu";
+    src = pkgs.fetchFromGitHub {
+      owner = "NvChad";
+      repo = "menu";
+      rev = "1d5771c729226b5b1e4a84b5da38ba2789fd41b4";
+      sha256 = "1n4v6r40wlpq4yipn9ifq0012baqh2jaxqlk2pr7r9mxd25h85d8";
+    };
+  };
+
+  typst-preview = pkgs.vimUtils.buildVimPlugin {
+    name = "typst-preview";
+    src = pkgs.fetchFromGitHub {
+      owner = "chomosuke";
+      repo = "typst-preview.nvim";
+      rev = "0354cc1a7a5174a2e69cdc21c4db9a3ee18bb20a";
+      sha256 = "0vrqj77n5cjabkak4j2m58i3rbrp0w37ggd49gfib5abf9qxyi4z";
+    };
+  };
 in
 {
 
@@ -31,6 +59,8 @@ in
     prettierd
     stylua
     typstyle
+    # typix web integration
+    websocat
   ];
 
   programs.nixvim = {
@@ -38,8 +68,8 @@ in
       pkgs.vimPlugins."gitsigns-nvim"
       pkgs.vimPlugins."lspkind-nvim"
       pkgs.vimPlugins."overseer-nvim"
-      pkgs.vimPlugins."telescope-manix"
       pkgs.vimPlugins.nvim-treesitter-parsers.org
+      typst-preview
       treesitter-norg-meta
       # (pkgs.vimUtils.buildVimPlugin {
       #   name = "markview.nvim";
@@ -59,7 +89,10 @@ in
         servers = {
           lua-ls = {
             enable = true;
-            settings.diagnostics.globals = [ "vim" ];
+            settings.diagnostics.globals = [
+              "vim"
+              "cmp"
+            ];
           };
           nil-ls.enable = true;
           yamlls.enable = true;
@@ -155,18 +188,12 @@ in
       web-devicons = {
         enable = true;
       };
-      ccc = {
-        enable = true;
-        settings = {
-          highlighter = {
-            auto_enable = true;
-          };
-        };
-      };
+
+      nvim-colorizer.enable = true;
 
       telescope = {
         enable = true;
-        enabledExtensions = [ "manix" ];
+        extensions.manix.enable = true;
         # settings.defaults = {
         #   path_display = "truncate";
         # };
@@ -179,12 +206,14 @@ in
           shortcut_type = "number";
           config = {
             header = [
-              ""
-              "|                 |               ___|  ___| ___ \\ "
-              "|       _` |   _` |   _` |   __|  __ \\  __ \\    ) |"
-              "|      (   |  (   |  (   | \\__ \\    ) |   ) |  __/ "
-              "_____| \\__,_| \\__,_| \\__,_| ____/ ____/ ____/ _____|"
-              ""
+              "                                                                "
+              "██╗      █████╗ ██████╗  █████╗ ███████╗███████╗███████╗██████╗ "
+              "██║     ██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝╚════██╗"
+              "██║     ███████║██║  ██║███████║███████╗███████╗███████╗ █████╔╝"
+              "██║     ██╔══██║██║  ██║██╔══██║╚════██║╚════██║╚════██║██╔═══╝ "
+              "███████╗██║  ██║██████╔╝██║  ██║███████║███████║███████║███████╗"
+              "╚══════╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝╚══════╝"
+              "                                                                "
             ];
             center = [
               {
@@ -255,7 +284,6 @@ in
                   { name = "buffer" }, -- text within current buffer
                   { name = "path" }, -- file system paths
                   { name = "neorg" },
-                  { name = "vimtex" },
                   --  { name = "codeium" },
                   { name = "copilot" },
                   { name = "bashls" },
@@ -427,22 +455,14 @@ in
         enable = true;
       };
 
-      typst-vim = {
-        enable = true;
-        settings = {
-          auto_close_toc = 1;
-          typst_auto_open_quickfix = 0;
-          pdf_viewer = "zathura";
-        };
-      };
-
-      vimtex = {
-        enable = true;
-        texlivePackage = pkgs.texliveFull;
-        settings = {
-          view_method = "zathura";
-        };
-      };
+      # typst-vim = {
+      #   enable = true;
+      #   settings = {
+      #     auto_close_toc = 1;
+      #     typst_auto_open_quickfix = 0;
+      #     pdf_viewer = "zathura";
+      #   };
+      # };
 
       neogit = {
         enable = true;
@@ -463,7 +483,7 @@ in
       otter = {
         enable = true;
       };
-      # Guffy
+      #Guffy
       presence-nvim = {
         enable = true;
         blacklist = [
@@ -471,7 +491,6 @@ in
           "txt"
         ];
         neovimImageText = "I am showing off, yeah";
-
       };
       # Neorg
       neorg = {
@@ -530,8 +549,32 @@ in
           "core.ui.calendar" = {
             __empty = null;
           };
+          "core.integrations.telescope" = {
+            __empty = null;
+          };
         };
       };
+      #  lazy = {
+      #    enable = true;
+      #    plugins = [
+      #      {
+      #        pkg = volt;
+      #        name = "nvchad/volt";
+      #      }
+      #      {
+      #        pkg = menu;
+      #        name = "nvchad/menu";
+      #        keys = {
+      #          __raw = # lua
+      #            ''
+      #              vim.keymap.set("n", "<RightMouse>", function()
+      #                vim.cmd.exec "normal! \\<RightMouse>"
+      #                end, {})
+      #            '';
+      #        };
+      #      }
+      #    ];
+      #  };
     };
     # Options for Neorg to work well
     extraConfigLua = # lua
@@ -539,6 +582,14 @@ in
         vim.g.maplocalleader = "  "
         vim.wo.foldlevel = 99
         vim.wo.conceallevel = 2
+        require 'typst-preview'.setup {
+          follow_cursor = true,
+          open_cmd = "chromium %s",
+          dependencies_bin = {
+            ['typst-preview'] = "tinymist",
+            ['websocat'] = "websocat",
+          },
+        }
       '';
   };
 }

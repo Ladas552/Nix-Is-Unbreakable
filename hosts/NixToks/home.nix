@@ -7,7 +7,8 @@
   imports = [ ./../../homeModules ];
 
   customhm = {
-    #   chromium.enable = true;
+    chromium.enable = true;
+    #qutebrowser.enable = true;
     flameshot.enable = true;
     ghostty.enable = true;
     imv.enable = true;
@@ -51,17 +52,15 @@
     nuspell
     pamixer
     pavucontrol
-    peek
     python3
     qbittorrent
     rofi-wayland
     telegram-desktop
     #   texlive.combined.scheme-small
-    texliveFull
+    #   texliveFull
     typst
     vesktop
     xarchiver
-    xclip
   ];
 
   nixpkgs.config.allowUnfree = true;

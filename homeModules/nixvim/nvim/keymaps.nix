@@ -29,48 +29,17 @@
         options.desc = "Close Buffer";
       }
       #Plugins
-      #Neorg Workspaces
-      {
-        action = "<cmd>Neorg workspace life<CR>";
-        key = "<leader>nl";
-        mode = "n";
-        options.desc = "Life Workspace";
-      }
-      {
-        action = "<cmd>Neorg workspace work<CR>";
-        key = "<leader>nw";
-        mode = "n";
-        options.desc = "Study Workspace";
-      }
-      {
-        action = "<cmd>Neorg workspace journal<CR>";
-        key = "<leader>nn";
-        mode = "n";
-        options.desc = "Journal Workspace";
-      }
       #Neorg Journal
       {
         action = "<cmd>Neorg journal today<CR>";
-        key = "<leader>jt";
+        key = "<leader>j";
         mode = "n";
-        options.desc = "Today";
-      }
-      {
-        action = "<cmd>Neorg journal yesterday<CR>";
-        key = "<leader>jy";
-        mode = "n";
-        options.desc = "Yesterday";
-      }
-      {
-        action = "<cmd>Neorg journal tomorrow<CR>";
-        key = "<leader>jT";
-        mode = "n";
-        options.desc = "Tomorrow";
+        options.desc = "Journal today";
       }
       #Oil
       {
         action = "<cmd>Oil<CR>";
-        key = "<leader>ef";
+        key = "<leader>e";
         mode = "n";
       }
       #Telescope
@@ -98,10 +67,22 @@
         mode = "n";
         options.desc = "Grep current buffer";
       }
+      {
+        action = "<cmd>Telescope neorg find_norg_files<CR>";
+        key = "<leader>fn";
+        mode = "n";
+        options.desc = "Find Norg File";
+      }
+      {
+        action = "<cmd>Telescope neorg switch_workspace<CR>";
+        key = "<leader>n";
+        mode = "n";
+        options.desc = "Change Neorg Workspace";
+      }
       # NeoGit
       {
         action = "<cmd>Neogit<CR>";
-        key = "<leader>gg";
+        key = "<leader>g";
         mode = "n";
       }
     ];
