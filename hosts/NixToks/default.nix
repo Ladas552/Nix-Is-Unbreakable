@@ -3,7 +3,6 @@
   pkgs,
   inputs,
   pkgs-stable,
-  lib,
   ...
 }:
 
@@ -41,6 +40,7 @@
     # printers.enable = true;
     # clamav.enable = true;
     # docker.enable = true;
+    #plymouth.enable = true;
     # virtualisation.enable = true;
     # minecraft.enable = true; Don't need right now
   };
