@@ -2,6 +2,10 @@
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
+output "HDMI-A-1" {
+    scale 2.0
+}
+
 environment {
   DISPLAY ":0"
   __NV_PRIME_RENDER_OFFLOAD "1"
@@ -217,11 +221,11 @@ binds {
 
   // MPD
 
-  Shift+Alt+P { spawn "mpc" "toggle"; }
-  Shift+Alt+N { spawn "mpc" "next"; }
-  Shift+Alt+B { spawn "mpc" "prev"; }
-  Shift+Alt+K { spawn "mpc" "volume" "-5"; }
-  Shift+Alt+L { spawn "mpc" "volume" "+5"; }
+  Shift+Alt+P allow-when-locked=true { spawn "mpc" "toggle"; }
+  Shift+Alt+N allow-when-locked=true { spawn "mpc" "next"; }
+  Shift+Alt+B allow-when-locked=true { spawn "mpc" "prev"; }
+  Shift+Alt+K allow-when-locked=true { spawn "mpc" "volume" "-5"; }
+  Shift+Alt+L allow-when-locked=true { spawn "mpc" "volume" "+5"; }
   Shift+Alt+C { spawn "mpc" "clear"; }
   Shift+Alt+M { spawn "musnow.sh"; }
 

@@ -87,14 +87,14 @@ in
       lsp = {
         enable = true;
         servers = {
-          lua-ls = {
+          lua_ls = {
             enable = true;
             settings.diagnostics.globals = [
               "vim"
               "cmp"
             ];
           };
-          nil-ls.enable = true;
+          nil_ls.enable = true;
           yamlls.enable = true;
           tinymist = {
             enable = true;

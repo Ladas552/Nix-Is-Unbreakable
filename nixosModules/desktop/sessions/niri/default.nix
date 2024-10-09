@@ -32,7 +32,7 @@
     };
 
     xdg.portal = {
-      enable = true;
+      enable = lib.mkDefault true;
       xdgOpenUsePortal = true;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       config.common.default = "*";

@@ -21,7 +21,7 @@
     ./network/kde-connect.nix
     ./secrets/sops.nix
     ./services/clamav.nix
-    ./services/docker.nix
+    ./services/podman.nix
     ./services/pam.nix
     ./services/nix-ld.nix
     ./services/nix-helper.nix

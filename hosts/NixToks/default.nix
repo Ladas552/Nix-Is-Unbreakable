@@ -36,10 +36,10 @@
     otd.enable = true;
     powermanager.enable = true;
     pam.enable = true;
+    distrobox.enable = true;
     # nix-ld.enable = true;
     # printers.enable = true;
     # clamav.enable = true;
-    # docker.enable = true;
     #plymouth.enable = true;
     # virtualisation.enable = true;
     # minecraft.enable = true; Don't need right now
@@ -162,7 +162,7 @@
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
   # IF statement to enable vitalization for Nvidia in Docker. If Docker module is disabled it returns false, if enabled returns true
-  hardware.nvidia-container-toolkit.enable = config.custom.docker.enable;
+  hardware.nvidia-container-toolkit.enable = config.custom.podman.enable;
   # This is the same thing but made harder. It was the firstier attempt and above ifs fixed one
   # hardware.nvidia-container-toolkit.enable = (lib.mkIf config.custom.docker.enable true);
   # Enable touchpad support (enabled default in most desktopManager).

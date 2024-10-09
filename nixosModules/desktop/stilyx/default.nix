@@ -18,9 +18,9 @@
   # Themes
   home-manager.users."ladas552" = {
     stylix.targets = {
-      bspwm.enable = false;
+      #bspwm.enable = false;
       kitty.enable = false;
-      xfce.enable = true;
+      #xfce.enable = true;
       vesktop.enable = true;
       fish.enable = false;
       nixvim.enable = false;

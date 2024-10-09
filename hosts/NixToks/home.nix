@@ -9,10 +9,10 @@
   customhm = {
     chromium.enable = true;
     #qutebrowser.enable = true;
-    flameshot.enable = true;
+    #flameshot.enable = true;
     ghostty.enable = true;
     imv.enable = true;
-    kitty.enable = true;
+    #kitty.enable = true;
     mangohud.enable = true;
     mpd.enable = true;
     mpv.enable = true;
@@ -48,7 +48,6 @@
     losslesscut-bin
     lshw
     manix
-    numlockx
     nuspell
     pamixer
     pavucontrol
