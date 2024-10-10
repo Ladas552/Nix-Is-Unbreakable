@@ -8,7 +8,7 @@ pkgs.writeShellScriptBin "word-lookup.sh" # bash
 
     }
 
-    USEWAYLAND=false
+    USEWAYLAND=true
 
     while getopts 'hw' c
     do

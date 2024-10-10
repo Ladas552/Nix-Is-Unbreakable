@@ -32,8 +32,8 @@
     #pkgs-stable
     inputs.ghostty.packages.x86_64-linux.default
     shotcut
+    imagemagick
     wl-clipboard
-    blender
     candy-icons
     cowsay
     ffmpeg
