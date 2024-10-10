@@ -7,6 +7,7 @@ authors: ladas552
 I start to have a life other than computers so I kinda begin to forget what I did and didn't. So here we are, there will be notes, todos, plans and tips(mostly for myself)
 
 * Notes
+  devenv and direnv are nice for developing, these files are here if you use them in your shell
 * TODOs
 ** Notes
    - To write comments in shell scripts

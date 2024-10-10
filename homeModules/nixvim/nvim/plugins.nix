@@ -55,7 +55,6 @@ in
   #formatters
   home.packages = with pkgs; [
     black
-    nixfmt-rfc-style
     prettierd
     stylua
     typstyle
@@ -132,13 +131,8 @@ in
           formatters_by_ft = {
             python = [ "black" ];
             lua = [ "stylua" ];
-            nix = [ "nixfmt" ];
             typst = [ "typstyle" ];
-            markdown = [
-              [
-                "prettierd"
-              ]
-            ];
+            markdown = [ [ "prettierd" ] ];
           };
         };
       };
