@@ -3,6 +3,7 @@
 {
   imports = [
     ./chromium
+    ./direnv
     ./emacs
     ./fastfetch
     ./flameshot

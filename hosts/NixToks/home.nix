@@ -20,6 +20,7 @@
     syncthing.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
+    direnv.enable = true;
   };
 
   # Me

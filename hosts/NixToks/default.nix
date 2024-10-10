@@ -118,6 +118,11 @@
   };
   # Experiment stuff
   nix.settings = {
+    trusted-users = [
+      "root"
+      "ladas552"
+      "@wheel"
+    ];
     substituters = [
       "https://ezkea.cachix.org"
       "https://ghostty.cachix.org/"
@@ -129,10 +134,12 @@
     extra-substituters = [
       "https://cache.garnix.io"
       "https://niri.cachix.org"
+      "https://devenv.cachix.org"
     ];
     extra-trusted-public-keys = [
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+      "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
     ];
   };
 
