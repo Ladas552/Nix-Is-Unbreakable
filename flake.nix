@@ -25,6 +25,7 @@
     # Overlays
     # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
+    helix-overlay.url = "github:helix-editor/helix";
 
     # Games
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";

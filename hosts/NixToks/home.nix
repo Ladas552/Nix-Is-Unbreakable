@@ -14,6 +14,7 @@
     imv.enable = true;
     #kitty.enable = true;
     mangohud.enable = true;
+    helix.enable = true;
     mpd.enable = true;
     mpv.enable = true;
     obs.enable = true;

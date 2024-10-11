@@ -9,6 +9,7 @@
     ./flameshot
     ./ghostty
     ./git
+    ./helix
     ./imv
     ./kitty
     ./mako
