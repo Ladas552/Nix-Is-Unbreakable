@@ -18,16 +18,11 @@
   #modules
   custom = {
     bluetooth.enable = true;
-    bspwm.enable = true;
     fonts.enable = true;
-    lightdm.enable = true;
     openssh.enable = true;
-    printers.enable = true;
     libinput.enable = true;
     zerotier.enable = true;
-    # virtualisation.enable = true;
-    # ly.enable = true;
-    # minecraft.enable = true; Don't need right now
+    niri.enable = true;
   };
 
   home-manager = {
@@ -148,5 +143,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }

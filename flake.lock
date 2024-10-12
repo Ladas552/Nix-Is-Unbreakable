@@ -90,7 +90,7 @@
     "crane": {
       "inputs": {
         "nixpkgs": [
-          "helix-master",
+          "helix-overlay",
           "nixpkgs"
         ]
       },
@@ -410,7 +410,7 @@
         "type": "github"
       }
     },
-    "helix-master": {
+    "helix-overlay": {
       "inputs": {
         "crane": "crane",
         "flake-utils": "flake-utils_2",
@@ -438,11 +438,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1728598744,
-        "narHash": "sha256-sSfvyO5xH3HObHHmh6lp/hcvo7tMjFKd/HXpxyrRnoE=",
+        "lastModified": 1728726232,
+        "narHash": "sha256-8ZWr1HpciQsrFjvPMvZl0W+b0dilZOqXPoKa2Ux36bc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "342a1d682386d3a1d74f9555cb327f2f311dda6e",
+        "rev": "d57112db877f07387ce7104b5ac346ede556d2d7",
         "type": "github"
       },
       "original": {
@@ -521,11 +521,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1728611137,
-        "narHash": "sha256-P3IMlCnXU2yK1eosUjZy/zGvjYJLv4aCIK0s/d9iUKY=",
+        "lastModified": 1728697384,
+        "narHash": "sha256-dyO5diBCVROITF9d0MP5opEKDWuGNs7mNJWUevoxbjk=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "76dd43c0d72e8ada06a7f04348e88f91385791bf",
+        "rev": "2888f41c58ea9a09725dafd55f72dd4839b23387",
         "type": "github"
       },
       "original": {
@@ -568,11 +568,11 @@
     },
     "nixpkgs-stable_2": {
       "locked": {
-        "lastModified": 1728627514,
-        "narHash": "sha256-r+SF9AnHrTg+bk6YszoKfV9lgyw+yaFUQe0dOjI0Z2o=",
+        "lastModified": 1728722910,
+        "narHash": "sha256-X2YsTCkyFSDGUTQZr/exa3t1J0JFs5tz2v7GhhPPDck=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c505ebf777526041d792a49d5f6dd4095ea391a7",
+        "rev": "138474277cc4b56b5e1ca7fad0e113aff93e8780",
         "type": "github"
       },
       "original": {
@@ -677,11 +677,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1728593423,
-        "narHash": "sha256-xM3+7mvWwM5i+RXD97wQ/fSoQDFidVxNszIfKIv9msE=",
+        "lastModified": 1728603032,
+        "narHash": "sha256-RAKCcBXqF/xOaf7fR11dnIZwZ8SDyNcK3MyVgD0l1xQ=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "af650ba9401501352d6eaaced192bbb4abfaec87",
+        "rev": "5cd8c9cf3104027b42ffe531fb68463ecb08ebc9",
         "type": "github"
       },
       "original": {
@@ -716,7 +716,7 @@
       "inputs": {
         "aagl": "aagl",
         "ghostty": "ghostty",
-        "helix-master": "helix-master",
+        "helix-overlay": "helix-overlay",
         "home-manager": "home-manager",
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs_3",
@@ -729,11 +729,11 @@
     "rust-overlay": {
       "inputs": {
         "flake-utils": [
-          "helix-master",
+          "helix-overlay",
           "flake-utils"
         ],
         "nixpkgs": [
-          "helix-master",
+          "helix-overlay",
           "nixpkgs"
         ]
       },

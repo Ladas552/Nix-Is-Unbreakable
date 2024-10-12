@@ -7,9 +7,8 @@
   imports = [ ./../../homeModules ];
 
   customhm = {
-    kitty.enable = true;
-    mpv.enable = true;
-    flameshot.enable = true;
+    ghostty.enable = true;
+    direnv.enable = true;
     imv.enable = true;
   };
   # Me
@@ -26,15 +25,12 @@
     libqalculate
     lshw
     manix
-    numlockx
     pamixer
     pavucontrol
     qbittorrent
     rofi-wayland
     telegram-desktop
-    vesktop
     xarchiver
-    xclip
     gparted
   ];
 

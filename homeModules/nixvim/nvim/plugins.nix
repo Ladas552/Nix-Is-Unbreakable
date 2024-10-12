@@ -57,7 +57,6 @@ in
     black
     prettierd
     stylua
-    typstyle
     # typix web integration
     websocat
   ];
@@ -99,7 +98,6 @@ in
             enable = true;
             settings = {
               exportPdf = "onType";
-              formatterMode = "typstyle";
             };
           };
         };
@@ -131,7 +129,6 @@ in
           formatters_by_ft = {
             python = [ "black" ];
             lua = [ "stylua" ];
-            typst = [ "typstyle" ];
             markdown = [ [ "prettierd" ] ];
           };
         };
