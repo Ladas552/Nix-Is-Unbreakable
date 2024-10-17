@@ -1,10 +1,17 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  inputs,
+  ...
+}:
 
 {
 
   options.custom = {
     secrets.enable = lib.mkEnableOption "enable secrets";
   };
+
+  imports = [ inputs.sops-nix.nixosModules.sops ];
 
   config = lib.mkIf config.custom.secrets.enable {
 

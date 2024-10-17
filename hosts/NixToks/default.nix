@@ -37,6 +37,7 @@
     powermanager.enable = true;
     pam.enable = true;
     distrobox.enable = true;
+    stylix.enable = true;
     # nix-ld.enable = true;
     # printers.enable = true;
     # clamav.enable = true;

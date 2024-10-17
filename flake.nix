@@ -58,19 +58,13 @@
       nixosConfigurations = {
         NixToks = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit
-              system
-              inputs
-              pkgs-stable
-              pkgs
-              ;
+            inherit system;
+            inherit inputs;
+            inherit pkgs-stable;
+            inherit pkgs;
           };
 
-          modules = [
-            ./hosts/NixToks
-            inputs.sops-nix.nixosModules.sops
-            inputs.stylix.nixosModules.stylix
-          ];
+          modules = [ ./hosts/NixToks ];
         };
 
         NixFlash = nixpkgs.lib.nixosSystem {
@@ -81,8 +75,6 @@
 
           modules = [
             ./hosts/NixFlash
-            inputs.sops-nix.nixosModules.sops
-            inputs.stylix.nixosModules.stylix
             #           inputs.nixvim.nixosModules.nixvim
             #           inputs.stylix.nixosModules.stylix
             #           inputs.home-manager.nixosModules.home-manager
