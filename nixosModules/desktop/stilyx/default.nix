@@ -33,10 +33,16 @@
     autoEnable = true;
     polarity = "dark";
     cursor = {
-      package = pkgs.catppuccin-cursors;
-      name = "Catppuccino";
+      package = pkgs.banana-cursor;
+      name = "Banana-cursor";
       size = 12;
     };
+
+    # cursor = {
+    #   package = pkgs.catppuccin-cursors;
+    #   name = "Catppuccin";
+    #   size = 12;
+    # };
     fonts = {
       serif = config.stylix.fonts.monospace;
       sansSerif = config.stylix.fonts.monospace;

@@ -10,6 +10,21 @@
       enable = true;
       enableFishIntegration = true;
       shellWrapperName = "mc";
+      keymap = {
+        manager.prepend_keymap = [
+          {
+            run = "plugin --sync smart-enter";
+            on = [ "<Right>" ];
+            desc = "Enter Directory or Open file";
+          }
+          {
+            run = ''shell "$SHELL" --block --confirm '';
+            on = [ "S" ];
+            desc = "Open in shell";
+          }
+        ];
+      };
+      initLua = ./init.lua;
       settings = {
         manager = {
           sort_by = "natural";
@@ -21,24 +36,24 @@
         preview = {
           cache_dir = "${config.xdg.cacheHome}/yazi";
         };
-        opener = {
-          text = [
-            {
-              run = ''nvim "$@"'';
-              desc = "Edit text";
-              for = "unix";
-              block = true;
-            }
-          ];
-          video = [
-            {
-              run = ''mpv "$@"'';
-              desc = "Play video";
-              for = "unix";
-              block = true;
-            }
-          ];
-        };
+        # opener = {
+        #   text = [
+        #     {
+        #       run = ''nvim "$@"'';
+        #       desc = "Edit text";
+        #       for = "unix";
+        #       block = true;
+        #     }
+        #   ];
+        #   video = [
+        #     {
+        #       run = ''mpv "$@"'';
+        #       desc = "Play video";
+        #       for = "unix";
+        #       block = true;
+        #     }
+        #   ];
+        # };
       };
     };
   };

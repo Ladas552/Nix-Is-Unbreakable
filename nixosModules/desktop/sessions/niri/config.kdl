@@ -7,6 +7,7 @@ output "HDMI-A-1" {
 }
 
 environment {
+  TERMINAL "ghostty"
   DISPLAY ":0"
   __NV_PRIME_RENDER_OFFLOAD "1"
   __GLX_VENDOR_LIBRARY_NAME "nvidia"
@@ -208,10 +209,12 @@ binds {
   // Apps
 
   Super+T { spawn "ghostty"; }
-  Super+Ctrl+T { spawn "kitty"; }
+  // Super+Ctrl+T { spawn "kitty"; }
   Super+Space { spawn "rofi" "-show"; }
   Super+L { spawn "swaylock"; }
-
+  Super+N {spawn "ghostty" "-e" "nvim";}
+  Super+M {spawn "ghostty" "-e" "ncmpcpp";}
+  Super+H {spawn "ghostty" "-e" "btop";}
   // You can also use a shell:
   // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
 
@@ -238,6 +241,7 @@ binds {
   // Scripts
 
   Super+C { spawn "word-lookup.sh"; }
+  Super+X { spawn "powermenu.sh"; }
 
   // Example volume keys mappings for PipeWire & WirePlumber.
   // The allow-when-locked=true property makes them work even when the session is locked.

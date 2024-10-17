@@ -9,6 +9,7 @@
       enable = true;
       layer = "overlay";
       defaultTimeout = 5000;
+      height = 1000;
     };
   };
 }

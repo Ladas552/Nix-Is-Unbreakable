@@ -18,7 +18,7 @@ I start to have a life other than computers so I kinda begin to forget what I di
      I follow {https://github.com/DarkKronicle/nazarick/blob/d85c7236bf51a6c1fa3c7e5721c2cf376205d508/modules/home/tui/yazi/default.nix}[this] config for  examples
      And configuration {https://yazi-rs.github.io/docs/configuration/yazi}[manual] from yazi
    - *Fish*. Change abbr path for Video and Music to follow xdg in home-manager
-   - *Rofi*. Define Rofi in Home manager, to enable and reanable module in X11 sessions
+   - *Rofi*. Define Rofi in Home manager, to enable and reanable module
    - *Niri*. Terminals stop working after sleep
 
 ** Modulations

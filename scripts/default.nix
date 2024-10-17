@@ -6,5 +6,6 @@
     (import ./Subtitlenator.nix { inherit pkgs; })
     (import ./musnow.nix { inherit pkgs; })
     (import ./wpick.nix { inherit pkgs lib; })
+    (import ./rofi-powermenu.nix { inherit pkgs; })
   ];
 }

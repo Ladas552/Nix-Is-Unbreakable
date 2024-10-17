@@ -17,7 +17,7 @@
     helix.enable = true;
     mpd.enable = true;
     mpv.enable = true;
-    obs.enable = true;
+    #obs.enable = true;
     syncthing.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;

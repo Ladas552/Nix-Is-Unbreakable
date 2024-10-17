@@ -444,6 +444,13 @@ in
 
       image = {
         enable = true;
+        windowOverlapClearEnabled = true;
+        integrations.neorg = {
+          enabled = true;
+          clearInInsertMode = true;
+          onlyRenderImageAtCursor = true;
+          filetypes = [ "norg" ];
+        };
       };
 
       # typst-vim = {
@@ -538,6 +545,9 @@ in
             __empty = null;
           };
           "core.ui.calendar" = {
+            __empty = null;
+          };
+          "core.integrations.image" = {
             __empty = null;
           };
           "core.integrations.telescope" = {

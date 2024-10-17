@@ -2,7 +2,7 @@
 {
   programs.nixvim = {
     opts = {
-      #Numbers on side 
+      #Numbers on side
       nu = true;
       relativenumber = true;
       #Indent
@@ -37,7 +37,7 @@
       #Go to new directory
       autochdir = true;
       #Clipboard
-      clipboard.providers.xclip.enable = true;
+      clipboard.providers.wl-copy.enable = true;
     };
   };
 }

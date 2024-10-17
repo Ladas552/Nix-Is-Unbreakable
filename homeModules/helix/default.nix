@@ -21,6 +21,11 @@
       settings = {
         editor = {
           line-number = "relative";
+          cursor-shape = {
+            insert = "bar";
+            normal = "block";
+            select = "block";
+          };
         };
         keys = {
           normal = { };
