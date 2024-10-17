@@ -7,30 +7,35 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/release-24.05";
 
     # Home-manager
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Ghostty, yeap
     ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
 
     stylix.url = "github:danth/stylix";
     # Neovim
-    nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Secrets
-    sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Overlays
     # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
     helix-overlay.url = "github:helix-editor/helix";
 
     # Games
-    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
-    aagl.inputs.nixpkgs.follows = "nixpkgs"; # Name of nixpkgs input you want to use
-
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs"; # Name of nixpkgs input you want to use
+    };
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
