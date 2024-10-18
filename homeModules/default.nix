@@ -6,6 +6,7 @@
     ./direnv
     ./emacs
     ./fastfetch
+    ./thunderbird
     ./flameshot
     ./ghostty
     ./git

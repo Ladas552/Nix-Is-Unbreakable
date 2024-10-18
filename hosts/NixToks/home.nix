@@ -8,6 +8,7 @@
 
   customhm = {
     chromium.enable = true;
+    thunderbird.enable = true;
     #qutebrowser.enable = true;
     #flameshot.enable = true;
     ghostty.enable = true;
