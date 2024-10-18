@@ -260,8 +260,8 @@ binds {
   Mod+Right { focus-column-right; }
   Mod+A     { focus-column-left; }
   Mod+S     { focus-column-right; }
-  Mod+J     { focus-window-down; }
-  Mod+K     { focus-window-up; }
+ // Mod+J     { focus-window-down; }
+ // Mod+K     { focus-window-up; }
 
   Mod+Shift+Left  { move-column-left; }
   Mod+Shift+Down  { move-window-down; }
@@ -302,8 +302,8 @@ binds {
   Mod+Shift+Ctrl+A   { move-column-to-workspace-up; }
   Mod+Shift+Ctrl+S   { move-column-to-workspace-down; }
 
-  Mod+Shift+Page_Down { move-workspace-down; }
-  Mod+Shift+Page_Up   { move-workspace-up; }
+  // Mod+Shift+Page_Down { move-workspace-down; }
+  // Mod+Shift+Page_Up   { move-workspace-up; }
 
   Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
   Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
@@ -354,12 +354,12 @@ binds {
   // * adjust width as a percentage of screen width: "-10%" or "+10%"
   // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
   // set-column-width "100" will make the column occupy 200 physical screen pixels.
-  Mod+Minus { set-column-width "-10%"; }
-  Mod+Equal { set-column-width "+10%"; }
+  Mod+Ctrl+Left { set-column-width "-10%"; }
+  Mod+Ctrl+Right { set-column-width "+10%"; }
 
   // Finer height adjustments when in column with other windows.
-  Mod+Shift+Minus { set-window-height "-10%"; }
-  Mod+Shift+Equal { set-window-height "+10%"; }
+  Mod+Ctrl+Up { set-window-height "-10%"; }
+  Mod+Ctrl+Down { set-window-height "+10%"; }
 
   // Actions to switch layouts.
   // Note: if you uncomment these, make sure you do NOT have
