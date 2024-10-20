@@ -63,6 +63,7 @@
     programs.bash = {
       enable = true;
       enableCompletion = true;
+      bashrcExtra = "ssh-add ~/.ssh/NixToks";
     };
     home.shellAliases = {
       cat = "${lib.getExe pkgs.bat}";

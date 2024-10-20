@@ -30,7 +30,7 @@
     programs.gamemode.enable = true;
     environment.systemPackages = with pkgs; [
       # Launchers
-      heroic
+      # heroic
       prismlauncher
       bottles
       # PC games
@@ -38,7 +38,7 @@
       stepmania
       openmw
       # Utilities
-      xclicker
+      # xclicker
       # Dependencies
       winePackages.stagingFull
       winePackages.fonts

@@ -9,7 +9,13 @@
 
     # SSH connections
     services.gnome.gnome-keyring.enable = true;
-    security.pam.services.login.enableGnomeKeyring = true;
+    security.pam = {
+      services.login.enableGnomeKeyring = true;
+      # Can use ssh instead of password on system
+      sshAgentAuth.enable = true;
+    };
+
+    services.sshguard.enable = true;
 
     programs.gnupg.agent = {
       enable = true;
@@ -17,7 +23,6 @@
     };
 
     programs.ssh.startAgent = true;
-
     services.openssh = {
       enable = true;
       ports = [ 22 ];
@@ -30,6 +35,24 @@
         UseDns = true;
         X11Forwarding = false;
         PermitRootLogin = lib.mkDefault "no"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+      };
+    };
+
+    home-manager.users."ladas552" = {
+      programs.ssh = {
+        enable = true;
+
+        controlMaster = "auto";
+        controlPersist = "10m";
+
+        extraConfig = ''
+          AddKeysToAgent yes
+        '';
+        matchBlocks."ladas552" = {
+          host = "NixToks";
+          user = "ladas552";
+          identityFile = [ "~/.ssh/NixToks" ];
+        };
       };
     };
   };

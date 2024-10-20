@@ -61,7 +61,6 @@
     #   texlive.combined.scheme-small
     #   texliveFull
     typst
-    vesktop
     xarchiver
   ];
 

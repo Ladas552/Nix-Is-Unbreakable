@@ -8,7 +8,4 @@
 
 # What are the plans
 
-1. ~Write some shell scripts and nix functions to be cool and hip~
-2. Write comments for not forgetting functions and what I did even config
-3. Declare much more packages
-4. Declare Nix with Neorg tangle
+[Check the norg file for plans](./nix.norg)
