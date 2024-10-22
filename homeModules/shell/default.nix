@@ -11,6 +11,28 @@
   };
 
   config = lib.mkIf config.customhm.shell.enable {
+    # Shell programs
+    programs = {
+      ripgrep.enable = true;
+      fd.enable = true;
+      btop.enable = true;
+      bat.enable = true;
+      fzf = {
+        enable = true;
+        enableFishIntegration = true;
+      };
+      zoxide = {
+        enable = true;
+        enableFishIntegration = true;
+      };
+      eza = {
+        enable = true;
+        enableFishIntegration = true;
+        extraOptions = [ "--icons" ];
+      };
+    };
+
+    # Shells
     programs.fish = {
       enable = true;
       plugins = with pkgs.fishPlugins; [

@@ -7,22 +7,26 @@
   imports = [ ./../../homeModules ];
 
   customhm = {
-    chromium.enable = true;
-    thunderbird.enable = true;
-    #qutebrowser.enable = true;
+    #emacs.enable = true;
     #flameshot.enable = true;
-    ghostty.enable = true;
-    imv.enable = true;
     #kitty.enable = true;
-    mangohud.enable = true;
+    #obs.enable = true;
+    #qutebrowser.enable = true;
+    #vim.enable = true;
+    chromium.enable = true;
+    direnv.enable = true;
+    fastfetch.enable = true;
+    ghostty.enable = true;
     helix.enable = true;
+    imv.enable = true;
+    mangohud.enable = true;
     mpd.enable = true;
     mpv.enable = true;
-    #obs.enable = true;
     syncthing.enable = true;
+    thunderbird.enable = true;
+    yazi.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
-    direnv.enable = true;
   };
 
   # Me
