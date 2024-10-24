@@ -10,7 +10,7 @@
     #emacs.enable = true;
     #flameshot.enable = true;
     #kitty.enable = true;
-    #obs.enable = true;
+    obs.enable = true;
     #qutebrowser.enable = true;
     #vim.enable = true;
     chromium.enable = true;

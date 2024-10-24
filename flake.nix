@@ -11,6 +11,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-on-droid = {
+      url = "github:t184256/nix-on-droid";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     # Ghostty, yeap
     ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
 
@@ -30,6 +37,8 @@
     # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
     helix-overlay.url = "github:helix-editor/helix";
+
+    hardware.url = "github:nixos/nixos-hardware";
 
     # Games
     aagl = {
@@ -78,17 +87,14 @@
             inherit inputs;
           };
 
-          modules = [
-            ./hosts/NixFlash
-            #           inputs.nixvim.nixosModules.nixvim
-            #           inputs.stylix.nixosModules.stylix
-            #           inputs.home-manager.nixosModules.home-manager
-            # {
-            #   home-manager.useGlobalPkgs = true;
-            #   home-manager.useUserPackages = true;
-            #   home-manager.users.fixnix = import ./hosts/NixFlash/apps.nix;
-            # }
-          ];
+          modules = [ ./hosts/NixFlash ];
+        };
+      };
+
+      nixOnDroidConfigurations = {
+        NixMux = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+          pkgs = import nixpkgs { system = "aarch64-linux"; };
+          modules = [ ./hosts/NixMux ];
         };
       };
     };

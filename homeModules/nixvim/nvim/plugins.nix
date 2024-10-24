@@ -20,25 +20,6 @@ let
 
     meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg-meta";
   };
-  volt = pkgs.vimUtils.buildVimPlugin {
-    name = "volt";
-    src = pkgs.fetchFromGitHub {
-      owner = "NvChad";
-      repo = "volt";
-      rev = "43f72b49037c191eb3cfe26ba7a5574b4bfce226";
-      sha256 = "19lxsiphq9i6glc99khn6krf81hjhyhqzxc2rgfa2dryvdmi3b9x";
-    };
-  };
-
-  menu = pkgs.vimUtils.buildVimPlugin {
-    name = "menu";
-    src = pkgs.fetchFromGitHub {
-      owner = "NvChad";
-      repo = "menu";
-      rev = "1d5771c729226b5b1e4a84b5da38ba2789fd41b4";
-      sha256 = "1n4v6r40wlpq4yipn9ifq0012baqh2jaxqlk2pr7r9mxd25h85d8";
-    };
-  };
 
   typst-preview = pkgs.vimUtils.buildVimPlugin {
     name = "typst-preview";
@@ -55,7 +36,6 @@ in
   #formatters
   home.packages = with pkgs; [
     black
-    prettierd
     stylua
     # typix web integration
     websocat
@@ -85,15 +65,7 @@ in
       lsp = {
         enable = true;
         servers = {
-          # lua_ls = {
-          #   enable = true;
-          #   settings.diagnostics.globals = [
-          #     "vim"
-          #     "cmp"
-          #   ];
-          # };
           nil_ls.enable = true;
-          yamlls.enable = true;
           tinymist = {
             enable = true;
             settings = {
@@ -115,21 +87,6 @@ in
             "<leader>lD" = "implementation";
             "<leader>lc" = "code_action";
             K = "hover";
-          };
-        };
-      };
-
-      conform-nvim = {
-        enable = true;
-        settings = {
-          format_on_save = {
-            lspFallback = true;
-            timeoutMs = 500;
-          };
-          formatters_by_ft = {
-            python = [ "black" ];
-            lua = [ "stylua" ];
-            markdown = [ [ "prettierd" ] ];
           };
         };
       };
@@ -390,14 +347,11 @@ in
           julia
           kdl
           kotlin
-          latex
           lua
           luadoc
           make
           markdown
           markdown_inline
-          meson
-          ninja
           nix
           norg
           org
@@ -405,7 +359,6 @@ in
           rasi
           requirements
           rust
-          sql
           sxhkdrc
           todotxt
           toml
@@ -452,15 +405,6 @@ in
         };
       };
 
-      # typst-vim = {
-      #   enable = true;
-      #   settings = {
-      #     auto_close_toc = 1;
-      #     typst_auto_open_quickfix = 0;
-      #     pdf_viewer = "zathura";
-      #   };
-      # };
-
       neogit = {
         enable = true;
       };
@@ -479,15 +423,6 @@ in
 
       otter = {
         enable = true;
-      };
-      #Guffy
-      presence-nvim = {
-        enable = true;
-        blacklist = [
-          "norg"
-          "txt"
-        ];
-        neovimImageText = "I am showing off, yeah";
       };
       # Neorg
       neorg = {

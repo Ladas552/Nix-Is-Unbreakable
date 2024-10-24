@@ -14,6 +14,9 @@
     ./../../scripts
     inputs.home-manager.nixosModules.default
   ];
+  # Set nixpath for nixd
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  # Better Error messages
   nix.package = pkgs.nixVersions.latest;
   #modules
   custom = {
@@ -54,7 +57,6 @@
     useUserPackages = true;
     #useGlobalPkgs = true;
   };
-
   #trim your SSD
   services.fstrim.enable = true;
   # Latest kernel
@@ -152,6 +154,11 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [
+      vaapiVdpau
+      intel-media-driver
+      intel-ocl
+    ];
   };
 
   # Load nvidia driver for Xorg and Wayland
@@ -170,6 +177,8 @@
   environment.variables = {
     __NV_PRIME_RENDER_OFFLOAD = 1;
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    LIBVA_DRIVER_NAME = "nvidia";
+    GBM_BACKEND = "nvidia-drm";
   };
   # IF statement to enable vitalization for Nvidia in Docker. If Docker module is disabled it returns false, if enabled returns true
   hardware.nvidia-container-toolkit.enable = config.custom.podman.enable;

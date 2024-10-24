@@ -10,9 +10,7 @@
   options.custom = {
     niri.enable = lib.mkEnableOption "enable niri";
   };
-  imports = [
-    ./greetd.nix
-  ];
+  imports = [ ./greetd.nix ];
 
   config = lib.mkIf config.custom.niri.enable {
     custom = {
@@ -34,8 +32,12 @@
     xdg.portal = {
       enable = lib.mkDefault true;
       xdgOpenUsePortal = true;
+      wlr.enable = true;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-      config.common.default = "*";
+      config = {
+        common.default = "gtk";
+        obs.default = "wlr";
+      };
     };
 
     home-manager.users."ladas552" = {

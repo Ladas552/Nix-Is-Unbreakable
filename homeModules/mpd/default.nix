@@ -117,19 +117,19 @@
         active_window_border = "red";
       };
     };
-
-    services.mpd-discord-rpc = {
-      enable = true;
-      settings = {
-        format = {
-          details = "$title";
-          state = "By $artist";
-          large_image = ":nerd:";
-          large_text = "WW91IGhhdmUgbm8gbGlmZQ==";
-          small_text = "WW91IGhhdmUgbm8gbGlmZQ==";
-        };
-      };
-    };
+    # Enable if discord is pressent on the system
+    # services.mpd-discord-rpc = {
+    #   enable = true;
+    #   settings = {
+    #     format = {
+    #       details = "$title";
+    #       state = "By $artist";
+    #       large_image = ":nerd:";
+    #       large_text = "WW91IGhhdmUgbm8gbGlmZQ==";
+    #       small_text = "WW91IGhhdmUgbm8gbGlmZQ==";
+    #     };
+    #   };
+    # };
     services.mpdris2 = {
       enable = true;
       multimediaKeys = true;
@@ -144,8 +144,8 @@
           type "pipewire"
           name "Pipewire Sounds Server"
         }
-        audio_output {  
-          type               "fifo"  
+        audio_output {
+          type               "fifo"
           name               "toggle_visualizer"
           path               "/tmp/mpd.fifo"
           format             "44100:16:2"
