@@ -14,8 +14,6 @@
     ./../../scripts
     inputs.home-manager.nixosModules.default
   ];
-  # Set nixpath for nixd
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   # Better Error messages
   nix.package = pkgs.nixVersions.latest;
   #modules
