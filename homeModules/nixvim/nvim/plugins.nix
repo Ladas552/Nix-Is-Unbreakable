@@ -64,8 +64,14 @@ in
       #LSP
       lsp = {
         enable = true;
+        inlayHints = true;
         servers = {
-          nil_ls.enable = true;
+          nixd = {
+            enable = true;
+            settings = {
+              nixpkgs.expr = "import <nixpkgs> { }";
+            };
+          };
           tinymist = {
             enable = true;
             settings = {
@@ -91,16 +97,12 @@ in
         };
       };
 
-      luasnip.enable = true;
+      lsp-lines.enable = true;
       friendly-snippets.enable = true;
       lint.enable = true;
       trim.enable = true;
       #UI
       which-key = {
-        enable = true;
-      };
-
-      lsp-lines = {
         enable = true;
       };
 
@@ -223,47 +225,21 @@ in
                 require("luasnip").lsp_expand(args.body)
               end,
             '';
-          sources = {
-            __raw = # lua
-              ''
-                cmp.config.sources({
-                  { name = "nvim_lsp" },
-                  { name = "luasnip" }, -- snippets
-                  { name = "buffer" }, -- text within current buffer
-                  { name = "path" }, -- file system paths
-                  { name = "neorg" },
-                  --  { name = "codeium" },
-                  { name = "copilot" },
-                  { name = "bashls" },
-                  { name = "lua_ls" },
-                  { name = "nil_ls" },
-                }),
-              '';
-          };
+          sources = [
+            { name = "nvim_lsp"; }
+            { name = "buffer"; }
+            { name = "path"; }
+            { name = "neorg"; }
+            { name = "luasnip"; }
+          ];
           mapping = {
-            __raw = # lua
-              ''
-                cmp.mapping.preset.insert({
-                  ["<S-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-                  ["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
-                  ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-                  ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                  ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-                  ["<ESC>"] = cmp.mapping.abort(), -- close completion window
-                  ["<CR>"] = cmp.mapping.confirm({ select = false }),
-                })
-              '';
-          };
-          formatting = {
-            format = # lua
-              ''
-                require("lspkind").cmp_format({
-                  maxwidth = 50,
-                  ellipsis_char = "...",
-                  mode = "symbol",
-                  symbol_map = { Copilot = "" },
-                }),
-              '';
+            "<S-Tab>" = "cmp.mapping.select_prev_item()"; # previous suggestion
+            "<Tab>" = "cmp.mapping.select_next_item()"; # next suggestion
+            "<C-b>" = "cmp.mapping.scroll_docs(-4)";
+            "<C-f>" = "cmp.mapping.scroll_docs(4)";
+            "<C-Space>" = "cmp.mapping.complete()"; # show completion suggestions
+            "<ESC>" = "cmp.mapping.abort()"; # close completion window
+            "<CR>" = "cmp.mapping.confirm { select = false }";
           };
         };
       };
@@ -272,26 +248,8 @@ in
       cmp_luasnip.enable = true;
       cmp-nvim-lsp.enable = true;
       cmp-spell.enable = true;
-      copilot-cmp.enable = true;
-      #AI
-      copilot-lua = {
-        enable = true;
-        panel.enabled = false;
-        suggestion.enabled = false;
-        filetypes = {
-          javascript = true;
-          typescript = true;
-          rust = true;
-          python = true;
-          lua = true;
-          nix = true;
-          "*" = false;
-        };
-      };
+      luasnip.enable = true;
 
-      # codeium-nvim = {
-      #   enable = true;
-      # };
       #Workflow
       wtf = {
         enable = true;
