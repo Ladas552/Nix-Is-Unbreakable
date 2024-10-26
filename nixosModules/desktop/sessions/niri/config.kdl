@@ -280,10 +280,10 @@ binds {
   Mod+Shift+Page_Up { move-column-to-first; }
   Mod+Shift+Page_Down  { move-column-to-last; }
 
-  Mod+H     { focus-monitor-left; }
-  Mod+J     { focus-monitor-down; }
-  Mod+K     { focus-monitor-up; }
-  Mod+L     { focus-monitor-right; }
+  Mod+Alt+H     { focus-monitor-left; }
+  Mod+Alt+J     { focus-monitor-down; }
+  Mod+Alt+K     { focus-monitor-up; }
+  Mod+Alt+L     { focus-monitor-right; }
 
   Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
   Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }

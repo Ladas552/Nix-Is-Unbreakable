@@ -143,7 +143,6 @@ in
 
       telescope = {
         enable = true;
-        extensions.manix.enable = true;
         # settings.defaults = {
         #   path_display = "truncate";
         # };

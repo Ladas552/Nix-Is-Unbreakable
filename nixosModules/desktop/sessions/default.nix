@@ -4,5 +4,7 @@
     ./niri
     ./xfce
     ./bspwm
+    ./wayfire
+    ./labwc
   ];
 }

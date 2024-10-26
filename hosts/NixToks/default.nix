@@ -28,6 +28,7 @@
     # xfce.enable = true;
     # Wayland
     niri.enable = true;
+    #wayfire.enable = true;
     # Network
     openssh.enable = true;
     bluetooth.enable = true;

@@ -2,6 +2,7 @@
   lib,
   config,
   inputs,
+  pkgs,
   ...
 }:
 
@@ -18,6 +19,7 @@
 
     programs.helix = {
       enable = true;
+      extraPackages = [ pkgs.nixd ];
       settings = {
         editor = {
           line-number = "relative";
@@ -30,6 +32,26 @@
         keys = {
           normal = { };
         };
+      };
+      languages = {
+        language-server.nixd = {
+          command = "nixd";
+        };
+        # shout out to Zeth
+        language = [
+          {
+            name = "nix";
+            scope = "source.nix";
+            injection-regex = "nix";
+            file-types = [ "nix" ];
+            comment-token = "#";
+            indent = {
+              tab-width = 2;
+              unit = "  ";
+            };
+            language-servers = [ "nixd" ];
+          }
+        ];
       };
     };
   };

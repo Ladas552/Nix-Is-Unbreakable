@@ -52,7 +52,6 @@
     keepassxc
     libqalculate
     libreoffice-fresh
-    losslesscut-bin
     lshw
     manix
     nuspell
