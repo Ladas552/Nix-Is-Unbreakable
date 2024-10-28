@@ -28,7 +28,8 @@
     # xfce.enable = true;
     # Wayland
     niri.enable = true;
-    #wayfire.enable = true;
+    # wayfire.enable = true;
+    # labwc.enable = true;
     # Network
     openssh.enable = true;
     bluetooth.enable = true;
@@ -167,7 +168,7 @@
   hardware.nvidia = {
     modesetting.enable = true;
     open = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
     prime = {
       sync.enable = true;
       intelBusId = "PCI:0:2:0";

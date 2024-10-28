@@ -284,7 +284,6 @@ in
           bibtex
           c
           cmake
-          org
           comment
           cpp
           css
@@ -312,9 +311,11 @@ in
           nix
           norg
           org
+          org
           python
           rasi
           requirements
+          ron
           rust
           sxhkdrc
           todotxt
@@ -354,6 +355,11 @@ in
       image = {
         enable = true;
         windowOverlapClearEnabled = true;
+        extraOptions = {
+          integrations.typst = {
+            enabled = false;
+          };
+        };
         integrations.neorg = {
           enabled = true;
           clearInInsertMode = true;

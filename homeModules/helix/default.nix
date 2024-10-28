@@ -10,7 +10,7 @@
   options.customhm = {
     helix.enable = lib.mkEnableOption "enable helix";
   };
-
+  imports = [ ./languages ];
   config = lib.mkIf config.customhm.helix.enable {
     # overlay for helix flake. It will build from latest Helix commit
     nixpkgs = {
@@ -32,26 +32,6 @@
         keys = {
           normal = { };
         };
-      };
-      languages = {
-        language-server.nixd = {
-          command = "nixd";
-        };
-        # shout out to Zeth
-        language = [
-          {
-            name = "nix";
-            scope = "source.nix";
-            injection-regex = "nix";
-            file-types = [ "nix" ];
-            comment-token = "#";
-            indent = {
-              tab-width = 2;
-              unit = "  ";
-            };
-            language-servers = [ "nixd" ];
-          }
-        ];
       };
     };
   };
