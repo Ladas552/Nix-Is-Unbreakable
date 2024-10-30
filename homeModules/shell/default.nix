@@ -30,6 +30,9 @@
         enableFishIntegration = true;
         extraOptions = [ "--icons" ];
       };
+      carapace = {
+        enable = true;
+      };
     };
 
     # Shells

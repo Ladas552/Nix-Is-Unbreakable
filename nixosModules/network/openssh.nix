@@ -30,7 +30,8 @@
       banner = "You shell not pass!";
       startWhenNeeded = true;
       settings = {
-        PasswordAuthentication = false;
+        # Password because I can't connect my Tablet for some reason
+        PasswordAuthentication = true;
         AllowUsers = null;
         UseDns = true;
         X11Forwarding = false;
@@ -41,13 +42,11 @@
     home-manager.users."ladas552" = {
       programs.ssh = {
         enable = true;
-
+        forwardAgent = true;
+        addKeysToAgent = "yes";
         controlMaster = "auto";
         controlPersist = "10m";
 
-        extraConfig = ''
-          AddKeysToAgent yes
-        '';
         matchBlocks."ladas552" = {
           host = "NixToks";
           user = "ladas552";
