@@ -38,6 +38,7 @@
         # vesktop.enable = true;
         fish.enable = false;
         nixvim.enable = false;
+        helix.enable = false;
       };
     };
     stylix = {

@@ -2,7 +2,6 @@
   lib,
   config,
   inputs,
-  pkgs,
   ...
 }:
 
@@ -10,7 +9,14 @@
   options.customhm = {
     helix.enable = lib.mkEnableOption "enable helix";
   };
-  imports = [ ./languages ];
+
+  imports = [
+    ./languages
+    ./config/keymap.nix
+    ./config/themes.nix
+    ./config/options.nix
+  ];
+
   config = lib.mkIf config.customhm.helix.enable {
     # overlay for helix flake. It will build from latest Helix commit
     nixpkgs = {
@@ -19,20 +25,6 @@
 
     programs.helix = {
       enable = true;
-      extraPackages = [ pkgs.nixd ];
-      settings = {
-        editor = {
-          line-number = "relative";
-          cursor-shape = {
-            insert = "bar";
-            normal = "block";
-            select = "block";
-          };
-        };
-        keys = {
-          normal = { };
-        };
-      };
     };
   };
 }
