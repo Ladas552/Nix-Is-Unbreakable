@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}:
+{ lib, config, ... }:
 
 {
 
@@ -58,10 +54,10 @@
         tab_bar_background = "#181926";
       };
     };
-# Breaks ssh
- #   home.sessionVariables = {
-  #  TERMINAL = "kitty";
-   #   TERM = "kitty";
-  #  };
+    # Breaks ssh
+    #   home.sessionVariables = {
+    #  TERMINAL = "kitty";
+    #   TERM = "kitty";
+    #  };
   };
 }

@@ -2,6 +2,7 @@
 
 {
   programs.helix.settings = {
+    theme = "adwaita-dark";
     editor = {
       # LSP
       lsp = {
@@ -10,6 +11,7 @@
       inline-diagnostics = {
         cursor-line = "warning";
       };
+      # end-of-line-diagnostics = "hint";
       # UI
       line-number = "relative";
       cursor-shape = {
@@ -31,10 +33,17 @@
         enable = true;
         wrap-indicator = "";
       };
+      true-color = true;
+      undercurl = true;
+      bufferline = "multiple";
+      popup-border = "menu";
       # Workflow
       auto-save.after-delay = {
         enable = true;
         timeout = 2000;
+      };
+      file-picker = {
+        hidden = false;
       };
     };
   };

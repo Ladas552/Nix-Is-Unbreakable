@@ -68,6 +68,11 @@ in
         servers = {
           nixd = {
             enable = true;
+            # neovim trows  an error with semantic tokens
+            cmd = [
+              "nixd"
+              "--semantic-tokens=false"
+            ];
             settings = {
               nixpkgs.expr = "import <nixpkgs> { }";
             };

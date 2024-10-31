@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   options.custom = {
     powermanager.enable = lib.mkEnableOption "enable powermanager";
   };

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 # Yeah it doesn't prooperly work I think at least on my i7-4710HQ :P
 # So most lines are commented out, but have a good night seeing what works on your system
 {
