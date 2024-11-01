@@ -32,6 +32,8 @@
             "." = ":buffer-next";
             "x" = ":buffer-close";
           };
+          "=" = ":format";
+          space.K = "signature_help";
         };
       };
     };

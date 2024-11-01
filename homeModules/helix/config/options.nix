@@ -7,11 +7,13 @@
       # LSP
       lsp = {
         display-inlay-hints = true;
+        # to remove useless text
+        auto-signature-help = false;
+        display-signature-help-docs = false;
       };
       inline-diagnostics = {
         cursor-line = "warning";
       };
-      # end-of-line-diagnostics = "hint";
       # UI
       line-number = "relative";
       cursor-shape = {
