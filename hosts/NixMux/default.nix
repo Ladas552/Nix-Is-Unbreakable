@@ -8,6 +8,31 @@
 }:
 
 {
+  nix.buildMachines = [
+    {
+      # https://wiki.nixos.org/wiki/Distributed_build#Modify_the_local_machine's_Nix_config_to_know_about_the_remote_machine.
+      hostName = "NixToks";
+      systems = [
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
+      protocol = "ssh-ng";
+      speedFactor = 2;
+      supportedFeatures = [
+        "nixos-test"
+        "benchmark"
+        "big-parallel"
+        "kvm"
+      ];
+      mandatoryFeatures = [ ];
+    }
+  ];
+  # Enables the above config
+  nix.distributedBuilds = true;
+  nix.settings = {
+    builders-use-substitutes = true;
+  };
+
   # imports = [
   #  inputs.home-manager.nixosModules.default
   # ];
