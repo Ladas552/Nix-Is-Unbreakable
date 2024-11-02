@@ -31,7 +31,7 @@
       startWhenNeeded = true;
       settings = {
         # Password because I can't connect my Tablet for some reason
-        PasswordAuthentication = true;
+        PasswordAuthentication = false;
         AllowUsers = null;
         UseDns = true;
         X11Forwarding = false;

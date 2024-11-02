@@ -14,6 +14,8 @@
     ./../../scripts
     inputs.home-manager.nixosModules.default
   ];
+  # Termux builder
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   # Set nixpath for nixd
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   # Better Error messages
