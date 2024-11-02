@@ -11,6 +11,10 @@
       enable = true;
       userName = "Ladas552";
       userEmail = "l.tokshalov@gmail.com";
+      aliases = {
+        cm = "commit -m";
+        al = "add ./*";
+      };
       ignores = [
         ".pre-commit-config.yaml"
         "result"

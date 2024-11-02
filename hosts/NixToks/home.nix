@@ -16,6 +16,7 @@
     chromium.enable = true;
     direnv.enable = true;
     fastfetch.enable = true;
+    gh.enable = true;
     ghostty.enable = true;
     helix.enable = true;
     imv.enable = true;

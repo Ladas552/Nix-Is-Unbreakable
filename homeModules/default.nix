@@ -8,6 +8,7 @@
     ./fastfetch
     ./thunderbird
     ./flameshot
+    ./gh
     ./ghostty
     ./git
     ./helix
