@@ -1,15 +1,16 @@
 { inputs, pkgs, ... }:
 {
+imports = [
+./../../homeModules
+];
 
-  imports = [ ./../../homeModules ];
-
-  customhm = {
-    helix.enable = true;
-  };
-
-  home.username = "ladas552";
-  home.homeDirectory = "/home/ladas552";
-
+customhm = {
+helix.enable = true;
+nixvim.enable =false; 
+ shell.enable =false; 
+};
+home.stateVersion = "24.05";
+programs.home-manager.enable = true;
   home.packages = with pkgs; [
     neovim
     ranger

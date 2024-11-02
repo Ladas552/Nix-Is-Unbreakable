@@ -92,9 +92,10 @@
       };
 
       nixOnDroidConfigurations = {
-        NixMux = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-          pkgs = import nixpkgs { system = "aarch64-linux"; };
-          modules = [ ./hosts/NixMux ];
+	      NixMux = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+		      extraSpecialArgs = {inherit inputs;};
+		      pkgs = import nixpkgs { system = "aarch64-linux"; };
+		      modules = [ ./hosts/NixMux ];
         };
       };
     };
