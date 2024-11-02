@@ -8,30 +8,23 @@
 }:
 
 {
-  nix.buildMachines = [
-    {
-      # https://wiki.nixos.org/wiki/Distributed_build#Modify_the_local_machine's_Nix_config_to_know_about_the_remote_machine.
-      hostName = "NixToks";
-      systems = [
-        "aarch64-linux"
-        "x86_64-linux"
-      ];
-      protocol = "ssh-ng";
-      speedFactor = 2;
-      supportedFeatures = [
-        "nixos-test"
-        "benchmark"
-        "big-parallel"
-        "kvm"
-      ];
-      mandatoryFeatures = [ ];
+  # Thanks rix101 for the snippet
+  nix.extraOptions = ''
+          experimental-features = ${
+            builtins.concatStringsSep " " [
+              "nix-command"
+              "flakes"
+              "recursive-nix"
+            ]
+          }
+    builders = ${
+      # TODO: <https://nix.dev/manual/nix/2.18/advanced-topics/distributed-builds>
+      builtins.concatStringsSep " ; " [
+        "ssh://NixToks                      x86_64-linux,aarch64-linux - 16 6 benchmark,big-parallel,kvm,nixos-test -"
+      ]
     }
-  ];
-  # Enables the above config
-  nix.distributedBuilds = true;
-  nix.settings = {
-    builders-use-substitutes = true;
-  };
+      builders-use-substitutes = true
+  '';
 
   # imports = [
   #  inputs.home-manager.nixosModules.default
@@ -41,9 +34,6 @@
 
   # Read the changelog before changing this value
   system.stateVersion = "24.05"; # Set up nix for flakes
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
   # Set your time zone
   #time.timeZone = "Europe/Berlin";
 
