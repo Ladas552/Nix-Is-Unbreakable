@@ -19,9 +19,9 @@
 
   config = lib.mkIf config.customhm.helix.enable {
     # overlay for helix flake. It will build from latest Helix commit
-#    nixpkgs = {
-#      overlays = [ inputs.helix-overlay.overlays.default ];
-#    };
+    #    nixpkgs = {
+    #      overlays = [ inputs.helix-overlay.overlays.default ];
+    #    };
 
     programs.helix = {
       enable = true;

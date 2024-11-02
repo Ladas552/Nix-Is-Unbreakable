@@ -52,7 +52,6 @@
       borderless_monocle = true;
       gapless_monocle = true;
       single_monocle = true;
-
     };
     #    extraConfig = ''
     #    pgrep -x sxhkd > /dev/null || sxhkd &

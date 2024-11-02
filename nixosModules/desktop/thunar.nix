@@ -23,8 +23,6 @@
       gvfs.enable = true;
       tumbler.enable = true;
     };
-    environment.systemPackages = [
-      pkgs.ffmpegthumbnailer
-    ];
+    environment.systemPackages = [ pkgs.ffmpegthumbnailer ];
   };
 }

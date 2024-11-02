@@ -1,9 +1,16 @@
-{ home-manager,inputs,pkgs,config,lib, ... }:
+{
+  home-manager,
+  inputs,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
- # imports = [
+  # imports = [
   #  inputs.home-manager.nixosModules.default
- # ];
+  # ];
   # Backup etc files instead of failing to activate generation if a file already exists in /etc
   environment.etcBackupExtension = ".bak";
 
@@ -19,7 +26,7 @@
     extraSpecialArgs = {
       inherit inputs;
     };
-backupFileExtension = "hm-bak";
+    backupFileExtension = "hm-bak";
     config = import ./home.nix;
     useUserPackages = true;
     #useGlobalPkgs = true;
