@@ -20,7 +20,7 @@
     builders = ${
       # TODO: <https://nix.dev/manual/nix/2.18/advanced-topics/distributed-builds>
       builtins.concatStringsSep " ; " [
-        "ssh://NixToks                      x86_64-linux,aarch64-linux - 16 6 benchmark,big-parallel,kvm,nixos-test -"
+        "ssh-ng://NixToks                      x86_64-linux,aarch64-linux - 16 6 benchmark,big-parallel,kvm,nixos-test -"
       ]
     }
       builders-use-substitutes = true
@@ -32,12 +32,16 @@
   # Backup etc files instead of failing to activate generation if a file already exists in /etc
   environment.etcBackupExtension = ".bak";
 
+  # Set nixpath for nixd
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  # Better Error messages
+  nix.package = pkgs.nixVersions.latest;
   # Read the changelog before changing this value
   system.stateVersion = "24.05"; # Set up nix for flakes
   # Set your time zone
-  #time.timeZone = "Europe/Berlin";
+  time.timeZone = "Asia/Almaty";
 
-  home-manager = {
+   home-manager = {
     extraSpecialArgs = {
       inherit inputs;
     };
