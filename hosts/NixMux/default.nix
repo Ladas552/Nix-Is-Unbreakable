@@ -1,11 +1,4 @@
-{
-  home-manager,
-  inputs,
-  pkgs,
-  config,
-  lib,
-  ...
-}:
+{ inputs, pkgs, ... }:
 
 {
   # Thanks rix101 for the snippet
@@ -21,9 +14,11 @@
       # TODO: <https://nix.dev/manual/nix/2.18/advanced-topics/distributed-builds>
       builtins.concatStringsSep " ; " [
         "ssh-ng://NixToks                      x86_64-linux,aarch64-linux - 16 6 benchmark,big-parallel,kvm,nixos-test -"
+        "ssh-ng://Zero                         x86_64-linux,aarch64-linux - 16 6 benchmark,big-parallel,kvm,nixos-test -"
       ]
     }
       builders-use-substitutes = true
+      warn-dirty = false
   '';
 
   # imports = [
@@ -41,7 +36,7 @@
   # Set your time zone
   time.timeZone = "Asia/Almaty";
 
-   home-manager = {
+  home-manager = {
     extraSpecialArgs = {
       inherit inputs;
     };

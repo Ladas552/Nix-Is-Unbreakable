@@ -17,29 +17,6 @@
   #build machine for termux
   # Termux builder
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  # Build machine access with ssh
-  nix.buildMachines = [
-    {
-      # https://wiki.nixos.org/wiki/Distributed_build#Modify_the_local_machine's_Nix_config_to_know_about_the_remote_machine.
-      hostName = "NixToks";
-      systems = [
-        "aarch64-linux"
-        "x86_64-linux"
-      ];
-      protocol = "ssh-ng";
-      speedFactor = 2;
-      supportedFeatures = [
-        "nixos-test"
-        "benchmark"
-        "big-parallel"
-        "kvm"
-      ];
-      mandatoryFeatures = [ ];
-    }
-  ];
-  # Enables the above config
-  nix.distributedBuilds = true;
-
   # Set nixpath for nixd
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   # Better Error messages

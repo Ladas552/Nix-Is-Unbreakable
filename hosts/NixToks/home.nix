@@ -25,7 +25,7 @@
     mpv.enable = true;
     syncthing.enable = true;
     thunderbird.enable = true;
-    yazi.enable = true;
+    #   yazi.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
   };
