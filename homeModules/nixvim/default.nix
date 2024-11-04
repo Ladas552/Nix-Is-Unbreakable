@@ -12,11 +12,11 @@
   imports = [
     # Neorg module only for overlay. Don't forget to reenable overlay in flake.nix
     # ./nvim/neorg.nix
-    ./nvim/option.nix
-    ./nvim/keymaps.nix
-    ./nvim/full-plugins.nix
-    ./nvim/mobile-plugins.nix
-    ./nvim/colorscheme.nix
+    ./config/option.nix
+    ./config/keymaps.nix
+    ./config/full-plugins.nix
+    ./config/mobile-plugins.nix
+    ./config/colorscheme.nix
     inputs.nixvim.homeManagerModules.nixvim
   ];
   config = lib.mkIf config.customhm.nixvim.enable {

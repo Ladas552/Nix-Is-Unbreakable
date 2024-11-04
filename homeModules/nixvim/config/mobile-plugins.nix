@@ -195,10 +195,6 @@ in
           settings = {
             indent.enable = true;
             highlight.enable = true;
-            ensure_installed = [
-              "norg"
-              "norg-meta"
-            ];
           };
         };
 
@@ -260,9 +256,6 @@ in
               __empty = null;
             };
             "core.ui.calendar" = {
-              __empty = null;
-            };
-            "core.integrations.image" = {
               __empty = null;
             };
             "core.integrations.telescope" = {
