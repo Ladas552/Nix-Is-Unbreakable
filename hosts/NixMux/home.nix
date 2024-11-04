@@ -69,4 +69,8 @@
     clean = "nix-collect-garbage";
     yy = "nix-on-droid switch -F ~/Nix-Is-Unbreakable#NixMux";
   };
+
+  home.sessionVariables = {
+  EDITOR = "hx";
+  };
 }
