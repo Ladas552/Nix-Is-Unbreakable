@@ -44,8 +44,7 @@
     termux-reload-settings.enable = true;
     termux-setup-storage.enable = true;
   };
-  # for the funny
-  environment.binSh = lib.getExe pkgs.dash;
+  # Greeter
   environment.motd = ''
     Welcome to nix-on-droid!
 
