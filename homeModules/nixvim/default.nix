@@ -14,16 +14,18 @@
     # ./nvim/neorg.nix
     ./nvim/option.nix
     ./nvim/keymaps.nix
-    ./nvim/plugins.nix
+    ./nvim/full-plugins.nix
+    ./nvim/mobile-plugins.nix
     ./nvim/colorscheme.nix
     inputs.nixvim.homeManagerModules.nixvim
   ];
   config = lib.mkIf config.customhm.nixvim.enable {
+
     programs.nixvim = {
       enable = true;
-      defaultEditor = true;
+      defaultEditor = lib.mkDefault true;
     };
-    home.sessionVariables = {
+    home.sessionVariables = lib.mkDefault {
       EDITOR = "nvim";
       VISUAL = "nvim";
       SUDO_EDITOR = "nvim";

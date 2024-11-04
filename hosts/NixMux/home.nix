@@ -4,7 +4,11 @@
 
   customhm = {
     helix.enable = true;
-    nixvim.enable = false;
+    nixvim = {
+      enable = true;
+      plugins.NixToks = false;
+      plugins.NixMux = true;
+    };
     shell.enable = false;
     fastfetch.enable = true;
   };
@@ -71,6 +75,8 @@
   };
 
   home.sessionVariables = {
-  EDITOR = "hx";
+    EDITOR = "hx";
+    VISUAL = "hx";
+    SUDO_EDITOR = "hx";
   };
 }
