@@ -7,7 +7,7 @@
   imports = [ ./../../homeModules ];
 
   customhm = {
-    #emacs.enable = true;
+    emacs.enable = true;
     #flameshot.enable = true;
     #kitty.enable = true;
     obs.enable = true;

@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   pkgs-stable,
   ...
 }:
@@ -21,6 +22,8 @@
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   # Better Error messages
   nix.package = pkgs.nixVersions.latest;
+  # Replace sh with dash for the meme by Greg
+  environment.binsh = lib.getExe pkgs.dash;
   #modules
   custom = {
     # X11

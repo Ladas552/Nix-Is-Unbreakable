@@ -13,7 +13,7 @@
   config = lib.mkIf config.customhm.emacs.enable {
     programs.emacs = {
       enable = true;
-      package = pkgs.emacs-git-nox;
+      package = pkgs.emacs-nox;
       extraPackages =
         epkgs: with pkgs.emacsPackages; [
           org
