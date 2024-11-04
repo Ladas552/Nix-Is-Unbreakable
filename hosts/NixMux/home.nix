@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [ ./../../homeModules ];
 
@@ -74,7 +74,7 @@
     yy = "nix-on-droid switch -F ~/Nix-Is-Unbreakable#NixMux";
   };
 
-  home.sessionVariables = {
+  home.sessionVariables = lib.mkForce {
     EDITOR = "hx";
     VISUAL = "hx";
     SUDO_EDITOR = "hx";
