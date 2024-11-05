@@ -19,6 +19,8 @@
     libqalculate
     manix
     typst
+    ripgrep
+    fd
     gcc
     gnumake
     sops
@@ -67,11 +69,24 @@
     };
   };
   home.shellAliases = {
+    # cli tools
     ls = "eza";
     cd = "z";
     mc = "ranger";
+    h = "hx";
+    # System Mantaining
+    en = "hx ~/Nix-Is-Unbreakable/";
+    eh = "hx ~/Nix-Is-Unbreakable/";
     clean = "nix-collect-garbage";
     yy = "nix-on-droid switch -F ~/Nix-Is-Unbreakable#NixMux";
+    # Git
+    g = "git";
+    gal = "git add ./*";
+    gcm = "git commit -m";
+    gpu = "git push";
+    # Neorg
+    v = "nvim";
+    j = ''nvim -c "Neorg journal today"'';
   };
 
   home.sessionVariables = lib.mkForce {
