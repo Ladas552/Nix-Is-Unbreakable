@@ -33,3 +33,5 @@ I start to have a life other than computers so I kinda begin to forget what I di
 
 *** Nix-on-droid
     So I have been experementing with Nix-on-droid to make use of my nixvim and other configs inside of my phone. The main problemt I am facing now that if I even manage to make one, Can I override sync my norg files? Because My config stores them in home directory, but for termux, I use the Android storage, because Syncthing can access the Termux directory. Not even the fork can.
+
+    Update 1: I have managed to roll into all of the stuff all at once. Cool, Now my nixvim has a module for 1 Desktop, 2 Mobile. And every setting except plugins are now in sync and plugins now follow the norg notes so this is awesome. I wanted to sync my configs for 2 years. I finally managed that.
