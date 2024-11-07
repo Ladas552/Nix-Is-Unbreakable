@@ -1,12 +1,13 @@
 {
   inputs,
   pkgs,
-  lib,
   ...
 }:
 
 {
-  # Thanks rix101 for the snippet
+  # Thanks rix101 for the snippets
+  # If you want to add new builders, also edit the `.config/nix/nix.conf` file
+  # And add host to `.ssh/config` file
   nix.extraOptions = ''
           experimental-features = ${
             builtins.concatStringsSep " " [
@@ -46,10 +47,14 @@
   };
   # Greeter
   environment.motd = ''
+  
     Welcome to nix-on-droid!
 
     * Rebuild system: yy
     * Ranger TUI: mc
+    * Edit config: en
+    * Today's journal: j
+    
   '';
 
   # To not build stuff but download
