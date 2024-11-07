@@ -41,7 +41,6 @@
       # xclicker
       # Dependencies
       winePackages.stagingFull
-      winePackages.fonts
       winetricks
       steam-run
       # Emulators

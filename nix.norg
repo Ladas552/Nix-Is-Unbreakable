@@ -7,6 +7,11 @@ authors: ladas552
 I start to have a life other than computers so I kinda begin to forget what I did and didn't. So here we are, there will be notes, todos, plans and tips(mostly for myself)
 
 * Notes
+** Scripts
+   The `pkgs.writeShellScriptBin` is used to put a complete bash script into /nix/store with a correct Shebang for it to work. This one is only for `bash` and provides `#!/usr/bin/env bash` shebang
+
+
+** Repository
   devenv and direnv are nice for developing, these files are here if you use them in your shell
 * TODOs
 ** Notes
@@ -20,6 +25,7 @@ I start to have a life other than computers so I kinda begin to forget what I di
    - *Fish*. Change abbr path for Video and Music to follow xdg in home-manager
    - *Rofi*. Define Rofi in Home manager, to enable and reanable module
    - *Niri*. Terminals stop working after sleep
+   - *Nix-on-droid*. Add files like `termux-edit-open` and `termux.properties` into the declarative ways.
 
 ** Modulations
 *** Home manager files in nixos modules

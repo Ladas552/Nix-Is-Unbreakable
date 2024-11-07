@@ -1,4 +1,6 @@
 { pkgs, lib }:
+# This script looks up a word in the dictionary from mouse selected word
+# Script is stolen from Reddit
 pkgs.writeShellScriptBin "word-lookup.sh" # bash
   ''
     usage(){
