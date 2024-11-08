@@ -8,4 +8,4 @@
 
 # What are the plans
 
-[Check the norg file for plans](./nix.norg)
+[Check the norg file for plans and general notes](./nix.norg)
