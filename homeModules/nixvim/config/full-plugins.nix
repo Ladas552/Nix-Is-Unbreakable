@@ -346,6 +346,15 @@ in
           settings = {
             indent.enable = true;
             highlight.enable = true;
+            incremental_selection = {
+              enable = true;
+              keymaps = {
+                init_selection = "<C-space>";
+                node_incremental = "<C-space>";
+                scope_incremental = false;
+                node_decremental = "<bs>";
+              };
+            };
             ensure_installed = [
               "bash"
               "fish"
