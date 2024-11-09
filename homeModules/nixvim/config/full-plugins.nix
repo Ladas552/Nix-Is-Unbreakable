@@ -280,6 +280,8 @@ in
           };
         };
 
+        flash.enable = true;
+
         nvim-autopairs = {
           enable = true;
           settings = {
