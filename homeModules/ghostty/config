@@ -9,6 +9,8 @@ keybind = ctrl+shift+f5=reload_config
 keybind = ctrl+shift+down=scroll_page_down
 keybind = ctrl+shift+up=scroll_page_up
 # Windows
+background-opacity = 0.95
+background-blur-radius = 20
 window-padding-x = 2
 window-padding-y = 2
 window-padding-color = extend
