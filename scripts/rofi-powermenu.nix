@@ -1,4 +1,5 @@
 { pkgs }:
+# Power Menu that uses Rofi. Can be modified to have multiple actions, for example stopping MPD before Suspend
 pkgs.writeShellScriptBin "powermenu.sh" ''
   ## Author : Aditya Shakya (adi1090x)
   ## Github : @adi1090x

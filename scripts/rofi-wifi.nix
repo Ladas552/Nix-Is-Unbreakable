@@ -1,4 +1,5 @@
 { pkgs, lib }:
+# It was a test script, never worked tbh. Suppose to replace nm-applet with Rofi
 pkgs.writeShellScriptBin "wifiMenu" # bash
   ''
     ${lib.getExe pkgs.libnotify} "Getting list of available Wi-Fi networks..."

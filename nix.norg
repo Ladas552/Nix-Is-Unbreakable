@@ -8,14 +8,26 @@ I start to have a life other than computers so I kinda begin to forget what I di
 
 * Notes
 ** Scripts
-   The `pkgs.writeShellScriptBin` is used to put a complete bash script into /nix/store with a correct Shebang for it to work. This one is only for `bash` and provides `#!/usr/bin/env bash` shebang
+   I declare scripts with packages that allow to have them in nix format. It allows me to not hold dependencies for certain scripts, like `libnotify` for scripts that send notifications. There are several ways to do this, I prefer bash, but it isn't sufficient in certain places.
 
+   I hold all of my scripts in {./scripts/}[scripts] folder
+
+*** writeShellScriptBin
+    The `pkgs.writeShellScriptBin` is used to put a complete bash script into /nix/store with a correct Shebang for it to work. This one is only for `bash` and provides `#!/usr/bin/env bash` shebang
+
+    Example: {./scripts/word-lookup.nix}[Word look up script written in bash]
+
+*** writers.writeFishBin
+    `pkgs.writers.writeFishBin "musnow.sh" {}` is a way to write scripts in any language, this example is for `fish` shell, but `writers` can be in many forms, from python and lua to rust.
+    The `{}` is set of options can also hold environmental variables.
+
+    Example: {./scripts/musnow.nix}[To look up comment metadata of mpd track]
 
 ** Repository
-  devenv and direnv are nice for developing, these files are here if you use them in your shell
+   devenv and direnv are nice for developing, these files are here if you use them in your shell
 * TODOs
 ** Notes
-   - To write comments in shell scripts
+   - -To write comments in shell scripts-
 
 ** Programs
    - *Qemu*.I need to configure Virtualization properly, half of the time it just doesn't work. Maybe I need it to be deployable, like Linux in Docker or Windows in Docker. Oh god, maybe I will need to configure Docker in Nix.
