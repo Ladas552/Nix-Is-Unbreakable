@@ -21,6 +21,7 @@
     ./nixvim
     ./obs
     ./qutebrowser
+    ./lf
     ./ranger
     ./shell
     ./swaylock
