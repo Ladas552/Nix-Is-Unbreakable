@@ -105,7 +105,7 @@
           }
         ]
 
-        ++ lib.optionalAttrs config.programs.nixvim.plugins.neogit.enable [
+        ++ lib.optionalAttrs config.programs.nixvim.plugins.oil.enable [
           # Oil
           {
             action = "<cmd>Oil<CR>";

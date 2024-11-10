@@ -322,11 +322,11 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1731023348,
-        "narHash": "sha256-9k2ynQywm8AWi27C2o+/KAFpqV6PwZgaSyqhSqW8ZOs=",
+        "lastModified": 1731182230,
+        "narHash": "sha256-fFMFH0n+4r9NL/AobvFwSs+PA+F5yiOiImkfi3RJF2k=",
         "ref": "refs/heads/main",
-        "rev": "75fe0b2dfb200dda2622b0fbc790e9451ffff236",
-        "revCount": 7916,
+        "rev": "72659d48ac0e27d815fb8b0b96eb8aa2614a4dd9",
+        "revCount": 7940,
         "type": "git",
         "url": "ssh://git@github.com/ghostty-org/ghostty"
       },
@@ -584,11 +584,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1731116504,
-        "narHash": "sha256-H5siY6lN8a3KtXGHFywcKJ3s9Rgq5HxIrkewvBsFhjY=",
+        "lastModified": 1731203397,
+        "narHash": "sha256-Po7NGTYW07z8XrCJxak+lo66RCKHeeyQljaszfV8E3E=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "146aa953823bb384993b92234516f5ab1aaf17f0",
+        "rev": "3a7942190a3048cf944367148b0d62c3e333f645",
         "type": "github"
       },
       "original": {
@@ -690,11 +690,11 @@
     },
     "nixpkgs-stable_2": {
       "locked": {
-        "lastModified": 1731157609,
-        "narHash": "sha256-4twnH4q6Et7D227ozP9Jl3jdhL95zSEUCtpa+Et8nQw=",
+        "lastModified": 1731172921,
+        "narHash": "sha256-LTwbJCRZua1cZCiaisO1pnX446EKSZcYy9730jX1F4w=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b90a43796a0e098f67d5f2abd19745e8e14af6e9",
+        "rev": "0b88841b5eb61720be435a9e40f69bd853fa232c",
         "type": "github"
       },
       "original": {
@@ -934,11 +934,11 @@
         "nixpkgs-stable": "nixpkgs-stable_3"
       },
       "locked": {
-        "lastModified": 1731047660,
-        "narHash": "sha256-iyp51lPWEQz4c5VH9bVbAuBcFP4crETU2QJYh5V0NYA=",
+        "lastModified": 1731213149,
+        "narHash": "sha256-jR8i6nFLmSmm0cIoeRQ8Q4EBARa3oGaAtEER/OMMxus=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "60e1bce1999f126e3b16ef45f89f72f0c3f8d16f",
+        "rev": "f1675e3b0e1e663a4af49be67ecbc9e749f85eb7",
         "type": "github"
       },
       "original": {
