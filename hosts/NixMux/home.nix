@@ -92,7 +92,7 @@
   };
 
   home.file."bin/termux-file-editor".text = "hx";
-  home.file.".termux/termux.properties".source = ./termux.nix;
+  home.file.".termux/termux.properties".source = ./termux.properties;
 
   home.sessionVariables = lib.mkForce {
     EDITOR = "hx";
