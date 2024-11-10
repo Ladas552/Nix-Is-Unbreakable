@@ -198,6 +198,8 @@ in
           };
         };
 
+        flash.enable = true;
+
         auto-save = {
           enable = true;
         };

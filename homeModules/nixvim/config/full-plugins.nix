@@ -271,7 +271,7 @@ in
         };
 
         oil = {
-          enable = true;
+          enable = false;
           settings = {
             delete_to_trash = true;
             view_options = {

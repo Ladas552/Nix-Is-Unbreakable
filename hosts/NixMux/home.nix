@@ -8,7 +8,6 @@
       enable = true;
       plugins.NixToks = false;
       plugins.NixMux = true;
-      keymaps = false;
     };
     shell.enable = false;
     fastfetch.enable = true;
