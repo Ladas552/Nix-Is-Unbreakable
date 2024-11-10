@@ -83,7 +83,8 @@
           }
         ]
         # a way to add the list to other list, if certain plugin is enabled
-        ++ lib.optionalAttrs config.programs.nixvim.plugins.flash.enable [
+        # `optionalAttrs` is for sets, hence "attrs". for lists use `optionals`
+        ++ lib.optionals config.programs.nixvim.plugins.flash.enable [
           # Flash
           {
             key = "s";
@@ -96,7 +97,7 @@
             options.desc = "Flash treesitter";
           }
         ]
-        ++ lib.optionalAttrs config.programs.nixvim.plugins.neogit.enable [
+        ++ lib.optionals config.programs.nixvim.plugins.neogit.enable [
           # NeoGit
           {
             action = "<cmd>Neogit<CR>";
@@ -105,7 +106,7 @@
           }
         ]
 
-        ++ lib.optionalAttrs config.programs.nixvim.plugins.oil.enable [
+        ++ lib.optionals config.programs.nixvim.plugins.oil.enable [
           # Oil
           {
             action = "<cmd>Oil<CR>";
