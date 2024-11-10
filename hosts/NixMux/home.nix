@@ -91,9 +91,6 @@
     j = ''nvim -c "Neorg journal today"'';
   };
 
-  home.file."bin/termux-file-editor".text = "hx";
-  home.file.".termux/termux.properties".source = ./termux.properties;
-
   home.sessionVariables = lib.mkForce {
     EDITOR = "hx";
     VISUAL = "hx";
