@@ -165,6 +165,12 @@ window-rule {
 }
 
 window-rule {
+  // this is for software I run in Bottles
+  match app-id="steam_proton"
+  default-column-width {}
+}
+
+window-rule {
   match app-id="steam-"
   match title="DARK SOULS II"
   match app-id="darksoulsii.exe"
