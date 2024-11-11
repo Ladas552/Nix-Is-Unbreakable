@@ -23,6 +23,8 @@
     ripgrep
     fd
     gcc
+    coreutils
+    gawk
     gnumake
     sops
     openssh

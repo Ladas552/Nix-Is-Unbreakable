@@ -72,14 +72,9 @@ in
             shortcut_type = "number";
             config = {
               header = [
-                "                                                                "
-                "██╗      █████╗ ██████╗  █████╗ ███████╗███████╗███████╗██████╗ "
-                "██║     ██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝╚════██╗"
-                "██║     ███████║██║  ██║███████║███████╗███████╗███████╗ █████╔╝"
-                "██║     ██╔══██║██║  ██║██╔══██║╚════██║╚════██║╚════██║██╔═══╝ "
-                "███████╗██║  ██║██████╔╝██║  ██║███████║███████║███████║███████╗"
-                "╚══════╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝╚══════╝"
-                "                                                                "
+                " "
+                "Good living ain't ya?"
+                " "
               ];
               center = [
                 {
@@ -87,12 +82,6 @@ in
                   desc = " Recent files";
                   icon = "󰥔 ";
                   key = "R";
-                }
-                {
-                  action = "Telescope find_files";
-                  desc = " Find files";
-                  icon = " ";
-                  key = "F";
                 }
                 {
                   action = "ene | startinsert";
@@ -212,9 +201,11 @@ in
             };
             "core.esupports.metagen" = {
               config = {
+                author = "ladas552";
                 timezone = "implicit-local";
-                type = "empty";
-                undojoin_updates = "false";
+                type = "auto";
+                undojoin_updates = true;
+                update_date = true;
               };
             };
             "core.tangle" = {
