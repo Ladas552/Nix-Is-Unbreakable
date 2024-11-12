@@ -32,11 +32,12 @@
     xdg.portal = {
       enable = lib.mkDefault true;
       xdgOpenUsePortal = true;
-      wlr.enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      # wlr.enable = true;
+      # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
       config = {
-        common.default = "gtk";
-        obs.default = "wlr";
+        common.default = "gnome";
+        #obs.default = "wlr";
       };
     };
 

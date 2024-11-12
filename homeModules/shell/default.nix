@@ -107,6 +107,8 @@
       clean = "nh clean all";
       yy = "nh os switch ~/Nix-dots/";
       yyy = "nh os switch -u ~/Nix-dots/";
+      serve = "~/.cargo/bin/norgolith serve";
+      ungl = "source ~/Desktop/ungl.sh";
     };
   };
 }
