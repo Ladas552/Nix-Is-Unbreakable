@@ -28,6 +28,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Niri
+    niri.url = "github:sodiboo/niri-flake";
+
     # Secrets
     sops-nix = {
       url = "github:Mic92/sops-nix";

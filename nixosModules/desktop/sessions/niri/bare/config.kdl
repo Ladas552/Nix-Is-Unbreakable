@@ -349,9 +349,9 @@ binds {
   Mod+BracketLeft  { consume-or-expel-window-left; }
   Mod+BracketRight { consume-or-expel-window-right; }
 
-  Mod+R { switch-preset-column-width; }
-  Mod+Alt+F { maximize-column; }
-  Mod+Alt+C { center-column; }
+  Mod+R {       switch-preset-column-width; }
+  Mod+Alt+F {   maximize-column; }
+  Mod+Alt+C {   center-column; }
   Mod+Shift+F { fullscreen-window; }
 
   // Finer width adjustments.
@@ -362,11 +362,11 @@ binds {
   // * adjust width as a percentage of screen width: "-10%" or "+10%"
   // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
   // set-column-width "100" will make the column occupy 200 physical screen pixels.
-  Mod+Ctrl+Left { set-column-width "-10%"; }
+  Mod+Ctrl+Left {  set-column-width "-10%"; }
   Mod+Ctrl+Right { set-column-width "+10%"; }
 
   // Finer height adjustments when in column with other windows.
-  Mod+Ctrl+Up { set-window-height "-10%"; }
+  Mod+Ctrl+Up {   set-window-height "-10%"; }
   Mod+Ctrl+Down { set-window-height "+10%"; }
 
   // Actions to switch layouts.

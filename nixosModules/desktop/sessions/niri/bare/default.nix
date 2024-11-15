@@ -6,7 +6,7 @@
 }:
 
 {
-
+  # It is self made for my own machine config and I am switching to Niri flake so it stays as back up yes shut up idc
   options.custom = {
     niri.enable = lib.mkEnableOption "enable niri";
   };
@@ -28,7 +28,10 @@
       NIXOS_OZONE_WL = "1";
       DISPLAY = ":0";
     };
-
+    environment.pathsToLink = [
+      "/share/xdg-desktop-portal"
+      "/share/applications"
+    ];
     xdg.portal = {
       enable = lib.mkDefault true;
       xdgOpenUsePortal = true;
@@ -37,7 +40,7 @@
       extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
       config = {
         common.default = "gnome";
-        #obs.default = "wlr";
+        obs.default = "gnome";
       };
     };
 
@@ -46,7 +49,13 @@
         source = ./config.kdl;
       };
       home.shellAliases = {
-        niv = "niri validate -c ~/Nix-dots/nixosModules/desktop/sessions/niri/config.kdl ";
+        niv = "niri validate -c ~/Nix-dots/nixosModules/desktop/sessions/niri/bare/config.kdl ";
+      };
+      xdg.portal.enable = true;
+      xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+      xdg.portal.config = {
+        common.default = "gnome";
+        obs.default = "gnome";
       };
       customhm = {
         mako.enable = lib.mkDefault true;

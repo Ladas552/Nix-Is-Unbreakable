@@ -166,6 +166,7 @@
       vaapiVdpau
       intel-media-driver
       intel-ocl
+      vpl-gpu-rt
     ];
   };
 
