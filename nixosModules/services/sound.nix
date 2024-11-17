@@ -10,6 +10,7 @@
   };
 
   config = lib.mkIf config.custom.sounds.enable {
+    environment.systemPackages = [ pkgs.sbc ];
     # Enable sound with pipewire.
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;
@@ -24,6 +25,25 @@
       # use the example session manager (no others are packaged yet so this is enabled by default,
       # no need to redefine it in your config for now)
       #media-session.enable = true;
+    };
+    ### IT IS A LIE IT MAKES IT DEFAULT TO BAD CODEC I HATE THIS
+    # "Make bluetoot work better"
+    # services.pipewire.wireplumber.extraConfig.bluetoothEnhancements = {
+    #   "monitor.bluez.properties" = {
+    #     "bluez5.enable-sbc-xq" = true;
+    #     "bluez5.enable-msbc" = true;
+    #     "bluez5.enable-hw-volume" = true;
+    #     "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
+    #   };
+    # };
+    # Low Latency for OSU!
+    services.pipewire.extraConfig.pipewire."92-low-latency" = {
+      "context.properties" = {
+        "default.clock.rate" = 48000;
+        "default.clock.quantum" = 32;
+        "default.clock.min-quantum" = 32;
+        "default.clock.max-quantum" = 32;
+      };
     };
   };
 }

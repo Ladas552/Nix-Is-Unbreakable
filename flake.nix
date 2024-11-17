@@ -44,10 +44,10 @@
     hardware.url = "github:nixos/nixos-hardware";
 
     # Games
-    aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix";
-      inputs.nixpkgs.follows = "nixpkgs"; # Name of nixpkgs input you want to use
-    };
+    # aagl = {
+    #   url = "github:ezKEa/aagl-gtk-on-nix";
+    #   inputs.nixpkgs.follows = "nixpkgs"; # Name of nixpkgs input you want to use
+    # };
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 

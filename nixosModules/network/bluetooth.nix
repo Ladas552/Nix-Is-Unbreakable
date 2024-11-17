@@ -13,5 +13,11 @@
     services.blueman.enable = true;
 
     home-manager.users."ladas552".services.mpris-proxy.enable = true;
+
+    hardware.bluetooth.settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+      };
+    };
   };
 }

@@ -11,13 +11,15 @@
     games.enable = lib.mkEnableOption "enable games";
   };
 
-  imports = [ inputs.aagl.nixosModules.default ];
+  imports = [
+    # inputs.aagl.nixosModules.default
+  ];
 
   config = lib.mkIf config.custom.games.enable {
     # Hoyoverse Games
-    nix.settings = inputs.aagl.nixConfig;
-    programs.sleepy-launcher.enable = true;
-    programs.sleepy-launcher.package = inputs.aagl.packages.x86_64-linux.sleepy-launcher;
+    #nix.settings = inputs.aagl.nixConfig;
+    #programs.sleepy-launcher.enable = true;
+    #   programs.sleepy-launcher.package = inputs.aagl.packages.x86_64-linux.sleepy-launcher;
     # Steam
     programs.steam = {
       enable = true;
