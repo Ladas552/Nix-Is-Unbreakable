@@ -224,9 +224,9 @@ in
               config = {
                 author = "ladas552";
                 timezone = "implicit-local";
-                type = "auto";
-                undojoin_updates = true;
-                update_date = true;
+                type = "empty";
+                undojoin_updates = "false";
+                update_date = "true";
               };
             };
             "core.tangle" = {
