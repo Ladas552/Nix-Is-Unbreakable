@@ -25,6 +25,25 @@ let
 
     meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg-meta";
   };
+  img-clip.nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "img-clip.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "HakonHarnes";
+      repo = "img-clip.nvim";
+      rev = "28a32d811d69042f4fa5c3d5fa35571df2bc1623";
+      sha256 = "0yi94bsr3yja619lrh9npsqrzvbk2207j3wnzdvidbbb1nix2dsd";
+    };
+  };
+
+  typst-tools.nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "typst-tools.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "max397574";
+      repo = "typst-tools.nvim";
+      rev = "a16c20c6e5756164458f72faf4353b435376cb4f";
+      sha256 = "0hppipi30p75i0rvhin6lphp2wvb3xpf7sr8x21zainx3d69pfby";
+    };
+  };
 in
 {
 
@@ -38,6 +57,8 @@ in
       extraPlugins = [
         pkgs.vimPlugins."gitsigns-nvim"
         treesitter-norg-meta
+        img-clip.nvim
+        typst-tools.nvim
       ];
       plugins = {
 

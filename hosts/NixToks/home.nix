@@ -66,6 +66,7 @@
     #   texliveFull
     typst
     xarchiver
+    pymol
   ];
 
   nixpkgs.config.allowUnfree = true;

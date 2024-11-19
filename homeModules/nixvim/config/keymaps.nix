@@ -81,6 +81,13 @@
             mode = "n";
             options.desc = "Change Neorg Workspace";
           }
+          # Img-clip.nvim
+          {
+            action = "<cmd>PasteImage<CR>";
+            key = "<leader>p";
+            mode = "n";
+            options.desc = "Paste image";
+          }
         ]
         # a way to add the list to other list, if certain plugin is enabled
         # `optionalAttrs` is for sets, hence "attrs". for lists use `optionals`

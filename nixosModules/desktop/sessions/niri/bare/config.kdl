@@ -219,6 +219,7 @@ binds {
   // Super+Ctrl+T { spawn "kitty"; }
   Super+Space { spawn "rofi" "-show"; }
   Super+L { spawn "swaylock"; }
+  Super+E {spawn "emacs"; }
   Super+N {spawn "ghostty" "-e" "nvim";}
   Super+J {spawn "ghostty" "-e" "nvim" "-c" "'Neorg journal today'";}
   Super+M {spawn "ghostty" "-e" "ncmpcpp";}

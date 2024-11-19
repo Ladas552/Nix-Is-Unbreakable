@@ -39,6 +39,7 @@
         fish.enable = false;
         nixvim.enable = false;
         helix.enable = false;
+        emacs.enable = false;
       };
     };
     stylix = {
