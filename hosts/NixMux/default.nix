@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
+{ inputs, pkgs, ... }:
 
 {
   # Thanks rix101 for the snippets
@@ -47,14 +43,14 @@
   };
   # Greeter
   environment.motd = ''
-  
+
     Welcome to nix-on-droid!
 
     * Rebuild system: yy
     * Ranger TUI: mc
     * Edit config: en
     * Today's journal: j
-    
+
   '';
 
   # To not build stuff but download

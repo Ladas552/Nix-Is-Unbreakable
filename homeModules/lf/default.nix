@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}:
+{ lib, config, ... }:
 
 {
 
@@ -10,9 +6,7 @@
     lf.enable = lib.mkEnableOption "enable lf";
   };
 
-  imports = [
-    ./options/settings.nix
-  ];
+  imports = [ ./options/settings.nix ];
 
   config = lib.mkIf config.customhm.lf.enable {
     programs.lf = {
