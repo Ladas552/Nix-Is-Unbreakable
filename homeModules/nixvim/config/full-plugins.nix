@@ -324,6 +324,7 @@ in
             c
             cmake
             comment
+            commonlisp
             cpp
             css
             csv

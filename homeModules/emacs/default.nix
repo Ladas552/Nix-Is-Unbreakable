@@ -16,11 +16,14 @@
       # pure gtk GUI for Emacs
       package = pkgs.emacs29-pgtk;
       # Settings defined in init.el file
-      extraConfig = ''
-        (load-theme 'catppuccin :no-confirm)
-        (setq catppuccin-flavor 'macchiato)
-        (catppuccin-reload)
-      '';
+      extraConfig = # commonlisp
+        ''
+          (load-theme 'catppuccin :no-confirm)
+          (setq catppuccin-flavor 'macchiato)
+          (catppuccin-reload)
+
+
+        '';
       extraPackages =
         epkgs: with pkgs.emacsPackages; [
           # Org Mode
