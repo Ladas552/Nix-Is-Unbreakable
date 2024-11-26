@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  pkgs-stable,
+  inputs,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -25,6 +30,7 @@
     mpv.enable = true;
     syncthing.enable = true;
     thunderbird.enable = true;
+    lf.enable = true;
     #   yazi.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
@@ -39,6 +45,7 @@
   home.packages = with pkgs; [
     #pkgs-stable
     inputs.ghostty.packages.x86_64-linux.default
+    pkgs-stable.libreoffice-fresh
     shotcut
     imagemagick
     wl-clipboard
@@ -52,7 +59,6 @@
     hunspellDicts.ru-ru
     keepassxc
     libqalculate
-    libreoffice-fresh
     lshw
     manix
     nuspell

@@ -29,6 +29,7 @@ command = fish
 # bold-is-bright = true
 font-family = "JetBrains Mono SemiBold"
 font-size = 12
+#freetype-load-flags = no-hinting,no-force-autohint,no-monochrome,no-autohint
 #font-family = "Pixel Code"
 # Colors
 background = #181B28

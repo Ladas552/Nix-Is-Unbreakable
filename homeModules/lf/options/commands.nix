@@ -14,9 +14,10 @@
       # '';
     };
     keybindings = {
-      D = "trash";
-      "<f-7>" = ''push %$mkdir<space>""<c-b>'';
-      "<f-1>" = ''push %$touch<space>""<c-b>'';
+      Dd = "trash";
+      DD = "delete";
+      "<f-7>" = ''push %mkdir<space>""<c-b>'';
+      "<f-1>" = ''push %touch<space>""<c-b>'';
     };
   };
 }

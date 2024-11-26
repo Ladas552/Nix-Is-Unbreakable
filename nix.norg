@@ -28,28 +28,20 @@ I start to have a life other than computers so I kinda begin to forget what I di
 * TODOs
 ** Notes
    - -To write comments in shell scripts-
+   - To write comments to stuff like Sops-nix. I start to forget even how to set them up.
 
 ** Programs
    - *Qemu*.I need to configure Virtualization properly, half of the time it just doesn't work. Maybe I need it to be deployable, like Linux in Docker or Windows in Docker. Oh god, maybe I will need to configure Docker in Nix.
+   - *lf*. Configure custom commands and scripts. Use Pistol instead of XDG-open
    - *Yazi*. I stopped configuration of openers because I couldn't figure out how to get Toml to work with lists. But I probably can continue to work with keybinds, because it is the thing that I must fix in order to use program properly.
      I follow {https://github.com/DarkKronicle/nazarick/blob/d85c7236bf51a6c1fa3c7e5721c2cf376205d508/modules/home/tui/yazi/default.nix}[this] config for  examples
      And configuration {https://yazi-rs.github.io/docs/configuration/yazi}[manual] from yazi
    - *Fish*. Change abbr path for Video and Music to follow xdg in home-manager
    - *Rofi*. Define Rofi in Home manager, to enable and reanable module
-   - *Niri*. Terminals stop working after sleep
-   - *Nix-on-droid*. Add files like `termux-edit-open` and `termux.properties` into the declarative ways.
+   - *Niri*. Flake version doesn't build because I don't know how to setup keybinds
+   - *Nix-on-droid*. Add files like `termux-edit-open` and `termux.properties` into the declarative ways. UPDATE: Can't do that with `home.file` need to wait for update apparently
 
 ** Modulations
-*** Home manager files in nixos modules
-    I don't want to pollute my nixos modules with the configs from home manager, because that will be messy. But, Having configs for WMs or DEs in the same place as system stuff that I use to enables this environments should be good enough.
-    So the basic plan is to have another directory under NixosModules, and it will contain any WM files, either enabling for display managers or Configs files, like keyboard shortcuts, autostart scripts, and specific environment variables.
-
-    Update 1: I have manager to bind Home and System Configs for DE's, certainly for Niri and BSPWM. So no it should work in the future also. On the next step would be nice to add different modules like launcher and picom for example to launch with them. Automatically. It sounds like a pain to deal with later. But in fact will be better for switching between sessions rather quickly. For example if I want to switch from X11 to Wayland for a day.
 
 *** Sessions
     - I want to make wm independent variables for applications. So that I can have For example, 2 configured Launcher applications, but I only want one. Then I just change the variable, and every other module that uses variable `isLauncher` also follows. Basically to have a dozen of WM configs, but if I one day want to switch rofi for dmenu, keybinds would stay the same.
-
-*** Nix-on-droid
-    So I have been experementing with Nix-on-droid to make use of my nixvim and other configs inside of my phone. The main problemt I am facing now that if I even manage to make one, Can I override sync my norg files? Because My config stores them in home directory, but for termux, I use the Android storage, because Syncthing can access the Termux directory. Not even the fork can.
-
-    Update 1: I have managed to roll into all of the stuff all at once. Cool, Now my nixvim has a module for 1 Desktop, 2 Mobile. And every setting except plugins are now in sync and plugins now follow the norg notes so this is awesome. I wanted to sync my configs for 2 years. I finally managed that.

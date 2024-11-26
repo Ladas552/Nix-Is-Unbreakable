@@ -249,7 +249,7 @@ in
             };
           };
         };
-        #cmp
+        # cmp
         cmp = {
           enable = true;
           autoEnableSources = false;
