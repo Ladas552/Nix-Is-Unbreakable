@@ -103,4 +103,5 @@
     useUserPackages = true;
     #useGlobalPkgs = true;
   };
+  user.shell = "${pkgs.fish}/bin/fish";
 }
