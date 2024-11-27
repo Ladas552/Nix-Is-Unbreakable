@@ -68,10 +68,8 @@
         src = bass.src;
       }
       {
-        name = "done";
-        src = done.src;
-      }
-      {
+        # Use this to not get error https://github.com/pure-fish/pure/issues/295#issuecomment-1673234460
+        # set --universal pure_enable_container_detection false 
         name = "pure";
         src = pure.src;
       }
