@@ -39,7 +39,8 @@
     # Overlays
     # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
-    helix-overlay.url = "github:helix-editor/helix";
+    # i don't like compiling rust
+    helix-overlay.url = "github:helix-editor/helix/0f4729289b92e3a80c89f2a8805c355133368101";
 
     hardware.url = "github:nixos/nixos-hardware";
 
