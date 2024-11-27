@@ -31,7 +31,6 @@
     syncthing.enable = true;
     thunderbird.enable = true;
     lf.enable = true;
-    #   yazi.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
   };

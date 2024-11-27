@@ -33,9 +33,6 @@ I start to have a life other than computers so I kinda begin to forget what I di
 ** Programs
    - *Qemu*.I need to configure Virtualization properly, half of the time it just doesn't work. Maybe I need it to be deployable, like Linux in Docker or Windows in Docker. Oh god, maybe I will need to configure Docker in Nix.
    - *lf*. Configure custom commands and scripts. Use Pistol instead of XDG-open
-   - *Yazi*. I stopped configuration of openers because I couldn't figure out how to get Toml to work with lists. But I probably can continue to work with keybinds, because it is the thing that I must fix in order to use program properly.
-     I follow {https://github.com/DarkKronicle/nazarick/blob/d85c7236bf51a6c1fa3c7e5721c2cf376205d508/modules/home/tui/yazi/default.nix}[this] config for  examples
-     And configuration {https://yazi-rs.github.io/docs/configuration/yazi}[manual] from yazi
    - *Fish*. Change abbr path for Video and Music to follow xdg in home-manager
    - *Rofi*. Define Rofi in Home manager, to enable and reanable module
    - *Niri*. Flake version doesn't build because I don't know how to setup keybinds

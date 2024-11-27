@@ -28,7 +28,6 @@
     ./syncthing
     ./wpaperd
     ./vim
-    ./yazi
     ./yt-dlp
     ./zathura
   ];
