@@ -24,6 +24,7 @@
     gh.enable = true;
     ghostty.enable = true;
     helix.enable = true;
+    kakoune.enable = true;
     imv.enable = true;
     mangohud.enable = true;
     mpd.enable = true;
@@ -44,7 +45,7 @@
   home.packages = with pkgs; [
     #pkgs-stable
     inputs.ghostty.packages.x86_64-linux.default
-    pkgs-stable.libreoffice-fresh
+    libreoffice-fresh
     shotcut
     imagemagick
     wl-clipboard

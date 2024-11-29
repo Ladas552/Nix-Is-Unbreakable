@@ -680,7 +680,7 @@
         # Basic
                   tmap <C-l> redraw_window
                   tmap <ESC> taskview_close
-                  copytmap <ESC> q Q w <C-c>   
+                  copytmap <ESC> q Q w <C-c>
       '';
     };
   };

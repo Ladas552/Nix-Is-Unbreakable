@@ -23,6 +23,7 @@
     ./qutebrowser
     ./lf
     ./ranger
+    ./kakoune
     ./shell
     ./swaylock
     ./syncthing
