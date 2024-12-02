@@ -67,7 +67,7 @@
   terminal = {
     font =
       let
-        jetbrains = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+        jetbrains = pkgs.nerd-fonts.jetbrains-mono;
         fontPath = "share/fonts/truetype/NerdFonts/JetBrainsMonoNerdFontMono-Regular.ttf";
       in
       "${jetbrains}/${fontPath}";
