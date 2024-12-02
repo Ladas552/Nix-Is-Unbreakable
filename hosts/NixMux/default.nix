@@ -68,7 +68,7 @@
     font =
       let
         jetbrains = pkgs.nerd-fonts.jetbrains-mono;
-        fontPath = "share/fonts/truetype/NerdFonts/JetBrainsMonoNerdFontMono-Regular.ttf";
+        fontPath = "share/fonts/truetype/NerdFonts/JetBrainsMono/JetBrainsMonoNerdFont-Regular.ttf";
       in
       "${jetbrains}/${fontPath}";
     colors = {
