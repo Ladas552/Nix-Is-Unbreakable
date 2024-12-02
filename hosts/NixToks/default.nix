@@ -53,7 +53,7 @@
     # printers.enable = true;
     # clamav.enable = true;
     # plymouth.enable = true;
-    # virtualisation.enable = true;
+    virtualisation.enable = true;
     # minecraft.enable = true; Don't need right now
   };
 

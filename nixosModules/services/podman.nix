@@ -13,6 +13,7 @@
   };
 
   config = lib.mkIf (config.custom.podman.enable || config.custom.distrobox.enable) {
+
     environment.systemPackages = lib.mkIf config.custom.distrobox.enable [ pkgs.distrobox ];
 
     virtualisation = {

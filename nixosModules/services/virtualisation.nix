@@ -16,7 +16,7 @@
       open-vm-tools
       libvirt-glib
       # virt-viewer
-      # spice 
+      # spice
       # spice-gtk
       # spice-protocol
       #     win-virtio Deosn't work on my cpu
