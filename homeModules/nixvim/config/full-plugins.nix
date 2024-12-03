@@ -487,12 +487,6 @@ in
             "core.summary" = {
               __empty = null;
             };
-            "core.todo-introspector" = {
-              __empty = null;
-            };
-            "core.ui.calendar" = {
-              __empty = null;
-            };
             "core.integrations.image" = {
               __empty = null;
             };

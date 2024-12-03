@@ -222,17 +222,9 @@ in
             };
             "core.esupports.metagen" = {
               config = {
-                author = "ladas552";
                 timezone = "implicit-local";
                 type = "empty";
                 undojoin_updates = "false";
-                update_date = "true";
-              };
-            };
-            "core.tangle" = {
-              config = {
-                report_on_empty = false;
-                tangle_on_write = true;
               };
             };
             "core.keybinds" = {
@@ -264,12 +256,6 @@ in
               };
             };
             "core.summary" = {
-              __empty = null;
-            };
-            "core.todo-introspector" = {
-              __empty = null;
-            };
-            "core.ui.calendar" = {
               __empty = null;
             };
             "core.integrations.telescope" = {

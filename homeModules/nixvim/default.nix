@@ -23,6 +23,7 @@
 
     programs.nixvim = {
       enable = true;
+      enableMan = false;
       defaultEditor = lib.mkDefault true;
     };
     home.sessionVariables = lib.mkDefault {
