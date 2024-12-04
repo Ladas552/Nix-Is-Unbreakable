@@ -25,6 +25,14 @@
       enable = true;
       enableMan = false;
       defaultEditor = lib.mkDefault true;
+      # Performance
+      performance = {
+        byteCompileLua = {
+          enable = true;
+          nvimRuntime = true;
+          plugins = true;
+        };
+      };
     };
     home.sessionVariables = lib.mkDefault {
       EDITOR = "nvim";

@@ -75,7 +75,6 @@ in
       extraPlugins = [
         pkgs.vimPlugins."gitsigns-nvim"
         pkgs.vimPlugins."lspkind-nvim"
-        pkgs.vimPlugins."overseer-nvim"
         pkgs.vimPlugins.nvim-treesitter-parsers.org
         typst-preview
         treesitter-norg-meta
@@ -147,23 +146,6 @@ in
           enable = true;
         };
 
-        arrow = {
-          enable = true;
-          settings = {
-            show_icons = true;
-            full_path_list = [ "update_stuff" ];
-            save_path = ''
-              function()
-                return vim.fn.stdpath("cache") .. "/arrow"
-              end
-            '';
-            global_bookmarks = true;
-            always_show_path = true;
-            separate_by_branch = true;
-            buffer_leader_key = "m";
-          };
-        };
-
         barbar = {
           enable = true;
           settings = {
@@ -175,6 +157,8 @@ in
         web-devicons = {
           enable = true;
         };
+
+        wilder.enable = true;
 
         nvim-colorizer.enable = true;
 
@@ -300,6 +284,10 @@ in
               show_hidden = true;
             };
           };
+        };
+
+        overseer = {
+          enable = true;
         };
 
         flash.enable = true;

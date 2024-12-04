@@ -33,6 +33,8 @@
     ./zathura
   ];
 
+  manual.manpages.enable = false;
+
   customhm = {
     nixvim = lib.mkDefault {
       enable = true;
