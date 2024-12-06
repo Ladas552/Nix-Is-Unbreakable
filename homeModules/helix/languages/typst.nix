@@ -9,6 +9,9 @@
         command = "tinymist";
         config = {
           capabilities.hoverProvider = false;
+          exportPdf = "onType";
+          outputPath = "$root/$name";
+          typstExtraArgs = [ "src.typ" ];
         };
       };
       language = [

@@ -158,7 +158,10 @@ in
           enable = true;
         };
 
-        wilder.enable = true;
+        wilder = {
+          enable = true;
+          enableCmdlineEnter = true;
+        };
 
         nvim-colorizer.enable = true;
 
