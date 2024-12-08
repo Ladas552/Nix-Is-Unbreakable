@@ -14,6 +14,7 @@
   config = lib.mkIf config.custom.virtualisation.enable {
     environment.systemPackages = with pkgs; [
       open-vm-tools
+      quickemu
       libvirt-glib
       # virt-viewer
       # spice

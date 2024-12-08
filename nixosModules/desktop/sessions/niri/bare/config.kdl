@@ -160,6 +160,11 @@ animations {
 // }
 
 window-rule {
+  match app-id=".qemu-system-x86_64-wrapped"
+  open-fullscreen true
+}
+
+window-rule {
   match app-id="vesktop"
   open-fullscreen true
 }
@@ -389,4 +394,5 @@ binds {
 // AutoStart
 
 //spawn-at-startup "xfce4-panel"
+spawn-at-startup "thunar -d"
 spawn-at-startup "wpaperd"

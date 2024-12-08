@@ -36,14 +36,5 @@
     #     "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
     #   };
     # };
-    # Low Latency for OSU!
-    services.pipewire.extraConfig.pipewire."92-low-latency" = {
-      "context.properties" = {
-        "default.clock.rate" = 48000;
-        "default.clock.quantum" = 32;
-        "default.clock.min-quantum" = 32;
-        "default.clock.max-quantum" = 32;
-      };
-    };
   };
 }
