@@ -28,7 +28,7 @@ shell-integration = fish
 command = fish
 # Font
 # bold-is-bright = true
-font-family = "JetBrains Mono SemiBold"
+font-family = "JetBrainsMono NFM SemiBold"
 font-size = 12
 #freetype-load-flags = no-hinting,no-force-autohint,no-monochrome,no-autohint
 #font-family = "Pixel Code"

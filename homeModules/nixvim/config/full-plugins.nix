@@ -163,7 +163,7 @@ in
           enableCmdlineEnter = true;
         };
 
-        nvim-colorizer.enable = true;
+        colorizer.enable = true;
 
         telescope = {
           enable = true;
