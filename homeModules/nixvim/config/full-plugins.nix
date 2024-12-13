@@ -430,7 +430,8 @@ in
         # Neorg
         neorg = {
           enable = true;
-          modules = {
+          telescopeIntegration.enable = true;
+          settings.load = {
             "core.defaults" = {
               __empty = null;
             };

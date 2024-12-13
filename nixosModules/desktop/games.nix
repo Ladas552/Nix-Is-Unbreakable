@@ -37,8 +37,9 @@
       bottles
       # PC games
       osu-lazer-bin
-      stepmania
+      # stepmania
       openmw
+      arx-libertatis
       # Utilities
       # xclicker
       # Dependencies
