@@ -15,11 +15,11 @@
     fonts = {
       fontconfig = {
         enable = true;
-        # defaultFonts = {
-        #   serif = config.fonts.fontconfig.defaultFonts.monospace;
-        #   sansSerif = config.fonts.fontconfig.defaultFonts.monospace;
-        #   monospace = ["Pixel Code"];
-        # };
+        defaultFonts = {
+          serif = config.fonts.fontconfig.defaultFonts.monospace;
+          sansSerif = config.fonts.fontconfig.defaultFonts.monospace;
+          monospace = [ "JetBrainsMono Nerd Font Mono" ];
+        };
         antialias = true;
         hinting = {
           enable = true;
