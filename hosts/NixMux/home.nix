@@ -12,7 +12,6 @@
     shell.enable = false;
     fastfetch.enable = true;
     lf.enable = true;
-    kakoune.enable = true;
   };
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
@@ -70,7 +69,7 @@
       }
       {
         # Use this to not get error https://github.com/pure-fish/pure/issues/295#issuecomment-1673234460
-        # set --universal pure_enable_container_detection false 
+        # set --universal pure_enable_container_detection false
         name = "pure";
         src = pure.src;
       }

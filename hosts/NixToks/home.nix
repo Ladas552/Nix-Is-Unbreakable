@@ -24,7 +24,6 @@
     gh.enable = true;
     ghostty.enable = true;
     helix.enable = true;
-    kakoune.enable = true;
     imv.enable = true;
     mangohud.enable = true;
     mpd.enable = true;
@@ -52,6 +51,7 @@
     candy-icons
     cowsay
     ffmpeg
+    gst_all_1.gst-libav
     floorp
     hello
     hunspell
