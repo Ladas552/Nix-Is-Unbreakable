@@ -43,6 +43,7 @@
   # Standalone Packages for user
   home.packages = with pkgs; [
     #pkgs-stable
+    vesktop
     inputs.ghostty.packages.x86_64-linux.default
     libreoffice-fresh
     shotcut

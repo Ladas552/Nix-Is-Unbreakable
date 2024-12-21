@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./niri/bare
+    ./niri/flake
     ./xfce
     ./bspwm
     ./wayfire

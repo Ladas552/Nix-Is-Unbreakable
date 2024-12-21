@@ -9,7 +9,7 @@
   config = lib.mkIf config.custom.wayfire.enable {
     programs.wayfire = {
       enable = true;
-      xwayland.enable = false;
+      # xwayland.enable = false;
     };
   };
 }
