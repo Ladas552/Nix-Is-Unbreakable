@@ -74,11 +74,11 @@
       # Window Rules
       window-rules = [
         {
-          matches = [ { app-id = ".qemu-system-x86_64-wrapped"; } ];
-          open-fullscreen = true;
-        }
-        {
-          matches = [ { app-id = "vesktop"; } ];
+          matches = [
+            { app-id = ".qemu-system-x86_64-wrapped"; }
+            { app-id = "vesktop"; }
+            { app-id = "steam_app_0"; }
+          ];
           open-fullscreen = true;
         }
         {
@@ -88,13 +88,11 @@
         {
           matches = [
             { app-id = "darksoulsii.exe"; }
-            {
-              app-id = "steam-";
-              title = "DARK SOULS II";
-            }
+            { app-id = "steam-"; }
+            { title = "DARK SOULS II"; }
           ];
           open-fullscreen = true;
-          variable-refresh-rate = true;
+          variable-refresh-rate = false;
         }
         {
           matches = [ { app-id = "floorp"; } ];
@@ -298,9 +296,9 @@
         "Mod+1".action.focus-workspace = 1;
         "Mod+2".action.focus-workspace = 2;
         "Mod+3".action.focus-workspace = 3;
-        "Mod+Shift+1".action = move-column-to-workspace "1";
-        "Mod+Shift+2".action = move-column-to-workspace "2";
-        "Mod+Shift+3".action = move-column-to-workspace "3";
+        "Mod+Shift+1".action.move-column-to-workspace = 1;
+        "Mod+Shift+2".action.move-column-to-workspace = 2;
+        "Mod+Shift+3".action.move-column-to-workspace = 3;
         # Switches focus between the current and the previous workspace.
 
         "Mod+Tab".action = focus-workspace-previous;
