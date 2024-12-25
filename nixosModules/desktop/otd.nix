@@ -6,7 +6,7 @@
   };
 
   config = lib.mkIf config.custom.otd.enable {
-    # Configure tablet 
+    # Configure tablet
     hardware.opentabletdriver = {
       enable = true;
       daemon.enable = true;
