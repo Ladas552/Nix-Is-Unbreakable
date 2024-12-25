@@ -12,6 +12,8 @@
   };
 
   config = lib.mkIf config.custom.virtualisation.enable {
+    # Wayroid
+    virtualisation.waydroid.enable = true;
     environment.systemPackages = with pkgs; [
       open-vm-tools
       quickemu

@@ -127,7 +127,7 @@
     xkb.options = "grp:caps_toggle";
     xkb.model = "pc105";
   };
-  # Experiment stuff
+  # Cache
   nix.settings = {
     trusted-users = [
       "root"
@@ -138,24 +138,24 @@
       "https://ezkea.cachix.org"
       "https://ghostty.cachix.org/"
       "https://cache.nixos.org/"
-      "https://nix-community.cachix.org"
     ];
     trusted-public-keys = [
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
     extra-substituters = [
       "https://cache.garnix.io"
       "https://niri.cachix.org"
       "https://devenv.cachix.org"
       "https://helix.cachix.org"
+      "https://nix-community.cachix.org"
     ];
     extra-trusted-public-keys = [
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
 
