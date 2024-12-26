@@ -110,7 +110,6 @@
             inherit inputs;
           };
           pkgs = import nixpkgs { system = "aarch64-linux"; };
-          system = "aarch64-linux";
           modules = [ ./hosts/NixMux ];
         };
       };

@@ -6,8 +6,10 @@ keybind = ctrl+shift+minus=decrease_font_size:1
 keybind = ctrl+shift+plus=increase_font_size:1
 keybind = ctrl+shift+backspace=reset_font_size
 keybind = ctrl+shift+f5=reload_config
-keybind = ctrl+shift+down=scroll_page_down
-keybind = ctrl+shift+up=scroll_page_up
+# keybind = ctrl+shift+down=scroll_page_down
+# keybind = ctrl+shift+up=scroll_page_up
+keybind = ctrl+shift+up=scroll_page_lines:-10
+keybind = ctrl+shift+down=scroll_page_lines:10
 # Windows
 background-opacity = 0.95
 background-blur-radius = 20
