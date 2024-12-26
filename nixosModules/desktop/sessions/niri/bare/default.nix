@@ -43,7 +43,6 @@
         obs.default = "gnome";
       };
     };
-
     home-manager.users."ladas552" = {
       home.file.".config/niri/config.kdl" = {
         source = ./config.kdl;

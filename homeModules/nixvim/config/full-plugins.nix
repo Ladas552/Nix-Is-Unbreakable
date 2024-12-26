@@ -104,8 +104,11 @@ in
                 "nixd"
                 "--semantic-tokens=false"
               ];
+              # doesn't work btw
               settings = {
                 nixpkgs.expr = "import <nixpkgs> { }";
+                nixos.expr = "(builtins.getFlake ''/home/ladas552/Nix-dots'').nixosConfigurations.NixToks.options";
+                home-manager.expr = "(builtins.getFlake ''/home/ladas552/Nix-dots'').nixosConfigurations.NixToks.options.home-manager.users.type.getSubOptions []";
               };
             };
             tinymist = {

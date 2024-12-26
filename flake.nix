@@ -19,7 +19,7 @@
     };
 
     # Ghostty, yeap
-    ghostty.url = "git+ssh://git@github.com/ghostty-org/ghostty";
+    ghostty.url = "github:ghostty-org/ghostty";
 
     stylix.url = "github:danth/stylix";
     # Neovim
@@ -74,6 +74,11 @@
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
+        # I made this so overlays works when home-managers Globalpkgs Option
+        # would work with my overlays. But I will change it as soon as I
+        # figure out how to make custom attributes, like system.
+        # to make a Commented out `package` option in Helix module work
+        overlays = [ inputs.helix-overlay.overlays.default ];
       };
     in
     {
@@ -105,6 +110,7 @@
             inherit inputs;
           };
           pkgs = import nixpkgs { system = "aarch64-linux"; };
+          system = "aarch64-linux";
           modules = [ ./hosts/NixMux ];
         };
       };

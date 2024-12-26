@@ -76,7 +76,7 @@
     pymol
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
   #  home.file = {
   #
   # # You can also set the file content immediately.
@@ -118,4 +118,5 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   #programs.home-manager.path = "$HOME/Nix-dots/Home-Manager";
+
 }

@@ -11,7 +11,15 @@
       language-server.nixd = {
         command = "nixd";
         args = [ "--inlay-hints=true" ];
+        config.nixd = {
+          nixpkgs.expr = "import <nixpkgs> { }";
+          options = {
+            nixos.expr = "(builtins.getFlake ''/home/ladas552/Nix-dots'').nixosConfigurations.NixToks.options";
+            home-manager.expr = "(builtins.getFlake ''/home/ladas552/Nix-dots'').nixosConfigurations.NixToks.options.home-manager.users.type.getSubOptions []";
+          };
+        };
       };
+
       # shout out to Zeth for adopting nixd to helix
       language = [
         {

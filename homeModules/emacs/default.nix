@@ -14,15 +14,13 @@
     programs.emacs = {
       enable = true;
       # pure gtk GUI for Emacs
-      package = pkgs.emacs29-pgtk;
+      package = pkgs.emacs30-pgtk;
       # Settings defined in init.el file
       extraConfig = # commonlisp
         ''
           (load-theme 'catppuccin :no-confirm)
           (setq catppuccin-flavor 'macchiato)
           (catppuccin-reload)
-
-
         '';
       extraPackages =
         epkgs: with pkgs.emacsPackages; [
@@ -30,7 +28,7 @@
           org
           # Zettlekasten for org
           zk
-          # Catppuccin
+          # Colorscheme
           catppuccin-theme
         ];
     };

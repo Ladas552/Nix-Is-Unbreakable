@@ -63,7 +63,7 @@
     };
     users."ladas552" = import ./home.nix;
     useUserPackages = true;
-    #useGlobalPkgs = true;
+    useGlobalPkgs = true;
   };
   #trim your SSD
   services.fstrim.enable = true;
