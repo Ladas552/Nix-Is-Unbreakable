@@ -21,7 +21,7 @@
           options = {
             nixos.expr = "(builtins.getFlake ''${self}'').nixosConfigurations.NixToks.options";
             home-manager.expr = "(builtins.getFlake ''${self}'').nixosConfigurations.NixToks.options.home-manager.users.type.getSubOptions []";
-            nix-on-droid.expr = "(builtins.getFlake ''${self}'').nixOnDroidConfigurations.NixMux.config";
+            nix-on-droid.expr = "(builtins.getFlake ''${self}'').nixOnDroidConfigurations.NixMux.options";
           };
         };
       };

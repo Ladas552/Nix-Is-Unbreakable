@@ -89,7 +89,7 @@
             inherit pkgs-stable;
             inherit pkgs;
             host = "NixToks";
-            self = /home/ladas552/Nix-dots;
+            self = "/home/ladas552/Nix-dots";
             user = "ladad552";
             system = "x86_64-linux";
           };
@@ -111,6 +111,10 @@
         NixMux = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
           extraSpecialArgs = {
             inherit inputs;
+            host = "NixMux";
+            self = "/data/data/com.termux.nix/files/home/Nix-Is-Unbreakable";
+            user = "nix-on-droid";
+            system = "aarch64-linux";
           };
           pkgs = import nixpkgs {
             system = "aarch64-linux";
