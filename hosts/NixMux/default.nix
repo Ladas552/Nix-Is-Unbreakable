@@ -100,7 +100,7 @@
     backupFileExtension = "hm-bak";
     config = import ./home.nix;
     useUserPackages = true;
-    #useGlobalPkgs = true;
+    useGlobalPkgs = true;
   };
   user.shell = "${pkgs.fish}/bin/fish";
 }

@@ -109,7 +109,12 @@
           extraSpecialArgs = {
             inherit inputs;
           };
-          pkgs = import nixpkgs { system = "aarch64-linux"; };
+          pkgs = import nixpkgs {
+            system = "aarch64-linux";
+
+            config.allowUnfree = true;
+            overlays = [ inputs.helix-overlay.overlays.default ];
+          };
           modules = [ ./hosts/NixMux ];
         };
       };
