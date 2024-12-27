@@ -141,7 +141,7 @@
   nix.settings = {
     trusted-users = [
       "root"
-      "ladas552"
+      "${user}"
       "@wheel"
     ];
     substituters = [
@@ -210,7 +210,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ladas552 = {
+  users.users.${user} = {
     isNormalUser = true;
     description = "Ladas552";
     extraGroups = [
