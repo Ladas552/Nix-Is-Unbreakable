@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  self,
+  host,
+  ...
+}:
 
 {
 
@@ -14,9 +19,9 @@
         config.nixd = {
           nixpkgs.expr = "import <nixpkgs> { }";
           options = {
-            nixos.expr = "(builtins.getFlake ''/home/ladas552/Nix-dots'').nixosConfigurations.NixToks.options";
-            home-manager.expr = "(builtins.getFlake ''/home/ladas552/Nix-dots'').nixosConfigurations.NixToks.options.home-manager.users.type.getSubOptions []";
-            nix-on-droid.expr = "(builtins.getFlake ''/home/ladas552/Nix-dots'').nixOnDroidConfigurations.NixMux.config";
+            nixos.expr = "(builtins.getFlake ''${self}'').nixosConfigurations.NixToks.options";
+            home-manager.expr = "(builtins.getFlake ''${self}'').nixosConfigurations.NixToks.options.home-manager.users.type.getSubOptions []";
+            nix-on-droid.expr = "(builtins.getFlake ''${self}'').nixOnDroidConfigurations.NixMux.config";
           };
         };
       };

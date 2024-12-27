@@ -60,6 +60,10 @@
   home-manager = {
     extraSpecialArgs = {
       inherit inputs pkgs-stable;
+      host = "NixToks";
+      self = "/home/ladas552/Nix-dots";
+      user = "ladad552";
+      system = "x86_64-linux";
     };
     users."ladas552" = import ./home.nix;
     useUserPackages = true;

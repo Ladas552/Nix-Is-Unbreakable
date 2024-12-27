@@ -85,10 +85,13 @@
       nixosConfigurations = {
         NixToks = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit system;
             inherit inputs;
             inherit pkgs-stable;
             inherit pkgs;
+            host = "NixToks";
+            self = /home/ladas552/Nix-dots;
+            user = "ladad552";
+            system = "x86_64-linux";
           };
 
           modules = [ ./hosts/NixToks ];
