@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -12,8 +12,8 @@
     imv.enable = true;
   };
   # Me
-  home.username = "ladas552";
-  home.homeDirectory = "/home/ladas552";
+  home.username = "${user}";
+  home.homeDirectory = "/home/${user}";
   # Don't change
   home.stateVersion = "23.11"; # Please read the comment before changing.
   # Standalone Packages for user

@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  user,
+  ...
+}:
 
 {
   options.custom = {
@@ -12,7 +17,7 @@
     hardware.bluetooth.powerOnBoot = false; # powers up the default Bluetooth controller on boot
     services.blueman.enable = true;
 
-    home-manager.users."ladas552".services.mpris-proxy.enable = true;
+    home-manager.users."${user}".services.mpris-proxy.enable = true;
 
     hardware.bluetooth.settings = {
       General = {

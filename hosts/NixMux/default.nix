@@ -1,4 +1,12 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  user,
+  host,
+  self,
+  system,
+  ...
+}:
 
 {
   # Thanks rix101 for the snippets
@@ -96,10 +104,12 @@
   home-manager = {
     extraSpecialArgs = {
       inherit inputs;
-      host = "NixMux";
-      self = "/data/data/com.termux.nix/files/home/Nix-Is-Unbreakable";
-      user = "nix-on-droid";
-      system = "aarch64-linux";
+      inherit
+        host
+        self
+        system
+        user
+        ;
     };
     backupFileExtension = "hm-bak";
     config = import ./home.nix;

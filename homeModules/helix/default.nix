@@ -2,6 +2,7 @@
   lib,
   config,
   inputs,
+  system,
   ...
 }:
 
@@ -21,7 +22,7 @@
 
     programs.helix = {
       enable = true;
-      # package = inputs.helix-overlay.packages.${config.system}.default;
+      package = inputs.helix-overlay.packages.${system}.default;
     };
   };
 }

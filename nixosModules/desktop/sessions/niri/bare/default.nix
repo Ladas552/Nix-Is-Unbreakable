@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  user,
   ...
 }:
 
@@ -43,7 +44,7 @@
         obs.default = "gnome";
       };
     };
-    home-manager.users."ladas552" = {
+    home-manager.users."${user}" = {
       home.file.".config/niri/config.kdl" = {
         source = ./config.kdl;
       };

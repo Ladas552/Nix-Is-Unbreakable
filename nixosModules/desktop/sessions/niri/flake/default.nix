@@ -3,6 +3,7 @@
   pkgs,
   config,
   inputs,
+  user,
   ...
 }:
 
@@ -37,7 +38,7 @@
     };
 
     home-manager = {
-      users."ladas552" = import ./home.nix;
+      users."${user}" = import ./home.nix;
     };
   };
 }

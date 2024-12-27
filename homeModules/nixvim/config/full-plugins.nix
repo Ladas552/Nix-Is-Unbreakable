@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  self,
   ...
 }:
 let
@@ -107,8 +108,8 @@ in
               # doesn't work btw
               settings = {
                 nixpkgs.expr = "import <nixpkgs> { }";
-                nixos.expr = "(builtins.getFlake ''/home/ladas552/Nix-dots'').nixosConfigurations.NixToks.options";
-                home-manager.expr = "(builtins.getFlake ''/home/ladas552/Nix-dots'').nixosConfigurations.NixToks.options.home-manager.users.type.getSubOptions []";
+                nixos.expr = "(builtins.getFlake ''${self}'').nixosConfigurations.NixToks.options";
+                home-manager.expr = "(builtins.getFlake ''${self}'').nixosConfigurations.NixToks.options.home-manager.users.type.getSubOptions []";
               };
             };
             tinymist = {

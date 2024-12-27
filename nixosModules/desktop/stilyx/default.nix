@@ -3,6 +3,7 @@
   pkgs,
   lib,
   inputs,
+  user,
   ...
 }:
 
@@ -14,34 +15,19 @@
   imports = [ inputs.stylix.nixosModules.stylix ];
 
   config = lib.mkIf config.custom.stylix.enable {
-    #To always use the dark theme
-    home-manager.users."ladas552".dconf.settings = {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
+    home-manager = {
+      users."${user}" = import ./home.nix;
     };
+    #To always use the dark theme
     environment = {
       etc = {
         "xdg/gtk-3.0/settings.ini".text =
-          config.home-manager.users."ladas552".xdg.configFile."gtk-3.0/settings.ini".text;
+          config.home-manager.users."${user}".xdg.configFile."gtk-3.0/settings.ini".text;
         "xdg/gtk-4.0/settings.ini".text =
-          config.home-manager.users."ladas552".xdg.configFile."gtk-4.0/settings.ini".text;
+          config.home-manager.users."${user}".xdg.configFile."gtk-4.0/settings.ini".text;
       };
     };
 
-    # Themes
-    home-manager.users."ladas552" = {
-      stylix.targets = {
-        bspwm.enable = false;
-        kitty.enable = false;
-        xfce.enable = config.custom.xfce.enable;
-        # vesktop.enable = true;
-        fish.enable = false;
-        nixvim.enable = false;
-        helix.enable = false;
-        emacs.enable = false;
-      };
-    };
     stylix = {
       enable = true;
       image = ./wallpapers/Sacrifice.jpg;

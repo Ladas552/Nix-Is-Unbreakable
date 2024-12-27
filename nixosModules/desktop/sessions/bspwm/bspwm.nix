@@ -1,7 +1,7 @@
-{ lib, ... }:
+{ lib, user, ... }:
 
 {
-  home-manager.users."ladas552".xsession.windowManager.bspwm = {
+  xsession.windowManager.bspwm = {
     enable = true;
     monitors = {
       eDP-1-1 = [
@@ -57,7 +57,7 @@
     #    pgrep -x sxhkd > /dev/null || sxhkd &
     #    '';
   };
-  home-manager.users."ladas552".services.sxhkd = {
+  services.sxhkd = {
     enable = true;
     keybindings = {
       "super + t" = "ghostty";
@@ -114,7 +114,7 @@
     # super + l
     #   betterlockscreen -l dimblur
     # shift + alt + m
-    #   /home/ladas552/.local/bin/musnow.sh
+    #   /home/${user}/.local/bin/musnow.sh
     # ## send the newest marked node to the newest preselected node
     # ##super + y
     # ##	bspc node newest.marked.local -n newest.!automatic.local

@@ -1,4 +1,10 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  user,
+  host,
+  ...
+}:
 
 {
   options.custom = {
@@ -39,7 +45,7 @@
       };
     };
 
-    home-manager.users."ladas552" = {
+    home-manager.users."${user}" = {
       programs.ssh = {
         enable = true;
         forwardAgent = true;
@@ -47,9 +53,9 @@
         controlMaster = "auto";
         controlPersist = "10m";
 
-        matchBlocks."ladas552" = {
-          host = "NixToks";
-          user = "ladas552";
+        matchBlocks."${user}" = {
+          host = "${host}";
+          user = "${user}";
           identityFile = [ "~/.ssh/NixToks" ];
         };
       };

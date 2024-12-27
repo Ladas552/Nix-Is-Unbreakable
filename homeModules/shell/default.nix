@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  self,
   ...
 }:
 
@@ -66,22 +67,22 @@
       ];
       shellAbbrs = {
         clean = "nh clean all";
-        yy = "nh os switch ~/Nix-dots/";
-        yyy = "nh os switch -u ~/Nix-dots/";
-        en = "nvim ~/Nix-dots/";
-        enn = "nvim ~/Nix-dots/hosts/NixToks/";
-        eh = "hx ~/Nix-dots/";
+        yy = "nh os switch ${self}";
+        yyy = "nh os switch -u ${self}";
+        en = "nvim ${self}";
+        enn = "nvim ${self}/hosts/NixToks/";
+        eh = "hx ${self}";
         v = "nvim";
         ls = "eza";
         dl-video = "yt-dlp --embed-thumbnail -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 --output '%(title)s.%(ext)s'";
-        dl-clips = "yt-dlp --embed-thumbnail -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 --ignore-errors --output '/home/ladas552/Videos/clips/%(playlist)s/%(playlist_index)s-%(title)s.%(ext)s' --yes-playlist";
-        dl-vocaloid = "yt-dlp --add-metadata --parse-metadata 'playlist_title:%(album)s' --embed-thumbnail --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --output '/home/ladas552/Music/vocaloid/%(playlist_uploader)s/%(playlist)s/%(title)s.%(ext)s' --yes-playlist";
+        dl-clips = "yt-dlp --embed-thumbnail -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 --ignore-errors --output '${config.xdg.userDirs.videos}/clips/%(playlist)s/%(playlist_index)s-%(title)s.%(ext)s' --yes-playlist";
+        dl-vocaloid = "yt-dlp --add-metadata --parse-metadata 'playlist_title:%(album)s' --embed-thumbnail --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --output '${config.xdg.userDirs.music}/vocaloid/%(playlist_uploader)s/%(playlist)s/%(title)s.%(ext)s' --yes-playlist";
         mc = "ranger";
-        mcv = "ranger ~/Videos/";
-        mcva = "ranger ~/Videos/Anime/";
-        mcm = "ranger ~/Music/";
+        mcv = "ranger ${config.xdg.userDirs.videos}";
+        mcva = "ranger ${config.xdg.userDirs.videos}/Anime/";
+        mcm = "ranger ${config.xdg.userDirs.music}";
         mcc = "ranger ~/.config/";
-        mcp = "ranger ~/Pictures/";
+        mcp = "ranger ${config.xdg.userDirs.pictures}";
       };
       shellAliases = { };
     };
@@ -96,16 +97,16 @@
       copypaste = "${lib.getExe pkgs.wgetpaste}";
       cmatrix = "${lib.getExe pkgs.unimatrix} -f -s 95";
       fastfetch = "fastfetch | ${lib.getExe pkgs.lolcat}";
-      en = "nvim ~/Nix-dots/";
-      enn = "nvim ~/Nix-dots/hosts/NixToks/";
-      eh = "nvim ~/Nix-dots/homeModules/programs/";
+      en = "nvim ${self}";
+      enn = "nvim ${self}/hosts/NixToks/";
+      eh = "hx ${self}";
       v = "nvim";
       ls = "eza";
       cd = "z";
       mc = "ranger";
       clean = "nh clean all";
-      yy = "nh os switch ~/Nix-dots/";
-      yyy = "nh os switch -u ~/Nix-dots/";
+      yy = "nh os switch ${self}";
+      yyy = "nh os switch -u ${self}";
       serve = "~/.cargo/bin/norgolith serve";
       ungl = "source ~/Desktop/ungl.sh";
     };

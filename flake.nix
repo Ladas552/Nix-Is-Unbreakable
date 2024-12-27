@@ -65,7 +65,6 @@
       ...
     }@inputs:
     let
-      system = "x86_64-linux";
       # why pkgs-stable works? here https://discourse.nixos.org/t/allow-unfree-in-flakes/29904/2
       pkgs-stable = import nixpkgs-stable {
         system = "x86_64-linux";
@@ -74,11 +73,6 @@
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
-        # I made this so overlays works when home-managers Globalpkgs Option
-        # would work with my overlays. But I will change it as soon as I
-        # figure out how to make custom attributes, like system.
-        # to make a Commented out `package` option in Helix module work
-        overlays = [ inputs.helix-overlay.overlays.default ];
       };
     in
     {
@@ -90,7 +84,7 @@
             inherit pkgs;
             host = "NixToks";
             self = "/home/ladas552/Nix-dots";
-            user = "ladad552";
+            user = "ladas552";
             system = "x86_64-linux";
           };
 
@@ -99,8 +93,10 @@
 
         NixFlash = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit system;
             inherit inputs;
+            host = "NixFlash";
+            user = "Fixer";
+            system = "x86_64-linux";
           };
 
           modules = [ ./hosts/NixFlash ];
@@ -120,7 +116,6 @@
             system = "aarch64-linux";
 
             config.allowUnfree = true;
-            overlays = [ inputs.helix-overlay.overlays.default ];
           };
           modules = [ ./hosts/NixMux ];
         };

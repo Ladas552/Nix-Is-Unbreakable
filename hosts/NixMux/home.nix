@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  self,
+  ...
+}:
 {
   imports = [ ./../../homeModules ];
 
@@ -90,14 +95,15 @@
       mc = "ranger";
       h = "hx";
       # System Mantaining
-      en = "hx ~/Nix-Is-Unbreakable/";
-      eh = "hx ~/Nix-Is-Unbreakable/";
+      en = "hx ${self}";
+      eh = "hx ${self}";
       clean = "nix-collect-garbage";
-      yy = "nix-on-droid switch -F ~/Nix-Is-Unbreakable#NixMux";
+      yy = "nix-on-droid switch -F ${self}#NixMux";
       # Git
       g = "git";
       gal = "git add ./*";
       gcm = "git commit -m";
+      gpr = "git pull --rebase";
       gpu = "git push";
       # Neorg
       v = "nvim";
@@ -126,14 +132,15 @@
     mc = "ranger";
     h = "hx";
     # System Mantaining
-    en = "hx ~/Nix-Is-Unbreakable/";
-    eh = "hx ~/Nix-Is-Unbreakable/";
+    en = "hx ${self}";
+    eh = "hx ${self}";
     clean = "nix-collect-garbage";
-    yy = "nix-on-droid switch -F ~/Nix-Is-Unbreakable#NixMux";
+    yy = "nix-on-droid switch -F ${self}#NixMux";
     # Git
     g = "git";
     gal = "git add ./*";
     gcm = "git commit -m";
+    gpr = "git pull --rebase";
     gpu = "git push";
     # Neorg
     v = "nvim";

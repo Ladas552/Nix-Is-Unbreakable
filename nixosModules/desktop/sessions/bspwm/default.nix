@@ -1,11 +1,14 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  user,
+  ...
+}:
 
 {
   options.custom = {
     bspwm.enable = lib.mkEnableOption "enable bspwm";
   };
-
-  imports = [ ./bspwm.nix ];
 
   config = lib.mkIf config.custom.bspwm.enable {
     services.displayManager.defaultSession = "xfce+bspwm";
@@ -16,6 +19,10 @@
       desktopManager.xfce = {
         enableXfwm = false;
       };
+    };
+
+    home-manager = {
+      users."${user}" = import ./bspwm.nix;
     };
   };
 }
