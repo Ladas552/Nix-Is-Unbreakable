@@ -14,7 +14,7 @@
       enable = true;
       config = {
         profile = "gpu-hq";
-        save-position-on-quit = "true";
+        save-position-on-quit = "yes";
         cursor-autohide = 100;
         ytdl-raw-options = "yes-playlist=";
         audio-file-auto = "fuzzy";
@@ -51,11 +51,23 @@
         [
           sponsorblock-minimal
           reload
+          mpris
           quality-menu
           memo
           autoload
         ]
       );
+      extraInput = ''
+        Ctrl+f script-binding quality_menu/video_formats_toggle #! Stream Quality > Video
+      '';
+      scriptOpts = {
+        quality-menu = {
+          quality_strings_video = ''[ {"1080p" : "bestvideo[height<=?1080]"}, {"720p" : "bestvideo[height<=?720]"}, {"480p" : "bestvideo[height<=?480]"}, {"360p" : "bestvideo[height<=?360]"}, {"240p" : "bestvideo[height<=?240]"}, {"144p" : "bestvideo[height<=?144]"} ]'';
+          columns_video = ''-resolution|bitrate_total,size,codec_video'';
+          fetch_formats = "no";
+          hide_identical_columns = "yes";
+        };
+      };
     };
   };
 }
