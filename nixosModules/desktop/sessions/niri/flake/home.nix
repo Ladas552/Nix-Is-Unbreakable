@@ -58,6 +58,7 @@
         border.enable = false;
         focus-ring = {
           width = 4;
+
           active.gradient = {
             from = "#7700AE";
             to = "#0060FF";

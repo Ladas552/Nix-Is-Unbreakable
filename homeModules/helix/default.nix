@@ -14,7 +14,6 @@
   imports = [
     ./languages
     ./config/keymap.nix
-    ./config/themes.nix
     ./config/options.nix
   ];
 
