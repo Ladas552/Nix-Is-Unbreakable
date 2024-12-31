@@ -36,10 +36,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Devenv
-    devenv = {
-      url = "github:cachix/devenv";
-    };
     # Overlays
     # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
@@ -119,21 +115,6 @@
           };
           modules = [ ./hosts/NixMux ];
         };
-      };
-
-      devShells.x86_64-linux.default = inputs.devenv.lib.mkShell {
-        inherit inputs pkgs;
-
-        modules = [
-          (
-            { pkgs, ... }:
-            {
-              # This is your devenv configuration
-              packages = [ pkgs.git ];
-              pre-commit.hooks.nixfmt-rfc-style.enable = true;
-            }
-          )
-        ];
       };
     };
 }

@@ -27,16 +27,6 @@ let
     meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg-meta";
   };
 
-  typst-preview = pkgs.vimUtils.buildVimPlugin {
-    name = "typst-preview";
-    src = pkgs.fetchFromGitHub {
-      owner = "chomosuke";
-      repo = "typst-preview.nvim";
-      rev = "0354cc1a7a5174a2e69cdc21c4db9a3ee18bb20a";
-      sha256 = "0vrqj77n5cjabkak4j2m58i3rbrp0w37ggd49gfib5abf9qxyi4z";
-    };
-  };
-
   img-clip.nvim = pkgs.vimUtils.buildVimPlugin {
     name = "img-clip.nvim";
     src = pkgs.fetchFromGitHub {
@@ -74,10 +64,10 @@ in
 
     programs.nixvim = {
       extraPlugins = [
+        pkgs.vimPlugins.typst-preview-nvim
         pkgs.vimPlugins."gitsigns-nvim"
         pkgs.vimPlugins."lspkind-nvim"
         pkgs.vimPlugins.nvim-treesitter-parsers.org
-        typst-preview
         treesitter-norg-meta
         img-clip.nvim
         typst-tools.nvim
