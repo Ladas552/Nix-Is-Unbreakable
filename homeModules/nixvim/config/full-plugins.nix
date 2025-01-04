@@ -70,7 +70,9 @@ in
         pkgs.vimPlugins.nvim-treesitter-parsers.org
         treesitter-norg-meta
         img-clip.nvim
-        typst-tools.nvim
+        # Broke on latest nixpkgs
+        # typst-tools.nvim
+
         # (pkgs.vimUtils.buildVimPlugin {
         #   name = "markview.nvim";
         #   src = pkgs.fetchFromGitHub {

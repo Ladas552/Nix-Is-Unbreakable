@@ -6,22 +6,16 @@
   pkgs-stable,
   user,
   host,
-  self,
   system,
   ...
 }:
 
 {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
     ./../../nixosModules
     ./../../scripts
     inputs.home-manager.nixosModules.default
   ];
-  #build machine for termux
-  # Termux builder
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   # Set nixpath for nixd
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   # Better Error messages
@@ -64,37 +58,20 @@
   home-manager = {
     extraSpecialArgs = {
       inherit inputs pkgs-stable;
-      inherit
-        host
-        self
-        user
-        system
-        ;
+      inherit host user system;
     };
     users."${user}" = import ./home.nix;
     useUserPackages = true;
     useGlobalPkgs = true;
   };
-  #trim your SSD
-  services.fstrim.enable = true;
   # Latest kernel
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   # Bootloader.
   boot.loader = {
-    grub = {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";
-      useOSProber = true;
-      timeoutStyle = "hidden";
-      gfxmodeEfi = "1920x1080";
-      gfxmodeBios = "1920x1080";
-    };
-    efi.efiSysMountPoint = "/boot";
+    systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
   networking.hostName = "${host}"; # Define your hostname.
-
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

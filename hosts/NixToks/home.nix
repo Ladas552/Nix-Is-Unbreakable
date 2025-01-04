@@ -47,7 +47,8 @@
     vesktop
     inputs.ghostty.packages.x86_64-linux.default
     libreoffice-fresh
-    shotcut
+    # Broken on latest nixpkgs
+    # shotcut
     imagemagick
     wl-clipboard
     candy-icons
@@ -74,7 +75,8 @@
     #   texliveFull
     typst
     xarchiver
-    pymol
+    # Broken on latest nixpkgs
+    # pymol
   ];
 
   # nixpkgs.config.allowUnfree = true;

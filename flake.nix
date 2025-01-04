@@ -90,12 +90,12 @@
         NixFlash = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
-            host = "NixFlash";
-            user = "Fixer";
+            host = "NixVM";
+            user = "VirtualBoy";
             system = "x86_64-linux";
           };
 
-          modules = [ ./hosts/NixFlash ];
+          modules = [ ./hosts/NixVM ];
         };
       };
 
