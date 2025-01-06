@@ -58,7 +58,7 @@ in
         pkgs.vimPlugins."gitsigns-nvim"
         treesitter-norg-meta
         img-clip.nvim
-        typst-tools.nvim
+        #typst-tools.nvim
       ];
       plugins = {
 
