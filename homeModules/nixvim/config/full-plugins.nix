@@ -70,7 +70,7 @@ in
         pkgs.vimPlugins.nvim-treesitter-parsers.org
         treesitter-norg-meta
         img-clip.nvim
-        # Broke on latest nixpkgs
+        # Broke on latest NixVim
         # typst-tools.nvim
 
         # (pkgs.vimUtils.buildVimPlugin {

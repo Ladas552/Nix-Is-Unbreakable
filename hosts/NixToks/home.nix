@@ -47,8 +47,7 @@
     vesktop
     inputs.ghostty.packages.x86_64-linux.default
     libreoffice-fresh
-    # Broken on latest nixpkgs
-    # shotcut
+    shotcut
     imagemagick
     wl-clipboard
     candy-icons

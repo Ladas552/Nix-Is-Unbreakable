@@ -12,7 +12,7 @@
   config = lib.mkIf config.custom.sounds.enable {
     environment.systemPackages = [ pkgs.sbc ];
     # Enable sound with pipewire.
-    hardware.pulseaudio.enable = false;
+    services.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;
