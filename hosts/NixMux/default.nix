@@ -9,6 +9,12 @@
 }:
 
 {
+  _module.args = {
+    host = "NixMux";
+    self = "/data/data/com.termux.nix/files/home/Nix-Is-Unbreakable";
+    user = "nix-on-droid";
+    system = "aarch64-linux";
+  };
   # Thanks rix101 for the snippets
   # If you want to add new builders, also edit the `.config/nix/nix.conf` file
   # And add host to `.ssh/config` file
@@ -41,7 +47,7 @@
   system.stateVersion = "24.05"; # Set up nix for flakes
   # Set your time zone
   time.timeZone = "Asia/Almaty";
-  # termux settings
+  # Termux settings
   android-integration = {
     termux-open.enable = true;
     termux-open-url.enable = true;

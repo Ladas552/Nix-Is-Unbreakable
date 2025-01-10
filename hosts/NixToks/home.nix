@@ -119,6 +119,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  #programs.home-manager.path = "$HOME/Nix-dots/Home-Manager";
-
 }

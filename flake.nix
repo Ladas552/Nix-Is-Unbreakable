@@ -1,5 +1,5 @@
 {
-  description = "NixToks NixOS config";
+  description = "Ladas552 NixOS config";
 
   inputs = {
     # nixpkgs links
@@ -73,40 +73,43 @@
     in
     {
       nixosConfigurations = {
+        # My Lenovo 50-70y laptop with nvidia 860M
         NixToks = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
             inherit pkgs-stable;
             inherit pkgs;
-            host = "NixToks";
-            self = "/home/ladas552/Nix-dots";
-            user = "ladas552";
-            system = "x86_64-linux";
           };
 
-          modules = [ ./hosts/NixToks ];
+          modules = [
+            ./hosts/NixToks
+          ];
         };
-
-        NixFlash = nixpkgs.lib.nixosSystem {
+        # My Acer Swift Go 14 with ryzen 7640U
+        NixPort = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
-            host = "NixVM";
-            user = "VirtualBoy";
-            system = "x86_64-linux";
+            inherit pkgs-stable;
+            inherit pkgs;
+          };
+
+          modules = [ ./hosts/NixPort ];
+        };
+        # Nix VM for testing major config changes
+        NixVM = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            inherit pkgs;
           };
 
           modules = [ ./hosts/NixVM ];
         };
       };
-
+      # My android phone/tablet for Termux
       nixOnDroidConfigurations = {
         NixMux = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
           extraSpecialArgs = {
             inherit inputs;
-            host = "NixMux";
-            self = "/data/data/com.termux.nix/files/home/Nix-Is-Unbreakable";
-            user = "nix-on-droid";
-            system = "aarch64-linux";
           };
           pkgs = import nixpkgs {
             system = "aarch64-linux";

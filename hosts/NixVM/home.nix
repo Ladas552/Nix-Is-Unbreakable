@@ -34,38 +34,10 @@
     gparted
   ];
 
-  nixpkgs.config.allowUnfree = true;
-  #  home.file = {
-  #
-  # # You can also set the file content immediately.
-  #".gradle/gradle.properties".text = ''
-  #   org.gradle.console=verbose
-  #   org.gradle.daemon.idletimeout=3600000
-  # '';
-  #
-  #  };
-  # Environment and Dependencies
   xdg = {
     enable = true;
-    #    mime.enable = true;
-    #    mimeApps = {
-    #      enable = true;
-    #      associations.added = {
-    #        "text/plain" = ["neovim.desktop"];
-    #        "application/pdf" = ["org.pwmt.zathura-pdf-mupdf.desktop"];
-    #        "image/*" = ["imv.desktop"];
-    #        "video/*" = ["mpv.desktop"];
-    #      };
-    #      defaultApplications = {
-    #        "text/plain" = [""];
-    #        "application/pdf" = ["org.pwmt.zathura-pdf-mupdf.desktop"];
-    #        "image/*" = ["imv.desktop"];
-    #        "video/*" = ["mpv.desktop"];
-    #      };
-    #    };
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  #programs.home-manager.path = "$HOME/Nix-dots/Home-Manager";
 }

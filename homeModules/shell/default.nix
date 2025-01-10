@@ -3,6 +3,7 @@
   lib,
   config,
   self,
+  host,
   ...
 }:
 
@@ -49,12 +50,12 @@
           src = bass.src;
         }
         {
-          name = "done";
-          src = done.src;
-        }
-        {
           name = "pure";
           src = pure.src;
+        }
+        {
+          name = "done";
+          src = done.src;
         }
         {
           name = "puffer";
@@ -70,7 +71,7 @@
         yy = "nh os switch ${self}";
         yyy = "nh os switch -u ${self}";
         en = "nvim ${self}";
-        enn = "nvim ${self}/hosts/NixToks/";
+        enn = "nvim ${self}/hosts/${host}/";
         eh = "hx ${self}";
         v = "nvim";
         ls = "eza";

@@ -25,8 +25,6 @@
     libqalculate
     manix
     typst
-    ripgrep
-    fd
     gcc
     coreutils
     gawk
@@ -110,21 +108,7 @@
       j = ''nvim -c "Neorg journal today"'';
     };
   };
-  programs = {
-    ripgrep.enable = true;
-    fd.enable = true;
-    bat.enable = true;
-    fzf = {
-      enable = true;
-    };
-    zoxide = {
-      enable = true;
-    };
-    eza = {
-      enable = true;
-      extraOptions = [ "--icons" ];
-    };
-  };
+
   home.shellAliases = {
     # cli tools
     ls = "eza";
@@ -145,6 +129,22 @@
     # Neorg
     v = "nvim";
     j = ''nvim -c "Neorg journal today"'';
+  };
+
+  programs = {
+    ripgrep.enable = true;
+    fd.enable = true;
+    bat.enable = true;
+    fzf = {
+      enable = true;
+    };
+    zoxide = {
+      enable = true;
+    };
+    eza = {
+      enable = true;
+      extraOptions = [ "--icons" ];
+    };
   };
 
   home.sessionVariables = lib.mkForce {
