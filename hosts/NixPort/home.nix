@@ -2,7 +2,7 @@
   pkgs,
   pkgs-stable,
   inputs,
-  user,
+  meta,
   ...
 }:
 
@@ -30,8 +30,8 @@
   };
 
   # Me
-  home.username = "${user}";
-  home.homeDirectory = "/home/${user}";
+  home.username = "${meta.user}";
+  home.homeDirectory = "/home/${meta.user}";
   # Don't change
   home.stateVersion = "24.11"; # Please read the comment before changing.
   # Standalone Packages for user

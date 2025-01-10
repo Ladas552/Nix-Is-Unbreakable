@@ -1,8 +1,7 @@
 {
   config,
   lib,
-  user,
-  host,
+  meta,
   ...
 }:
 
@@ -45,7 +44,7 @@
       };
     };
 
-    home-manager.users."${user}" = {
+    home-manager.users."${meta.user}" = {
       programs.ssh = {
         enable = true;
         forwardAgent = true;
@@ -53,9 +52,9 @@
         controlMaster = "auto";
         controlPersist = "10m";
 
-        matchBlocks."${user}" = {
-          host = "${host}";
-          user = "${user}";
+        matchBlocks."${meta.user}" = {
+          host = "${meta.host}";
+          user = "${meta.user}";
           identityFile = [ "~/.ssh/NixToks" ];
         };
       };

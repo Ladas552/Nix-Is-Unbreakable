@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  self,
+  meta,
   ...
 }:
 {
@@ -93,10 +93,10 @@
       mc = "ranger";
       h = "hx";
       # System Mantaining
-      en = "hx ${self}";
-      eh = "hx ${self}";
+      en = "hx ${meta.self}";
+      eh = "hx ${meta.self}";
       clean = "nix-collect-garbage";
-      yy = "nix-on-droid switch -F ${self}#NixMux";
+      yy = "nix-on-droid switch -F ${meta.self}#NixMux";
       # Git
       g = "git";
       gal = "git add ./*";
@@ -116,10 +116,10 @@
     mc = "ranger";
     h = "hx";
     # System Mantaining
-    en = "hx ${self}";
-    eh = "hx ${self}";
+    en = "hx ${meta.self}";
+    eh = "hx ${meta.self}";
     clean = "nix-collect-garbage";
-    yy = "nix-on-droid switch -F ${self}#NixMux";
+    yy = "nix-on-droid switch -F ${meta.self}#NixMux";
     # Git
     g = "git";
     gal = "git add ./*";

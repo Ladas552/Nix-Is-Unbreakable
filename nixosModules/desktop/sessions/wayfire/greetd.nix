@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, meta, ... }:
 {
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "${user}";
@@ -7,7 +7,7 @@
     settings = rec {
       initial_session = {
         command = "${pkgs.wayfire}/bin/wayfire";
-        user = "${user}";
+        user = "${meta.user}";
       };
       default_session = initial_session;
     };

@@ -3,7 +3,7 @@
   pkgs,
   lib,
   inputs,
-  user,
+  meta,
   ...
 }:
 
@@ -16,15 +16,15 @@
 
   config = lib.mkIf config.custom.stylix.enable {
     home-manager = {
-      users."${user}" = import ./home.nix;
+      users."${meta.user}" = import ./home.nix;
     };
     #To always use the dark theme
     environment = {
       etc = {
         "xdg/gtk-3.0/settings.ini".text =
-          config.home-manager.users."${user}".xdg.configFile."gtk-3.0/settings.ini".text;
+          config.home-manager.users."${meta.user}".xdg.configFile."gtk-3.0/settings.ini".text;
         "xdg/gtk-4.0/settings.ini".text =
-          config.home-manager.users."${user}".xdg.configFile."gtk-4.0/settings.ini".text;
+          config.home-manager.users."${meta.user}".xdg.configFile."gtk-4.0/settings.ini".text;
       };
     };
 

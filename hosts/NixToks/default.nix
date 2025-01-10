@@ -4,10 +4,7 @@
   inputs,
   lib,
   pkgs-stable,
-  user,
-  host,
-  self,
-  system,
+  meta,
   ...
 }:
 
@@ -20,10 +17,12 @@
     inputs.home-manager.nixosModules.default
   ];
   _module.args = {
-    host = "NixToks";
-    self = "/home/ladas552/Nix-Is-Unbreakable";
-    user = "ladas552";
-    system = "x86_64-linux";
+    meta = {
+      host = "NixToks";
+      self = "/home/ladas552/Nix-Is-Unbreakable";
+      user = "ladas552";
+      system = "x86_64-linux";
+    };
   };
   #build machine for termux
   # Termux builder
@@ -70,14 +69,9 @@
   home-manager = {
     extraSpecialArgs = {
       inherit inputs pkgs-stable;
-      inherit
-        host
-        self
-        user
-        system
-        ;
+      inherit meta;
     };
-    users."${user}" = import ./home.nix;
+    users."${meta.user}" = import ./home.nix;
     useUserPackages = true;
     useGlobalPkgs = true;
   };
@@ -99,7 +93,7 @@
     efi.efiSysMountPoint = "/boot";
     efi.canTouchEfiVariables = true;
   };
-  networking.hostName = "${host}"; # Define your hostname.
+  networking.hostName = "${meta.host}"; # Define your hostname.
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -148,7 +142,7 @@
   nix.settings = {
     trusted-users = [
       "root"
-      "${user}"
+      "${meta.user}"
       "@wheel"
     ];
     substituters = [
@@ -217,7 +211,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${user} = {
+  users.users.${meta.user} = {
     isNormalUser = true;
     description = "Ladas552";
     extraGroups = [

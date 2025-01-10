@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  user,
+  meta,
   ...
 }:
 # Yeah it doesn't prooperly work I think at least on my i7-4710HQ :P
@@ -45,7 +45,7 @@
         # };
       };
     };
-    users.users."${user}".extraGroups = [ "libvirtd" ];
+    users.users."${meta.user}".extraGroups = [ "libvirtd" ];
     home-manager.users."ladas552".dconf.settings = {
       "org/virt-manager/virt-manager/connections" = {
         autoconnect = [ "qemu:///system" ];

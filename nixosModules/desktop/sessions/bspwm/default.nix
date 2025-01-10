@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  user,
+  meta,
   ...
 }:
 
@@ -22,7 +22,7 @@
     };
 
     home-manager = {
-      users."${user}" = import ./bspwm.nix;
+      users."${meta.user}" = import ./bspwm.nix;
     };
   };
 }

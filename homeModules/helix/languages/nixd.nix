@@ -1,7 +1,6 @@
 {
   pkgs,
-  self,
-  host,
+  meta,
   ...
 }:
 
@@ -19,9 +18,9 @@
         config.nixd = {
           nixpkgs.expr = "import <nixpkgs> { }";
           options = {
-            nixos.expr = "(builtins.getFlake ''${self}'').nixosConfigurations.NixToks.options";
-            home-manager.expr = "(builtins.getFlake ''${self}'').nixosConfigurations.NixToks.options.home-manager.users.type.getSubOptions []";
-            nix-on-droid.expr = "(builtins.getFlake ''${self}'').nixOnDroidConfigurations.NixMux.options";
+            nixos.expr = "(builtins.getFlake ''${meta.self}'').nixosConfigurations.NixToks.options";
+            home-manager.expr = "(builtins.getFlake ''${meta.self}'').nixosConfigurations.NixToks.options.home-manager.users.type.getSubOptions []";
+            nix-on-droid.expr = "(builtins.getFlake ''${meta.self}'').nixOnDroidConfigurations.NixMux.options";
           };
         };
       };

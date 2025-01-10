@@ -2,8 +2,7 @@
   lib,
   pkgs,
   config,
-  user,
-  self,
+  meta,
   ...
 }:
 
@@ -45,12 +44,12 @@
         obs.default = "gnome";
       };
     };
-    home-manager.users."${user}" = {
+    home-manager.users."${meta.user}" = {
       home.file.".config/niri/config.kdl" = {
         source = ./config.kdl;
       };
       home.shellAliases = {
-        niv = "niri validate -c ${self}/nixosModules/desktop/sessions/niri/bare/config.kdl ";
+        niv = "niri validate -c ${meta.self}/nixosModules/desktop/sessions/niri/bare/config.kdl ";
       };
       xdg.portal.enable = true;
       xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gnome ];

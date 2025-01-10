@@ -1,4 +1,4 @@
-{ lib, user, ... }:
+{ lib, meta, ... }:
 
 {
   xsession.windowManager.bspwm = {
@@ -113,7 +113,7 @@
     # super + l
     #   betterlockscreen -l dimblur
     # shift + alt + m
-    #   /home/${user}/.local/bin/musnow.sh
+    #   /home/${meta.user}/.local/bin/musnow.sh
     # ## send the newest marked node to the newest preselected node
     # ##super + y
     # ##	bspc node newest.marked.local -n newest.!automatic.local

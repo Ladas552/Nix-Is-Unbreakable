@@ -1,13 +1,13 @@
-{ pkgs, user, ... }:
+{ pkgs, meta, ... }:
 {
   services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "${user}";
+  services.displayManager.autoLogin.user = "${meta.user}";
   services.greetd = {
     enable = true;
     settings = rec {
       initial_session = {
         command = "${pkgs.niri}/bin/niri-session";
-        user = "${user}";
+        user = "${meta.user}";
       };
       default_session = initial_session;
     };

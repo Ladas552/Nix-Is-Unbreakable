@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  user,
+  meta,
   ...
 }:
 
@@ -26,7 +26,7 @@
     };
     environment.systemPackages = [ pkgs.ffmpegthumbnailer ];
 
-    home-manager.users."${user}".home.file.".config/Thunar/uca.xml".text = # xml
+    home-manager.users."${meta.user}".home.file.".config/Thunar/uca.xml".text = # xml
       ''
         <?xml version="1.0" encoding="UTF-8"?>
         <actions>

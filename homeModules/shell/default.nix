@@ -2,8 +2,7 @@
   pkgs,
   lib,
   config,
-  self,
-  host,
+  meta,
   ...
 }:
 
@@ -68,11 +67,11 @@
       ];
       shellAbbrs = {
         clean = "nh clean all";
-        yy = "nh os switch ${self}";
-        yyy = "nh os switch -u ${self}";
-        en = "nvim ${self}";
-        enn = "nvim ${self}/hosts/${host}/";
-        eh = "hx ${self}";
+        yy = "nh os switch ${meta.self}";
+        yyy = "nh os switch -u ${meta.self}";
+        en = "nvim ${meta.self}";
+        enn = "nvim ${meta.self}/hosts/${meta.host}/";
+        eh = "hx ${meta.self}";
         v = "nvim";
         ls = "eza";
         dl-video = "yt-dlp --embed-thumbnail -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 --output '%(title)s.%(ext)s'";
@@ -98,16 +97,16 @@
       copypaste = "${lib.getExe pkgs.wgetpaste}";
       cmatrix = "${lib.getExe pkgs.unimatrix} -f -s 95";
       fastfetch = "fastfetch | ${lib.getExe pkgs.lolcat}";
-      en = "nvim ${self}";
-      enn = "nvim ${self}/hosts/NixToks/";
-      eh = "hx ${self}";
+      en = "nvim ${meta.self}";
+      enn = "nvim ${meta.self}/hosts/NixToks/";
+      eh = "hx ${meta.self}";
       v = "nvim";
       ls = "eza";
       cd = "z";
       mc = "ranger";
       clean = "nh clean all";
-      yy = "nh os switch ${self}";
-      yyy = "nh os switch -u ${self}";
+      yy = "nh os switch ${meta.self}";
+      yyy = "nh os switch -u ${meta.self}";
       serve = "~/.cargo/bin/norgolith serve";
       ungl = "source ~/Desktop/ungl.sh";
     };

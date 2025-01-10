@@ -4,9 +4,7 @@
   inputs,
   lib,
   pkgs-stable,
-  user,
-  host,
-  system,
+  meta,
   ...
 }:
 
@@ -17,9 +15,11 @@
     inputs.home-manager.nixosModules.default
   ];
   _module.args = {
-    host = "NixVM";
-    user = "virtualboy";
-    system = "x86_64-linux";
+    meta = {
+      host = "NixVM";
+      user = "virtualboy";
+      system = "x86_64-linux";
+    };
   };
   # Set nixpath for nixd
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
@@ -40,9 +40,9 @@
   home-manager = {
     extraSpecialArgs = {
       inherit inputs pkgs-stable;
-      inherit host user system;
+      inherit meta;
     };
-    users."${user}" = import ./home.nix;
+    users."${meta.user}" = import ./home.nix;
     useUserPackages = true;
     useGlobalPkgs = true;
   };
@@ -53,7 +53,7 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-  networking.hostName = "${host}"; # Define your hostname.
+  networking.hostName = "${meta.host}"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -99,7 +99,7 @@
   nix.settings = {
     trusted-users = [
       "root"
-      "${user}"
+      "${meta.user}"
       "@wheel"
     ];
     substituters = [
@@ -131,7 +131,7 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${user} = {
+  users.users.${meta.user} = {
     isNormalUser = true;
     description = "virtualboy";
     extraGroups = [

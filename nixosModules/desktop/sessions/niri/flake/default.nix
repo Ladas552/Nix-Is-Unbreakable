@@ -3,7 +3,7 @@
   pkgs,
   config,
   inputs,
-  user,
+  meta,
   ...
 }:
 
@@ -38,7 +38,7 @@
     };
 
     home-manager = {
-      users."${user}" = import ./home.nix;
+      users."${meta.user}" = import ./home.nix;
     };
   };
 }

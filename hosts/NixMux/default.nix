@@ -1,19 +1,18 @@
 {
   inputs,
   pkgs,
-  user,
-  host,
-  self,
-  system,
+  meta,
   ...
 }:
 
 {
   _module.args = {
-    host = "NixMux";
-    self = "/data/data/com.termux.nix/files/home/Nix-Is-Unbreakable";
-    user = "nix-on-droid";
-    system = "aarch64-linux";
+    meta = {
+      host = "NixMux";
+      self = "/data/data/com.termux.nix/files/home/Nix-Is-Unbreakable";
+      user = "nix-on-droid";
+      system = "aarch64-linux";
+    };
   };
   # Thanks rix101 for the snippets
   # If you want to add new builders, also edit the `.config/nix/nix.conf` file
@@ -110,12 +109,7 @@
   home-manager = {
     extraSpecialArgs = {
       inherit inputs;
-      inherit
-        host
-        self
-        system
-        user
-        ;
+      inherit meta;
     };
     backupFileExtension = "hm-bak";
     config = import ./home.nix;

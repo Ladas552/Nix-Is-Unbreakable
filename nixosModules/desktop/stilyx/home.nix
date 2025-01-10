@@ -1,9 +1,4 @@
-{
-  lib,
-  user,
-  config,
-  ...
-}:
+{ ... }:
 
 {
   dconf.settings = {
