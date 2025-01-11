@@ -42,7 +42,7 @@
     # i don't like compiling rust
     helix-overlay.url = "github:helix-editor/helix/ba6e6dc3dd96e3688bb7bb5d553adb5fcb005e34";
 
-    hardware.url = "github:nixos/nixos-hardware";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
 
     # Games
     # aagl = {
@@ -60,13 +60,9 @@
       home-manager,
       ...
     }@inputs:
+    # this is only for pkgs-stable because I don't know how to use nixpkgs.config for pkgs-stable along for unstable pkgs, pkgs doesn't get imported btw
     let
-      # why pkgs-stable works? here https://discourse.nixos.org/t/allow-unfree-in-flakes/29904/2
       pkgs-stable = import nixpkgs-stable {
-        system = "x86_64-linux";
-        config.allowUnfree = true;
-      };
-      pkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
@@ -76,21 +72,15 @@
         # My Lenovo 50-70y laptop with nvidia 860M
         NixToks = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
-            inherit pkgs-stable;
-            inherit pkgs;
+            inherit inputs pkgs-stable;
           };
 
-          modules = [
-            ./hosts/NixToks
-          ];
+          modules = [ ./hosts/NixToks ];
         };
         # My Acer Swift Go 14 with ryzen 7640U
         NixPort = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
-            inherit pkgs-stable;
-            inherit pkgs;
+            inherit inputs pkgs-stable;
           };
 
           modules = [ ./hosts/NixPort ];
@@ -98,8 +88,7 @@
         # Nix VM for testing major config changes
         NixVM = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
-            inherit pkgs;
+            inherit inputs pkgs-stable;
           };
 
           modules = [ ./hosts/NixVM ];

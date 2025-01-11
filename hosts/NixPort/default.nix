@@ -11,9 +11,9 @@
 {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
     ./../../nixosModules
     ./../../scripts
+    inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
     inputs.home-manager.nixosModules.default
   ];
   _module.args = {
@@ -57,18 +57,24 @@
   # Latest kernel
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   # Bootloader.
-  boot.loader = {
-    grub = {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";
-      useOSProber = true;
-      timeoutStyle = "hidden";
-      gfxmodeEfi = "1920x1080";
-      gfxmodeBios = "1920x1080";
+  boot = {
+    initrd.systemd.enable = true;
+    supportedFilesystems.ntfs = true;
+    loader = {
+      grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+        useOSProber = true;
+        timeoutStyle = "hidden";
+        gfxmodeEfi = "1920x1080";
+        gfxmodeBios = "1920x1080";
+      };
+      efi = {
+        efiSysMountPoint = "/boot";
+        canTouchEfiVariables = true;
+      };
     };
-    efi.efiSysMountPoint = "/boot";
-    efi.canTouchEfiVariables = true;
   };
   networking.hostName = "${meta.host}"; # Define your hostname.
 
@@ -143,9 +149,9 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
-
-  # Nvidia
+  # Radeon
   # Enable OpenGL and hardware accelerated graphics drivers
+  services.xserver.videoDrivers = [ "modesetting" ];
 
   hardware.graphics = {
     enable = true;
@@ -157,6 +163,7 @@
   };
   hardware.amdgpu = {
     opencl.enable = true;
+    initrd.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).

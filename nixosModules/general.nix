@@ -30,5 +30,9 @@
         "flakes"
       ];
     };
+    # nixpkgs options
+    nixpkgs.config = {
+      allowUnfree = true;
+    };
   };
 }

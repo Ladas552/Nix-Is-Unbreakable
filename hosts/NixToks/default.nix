@@ -14,6 +14,10 @@
     ./hardware-configuration.nix
     ./../../nixosModules
     ./../../scripts
+    # Searchable hardware nodules with `nix repl` and command:
+    # (builtins.getFlake ''/home/ladas552/Nix-Is-Unbreakable'').inputs.nixos-hardware.outputs.nixosModules
+    # enable trimming
+    inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
     inputs.home-manager.nixosModules.default
   ];
   _module.args = {
@@ -75,8 +79,6 @@
     useUserPackages = true;
     useGlobalPkgs = true;
   };
-  #trim your SSD
-  services.fstrim.enable = true;
   # Latest kernel
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   # Bootloader.

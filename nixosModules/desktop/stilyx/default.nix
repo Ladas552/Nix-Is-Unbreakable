@@ -34,11 +34,6 @@
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       autoEnable = true;
       polarity = "dark";
-      cursor = {
-        package = pkgs.banana-cursor;
-        name = "Banana-cursor";
-        size = 12;
-      };
 
       # cursor = {
       #   package = pkgs.catppuccin-cursors;
