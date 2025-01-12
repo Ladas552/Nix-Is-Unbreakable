@@ -1,8 +1,8 @@
 {
   lib,
   config,
+  pkgs,
   inputs,
-  meta,
   ...
 }:
 
@@ -21,7 +21,7 @@
 
     programs.helix = {
       enable = true;
-      package = inputs.helix-overlay.packages.${meta.system}.default;
+      package = inputs.helix-overlay.packages.x86_64-linux.default or pkgs.helix;
     };
   };
 }
