@@ -17,13 +17,13 @@
     emacs.enable = false;
   };
   #all of the below is from @xsharawi
-  stylix.cursor.name = "Banana";
+  stylix.cursor.name = "BreezeX-RosePine-Linux";
   # forceing because stylix is dumb
   home.pointerCursor = {
     x11.enable = true;
     gtk.enable = true;
-    package = lib.mkForce pkgs.banana-cursor;
+    package = lib.mkForce pkgs.rose-pine-cursor;
     size = lib.mkForce 40;
-    name = lib.mkForce "Banana";
+    name = lib.mkForce "BreezeX-RosePine-Linux";
   };
 }

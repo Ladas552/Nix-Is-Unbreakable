@@ -20,6 +20,7 @@
       hotkey-overlay.skip-at-startup = true;
       prefer-no-csd = true;
       screenshot-path = "~/Pictures/screenshots/Niri%Y-%m-%d %H-%M-%S.png";
+      cursor.size = 40;
       spawn-at-startup = [
         { command = [ "wpaperd" ]; }
         {
@@ -225,6 +226,12 @@
         # shows a list of important hotkeys.
         "Mod+Shift+T".action = show-hotkey-overlay;
         # Screenshots
+        # was testing if it got better quility
+        # "Print".action = spawn [
+        #   "sh"
+        #   "-c"
+        #   "${lib.getExe pkgs.slurp} | ${lib.getExe pkgs.grim} -g -"
+        # ];
         "Print".action = screenshot;
         "Shift+Print".action = screenshot-screen;
         "Alt+Print".action = screenshot-window;
