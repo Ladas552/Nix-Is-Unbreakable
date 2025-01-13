@@ -29,7 +29,7 @@
       # Performance
       performance = {
         byteCompileLua = {
-          # enable = true;
+          enable = true;
           nvimRuntime = true;
           plugins = true;
         };
