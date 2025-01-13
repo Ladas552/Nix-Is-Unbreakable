@@ -13,6 +13,7 @@
     # Include the results of the hardware scan.
     ./../../nixosModules
     ./../../scripts
+    ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
     inputs.home-manager.nixosModules.default
   ];

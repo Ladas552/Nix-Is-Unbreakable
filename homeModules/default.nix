@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, meta, ... }:
 
 {
   imports = [
@@ -31,7 +31,6 @@
     ./yt-dlp
     ./zathura
   ];
-
   manual.manpages.enable = false;
   customhm = {
     nixvim = lib.mkDefault {
@@ -39,7 +38,11 @@
       options = true;
       keymaps = true;
       colorschemes.catppuccin = true;
-      plugins.NixToks = true;
+      plugins = {
+        NixToks = (!meta.isTermux);
+        NixMux = meta.isTermux;
+        Neorg = true;
+      };
     };
     shell.enable = lib.mkDefault true;
     git.enable = lib.mkDefault true;

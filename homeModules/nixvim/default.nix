@@ -14,6 +14,7 @@
     # ./nvim/neorg.nix
     ./config/option.nix
     ./config/keymaps.nix
+    ./config/neorg.nix
     ./config/full-plugins.nix
     ./config/mobile-plugins.nix
     ./config/colorscheme.nix

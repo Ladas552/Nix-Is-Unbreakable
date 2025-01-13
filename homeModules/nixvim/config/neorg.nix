@@ -44,74 +44,80 @@ in
             norg
           ];
         };
-      };
-      # Neorg
-      neorg = {
-        enable = true;
-        telescopeIntegration.enable = true;
-        settings.load = {
-          "core.defaults" = {
-            __empty = null;
-          };
-          "core.esupports.metagen" = {
-            config = {
-              timezone = "implicit-local";
-              type = "empty";
-              undojoin_updates = "false";
+        # Neorg
+        neorg = {
+          enable = true;
+          telescopeIntegration.enable = true;
+          settings.load = {
+            "core.defaults" = {
+              __empty = null;
             };
-          };
-          "core.tangle" = {
-            config = {
-              report_on_empty = false;
-              tangle_on_write = true;
-            };
-          };
-          "core.keybinds" = {
-            config = {
-              default_keybinds = true;
-              neorg_leader = "<Leader><Leader>";
-            };
-          };
-          "core.journal" = {
-            config = {
-              workspace = "journal";
-              journal_folder = "/./";
-            };
-          };
-          "core.dirman" = {
-            config = {
-              workspaces = {
-                general = "${meta.norg}";
-                life = "${meta.norg}/Life";
-                work = "${meta.norg}/Study";
-                journal = "${meta.norg}/Journal";
+            "core.esupports.metagen" = {
+              config = {
+                timezone = "implicit-local";
+                type = "empty";
+                undojoin_updates = "false";
               };
-              default_workspace = "general";
             };
-          };
-          "core.concealer" = {
-            config = {
-              icon_preset = "diamond";
+            "core.tangle" = {
+              config = {
+                report_on_empty = false;
+                tangle_on_write = true;
+              };
             };
+            "core.keybinds" = {
+              config = {
+                default_keybinds = true;
+                neorg_leader = "<Leader><Leader>";
+              };
+            };
+            "core.journal" = {
+              config = {
+                workspace = "journal";
+                journal_folder = "/./";
+              };
+            };
+            "core.dirman" = {
+              config = {
+                workspaces = {
+                  general = "${meta.norg}";
+                  life = "${meta.norg}/Life";
+                  work = "${meta.norg}/Study";
+                  journal = "${meta.norg}/Journal";
+                };
+                default_workspace = "general";
+              };
+            };
+            "core.concealer" = {
+              config = {
+                icon_preset = "diamond";
+              };
+            };
+            "core.summary" = {
+              __empty = null;
+            };
+            "core.integrations.telescope" = {
+              __empty = null;
+            };
+            # }
+            # (lib.optional meta.isWorkstation "core.integrations.image" = {
+            #    __empty = null;
+            #  });
+            # // lib.optional (!meta.isTermux) {
+            #   name = "core.integrations.image";
+            #   value = {
+            #     __empty = null;
+            #   };
+            # };
           };
-          "core.summary" = {
-            __empty = null;
-          };
-          "core.integrations.telescope" = {
-            __empty = null;
-          };
-        } (++ lib.optional meta.isWorkstation
-          "core.integrations.image" = {
-            __empty = null;
-          };)};
-        extraConfigLua = # lua
-          ''
-            vim.g.maplocalleader = "  "
-            vim.wo.foldlevel = 99
-            vim.wo.conceallevel = 2
-          '';
+        };
       };
-
+      extraConfigLua = # lua
+        ''
+          vim.g.maplocalleader = "  "
+          vim.wo.foldlevel = 99
+          vim.wo.conceallevel = 2
+        '';
     };
   };
 }

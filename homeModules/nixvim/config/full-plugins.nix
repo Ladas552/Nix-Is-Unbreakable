@@ -8,24 +8,24 @@
 let
   #Norg meta treesitter-parser
 
-  treesitter-norg-meta = pkgs.tree-sitter.buildGrammar {
-    language = "norg-meta";
-    version = "0.1.0";
+  # treesitter-norg-meta = pkgs.tree-sitter.buildGrammar {
+  #   language = "norg-meta";
+  #   version = "0.1.0";
 
-    src = pkgs.fetchFromGitHub {
-      owner = "nvim-neorg";
-      repo = "tree-sitter-norg-meta";
-      rev = "refs/tags/v0.1.0";
-      hash = "sha256-8qSdwHlfnjFuQF4zNdLtU2/tzDRhDZbo9K54Xxgn5+8=";
-    };
+  #   src = pkgs.fetchFromGitHub {
+  #     owner = "nvim-neorg";
+  #     repo = "tree-sitter-norg-meta";
+  #     rev = "refs/tags/v0.1.0";
+  #     hash = "sha256-8qSdwHlfnjFuQF4zNdLtU2/tzDRhDZbo9K54Xxgn5+8=";
+  #   };
 
-    fixupPhase = ''
-      mkdir -p $out/queries/norg-meta
-      mv $out/queries/*.scm $out/queries/norg-meta/
-    '';
+  #   fixupPhase = ''
+  #     mkdir -p $out/queries/norg-meta
+  #     mv $out/queries/*.scm $out/queries/norg-meta/
+  #   '';
 
-    meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg-meta";
-  };
+  #   meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg-meta";
+  # };
 
   img-clip.nvim = pkgs.vimUtils.buildVimPlugin {
     name = "img-clip.nvim";
@@ -68,7 +68,7 @@ in
         pkgs.vimPlugins."gitsigns-nvim"
         pkgs.vimPlugins."lspkind-nvim"
         pkgs.vimPlugins.nvim-treesitter-parsers.org
-        treesitter-norg-meta
+        # treesitter-norg-meta
         img-clip.nvim
         # Broke on latest NixVim
         # typst-tools.nvim
@@ -305,7 +305,7 @@ in
           folding = true;
           nixvimInjections = true;
           grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
-            treesitter-norg-meta
+            # treesitter-norg-meta
             bash
             bibtex
             c
@@ -424,66 +424,66 @@ in
           enable = true;
         };
         # Neorg
-        neorg = {
-          enable = true;
-          telescopeIntegration.enable = true;
-          settings.load = {
-            "core.defaults" = {
-              __empty = null;
-            };
-            "core.esupports.metagen" = {
-              config = {
-                timezone = "implicit-local";
-                type = "empty";
-                undojoin_updates = "false";
-              };
-            };
-            "core.tangle" = {
-              config = {
-                report_on_empty = false;
-                tangle_on_write = true;
-              };
-            };
-            "core.keybinds" = {
-              config = {
-                default_keybinds = true;
-                neorg_leader = "<Leader><Leader>";
-              };
-            };
-            "core.journal" = {
-              config = {
-                workspace = "journal";
-                journal_folder = "/./";
-              };
-            };
-            "core.dirman" = {
-              config = {
-                workspaces = {
-                  general = "~/Documents/Norg";
-                  life = "~/Documents/Norg/Life";
-                  work = "~/Documents/Norg/Study";
-                  journal = "~/Documents/Norg/Journal";
-                };
-                default_workspace = "general";
-              };
-            };
-            "core.concealer" = {
-              config = {
-                icon_preset = "diamond";
-              };
-            };
-            "core.summary" = {
-              __empty = null;
-            };
-            "core.integrations.image" = {
-              __empty = null;
-            };
-            "core.integrations.telescope" = {
-              __empty = null;
-            };
-          };
-        };
-        #  lazy = {
+        # neorg = {
+        #   enable = true;
+        #   telescopeIntegration.enable = true;
+        #   settings.load = {
+        #     "core.defaults" = {
+        #       __empty = null;
+        #     };
+        #     "core.esupports.metagen" = {
+        #       config = {
+        #         timezone = "implicit-local";
+        #         type = "empty";
+        #         undojoin_updates = "false";
+        #       };
+        #     };
+        #     "core.tangle" = {
+        #       config = {
+        #         report_on_empty = false;
+        #         tangle_on_write = true;
+        #       };
+        #     };
+        #     "core.keybinds" = {
+        #       config = {
+        #         default_keybinds = true;
+        #         neorg_leader = "<Leader><Leader>";
+        #       };
+        #     };
+        #     "core.journal" = {
+        #       config = {
+        #         workspace = "journal";
+        #         journal_folder = "/./";
+        #       };
+        #     };
+        #     "core.dirman" = {
+        #       config = {
+        #         workspaces = {
+        #           general = "~/Documents/Norg";
+        #           life = "~/Documents/Norg/Life";
+        #           work = "~/Documents/Norg/Study";
+        #           journal = "~/Documents/Norg/Journal";
+        #         };
+        #         default_workspace = "general";
+        #       };
+        #     };
+        #     "core.concealer" = {
+        #       config = {
+        #         icon_preset = "diamond";
+        #       };
+        #     };
+        #     "core.summary" = {
+        #       __empty = null;
+        #     };
+        #     "core.integrations.image" = {
+        #       __empty = null;
+        #     };
+        #     "core.integrations.telescope" = {
+        #       __empty = null;
+        #     };
+        #   };
+        # };
+        # lazy = {
         #    enable = true;
         #    plugins = [
         #      {
@@ -508,9 +508,6 @@ in
       # Options for Neorg to work well
       extraConfigLua = # lua
         ''
-          vim.g.maplocalleader = "  "
-          vim.wo.foldlevel = 99
-          vim.wo.conceallevel = 2
           require 'typst-preview'.setup {
             follow_cursor = true,
             open_cmd = "chromium %s",

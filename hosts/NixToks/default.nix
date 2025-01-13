@@ -27,7 +27,7 @@
       user = "ladas552";
       system = "x86_64-linux";
       norg = "~/Documents/Norg";
-      isWorkstation = true;
+      isTermux = false;
     };
   };
   #build machine for termux

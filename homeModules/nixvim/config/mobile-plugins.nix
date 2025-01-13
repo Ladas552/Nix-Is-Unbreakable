@@ -214,64 +214,64 @@ in
           enable = true;
         };
         # Neorg
-        neorg = {
-          enable = true;
-          telescopeIntegration.enable = true;
-          settings.load = {
-            "core.defaults" = {
-              __empty = null;
-            };
-            "core.esupports.metagen" = {
-              config = {
-                timezone = "implicit-local";
-                type = "empty";
-                undojoin_updates = "false";
-              };
-            };
-            "core.keybinds" = {
-              config = {
-                default_keybinds = true;
-                neorg_leader = "<Leader><Leader>";
-              };
-            };
-            "core.journal" = {
-              config = {
-                workspace = "journal";
-                journal_folder = "/./";
-              };
-            };
-            "core.dirman" = {
-              config = {
-                workspaces = {
-                  general = "~/storage/downloads/Norg";
-                  life = "~/storage/downloads/Norg/Life";
-                  work = "~/storage/downloads/Norg/Study";
-                  journal = "~/storage/downloads/Norg/Journal";
-                };
-                default_workspace = "general";
-              };
-            };
-            "core.concealer" = {
-              config = {
-                icon_preset = "diamond";
-              };
-            };
-            "core.summary" = {
-              __empty = null;
-            };
-            "core.integrations.telescope" = {
-              __empty = null;
-            };
-          };
-        };
+        #   neorg = {
+        #     enable = true;
+        #     telescopeIntegration.enable = true;
+        #     settings.load = {
+        #       "core.defaults" = {
+        #         __empty = null;
+        #       };
+        #       "core.esupports.metagen" = {
+        #         config = {
+        #           timezone = "implicit-local";
+        #           type = "empty";
+        #           undojoin_updates = "false";
+        #         };
+        #       };
+        #       "core.keybinds" = {
+        #         config = {
+        #           default_keybinds = true;
+        #           neorg_leader = "<Leader><Leader>";
+        #         };
+        #       };
+        #       "core.journal" = {
+        #         config = {
+        #           workspace = "journal";
+        #           journal_folder = "/./";
+        #         };
+        #       };
+        #       "core.dirman" = {
+        #         config = {
+        #           workspaces = {
+        #             general = "~/storage/downloads/Norg";
+        #             life = "~/storage/downloads/Norg/Life";
+        #             work = "~/storage/downloads/Norg/Study";
+        #             journal = "~/storage/downloads/Norg/Journal";
+        #           };
+        #           default_workspace = "general";
+        #         };
+        #       };
+        #       "core.concealer" = {
+        #         config = {
+        #           icon_preset = "diamond";
+        #         };
+        #       };
+        #       "core.summary" = {
+        #         __empty = null;
+        #       };
+        #       "core.integrations.telescope" = {
+        #         __empty = null;
+        #       };
+        #     };
+        #   };
       };
       # Options for Neorg to work well
-      extraConfigLua = # lua
-        ''
-          vim.g.maplocalleader = "  "
-          vim.wo.foldlevel = 99
-          vim.wo.conceallevel = 2
-        '';
+      # extraConfigLua = # lua
+      #   ''
+      #     vim.g.maplocalleader = "  "
+      #     vim.wo.foldlevel = 99
+      #     vim.wo.conceallevel = 2
+      #   '';
     };
   };
 }
