@@ -70,11 +70,9 @@
   # To not build stuff but download
   nix.substituters = [
     "https://devenv.cachix.org"
-    "https://helix.cachix.org"
   ];
   nix.trustedPublicKeys = [
     "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
-    "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
   ];
 
   # Theme

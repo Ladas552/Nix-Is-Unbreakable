@@ -85,6 +85,7 @@
       # cli tools
       ls = "eza";
       cd = "z";
+      c = "${meta.self}";
       mc = "ranger";
       h = "hx";
       # System Mantaining
