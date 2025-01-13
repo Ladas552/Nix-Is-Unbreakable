@@ -22,9 +22,13 @@
 
     programs.helix = {
       enable = true;
-      package = inputs.helix-overlay.packages.${meta.system}.default;
-      # This works, but needs to be fixed the nixpkgs side https://github.com/NixOS/nixpkgs/issues/373101
-      # package = inputs.helix-overlay.packages.x86_64-linux.default or pkgs.helix;
+      # package = inputs.helix-overlay.packages.${meta.system}.default;
+      package =
+        if meta.system == "x86_64-linux" then
+          inputs.helix-overlay.packages.x86_64-linux.default
+        else
+          pkgs.helix;
+      # package = pkgs.helix;
     };
   };
 }
