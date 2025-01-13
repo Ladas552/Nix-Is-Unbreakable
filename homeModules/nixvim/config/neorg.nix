@@ -101,9 +101,6 @@ in
                 __empty = null;
               };
             }
-            # (lib.optional meta.isWorkstation "core.integrations.image" = {
-            #    __empty = null;
-            #  });
             // lib.listToAttrs (
               lib.optionals (!meta.isTermux) [
                 {

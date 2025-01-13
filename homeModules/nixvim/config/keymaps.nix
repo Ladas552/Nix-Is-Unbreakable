@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  meta,
+  ...
+}:
 {
 
   options.customhm = {
@@ -10,14 +15,17 @@
     programs.nixvim = {
       globals.mapleader = " ";
       keymaps =
+        #Normal Key binds
         [
-          #Normal Key binds
+          # AntiUndo
           {
             action = "<cmd>redo<CR>";
             key = "<S-u>";
             mode = "n";
           }
-          #Buffer Navigation
+        ]
+        ++ lib.optionals (!meta.isTermux) [
+          #Buffer Navigation Desktop
           {
             action = "<cmd>BufferPrevious<CR>";
             key = "<leader>,";
@@ -30,13 +38,33 @@
             mode = "n";
             options.desc = "Right Buffer";
           }
+        ]
+        ++ lib.optionals meta.isTermux [
+          #Buffer Navigation Termux
+          {
+            action = "<cmd>BufferPrevious<CR>";
+            key = "<leader>.";
+            mode = "n";
+            options.desc = "Left Buffer";
+          }
+          {
+            action = "<cmd>BufferNext<CR>";
+            key = "<leader>,";
+            mode = "n";
+            options.desc = "Right Buffer";
+          }
+        ]
+        ++ [
+          # Close Buffer
           {
             action = "<cmd>BufferClose<CR>";
             key = "<leader>x";
             mode = "n";
             options.desc = "Close Buffer";
           }
-          #Plugins
+        ]
+        #Plugins
+        ++ [
           #Neorg Journal
           {
             action = "<cmd>Neorg journal today<CR>";
@@ -44,6 +72,8 @@
             mode = "n";
             options.desc = "Journal today";
           }
+        ]
+        ++ [
           #Telescope
           {
             action = "<cmd>Telescope find_files<CR>";
@@ -69,6 +99,9 @@
             mode = "n";
             options.desc = "Grep current buffer";
           }
+        ]
+        ++ lib.optionals config.programs.nixvim.plugins.neorg.enable [
+          # Telescope Neorg Integration
           {
             action = "<cmd>Telescope neorg find_norg_files<CR>";
             key = "<leader>fn";
@@ -81,6 +114,8 @@
             mode = "n";
             options.desc = "Change Neorg Workspace";
           }
+        ]
+        ++ lib.optionals (!meta.isTermux) [
           # Img-clip.nvim
           {
             action = "<cmd>PasteImage<CR>";
