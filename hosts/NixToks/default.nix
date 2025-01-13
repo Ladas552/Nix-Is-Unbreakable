@@ -26,6 +26,8 @@
       self = "/home/ladas552/Nix-Is-Unbreakable";
       user = "ladas552";
       system = "x86_64-linux";
+      norg = "~/Documents/Norg";
+      isWorkstation = true;
     };
   };
   #build machine for termux

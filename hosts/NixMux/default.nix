@@ -12,6 +12,8 @@
       self = "/data/data/com.termux.nix/files/home/Nix-Is-Unbreakable";
       user = "nix-on-droid";
       system = "aarch64-linux";
+      norg = "~/storage/downloads/Norg";
+      isTermux = true;
     };
   };
   # Thanks rix101 for the snippets

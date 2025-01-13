@@ -1,102 +1,117 @@
-{ pkgs, inputs, ... }:
 {
-  nixpkgs = {
-    overlays = [ inputs.neorg-overlay.overlays.default ];
+  pkgs,
+  lib,
+  config,
+  meta,
+  ...
+}:
+let
+  #Norg meta treesitter-parser
+
+  treesitter-norg-meta = pkgs.tree-sitter.buildGrammar {
+    language = "norg-meta";
+    version = "0.1.0";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-neorg";
+      repo = "tree-sitter-norg-meta";
+      rev = "refs/tags/v0.1.0";
+      hash = "sha256-8qSdwHlfnjFuQF4zNdLtU2/tzDRhDZbo9K54Xxgn5+8=";
+    };
+
+    fixupPhase = ''
+      mkdir -p $out/queries/norg-meta
+      mv $out/queries/*.scm $out/queries/norg-meta/
+    '';
+
+    meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg-meta";
+  };
+in
+{
+  options.customhm = {
+    nixvim.plugins.Neorg = lib.mkEnableOption "Neorg from nixpkgs setup";
   };
 
-  programs.nixvim = {
-    extraPlugins = [
-      pkgs.vimPlugins."neorg"
-      # (pkgs.vimUtils.buildVimPlugin {
-      #   name = "neorg-conceal-wrap";
-      #   src = pkgs.fetchFromGitHub {
-      #     owner = "benlubas";
-      #     repo = "neorg-conceal-wrap";
-      #     rev = "4e74be759de502bea1027b1a815667039bb2ec10";
-      #     sha256 = "0w1rfvbasqdr1lzb3bd2ab9rdvgsm80m3x6r1gvf72bbwizic5g7";
-      #     # nix run nixpkgs#nix-prefetch-git https://github.com/benlubas/neorg-conceal-wrap.git
-      #   };
-      # })
-      # (pkgs.vimUtils.buildVimPlugin {
-      #   name = "neorg-interim-ls";
-      #   src = pkgs.fetchFromGitHub {
-      #     owner = "benlubas";
-      #     repo = "neorg-interim-ls";
-      #     rev = "2ae00fc7ab8c8823c8f602906c4f54acc362f8d9";
-      #     sha256 = "0a45nq81pndh98gy1zqznv97mq9rl4fwc0xiijal8im895p3gf80";
-      #     # nix run nixpkgs#nix-prefetch-git https://github.com/benlubas/neorg-interim-ls.git
-      #   };
-      # })
-    ];
-    extraConfigLua = # lua
-      ''
-        vim.g.maplocalleader = "  "
-        vim.wo.foldlevel = 99
-        vim.wo.conceallevel = 2
-        require("nvim-treesitter.configs").setup {
-          highlight = {
-            enable = true,
-          }
-        }
-        require("neorg").setup({
-          load = {
-            ["core.defaults"] = {},
-            ["core.concealer"] = {
-              config = {
-                icon_preset = "diamond",
-              },
-            },
-            ["core.summary"] = {},
-            ["core.todo-introspector"] = {},
-            ["core.tangle"] = {
-              config = {
-                report_on_empty = false,
-                tangle_on_write = true,
-              },
-            },
-            ["core.ui.calendar"] = {},
-            -- ["core.latex.renderer"] = { 
-            --   config = { 
-            --     render_on_enter = true, }, },
-            -- ["core.integrations.image"] = {},
-            ["core.esupports.metagen"] = { config = { timezone = "implicit-local", type = "empty", undojoin_updates = "false"} },
-            ["core.keybinds"] = {
-              config = {
-                default_keybinds = true,
-                neorg_leader = "<Leader><Leader>",
-              },
-            },
-            ["core.journal"] = {
-              config = {
-                workspace = "journal",
-                journal_folder = "/./"
-              },
-            },
-            ["core.dirman"] = {
-              config = {
-                workspaces = {
-                  general = "~/Documents/Norg/",
-                  life = "~/Documents/Norg/Life/",
-                  work = "~/Documents/Norg/Study/",
-                  journal = "~/Documents/Norg/Journal/",
-                },
-                default_workspace = "general",
-              },
-            },
-            -- ["core.completion"] = { config = { engine =  { module_name = "external.lsp-completion" } } },
-            -- ["external.conceal-wrap"] = {},
-            -- ["external.interim-ls"] = {
-            --   config = {
-            --     completion_provider = {
-            --       -- enable/disable the completion provider. On by default.
-            --       enable = true,
-            --       -- Try to complete categories. Requires benlubas/neorg-se
-            --       categories = false,
-            --     }
-            --   }
-            -- },
-          },
-        })
-      '';
+  config = lib.mkIf config.customhm.nixvim.plugins.Neorg {
+    programs.nixvim = {
+      extraPlugins = [
+        treesitter-norg-meta
+      ];
+      plugins = {
+        treesitter = {
+          grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+            treesitter-norg-meta
+            norg
+          ];
+        };
+      };
+      # Neorg
+      neorg = {
+        enable = true;
+        telescopeIntegration.enable = true;
+        settings.load = {
+          "core.defaults" = {
+            __empty = null;
+          };
+          "core.esupports.metagen" = {
+            config = {
+              timezone = "implicit-local";
+              type = "empty";
+              undojoin_updates = "false";
+            };
+          };
+          "core.tangle" = {
+            config = {
+              report_on_empty = false;
+              tangle_on_write = true;
+            };
+          };
+          "core.keybinds" = {
+            config = {
+              default_keybinds = true;
+              neorg_leader = "<Leader><Leader>";
+            };
+          };
+          "core.journal" = {
+            config = {
+              workspace = "journal";
+              journal_folder = "/./";
+            };
+          };
+          "core.dirman" = {
+            config = {
+              workspaces = {
+                general = "${meta.norg}";
+                life = "${meta.norg}/Life";
+                work = "${meta.norg}/Study";
+                journal = "${meta.norg}/Journal";
+              };
+              default_workspace = "general";
+            };
+          };
+          "core.concealer" = {
+            config = {
+              icon_preset = "diamond";
+            };
+          };
+          "core.summary" = {
+            __empty = null;
+          };
+          "core.integrations.telescope" = {
+            __empty = null;
+          };
+        } (++ lib.optional meta.isWorkstation
+          "core.integrations.image" = {
+            __empty = null;
+          };)};
+        extraConfigLua = # lua
+          ''
+            vim.g.maplocalleader = "  "
+            vim.wo.foldlevel = 99
+            vim.wo.conceallevel = 2
+          '';
+      };
+
+    };
   };
 }
