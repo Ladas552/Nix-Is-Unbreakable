@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, meta, ... }:
 
 {
   programs.helix = {
