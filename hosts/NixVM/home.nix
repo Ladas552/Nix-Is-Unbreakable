@@ -20,7 +20,6 @@
   home.packages = with pkgs; [
     #pkgs-stable.
     candy-icons
-    catppuccin-cursors
     librewolf
     libqalculate
     lshw

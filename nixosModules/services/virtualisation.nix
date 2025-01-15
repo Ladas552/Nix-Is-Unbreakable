@@ -17,8 +17,7 @@
     # virtualisation.waydroid.enable = true;
     environment.systemPackages = with pkgs; [
       open-vm-tools
-      # Broken on latest nixpkgs
-      # quickemu
+      quickemu
       libvirt-glib
       # virt-viewer
       # spice

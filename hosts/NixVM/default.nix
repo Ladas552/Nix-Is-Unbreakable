@@ -12,6 +12,7 @@
   imports = [
     ./../../nixosModules
     ./../../scripts
+    ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
   _module.args = {
@@ -19,6 +20,28 @@
       host = "NixVM";
       user = "virtualboy";
       system = "x86_64-linux";
+    };
+  };
+  # Stolen from Iynaix's VM config
+  # Installing the appropriate guest utilities on a virtualised system
+  # enable clipboard and file sharing
+  services = {
+    qemuGuest.enable = true;
+    spice-vdagentd.enable = true;
+    spice-webdavd.enable = true;
+  };
+  # fix for spice-vdagentd not starting in wms
+  systemd.user.services.spice-agent = {
+    enable = true;
+    wantedBy = [ "graphical-session.target" ];
+    serviceConfig = {
+      ExecStart = "${lib.getExe' pkgs.spice-vdagent "spice-vdagent"} -x";
+    };
+    unitConfig = {
+      ConditionVirtualization = "vm";
+      Description = "Spice guest session agent";
+      After = [ "graphical-session-pre.target" ];
+      PartOf = [ "graphical-session.target" ];
     };
   };
   # Set nixpath for nixd
@@ -29,7 +52,6 @@
   environment.binsh = lib.getExe pkgs.dash;
   #modules
   custom = {
-    libinput.enable = true;
     niri.enable = true;
     openssh.enable = true;
     fonts.enable = true;
@@ -133,7 +155,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${meta.user} = {
     isNormalUser = true;
-    description = "virtualboy";
+    description = "VirtualBoy";
     extraGroups = [
       "networkmanager"
       "wheel"

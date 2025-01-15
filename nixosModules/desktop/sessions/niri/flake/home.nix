@@ -237,6 +237,9 @@
         "Alt+Print".action = screenshot-window;
         # Window Management
         "Mod+Q".action = close-window;
+        # Floating Windows
+        "Mod+Alt+S".action = toggle-window-floating;
+        "Shift+Space".action = switch-focus-between-floating-and-tiling;
 
         "Mod+Left".action = focus-column-left;
         "Mod+Down".action = focus-window-down;
