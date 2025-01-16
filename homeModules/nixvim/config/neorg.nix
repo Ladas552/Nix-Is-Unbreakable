@@ -62,7 +62,7 @@ in
               };
               "core.tangle" = {
                 config = {
-                  report_on_empty = false;
+                  report_on_empty = true;
                   tangle_on_write = false;
                 };
               };
