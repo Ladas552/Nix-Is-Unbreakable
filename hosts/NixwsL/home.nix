@@ -2,6 +2,8 @@
   pkgs,
   pkgs-stable,
   inputs,
+  config,
+  lib,
   meta,
   ...
 }:
@@ -14,14 +16,110 @@
 
   customhm = {
     shell.enable = false;
-    nixvim.plugins.Neorg = false;
     direnv.enable = true;
     gh.enable = true;
     ghostty.enable = true;
     helix.enable = true;
     yt-dlp.enable = true;
+    nixvim = {
+      enable = false;
+      options = false;
+      keymaps = false;
+      colorschemes.catppuccin = false;
+      plugins = {
+        NixToks = false;
+        NixMux = false;
+        Neorg = false;
+      };
+    };
+  };
+  # Shell
+  programs = {
+    ripgrep.enable = true;
+    fd.enable = true;
+    btop.enable = true;
+    bat.enable = true;
+    fzf = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+    eza = {
+      enable = true;
+      enableFishIntegration = true;
+      extraOptions = [ "--icons" ];
+    };
+    carapace = {
+      enable = true;
+    };
   };
 
+  # Shells
+  programs.fish = {
+    enable = true;
+    plugins = with pkgs.fishPlugins; [
+      {
+        name = "autopair";
+        src = autopair.src;
+      }
+      {
+        name = "bass";
+        src = bass.src;
+      }
+      {
+        name = "pure";
+        src = pure.src;
+      }
+      {
+        name = "done";
+        src = done.src;
+      }
+      {
+        name = "puffer";
+        src = puffer.src;
+      }
+      {
+        name = "sponge";
+        src = sponge.src;
+      }
+    ];
+    shellAbbrs = {
+      clean = "nh clean all";
+      yy = "nh os switch ${meta.self}";
+      yyy = "nh os switch -u ${meta.self}";
+      en = "nvim ${meta.self}";
+      enn = "nvim ${meta.self}/hosts/${meta.host}/";
+      eh = "hx ${meta.self}";
+      v = "nvim";
+      ls = "eza";
+      mc = "ranger";
+      mcc = "ranger ~/.config/";
+    };
+    shellAliases = { };
+  };
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+  };
+  home.shellAliases = {
+    cat = "${lib.getExe pkgs.bat}";
+    df = "${lib.getExe pkgs.duf}";
+    cmatrix = "${lib.getExe pkgs.unimatrix} -f -s 95";
+    fastfetch = "fastfetch | ${lib.getExe pkgs.lolcat}";
+    en = "nvim ${meta.self}";
+    enn = "nvim ${meta.self}/hosts/NixToks/";
+    eh = "hx ${meta.self}";
+    v = "nvim";
+    ls = "eza";
+    cd = "z";
+    mc = "ranger";
+    clean = "nh clean all";
+    yy = "nh os switch ${meta.self}";
+    yyy = "nh os switch -u ${meta.self}";
+  };
   # Me
   home.username = "${meta.user}";
   home.homeDirectory = "/home/${meta.user}";
