@@ -92,6 +92,7 @@
           specialArgs = {
             inherit inputs pkgs-stable;
           };
+
           modules = [ ./hosts/NixwsL ];
         };
         # Nix VM for testing major config changes
@@ -114,6 +115,7 @@
 
             config.allowUnfree = true;
           };
+
           modules = [ ./hosts/NixMux ];
         };
       };

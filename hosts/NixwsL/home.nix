@@ -52,9 +52,6 @@
       enableFishIntegration = true;
       extraOptions = [ "--icons" ];
     };
-    carapace = {
-      enable = true;
-    };
   };
 
   # Shells
@@ -90,8 +87,6 @@
       clean = "nh clean all";
       yy = "nh os switch ${meta.self}";
       yyy = "nh os switch -u ${meta.self}";
-      en = "nvim ${meta.self}";
-      enn = "nvim ${meta.self}/hosts/${meta.host}/";
       eh = "hx ${meta.self}";
       v = "nvim";
       ls = "eza";
@@ -109,8 +104,6 @@
     df = "${lib.getExe pkgs.duf}";
     cmatrix = "${lib.getExe pkgs.unimatrix} -f -s 95";
     fastfetch = "fastfetch | ${lib.getExe pkgs.lolcat}";
-    en = "nvim ${meta.self}";
-    enn = "nvim ${meta.self}/hosts/NixToks/";
     eh = "hx ${meta.self}";
     v = "nvim";
     ls = "eza";
