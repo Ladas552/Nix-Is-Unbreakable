@@ -33,7 +33,7 @@ in
     nixvim.plugins.NixToks = lib.mkEnableOption "neovim plugins for desktop";
   };
 
-  config = lib.mkIf config.customhm.nixvim.plugins.NixToks {
+  config = lib.mkIf (config.customhm.nixvim.enable && config.customhm.nixvim.plugins.NixToks) {
     #formatters
     home.packages = with pkgs; [
       black

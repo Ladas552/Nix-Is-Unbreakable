@@ -31,7 +31,7 @@ in
     nixvim.plugins.NixMux = lib.mkEnableOption "neovim plugins for mobile";
   };
 
-  config = lib.mkIf config.customhm.nixvim.plugins.NixMux {
+  config = lib.mkIf (config.customhm.nixvim.enable && config.customhm.nixvim.plugins.NixMux) {
 
     programs.nixvim = {
       extraPlugins = [

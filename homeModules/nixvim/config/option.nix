@@ -5,7 +5,7 @@
     nixvim.options = lib.mkEnableOption "neovim options that i prefer";
   };
 
-  config = lib.mkIf config.customhm.nixvim.options {
+  config = lib.mkIf (config.customhm.nixvim.enable && config.customhm.nixvim.options) {
 
     programs.nixvim = {
       opts = {

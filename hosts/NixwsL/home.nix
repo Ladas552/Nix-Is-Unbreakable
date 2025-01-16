@@ -21,17 +21,7 @@
     ghostty.enable = true;
     helix.enable = true;
     yt-dlp.enable = true;
-    nixvim = {
-      enable = false;
-      options = false;
-      keymaps = false;
-      colorschemes.catppuccin = false;
-      plugins = {
-        NixToks = false;
-        NixMux = false;
-        Neorg = false;
-      };
-    };
+    nixvim.enable = true;
   };
   # Shell
   programs = {

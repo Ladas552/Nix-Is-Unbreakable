@@ -10,7 +10,7 @@
     nixvim.keymaps = lib.mkEnableOption "neovim keymaps that i prefer";
   };
 
-  config = lib.mkIf config.customhm.nixvim.keymaps {
+  config = lib.mkIf (config.customhm.nixvim.enable && config.customhm.nixvim.keymaps) {
 
     programs.nixvim = {
       globals.mapleader = " ";

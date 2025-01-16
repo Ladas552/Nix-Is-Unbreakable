@@ -32,7 +32,7 @@ in
     nixvim.plugins.Neorg = lib.mkEnableOption "Neorg from nixpkgs setup";
   };
 
-  config = lib.mkIf config.customhm.nixvim.plugins.Neorg {
+  config = lib.mkIf (config.customhm.nixvim.enable && config.customhm.nixvim.plugins.Neorg) {
     programs.nixvim = {
       extraPlugins = [
         treesitter-norg-meta
