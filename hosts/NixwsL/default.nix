@@ -13,7 +13,7 @@
     ./../../nixosModules
     ./../../scripts
     inputs.home-manager.nixosModules.default
-    inputs.nixos-wsl.nixosModule.default
+    inputs.nixos-wsl.nixosModules.default
   ];
   _module.args = {
     meta = {
