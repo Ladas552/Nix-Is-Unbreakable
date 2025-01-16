@@ -13,6 +13,8 @@
   imports = [ ./../../homeModules ];
 
   customhm = {
+    shell.enable = false;
+    nixvim.plugins.Neorg = false;
     direnv.enable = true;
     gh.enable = true;
     ghostty.enable = true;

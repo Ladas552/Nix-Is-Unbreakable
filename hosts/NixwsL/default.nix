@@ -50,6 +50,8 @@
     useWindowsDriver = true;
   };
 
+  nixpkgs.hostPlatform = "${meta.system}";
+
   home-manager = {
     extraSpecialArgs = {
       inherit inputs pkgs-stable;
