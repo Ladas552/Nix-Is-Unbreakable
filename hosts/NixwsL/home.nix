@@ -21,7 +21,7 @@
     ghostty.enable = true;
     helix.enable = true;
     yt-dlp.enable = true;
-    nixvim.enable = true;
+    nixvim.enable = false;
   };
   # Shell
   programs = {
@@ -102,6 +102,7 @@
     clean = "nh clean all";
     yy = "nh os switch ${meta.self}";
     yyy = "nh os switch -u ${meta.self}";
+    n = "ssh-add ~/.ssh/NixToks";
   };
   # Me
   home.username = "${meta.user}";
@@ -121,6 +122,11 @@
     enable = true;
   };
 
+  home.sessionVariables = lib.mkForce {
+    EDITOR = "hx";
+    VISUAL = "hx";
+    SUDO_EDITOR = "hx";
+  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
