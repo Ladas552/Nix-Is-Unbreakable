@@ -33,10 +33,7 @@
   #modules
   custom = {
     sounds.enable = false;
-    secrets.enable = false;
-    zerotier.enable = false;
     fonts.enable = true;
-    stylix.enable = false;
   };
 
   # WSL options
