@@ -18,7 +18,9 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    # Ghostty, yeap
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+
+    # Ghostty master branch
     ghostty.url = "github:ghostty-org/ghostty";
 
     stylix.url = "github:danth/stylix";
@@ -84,6 +86,13 @@
           };
 
           modules = [ ./hosts/NixPort ];
+        };
+        # NixOS WSL setup
+        NixwsL = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs pkgs-stable;
+          };
+          modules = [ ./hosts/NixwsL ];
         };
         # Nix VM for testing major config changes
         NixVM = nixpkgs.lib.nixosSystem {
