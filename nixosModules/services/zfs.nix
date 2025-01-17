@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  meta,
   ...
 }:
 {
@@ -68,7 +69,7 @@
         };
       };
     };
-    home.shellAliases = {
+    home-manager.users.${meta.user}.home.shellAliases = {
       zfs-list = "zfs list -o name,used,avail,compressratio,mountpoint";
     };
   };
