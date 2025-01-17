@@ -212,7 +212,7 @@
     trim.enable = true;
   };
   # standardized filesystem layo
-  fileSystems = lib.default {
+  fileSystems = lib.mkDefault {
     "/" = {
       device = "zroot/root";
       fsType = "zfs";
