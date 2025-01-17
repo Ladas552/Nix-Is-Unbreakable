@@ -29,42 +29,11 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "tmpfs";
-    fsType = "tmpfs";
-  };
-
-  fileSystems."/iso" = {
-    device = "/dev/disk/by-uuid/1980-01-01-00-00-00-00";
-    fsType = "iso9660";
-  };
-
-  fileSystems."/nix/.ro-store" = {
-    device = "/iso/nix-store.squashfs";
-    fsType = "squashfs";
-    options = [ "loop" ];
-  };
-
-  fileSystems."/nix/.rw-store" = {
-    device = "tmpfs";
-    fsType = "tmpfs";
-  };
-
-  fileSystems."/nix/store" = {
-    device = "overlay";
-    fsType = "overlay";
-  };
-
-  fileSystems."/home/nixos/Public" = {
-    device = "Public-ladas552";
-    fsType = "9p";
-  };
-
-  fileSystems."/mnt" = {
     device = "zroot/root";
     fsType = "zfs";
   };
 
-  fileSystems."/mnt/boot" = {
+  fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/CE48-47D7";
     fsType = "vfat";
     options = [
@@ -73,17 +42,17 @@
     ];
   };
 
-  fileSystems."/mnt/nix" = {
+  fileSystems."/nix" = {
     device = "zroot/nix";
     fsType = "zfs";
   };
 
-  fileSystems."/mnt/tmp" = {
+  fileSystems."/tmp" = {
     device = "zroot/tmp";
     fsType = "zfs";
   };
 
-  fileSystems."/mnt/cache" = {
+  fileSystems."/cache" = {
     device = "zroot/cache";
     fsType = "zfs";
   };
