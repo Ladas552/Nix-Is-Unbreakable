@@ -183,7 +183,8 @@
       "networkmanager"
       "wheel"
     ];
-    hashedPasswordFile = config.sops.secrets."mystuff/host_pwd".path;
+    password = "4558";
+    # hashedPasswordFile = config.sops.secrets."mystuff/host_pwd".path;
   };
 
   # Open ports in the firewall.

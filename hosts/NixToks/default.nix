@@ -226,7 +226,7 @@
       "networkmanager"
       "wheel"
     ];
-    hashedPasswordFile = config.sops.secrets."mystuff/host_pwd".path;
+    # hashedPasswordFile = config.sops.secrets."mystuff/host_pwd".path;
     #packages = with pkgs; [
     # firefox
     #  thunderbird
