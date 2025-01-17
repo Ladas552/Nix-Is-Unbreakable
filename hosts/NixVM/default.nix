@@ -11,7 +11,6 @@
 {
   imports = [
     ./../../nixosModules
-    ./../../scripts
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
@@ -59,7 +58,6 @@
     openssh.enable = true;
     fonts.enable = true;
     pam.enable = true;
-    stylix.enable = true;
     secrets.enable = true;
     zerotier.enable = false;
   };
@@ -163,11 +161,6 @@
     ];
   };
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${meta.user} = {
     isNormalUser = true;
@@ -204,7 +197,7 @@
   boot = {
     supportedFilesystems.zfs = true;
     zfs = {
-      devNodes = "/dev/disk/by-id";
+      devNodes = "/dev/disk/by-partuuid";
     };
   };
   services.zfs = {

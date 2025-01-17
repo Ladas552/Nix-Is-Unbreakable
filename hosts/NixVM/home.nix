@@ -10,6 +10,7 @@
     ghostty.enable = true;
     direnv.enable = true;
     imv.enable = true;
+    nixvim.enable = false;
   };
   # Me
   home.username = "${meta.user}";
@@ -19,17 +20,8 @@
   # Standalone Packages for user
   home.packages = with pkgs; [
     #pkgs-stable.
-    candy-icons
-    librewolf
     libqalculate
     lshw
-    manix
-    pamixer
-    pavucontrol
-    qbittorrent
-    rofi-wayland
-    telegram-desktop
-    xarchiver
     gparted
   ];
 
