@@ -30,6 +30,7 @@
     ./services/printers.nix
     ./services/sound.nix
     ./services/virtualisation.nix
+    ./services/zfs.nix
   ];
   custom = {
     general.enable = lib.mkDefault true;
