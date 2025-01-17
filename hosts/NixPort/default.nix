@@ -37,7 +37,7 @@
     niri.enable = true;
     openssh.enable = true;
     bluetooth.enable = true;
-    zerotier.enable = true;
+    zerotier.enable = false;
     kde-connect.enable = true;
     fonts.enable = true;
     otd.enable = true;
