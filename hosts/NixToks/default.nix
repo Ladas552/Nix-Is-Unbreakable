@@ -30,6 +30,10 @@
       isTermux = false;
     };
   };
+  # Needed for ZFS, generated from command:
+  # head -c 8 /etc/machine-id
+  networking.hostId = "98d7caca";
+
   #build machine for termux
   # Termux builder
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];

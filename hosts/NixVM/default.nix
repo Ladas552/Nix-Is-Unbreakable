@@ -18,8 +18,11 @@
   _module.args = {
     meta = {
       host = "NixVM";
+      self = "/home/virtualboy/Nix-Is-Unbreakable";
       user = "virtualboy";
       system = "x86_64-linux";
+      norg = "~/Documents/Norg";
+      isTermux = false;
     };
   };
   # Stolen from Iynaix's VM config
@@ -57,7 +60,12 @@
     fonts.enable = true;
     pam.enable = true;
     stylix.enable = true;
+    zfs.enable = true;
+    secrets.enable = true;
+    zerotier.enable = false;
   };
+  # For ZFS
+  networking.hostId = "25a5vcvc";
 
   home-manager = {
     extraSpecialArgs = {
@@ -72,7 +80,16 @@
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   # Bootloader.
   boot.loader = {
-    systemd-boot.enable = true;
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      useOSProber = true;
+      timeoutStyle = "hidden";
+      gfxmodeEfi = "1920x1080";
+      gfxmodeBios = "1920x1080";
+    };
+    efi.efiSysMountPoint = "/boot";
     efi.canTouchEfiVariables = true;
   };
   networking.hostName = "${meta.host}"; # Define your hostname.
