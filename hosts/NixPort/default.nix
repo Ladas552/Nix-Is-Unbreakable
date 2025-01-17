@@ -48,7 +48,7 @@
     powermanager.enable = true;
     pam.enable = true;
     stylix.enable = true;
-    zfs.enanble = true;
+    zfs.enable = true;
   };
 
   home-manager = {
