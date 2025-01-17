@@ -64,7 +64,7 @@
     zerotier.enable = false;
   };
   # For ZFS
-  networking.hostId = "25a5vcvc";
+  networking.hostId = "cb82b8e4";
 
   home-manager = {
     extraSpecialArgs = {
