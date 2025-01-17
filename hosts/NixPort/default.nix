@@ -23,8 +23,12 @@
       self = "/home/ladas552/Nix-Is-Unbreakable";
       user = "ladas552";
       system = "x86_64-linux";
+      norg = "~/Documents/Norg";
+      isTermux = false;
     };
   };
+  # ZFS needs it
+  networking.hostId = "f6d40058";
   # Set nixpath for nixd
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   # Better Error messages
@@ -44,6 +48,7 @@
     powermanager.enable = true;
     pam.enable = true;
     stylix.enable = true;
+    zfs.enanble = true;
   };
 
   home-manager = {

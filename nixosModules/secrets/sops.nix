@@ -2,6 +2,7 @@
   lib,
   config,
   inputs,
+  meta,
   ...
 }:
 
@@ -18,7 +19,7 @@
     sops.defaultSopsFile = ../../secrets/secrets.yaml;
     sops.defaultSopsFormat = "yaml";
 
-    sops.age.sshKeyPaths = [ "/home/ladas552/.ssh/NixToks" ];
+    sops.age.sshKeyPaths = [ "/home/${meta.user}/.ssh/NixToks" ];
     #sops.age.keyFile = "/home/ladas552/.config/sops/age/keys.txt";
 
     sops.secrets."mystuff/host_pwd".neededForUsers = true;

@@ -37,7 +37,6 @@
       noto-fonts-cjk-sans
       noto-fonts-emoji
       nerd-fonts.jetbrains-mono
-      pixel-code
       # Enable nerd fonts for every font
       # Before 24.11
       #(nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
