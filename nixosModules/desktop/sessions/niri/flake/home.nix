@@ -3,6 +3,7 @@
   pkgs,
   config,
   inputs,
+  meta,
   ...
 }:
 
@@ -16,6 +17,7 @@
   programs.niri = {
     settings = {
       #one liners
+      outputs."eDP-1".scale = if meta.host == "NixPort" then 2.0 else 1.0;
       outputs."HDMI-A-1".scale = 2.0;
       hotkey-overlay.skip-at-startup = true;
       prefer-no-csd = true;
@@ -54,7 +56,7 @@
       # Looks & UI
       layout = {
         gaps = 4;
-        center-focused-column = "on-overflow";
+        center-focused-column = "never";
         default-column-width.proportion = 0.5;
         border.enable = false;
         focus-ring = {
@@ -120,6 +122,20 @@
           block-out-from = "screencast";
         }
       ];
+      switch-events = {
+        lid-close.action.spawn = [
+          "niri"
+          "msg"
+          "action"
+          "power-off-monitors"
+        ];
+        lid-open.action.spawn = [
+          "niri"
+          "msg"
+          "action"
+          "power-on-monitors"
+        ];
+      };
       # Keybinds
       binds = with config.lib.niri.actions; {
         # Apps
@@ -156,33 +172,43 @@
         "Super+F".action = spawn "thunar";
         "Super+W".action = spawn "floorp";
         # MPD
-        "Shift+Alt+P".action = spawn [
-          "mpc"
-          "toggle"
-        ];
-        "Shift+Alt+P".allow-when-locked = true;
-        "Shift+Alt+N".action = spawn [
-          "mpc"
-          "next"
-        ];
-        "Shift+Alt+N".allow-when-locked = true;
-        "Shift+Alt+B".action = spawn [
-          "mpc"
-          "prev"
-        ];
-        "Shift+Alt+B".allow-when-locked = true;
-        "Shift+Alt+K".action = spawn [
-          "mpc"
-          "volume"
-          "-5"
-        ];
-        "Shift+Alt+K".allow-when-locked = true;
-        "Shift+Alt+L".action = spawn [
-          "mpc"
-          "volume"
-          "+5"
-        ];
-        "Shift+Alt+L".allow-when-locked = true;
+        "Shift+Alt+P" = {
+          action = spawn [
+            "mpc"
+            "toggle"
+          ];
+          allow-when-locked = true;
+        };
+        "Shift+Alt+N" = {
+          action = spawn [
+            "mpc"
+            "next"
+          ];
+          allow-when-locked = true;
+        };
+        "Shift+Alt+B" = {
+          action = spawn [
+            "mpc"
+            "prev"
+          ];
+          allow-when-locked = true;
+        };
+        "Shift+Alt+K" = {
+          action = spawn [
+            "mpc"
+            "volume"
+            "-5"
+          ];
+          allow-when-locked = true;
+        };
+        "Shift+Alt+L" = {
+          action = spawn [
+            "mpc"
+            "volume"
+            "+5"
+          ];
+          allow-when-locked = true;
+        };
         "Shift+Alt+C".action = spawn [
           "mpc"
           "clear"
@@ -194,50 +220,60 @@
         "Super+X".action = spawn [ "powermenu.sh" ];
         #Example volume keys mappings for PipeWire & WirePlumber.
         #The allow-when-locked=true property makes them work even when the session is locked.
-        "XF86AudioRaiseVolume".action = spawn [
-          "wpctl"
-          "set-volume"
-          "@DEFAULT_AUDIO_SINK@"
-          "0.02+"
-        ];
-        "XF86AudioRaiseVolume".allow-when-locked = true;
-        "XF86AudioLowerVolume".action = spawn [
-          "wpctl"
-          "set-volume"
-          "@DEFAULT_AUDIO_SINK@"
-          "0.02-"
-        ];
-        "XF86AudioLowerVolume".allow-when-locked = true;
-        "XF86AudioMute".action = spawn [
-          "wpctl"
-          "set-mute"
-          "@DEFAULT_AUDIO_SINK@"
-          "toggle"
-        ];
-        "XF86AudioMute".allow-when-locked = true;
-        "XF86AudioMicMute".action = spawn [
-          "wpctl"
-          "set-mute"
-          "@DEFAULT_AUDIO_SOURCE@"
-          "toggle"
-        ];
-        "XF86AudioMicMute".allow-when-locked = true;
+        "XF86AudioRaiseVolume" = {
+          action = spawn [
+            "wpctl"
+            "set-volume"
+            "@DEFAULT_AUDIO_SINK@"
+            "0.02+"
+          ];
+          allow-when-locked = true;
+        };
+        "XF86AudioLowerVolume" = {
+          action = spawn [
+            "wpctl"
+            "set-volume"
+            "@DEFAULT_AUDIO_SINK@"
+            "0.02-"
+          ];
+          allow-when-locked = true;
+        };
+        "XF86AudioMute" = {
+          action = spawn [
+            "wpctl"
+            "set-mute"
+            "@DEFAULT_AUDIO_SINK@"
+            "toggle"
+          ];
+          allow-when-locked = true;
+        };
+        "XF86AudioMicMute" = {
+          action = spawn [
+            "wpctl"
+            "set-mute"
+            "@DEFAULT_AUDIO_SOURCE@"
+            "toggle"
+          ];
+          allow-when-locked = true;
+        };
 
         # Brightnes
-        "XF86MonBrightnessUp".allow-when-locked = true;
-        "XF86MonBrightnessUp".action = spawn [
-          "brightnessctl"
-          "set"
-          "10%+"
-        ];
-
-        "XF86MonBrightnessDown".allow-when-locked = true;
-        "XF86MonBrightnessDown".action = spawn [
-          "brightnessctl"
-          "set"
-          "10%-"
-        ];
-
+        "XF86MonBrightnessUp" = {
+          action = spawn [
+            "brightnessctl"
+            "set"
+            "10%+"
+          ];
+          allow-when-locked = true;
+        };
+        "XF86MonBrightnessDown" = {
+          action = spawn [
+            "brightnessctl"
+            "set"
+            "10%-"
+          ];
+          allow-when-locked = true;
+        };
         # shows a list of important hotkeys.
         "Mod+Shift+T".action = show-hotkey-overlay;
         # Screenshots
@@ -299,14 +335,22 @@
         "Mod+Shift+Ctrl+A".action = move-column-to-workspace-up;
         "Mod+Shift+Ctrl+S".action = move-column-to-workspace-down;
 
-        "Mod+WheelScrollDown".action = focus-workspace-down;
-        "Mod+WheelScrollDown".cooldown-ms = 150;
-        "Mod+WheelScrollUp".action = focus-workspace-up;
-        "Mod+WheelScrollUp".cooldown-ms = 150;
-        "Mod+Ctrl+WheelScrollDown".action = move-column-to-workspace-down;
-        "Mod+Ctrl+WheelScrollDown".cooldown-ms = 150;
-        "Mod+Ctrl+WheelScrollUp".action = move-column-to-workspace-up;
-        "Mod+Ctrl+WheelScrollUp".cooldown-ms = 150;
+        "Mod+WheelScrollDown" = {
+          action = focus-workspace-down;
+          cooldown-ms = 150;
+        };
+        "Mod+WheelScrollUp" = {
+          action = focus-workspace-up;
+          cooldown-ms = 150;
+        };
+        "Mod+Ctrl+WheelScrollDown" = {
+          action = move-column-to-workspace-down;
+          cooldown-ms = 150;
+        };
+        "Mod+Ctrl+WheelScrollUp" = {
+          action = move-column-to-workspace-up;
+          cooldown-ms = 150;
+        };
 
         "Mod+WheelScrollRight".action = focus-column-right;
         "Mod+WheelScrollLeft".action = focus-column-left;

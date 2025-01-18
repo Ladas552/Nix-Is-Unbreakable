@@ -46,6 +46,7 @@ I start to have a life other than computers so I kinda begin to forget what I di
    - *Fish*. Change abbr path for Video and Music to follow xdg in home-manager
    - *Rofi*. Define Rofi in Home manager, to enable and reanable module
    - *Nix-on-droid*. Add files like `termux-edit-open` and `termux.properties` into the declarative ways. UPDATE: Can't do that with `home.file` need to wait for update apparently
+   - *Xremap* or *Keyd*. The button that I have on Acer, binded to Shift+WinL+A. I need to bind ti to PrintScreen
 
 ** Modulations
 

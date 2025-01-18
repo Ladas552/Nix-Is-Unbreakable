@@ -23,7 +23,7 @@
     x11.enable = true;
     gtk.enable = true;
     package = lib.mkForce pkgs.rose-pine-cursor;
-    size = lib.mkForce 40;
+    size = lib.mkForce 28;
     name = lib.mkForce "BreezeX-RosePine-Linux";
   };
 }
