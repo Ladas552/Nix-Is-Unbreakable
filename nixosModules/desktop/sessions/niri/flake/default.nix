@@ -24,7 +24,10 @@
       pam.enable = lib.mkDefault true;
     };
 
-    environment.systemPackages = with pkgs; [ xwayland-satellite ];
+    environment.systemPackages = with pkgs; [
+      xwayland-satellite
+      brightnessctl
+    ];
 
     environment.variables = {
       # Display is for xwayland-satellite, and it doesn't work here. But if this variable is set in niri config it seems to work

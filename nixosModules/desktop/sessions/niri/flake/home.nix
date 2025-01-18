@@ -223,6 +223,21 @@
         ];
         "XF86AudioMicMute".allow-when-locked = true;
 
+        # Brightnes
+        "XF86MonBrightnessUp".allow-when-locked = true;
+        "XF86MonBrightnessUp".action = spawn [
+          "brightnessctl"
+          "set"
+          "10%+"
+        ];
+
+        "XF86MonBrightnessDown".allow-when-locked = true;
+        "XF86MonBrightnessDown".action = spawn [
+          "brightnessctl"
+          "set"
+          "10%-"
+        ];
+
         # shows a list of important hotkeys.
         "Mod+Shift+T".action = show-hotkey-overlay;
         # Screenshots
