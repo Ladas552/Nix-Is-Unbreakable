@@ -7,16 +7,6 @@
 }:
 let
 
-  img-clip.nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "img-clip.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "HakonHarnes";
-      repo = "img-clip.nvim";
-      rev = "28a32d811d69042f4fa5c3d5fa35571df2bc1623";
-      sha256 = "0yi94bsr3yja619lrh9npsqrzvbk2207j3wnzdvidbbb1nix2dsd";
-    };
-  };
-
   typst-tools.nvim = pkgs.vimUtils.buildVimPlugin {
     name = "typst-tools.nvim";
     src = pkgs.fetchFromGitHub {
@@ -48,7 +38,7 @@ in
         pkgs.vimPlugins."gitsigns-nvim"
         pkgs.vimPlugins."lspkind-nvim"
         pkgs.vimPlugins.nvim-treesitter-parsers.org
-        img-clip.nvim
+        pkgs.vimPlugins.img-clip-nvim
         # Broke on latest NixVim
         # typst-tools.nvim
 
