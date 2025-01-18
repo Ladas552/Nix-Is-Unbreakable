@@ -34,6 +34,7 @@
   custom = {
     sounds.enable = false;
     fonts.enable = true;
+    zerotier.enable = true;
   };
 
   # WSL options
@@ -57,12 +58,7 @@
     useUserPackages = true;
     useGlobalPkgs = true;
   };
-  # Latest kernel
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   networking.hostName = "${meta.host}"; # Define your hostname.
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Almaty";
@@ -91,13 +87,6 @@
     gnumake
     sops
   ];
-  # Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "us,kz";
-    xkb.variant = "";
-    xkb.options = "grp:caps_toggle";
-    xkb.model = "pc105";
-  };
   # Cache
   nix.settings = {
     trusted-users = [

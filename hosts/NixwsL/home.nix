@@ -93,7 +93,6 @@
     cat = "${lib.getExe pkgs.bat}";
     df = "${lib.getExe pkgs.duf}";
     cmatrix = "${lib.getExe pkgs.unimatrix} -f -s 95";
-    fastfetch = "fastfetch | ${lib.getExe pkgs.lolcat}";
     eh = "hx ${meta.self}";
     v = "nvim";
     ls = "eza";
