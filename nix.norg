@@ -24,23 +24,28 @@ I start to have a life other than computers so I kinda begin to forget what I di
     Example: {./scripts/musnow.nix}[To look up comment metadata of mpd track]
 
 ** Repository
-   devenv and direnv are nice for developing, these files are here if you use them in your shell
+   devenv and direnv are nice for developing, these files are here if you use them in your shell. I did try defining them in `flake.nix`
+
+** ZFS
+   I use ZFS as a file system, it provides me with snapshots and compression via zstd. You can't install zfs in calimaries, so need to use nixos iso and configure drive with a {:./docs/zfs.norg:}[script], after that it is simple `nixos-install --flake "github:Ladas552/Nixos-Is-Unbreakable#Host` and setting up a root password at the end
+
+   Zfs is controlled by a {./nixosModules/services/zfs.nix}[ZFS] module, that also houses my file system config, with a {:./docs/zfs.norg:}[script], they should all be the same, but would need adjustment, namely `/dev/sda` vs `/dev/nvme0n1p` stuff, but thous can be grabbed from Gparted that comes in NixIso
+*** Passwords
+    - root
+      I still don't know how to setup passwords declarativly, so just setup root password right after installation in a terminal prompt.
+    - user
+      In NixOS, users are Mutual by default, so you can just `su` to change to root, and `passwd ladas552` to change password of user-Ladas552 when you can't login to the user.
+
 * TODOs
 ** Notes
    - -To write comments in shell scripts-
    - To write comments to stuff like Sops-nix. I start to forget even how to set them up.
 
 ** Programs
-   - *Qemu*.I need to configure Virtualization properly, half of the time it just doesn't work. Maybe I need it to be deployable, like Linux in Docker or Windows in Docker. Oh god, maybe I will need to configure Docker in Nix.
    - *lf*. Configure custom commands and scripts. Use Pistol instead of XDG-open
    - *Fish*. Change abbr path for Video and Music to follow xdg in home-manager
    - *Rofi*. Define Rofi in Home manager, to enable and reanable module
    - *Nix-on-droid*. Add files like `termux-edit-open` and `termux.properties` into the declarative ways. UPDATE: Can't do that with `home.file` need to wait for update apparently
-   - *Disco*. To auto format my system just the right way. Gonna use zfs with luks or something
-   ~~ Make attributes for host for different configs
-   ~~ Write config for VM
-   ~~ Write disco config for VM and Host with 1TB
-   ~~ Write some script that can choose the Host for disco
 
 ** Modulations
 
