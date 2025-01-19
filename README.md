@@ -9,7 +9,7 @@ This is my multi host, modular Nix config. It declares configs for different pro
 
 ## Hosts
 
-- 2 NixOS hosts with Nvidia and Intel, and AMD APU on laptops
+- 2 NixOS hosts with Nvidia and Intel, and AMD APU on laptops. Both on ZFS
 - [Nix-On-Droid](https://github.com/nix-community/nix-on-droid) on phone, even if unmantained, it still works
 - [NixOS-WSL](https://github.com/nix-community/NixOS-WSL) for Windows partition
 - NixVM for testing, you shouldn't use it unless testing breaking changes
@@ -23,11 +23,11 @@ Also, you don't need to add imports to hosts, just `custom.helix.enable = true;`
 ## Docs
 I write comments on things, that might explain certain ways of doing things, or leave not working options in comments for people to find. This is to not look up one thing twice, and just look at the nix file itself.
 
-Also I have [Norg document](./nix.norg), containing notes and TODO for the config, and folder `/docs` for containing more specific instructions.
+Also, I have [Norg document](./nix.norg), containing notes and TODO for the config, and folder `/docs` for containing more specific instructions.
 
 ## Name
 
-Yes, it is a JoJo reference
+Yes, it is a [JoJo's reference](https://github.com/user-attachments/assets/7c467d52-a430-4bb3-9493-a5ffa0d69dd4)
 
 # Credits
 I take a lot of things from the internet and different configs too. So I credit people in comments to snippets that I stole.
