@@ -14,12 +14,13 @@
   config = lib.mkIf config.customhm.ghostty.enable {
     programs.ghostty = {
       enable = true;
+      # Use ghostty master branch from Flake
       package = inputs.ghostty.packages.x86_64-linux.default;
       enableFishIntegration = true;
       enableBashIntegration = true;
       # Colors
       themes = {
-        # Dracula + catppuccin
+        # Dracula + Catppuccin
         dracata = {
           background = "#181B28";
           foreground = "#F8F8F2";
@@ -76,11 +77,11 @@
         command = "fish";
         shell-integration = "fish";
         # Font
-        # bold-is-bright = true
+        # bold-is-bright = true;
         font-family = "JetBrainsMono NFM SemiBold";
         font-size = if meta.host == "NixPort" then 11 else 13;
-        #freetype-load-flags = no-hinting,no-force-autohint,no-monochrome,no-autohint
-        #font-family = "Pixel Code"
+        #freetype-load-flags = "no-hinting,no-force-autohint,no-monochrome,no-autohint";
+        #font-family = "Pixel Code";
 
         # Keybinds
 

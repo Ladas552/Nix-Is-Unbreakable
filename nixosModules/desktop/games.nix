@@ -38,8 +38,7 @@
       # PC games
       osu-lazer-bin
       # stepmania
-      # broken on latest nixpkgs
-      # openmw
+      openmw
       arx-libertatis
       # Utilities
       # xclicker
