@@ -19,8 +19,8 @@
       # Can use ssh instead of password on system
       sshAgentAuth.enable = true;
     };
-
-    services.sshguard.enable = true;
+    # Makes my reboots hang on poweroff sometimes
+    # services.sshguard.enable = true;
 
     programs.gnupg.agent = {
       enable = true;

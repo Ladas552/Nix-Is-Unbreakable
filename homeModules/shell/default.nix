@@ -31,9 +31,10 @@
         enableFishIntegration = true;
         extraOptions = [ "--icons" ];
       };
-      carapace = {
-        enable = true;
-      };
+      # Makes some rebuilds longer and breaks some complretions
+      # carapace = {
+      #   enable = true;
+      # };
     };
 
     # Shells

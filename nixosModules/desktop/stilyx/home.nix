@@ -15,6 +15,7 @@
     nixvim.enable = false;
     helix.enable = false;
     emacs.enable = false;
+    ghostty.enable = false;
   };
   #all of the below is from @xsharawi
   stylix.cursor.name = "BreezeX-RosePine-Linux";
