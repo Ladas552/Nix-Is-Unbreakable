@@ -121,6 +121,15 @@
           ];
           block-out-from = "screencast";
         }
+        {
+          matches = [
+            {
+              app-id = "com.mitchellh.ghostty";
+              title = "Ghostty";
+            }
+          ];
+          draw-border-with-background = false;
+        }
       ];
       switch-events = {
         lid-close.action.spawn = [
