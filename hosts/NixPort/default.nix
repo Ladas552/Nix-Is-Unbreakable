@@ -37,7 +37,6 @@
   environment.binsh = lib.getExe pkgs.dash;
   #modules
   custom = {
-    libinput.enable = true;
     niri.enable = true;
     openssh.enable = true;
     bluetooth.enable = true;
