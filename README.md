@@ -34,4 +34,6 @@ I take a lot of things from the internet and different configs too. So I credit 
 
 If you want to check every person that I stole things from, go to my [List of configs](https://github.com/stars/Ladas552/lists/nix-flakes)
 
+Also for that [one guy](https://codeberg.org/Dich0tomy/blizzard) who switched to codeberg
+
 Also, thanks to everyone in nix-community for being so awesome, wouldn't be there without ya
