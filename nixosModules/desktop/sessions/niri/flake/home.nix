@@ -84,6 +84,7 @@
             { app-id = "steam_app_0"; }
           ];
           open-fullscreen = true;
+          default-column-width.proportion = 1.0;
         }
         {
           matches = [ { app-id = "steam_proton"; } ];
@@ -96,6 +97,7 @@
             { title = "DARK SOULS II"; }
           ];
           open-fullscreen = true;
+          default-column-width.proportion = 1.0;
           variable-refresh-rate = false;
         }
         {
@@ -231,28 +233,36 @@
         #The allow-when-locked=true property makes them work even when the session is locked.
         "XF86AudioRaiseVolume" = {
           action = spawn [
-            "wpctl"
-            "set-volume"
-            "@DEFAULT_AUDIO_SINK@"
-            "0.02+"
+            "pamixer"
+            "-i"
+            "2"
+            # "wpctl"
+            # "set-volume"
+            # "@DEFAULT_AUDIO_SINK@"
+            # "0.02+"
           ];
           allow-when-locked = true;
         };
         "XF86AudioLowerVolume" = {
           action = spawn [
-            "wpctl"
-            "set-volume"
-            "@DEFAULT_AUDIO_SINK@"
-            "0.02-"
+            "pamixer"
+            "-d"
+            "2"
+            # "wpctl"
+            # "set-volume"
+            # "@DEFAULT_AUDIO_SINK@"
+            # "0.02-"
           ];
           allow-when-locked = true;
         };
         "XF86AudioMute" = {
           action = spawn [
-            "wpctl"
-            "set-mute"
-            "@DEFAULT_AUDIO_SINK@"
-            "toggle"
+            "pamixer"
+            "-t"
+            # "wpctl"
+            # "set-mute"
+            # "@DEFAULT_AUDIO_SINK@"
+            # "toggle"
           ];
           allow-when-locked = true;
         };
@@ -298,7 +308,7 @@
         # Window Management
         "Mod+Q".action = close-window;
         # Floating Windows
-        "Mod+Alt+S".action = toggle-window-floating;
+        "Ctrl+Alt+S".action = toggle-window-floating;
         "Shift+Space".action = switch-focus-between-floating-and-tiling;
 
         "Mod+Left".action = focus-column-left;
@@ -314,29 +324,29 @@
         "Mod+Shift+Right".action = move-column-right;
         "Mod+Shift+A".action = move-column-left;
         "Mod+Shift+S".action = move-column-right;
-        "Mod+Ctrl+H".action = move-column-left;
-        "Mod+Ctrl+J".action = move-window-down;
-        "Mod+Ctrl+K".action = move-window-up;
-        "Mod+Ctrl+L".action = move-column-right;
+        # "Mod+Ctrl+H".action = move-column-left;
+        # "Mod+Ctrl+J".action = move-window-down;
+        # "Mod+Ctrl+K".action = move-window-up;
+        # "Mod+Ctrl+L".action = move-column-right;
 
         "Mod+Page_Up".action = focus-column-first;
         "Mod+Page_Down".action = focus-column-last;
         "Mod+Shift+Page_Up".action = move-column-to-first;
         "Mod+Shift+Page_Down".action = move-column-to-last;
 
-        "Mod+Alt+H".action = focus-monitor-left;
-        "Mod+Alt+J".action = focus-monitor-down;
-        "Mod+Alt+K".action = focus-monitor-up;
-        "Mod+Alt+L".action = focus-monitor-right;
+        "Mod+H".action = focus-monitor-left;
+        "Mod+J".action = focus-monitor-down;
+        "Mod+K".action = focus-monitor-up;
+        "Mod+L".action = focus-monitor-right;
 
         "Mod+Shift+Ctrl+Left".action = move-column-to-monitor-left;
         "Mod+Shift+Ctrl+Down".action = move-column-to-monitor-down;
         "Mod+Shift+Ctrl+Up".action = move-column-to-monitor-up;
         "Mod+Shift+Ctrl+Right".action = move-column-to-monitor-right;
-        "Mod+Shift+Ctrl+H".action = move-column-to-monitor-left;
-        "Mod+Shift+Ctrl+J".action = move-column-to-monitor-down;
-        "Mod+Shift+Ctrl+K".action = move-column-to-monitor-up;
-        "Mod+Shift+Ctrl+L".action = move-column-to-monitor-right;
+        "Mod+Shift+H".action = move-column-to-monitor-left;
+        "Mod+Shift+J".action = move-column-to-monitor-down;
+        "Mod+Shift+K".action = move-column-to-monitor-up;
+        "Mod+Shift+L".action = move-column-to-monitor-right;
 
         "Mod+Ctrl+A".action = focus-workspace-up;
         "Mod+Ctrl+S".action = focus-workspace-down;
@@ -394,11 +404,11 @@
         "Mod+Alt+C".action = center-column;
         "Mod+Shift+F".action = fullscreen-window;
 
-        "Mod+Ctrl+Left".action = set-column-width "-10%";
-        "Mod+Ctrl+Right".action = set-column-width "+10%";
+        "Alt+Ctrl+Left".action = set-column-width "-10%";
+        "Alt+Ctrl+Right".action = set-column-width "+10%";
 
-        "Mod+Ctrl+Up".action = set-window-height "-10%";
-        "Mod+Ctrl+Down".action = set-window-height "+10%";
+        "Alt+Ctrl+Up".action = set-window-height "-10%";
+        "Alt+Ctrl+Down".action = set-window-height "+10%";
 
         "Mod+Ctrl+Shift+Q".action = quit;
 
