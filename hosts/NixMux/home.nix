@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   meta,
   ...
 }:
@@ -81,28 +82,8 @@
       }
     ];
 
-    shellAbbrs = {
-      # cli tools
-      ls = "eza";
-      cd = "z";
-      c = "${meta.self}";
-      mc = "ranger";
-      h = "hx";
-      # System Mantaining
-      en = "hx ${meta.self}";
-      eh = "hx ${meta.self}";
-      clean = "nix-collect-garbage";
-      yy = "nix-on-droid switch -F ${meta.self}#NixMux";
-      # Git
-      g = "git";
-      gal = "git add ./*";
-      gcm = "git commit -m";
-      gpr = "git pull --rebase";
-      gpu = "git push";
-      # Neorg
-      v = "nvim";
-      j = ''nvim -c "Neorg journal today"'';
-    };
+    preferAbbrs = true;
+    shellAbbrs = config.home.shellAliases;
   };
 
   home.shellAliases = {

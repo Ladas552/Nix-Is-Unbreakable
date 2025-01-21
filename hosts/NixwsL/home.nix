@@ -61,10 +61,6 @@
         src = pure.src;
       }
       {
-        name = "done";
-        src = done.src;
-      }
-      {
         name = "puffer";
         src = puffer.src;
       }
@@ -112,7 +108,6 @@
   home.packages = with pkgs; [
     #pkgs-stable
     libqalculate
-    manix
     typst
   ];
   # Environment and Dependencies

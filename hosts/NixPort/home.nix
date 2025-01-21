@@ -7,7 +7,7 @@
 }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
+  # Hom Manager needs a bit of information about you and the paths it should
   # manage.
 
   imports = [ ./../../homeModules ];
@@ -52,8 +52,6 @@
     keepassxc
     libqalculate
     lshw
-    manix
-    nuspell
     pamixer
     pavucontrol
     qbittorrent

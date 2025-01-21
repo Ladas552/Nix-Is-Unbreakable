@@ -42,7 +42,7 @@
       # Workflow
       auto-save.after-delay = {
         enable = true;
-        timeout = 2000;
+        timeout = 1000;
       };
       file-picker = {
         hidden = false;
