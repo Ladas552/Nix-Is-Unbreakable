@@ -333,10 +333,10 @@
         "Mod+Shift+Page_Up".action = move-column-to-first;
         "Mod+Shift+Page_Down".action = move-column-to-last;
 
-        "Mod+H".action = focus-monitor-left;
-        "Mod+J".action = focus-monitor-down;
-        "Mod+K".action = focus-monitor-up;
-        "Mod+L".action = focus-monitor-right;
+        "Mod+Ctrl+Right".action = focus-monitor-right;
+        "Mod+Ctrl+Down".action = focus-monitor-down;
+        "Mod+Ctrl+Up".action = focus-monitor-up;
+        "Mod+Ctrl+Left".action = focus-monitor-left;
 
         "Mod+Shift+Ctrl+Left".action = move-column-to-monitor-left;
         "Mod+Shift+Ctrl+Down".action = move-column-to-monitor-down;
