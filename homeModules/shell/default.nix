@@ -119,11 +119,9 @@
         dl-clips = "yt-dlp --embed-thumbnail -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 --ignore-errors --output '${config.xdg.userDirs.videos}/clips/%(playlist)s/%(playlist_index)s-%(title)s.%(ext)s' --yes-playlist";
         dl-vocaloid = "yt-dlp --add-metadata --parse-metadata 'playlist_title:%(album)s' --embed-thumbnail --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --output '${config.xdg.userDirs.music}/vocaloid/%(playlist_uploader)s/%(playlist)s/%(title)s.%(ext)s' --yes-playlist";
       }
-      // lib.listToAttrs (
-        lib.optionals (meta.host == "NixToks") {
-          serve = "~/.cargo/bin/norgolith serve";
-          ungl = "source ~/Desktop/ungl.sh";
-        }
-      );
+      // lib.optionals (meta.host == "NixToks") {
+        serve = "~/.cargo/bin/norgolith serve";
+        ungl = "source ~/Desktop/ungl.sh";
+      };
   };
 }

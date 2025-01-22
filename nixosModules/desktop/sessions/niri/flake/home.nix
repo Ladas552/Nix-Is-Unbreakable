@@ -127,7 +127,6 @@
           matches = [
             {
               app-id = "com.mitchellh.ghostty";
-              title = "Ghostty";
             }
           ];
           draw-border-with-background = false;
