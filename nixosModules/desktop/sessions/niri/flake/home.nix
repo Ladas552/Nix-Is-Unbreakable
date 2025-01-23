@@ -101,7 +101,10 @@
           variable-refresh-rate = false;
         }
         {
-          matches = [ { app-id = "floorp"; } ];
+          matches = [
+            { app-id = "floorp"; }
+            { app-id = "thunderbird"; }
+          ];
           open-maximized = true;
         }
         {

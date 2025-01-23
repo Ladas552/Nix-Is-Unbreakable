@@ -14,7 +14,6 @@
       enable = true;
       config = {
         profile = "gpu-hq";
-        save-position-on-quit = "yes";
         cursor-autohide = 100;
         ytdl-raw-options = "yes-playlist=";
         audio-file-auto = "fuzzy";
@@ -33,6 +32,9 @@
         };
         "extension.gif" = {
           loop-file = "inf";
+        };
+        "extension.mp3" = {
+          save-position-on-quit = "no";
         };
       };
       bindings = {
