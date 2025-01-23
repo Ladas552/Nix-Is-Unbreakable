@@ -44,6 +44,7 @@
           tap = true;
           natural-scroll = true;
           middle-emulation = true;
+          scroll-factor = 0.2;
         };
       };
       # Environmental Variables
@@ -61,7 +62,6 @@
         border.enable = false;
         focus-ring = {
           width = 4;
-
           active.gradient = {
             from = "#7700AE";
             to = "#0060FF";
@@ -355,7 +355,7 @@
 
         "Mod+Shift+Ctrl+A".action = move-column-to-workspace-up;
         "Mod+Shift+Ctrl+S".action = move-column-to-workspace-down;
-
+        # Mouse scroll
         "Mod+WheelScrollDown" = {
           action = focus-workspace-down;
           cooldown-ms = 150;
@@ -383,6 +383,18 @@
         "Mod+Ctrl+Shift+WheelScrollDown".action = move-column-right;
         "Mod+Ctrl+Shift+WheelScrollUp".action = move-column-left;
 
+        # Touchpad gestures
+        ## Workspaces
+        "Mod+Shift+TouchpadScrollUp".action = move-column-to-workspace-up;
+        "Mod+Shift+TouchpadScrollDown".action = move-column-to-workspace-down;
+        "Mod+TouchpadScrollUp".action = focus-workspace-up;
+        "Mod+TouchpadScrollDown".action = focus-workspace-down;
+        ## Collumns
+        "Mod+TouchpadScrollRight".action = focus-column-right;
+        "Mod+TouchpadScrollLeft".action = focus-column-left;
+
+        "Mod+Shift+TouchpadScrollRight".action = move-column-right;
+        "Mod+Shift+TouchpadScrollLeft".action = move-column-left;
         # Workspaces
         "Mod+1".action.focus-workspace = 1;
         "Mod+2".action.focus-workspace = 2;
