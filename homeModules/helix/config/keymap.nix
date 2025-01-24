@@ -7,10 +7,14 @@
         normal = {
           # Swap file pickers
           space = {
+            e =
+              if meta.isTermux then
+                "file_picker_in_current_directory"
+              else
+                "file_explorer_in_current_buffer_directory";
+            E = if meta.isTermux then "file_picker" else "file_explorer";
             f = "file_picker_in_current_directory";
             F = "file_picker";
-            e = "file_picker_in_current_directory";
-            E = "file_picker";
           };
           # Muscle  Memory
           esc = [
