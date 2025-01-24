@@ -43,6 +43,9 @@
   nix.package = pkgs.nixVersions.latest;
   # Replace sh with dash for the meme by Greg
   environment.binsh = lib.getExe pkgs.dash;
+  # I don't use channels, So this is broken. Can repplace with  nix-index
+  # But I don't want to https://github.com/nix-community/nix-index?tab=readme-ov-file#use-pre-generated-database
+  programs.command-not-found.enable = false;
   #modules
   custom = {
     # X11
@@ -74,6 +77,7 @@
     # plymouth.enable = true;
     virtualisation.enable = true;
     # minecraft.enable = true; Don't need right now
+    zfs.enable = true;
   };
 
   home-manager = {
@@ -245,5 +249,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }

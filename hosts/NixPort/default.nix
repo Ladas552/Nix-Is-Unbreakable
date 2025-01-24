@@ -35,6 +35,8 @@
   nix.package = pkgs.nixVersions.latest;
   # Replace sh with dash for the meme by Greg
   environment.binsh = lib.getExe pkgs.dash;
+  # I don't use channels
+  programs.command-not-found.enable = false;
   #modules
   custom = {
     niri.enable = true;

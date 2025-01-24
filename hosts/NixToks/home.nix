@@ -40,7 +40,7 @@
   home.username = "${meta.user}";
   home.homeDirectory = "/home/${meta.user}";
   # Don't change
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "24.11"; # Please read the comment before changing.
   # Standalone Packages for user
   home.packages = with pkgs; [
     #pkgs-stable
@@ -61,7 +61,6 @@
     keepassxc
     libqalculate
     lshw
-    manix
     nuspell
     pamixer
     pavucontrol
