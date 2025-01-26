@@ -3,6 +3,7 @@
   lib,
   pkgs,
   inputs,
+  meta,
   ...
 }:
 
@@ -24,33 +25,40 @@
     programs.steam = {
       enable = true;
       remotePlay.openFirewall = true;
-      #   gamescopeSession.enable = true;
+      # gamescopeSession.enable = true;
       extraCompatPackages = [ pkgs.proton-ge-bin.steamcompattool ];
     };
     hardware.steam-hardware.enable = true;
     environment.sessionVariables.STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
     programs.gamemode.enable = true;
-    environment.systemPackages = with pkgs; [
-      # Launchers
-      heroic
-      prismlauncher
-      bottles
-      # PC games
-      osu-lazer-bin
-      # stepmania
-      openmw
-      arx-libertatis
-      # Utilities
-      # xclicker
-      # Dependencies
-      winePackages.stagingFull
-      winetricks
-      steam-run
-      # Emulators
-      duckstation
-      mgba
-      # doesn't work       retroarchFull
-      # too complex and need a special controller      mame
-    ];
+    environment.systemPackages =
+      with pkgs;
+      [
+        # Launchers
+        prismlauncher
+        # PC games
+        osu-lazer-bin
+        # stepmania
+        openmw
+        arx-libertatis
+        daggerfall-unity
+        # Utilities
+        # xclicker
+        # Dependencies
+        steam-run
+        # Emulators
+        duckstation
+        mgba
+        # doesn't work       retroarchFull
+        # too complex and need a special controller      mame
+      ]
+      ++ (lib.optionals (meta.host == "NixToks") [
+        # Launchers
+        bottles
+        heroic
+        # Dependencies
+        winePackages.stagingFull
+        winetricks
+      ]);
   };
 }

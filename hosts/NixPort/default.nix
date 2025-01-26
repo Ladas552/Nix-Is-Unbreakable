@@ -43,6 +43,7 @@
     openssh.enable = true;
     bluetooth.enable = true;
     kde-connect.enable = true;
+    games.enable = true;
     fonts.enable = true;
     otd.enable = true;
     powermanager.enable = true;
