@@ -40,7 +40,6 @@
         osu-lazer-bin
         # stepmania
         openmw
-        arx-libertatis
         daggerfall-unity
         # Utilities
         # xclicker
@@ -49,6 +48,9 @@
         # Emulators
         duckstation
         mgba
+        snes9x-gtk
+        punes
+        melonDS
         # doesn't work       retroarchFull
         # too complex and need a special controller      mame
       ]
@@ -56,6 +58,8 @@
         # Launchers
         bottles
         heroic
+        # PC games
+        arx-libertatis
         # Dependencies
         winePackages.stagingFull
         winetricks

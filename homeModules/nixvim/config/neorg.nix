@@ -26,6 +26,25 @@ let
 
     meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg-meta";
   };
+  # Neorg Plugins
+  neorg-query = pkgs.vimUtils.buildVimPlugin {
+    name = "neorg-query";
+    src = pkgs.fetchFromGitHub {
+      owner = "benlubas";
+      repo = "neorg-query";
+      rev = "36729d83695226e0ddbbe6503583d36b0433c93a";
+      sha256 = "1dahz32qprj7xa3m0wz6bnkgzdb5mi9rly6m6ccw5d9z0qa6ghm5";
+    };
+  };
+  neorg-interim-ls = pkgs.vimUtils.buildVimPlugin {
+    name = "neorg-interim-ls";
+    src = pkgs.fetchFromGitHub {
+      owner = "benlubas";
+      repo = "neorg-interim-ls";
+      rev = "5aec3bb82a774dce797e5796d3be906aa3361650";
+      sha256 = "11ldv4cqaxlgamsvgay8b3dvrf15sb36fihnsli0f53nnv6l65cg";
+    };
+  };
 in
 {
   options.customhm = {
@@ -36,6 +55,8 @@ in
     programs.nixvim = {
       extraPlugins = [
         treesitter-norg-meta
+        # neorg-query
+        # neorg-interim-ls
       ];
       plugins = {
         treesitter = {
@@ -50,6 +71,22 @@ in
           telescopeIntegration.enable = true;
           settings.load =
             {
+              # Don't seem to work on Nixvim
+              # Extra modules
+              # "external.query" = {
+              #   __empty = null;
+              #   index_on_launch = true;
+              #   update_on_change = true;
+              # };
+              # "external.interim-ls" = {
+              #   __empty = null;
+              #   config = {
+              #     completion_provider = {
+              #       categories = true;
+              #     };
+              #   };
+              # };
+              # Core
               "core.defaults" = {
                 __empty = null;
               };
@@ -57,7 +94,7 @@ in
                 config = {
                   timezone = "implicit-local";
                   type = "empty";
-                  undojoin_updates = "false";
+                  undojoin_updates = false;
                 };
               };
               "core.tangle" = {
@@ -66,6 +103,13 @@ in
                   tangle_on_write = false;
                 };
               };
+              # "core.completion" = {
+              #   config = {
+              #     engine = {
+              #       module_name = "external.lsp-completion";
+              #     };
+              #   };
+              # };
               "core.keybinds" = {
                 config = {
                   default_keybinds = true;

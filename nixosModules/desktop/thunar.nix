@@ -24,7 +24,10 @@
       gvfs.enable = true;
       tumbler.enable = true;
     };
-    environment.systemPackages = [ pkgs.ffmpegthumbnailer ];
+    environment.systemPackages = [
+      pkgs.ffmpegthumbnailer
+      pkgs.bign-handheld-thumbnailer
+    ];
 
     home-manager.users."${meta.user}".home.file.".config/Thunar/uca.xml".text = # xml
       ''
