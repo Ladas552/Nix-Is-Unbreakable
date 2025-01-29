@@ -171,7 +171,7 @@
   };
   hardware.amdgpu = {
     # Rocm builds on latest update
-    # opencl.enable = true;
+    opencl.enable = true;
     initrd.enable = true;
   };
 
