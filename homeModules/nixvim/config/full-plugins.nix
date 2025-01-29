@@ -79,6 +79,9 @@ in
                 exportPdf = "onType";
               };
             };
+            clangd = {
+              enable = true;
+            };
           };
           keymaps = {
             silent = true;
