@@ -1,6 +1,6 @@
 {
   pkgs,
-  pkgs-stable,
+  pkgs-master,
   inputs,
   config,
   lib,
@@ -106,7 +106,7 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
   # Standalone Packages for user
   home.packages = with pkgs; [
-    #pkgs-stable
+    #pkgs-master
     libqalculate
     typst
   ];

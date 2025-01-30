@@ -4,7 +4,7 @@
   inputs = {
     # nixpkgs links
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/release-24.11";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
     # Home-manager
     home-manager = {
@@ -58,13 +58,13 @@
     {
       self,
       nixpkgs,
-      nixpkgs-stable,
+      nixpkgs-master,
       home-manager,
       ...
     }@inputs:
-    # this is only for pkgs-stable because I don't know how to use nixpkgs.config for pkgs-stable along for unstable pkgs, pkgs doesn't get imported btw
+    # this is only for pkgs-master because I don't know how to use nixpkgs.config for pkgs-master along for unstable pkgs, pkgs doesn't get imported btw
     let
-      pkgs-stable = import nixpkgs-stable {
+      pkgs-master = import nixpkgs-master {
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
@@ -74,7 +74,7 @@
         # My Lenovo 50-70y laptop with nvidia 860M
         NixToks = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs pkgs-stable;
+            inherit inputs pkgs-master;
           };
 
           modules = [ ./hosts/NixToks ];
@@ -82,7 +82,7 @@
         # My Acer Swift Go 14 with ryzen 7640U
         NixPort = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs pkgs-stable;
+            inherit inputs pkgs-master;
           };
 
           modules = [ ./hosts/NixPort ];
@@ -90,7 +90,7 @@
         # NixOS WSL setup
         NixwsL = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs pkgs-stable;
+            inherit inputs pkgs-master;
           };
 
           modules = [ ./hosts/NixwsL ];
@@ -98,7 +98,7 @@
         # Nix VM for testing major config changes
         NixVM = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs pkgs-stable;
+            inherit inputs pkgs-master;
           };
 
           modules = [ ./hosts/NixVM ];

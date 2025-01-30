@@ -1,6 +1,6 @@
 {
   pkgs,
-  pkgs-stable,
+  pkgs-master,
   inputs,
   meta,
   ...
@@ -43,7 +43,7 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
   # Standalone Packages for user
   home.packages = with pkgs; [
-    #pkgs-stable
+    #pkgs-master
     vesktop
     libreoffice-fresh
     shotcut

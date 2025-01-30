@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-master,
   inputs,
   meta,
   ...
@@ -37,7 +38,8 @@
         # Launchers
         prismlauncher
         # PC games
-        osu-lazer-bin
+        # osu-lazer-bin
+        pkgs-master.osu-lazer-bin
         # stepmania
         openmw
         daggerfall-unity
