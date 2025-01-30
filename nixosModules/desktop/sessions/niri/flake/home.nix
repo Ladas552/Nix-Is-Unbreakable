@@ -311,7 +311,7 @@
         "Mod+Q".action = close-window;
         # Floating Windows
         "Ctrl+Alt+S".action = toggle-window-floating;
-        "Shift+Space".action = switch-focus-between-floating-and-tiling;
+        "Mod+Tab".action = switch-focus-between-floating-and-tiling;
 
         "Mod+Left".action = focus-column-left;
         "Mod+Down".action = focus-window-down;
@@ -404,7 +404,7 @@
         "Mod+Shift+3".action.move-column-to-workspace = 3;
         # Switches focus between the current and the previous workspace.
 
-        "Mod+Tab".action = focus-workspace-previous;
+        # "Mod+Tab".action = focus-workspace-previous;
 
         "Mod+Comma".action = consume-window-into-column;
         "Mod+Period".action = expel-window-from-column;

@@ -208,6 +208,8 @@
       nvidiaBusId = "PCI:1:0:0";
     };
   };
+  # Enable cuda. Needs building
+  nixpkgs.config.cudaSupport = true;
   # Environmental variable for Wayland and stuff
   environment.variables = {
     __NV_PRIME_RENDER_OFFLOAD = 1;

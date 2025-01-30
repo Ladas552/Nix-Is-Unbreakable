@@ -169,8 +169,9 @@
       vpl-gpu-rt
     ];
   };
+  # Enable rocm
+  nixpkgs.config.rocmSupport = true;
   hardware.amdgpu = {
-    # Rocm builds on latest update
     opencl.enable = true;
     initrd.enable = true;
   };
