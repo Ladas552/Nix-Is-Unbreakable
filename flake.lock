@@ -489,19 +489,11 @@
         ]
       },
       "locked": {
-<<<<<<< HEAD
-        "lastModified": 1738257949,
-        "narHash": "sha256-Q/xbvWHqCNcw+nDXgRaKH31fggZiA0Ciqs0t1H28fL8=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "7a457746847c9cb3a1e46e5bc86b205fbadf5da8",
-=======
         "lastModified": 1738275749,
         "narHash": "sha256-PM+cGduJ05EZ+YXulqAwUFjvfKpPmW080mcuN6R1POw=",
         "owner": "nix-community",
         "repo": "home-manager",
         "rev": "a8159195bfaef3c64df75d3b1e6a68d49d392be9",
->>>>>>> db5b155 (Rofi in Home-manager)
         "type": "github"
       },
       "original": {
@@ -814,19 +806,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-<<<<<<< HEAD
-        "lastModified": 1738258780,
-        "narHash": "sha256-bAxGKdgMsIZZ1ayksllM7zcKTe1FlOEmePCYjGHoP7s=",
+        "lastModified": 1738311555,
+        "narHash": "sha256-JouPzOGX/f+a6z5Th62wg/HCT8O7kz8jkIbdra5fYuw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "234a9c1ff51cdcaef9999643e154350bedd2221d",
-=======
-        "lastModified": 1738298677,
-        "narHash": "sha256-DGdyGqH9H2aL3tlkNASoQJXZ/sT1d0/29DouGTyQGW0=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "7088844f1dbbf01b1120cbfeb6d20872ed26d576",
->>>>>>> db5b155 (Rofi in Home-manager)
+        "rev": "a5318ffadcec50bd4fcb4ac61bed937d1612cc12",
         "type": "github"
       },
       "original": {
@@ -979,19 +963,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-<<<<<<< HEAD
-        "lastModified": 1738255431,
-        "narHash": "sha256-n0NCyg7JYGl7AcfDkYpB7RwtUGSxnX6WCqLqjaGMFU0=",
-        "owner": "nix-community",
-        "repo": "nixvim",
-        "rev": "e4ed227f99be42cd0ce28b6ae0c85c306ef70d40",
-=======
         "lastModified": 1738272272,
         "narHash": "sha256-zVw0JrvXJ29HnjEsNUInqi5Zw+J8QLHk2EuPN12dTXc=",
         "owner": "nix-community",
         "repo": "nixvim",
         "rev": "93df574b42928d631d31fe312cadb3899eb5b1bd",
->>>>>>> db5b155 (Rofi in Home-manager)
         "type": "github"
       },
       "original": {
