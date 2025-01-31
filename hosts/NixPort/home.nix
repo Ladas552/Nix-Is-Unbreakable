@@ -27,6 +27,7 @@
     lf.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
+    rofi.enable = true;
   };
 
   # Me
@@ -55,7 +56,6 @@
     pamixer
     pavucontrol
     qbittorrent
-    rofi-wayland
     telegram-desktop
     typst
     xarchiver

@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, meta }:
 # Power Menu that uses Rofi. Can be modified to have multiple actions, for example stopping MPD before Suspend
 pkgs.writeShellScriptBin "powermenu.sh" ''
   ## Author : Aditya Shakya (adi1090x)
@@ -6,13 +6,10 @@ pkgs.writeShellScriptBin "powermenu.sh" ''
   #
   ## Rofi   : Power Menu
   #
-  ## Available Styles
-  #
-  ## style-1   style-2   style-3   style-4   style-5
 
   # Current Theme
-  dir="$HOME/.config/rofi/colors/type-1"
-  theme='style-1'
+  dir="${meta.self}/homeModules/rofi"
+  theme='power-manager'
 
   # CMDs
   uptime="`uptime | sed -e 's/up //g'`"

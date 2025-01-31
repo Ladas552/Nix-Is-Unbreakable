@@ -20,6 +20,7 @@
     ./mpv
     ./nixvim
     ./obs
+    ./rofi
     ./qutebrowser
     ./lf
     ./ranger

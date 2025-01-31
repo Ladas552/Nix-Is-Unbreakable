@@ -34,6 +34,7 @@
     lf.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
+    rofi.enable = true;
   };
 
   # Me
@@ -66,7 +67,6 @@
     pavucontrol
     python3
     qbittorrent
-    rofi-wayland
     telegram-desktop
     #   texlive.combined.scheme-small
     #   texliveFull
