@@ -47,6 +47,10 @@
     # Shells
     programs.fish = {
       enable = true;
+      shellInit = ''
+        set -gx pure_show_system_time true
+        set -gx pure_color_system_time FF78C5
+      '';
       plugins = with pkgs.fishPlugins; [
         {
           name = "autopair";
