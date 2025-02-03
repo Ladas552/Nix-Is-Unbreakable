@@ -49,6 +49,7 @@
         steam-run
         # Emulators
         duckstation
+        blastem
         mgba
         snes9x-gtk
         punes
