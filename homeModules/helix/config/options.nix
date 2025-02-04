@@ -1,8 +1,8 @@
-{ ... }:
+{ meta, ... }:
 
 {
   programs.helix.settings = {
-    theme = "adwaita-dark";
+    theme = if meta.isTermux then "adwaita-dark" else "catppuccin_macchiato";
     editor = {
       # LSP
       lsp = {

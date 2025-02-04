@@ -21,7 +21,8 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
 
     # Ghostty master branch
-    ghostty.url = "github:ghostty-org/ghostty";
+    # It started to build instead of downloading quite often
+    # ghostty.url = "github:ghostty-org/ghostty";
 
     stylix.url = "github:danth/stylix";
     # Neovim
@@ -29,6 +30,9 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Software for Norg
+    norgolith.url = "github:NTBBloodbath/norgolith";
 
     # Niri
     niri.url = "github:sodiboo/niri-flake";
@@ -38,9 +42,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Software for Norg
-    norgolith.url = "github:NTBBloodbath/norgolith";
     # Overlays
     # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     # emacs-overlay.url = "github:nix-community/emacs-overlay";

@@ -15,7 +15,8 @@
     programs.ghostty = {
       enable = true;
       # Use ghostty master branch from Flake
-      package = inputs.ghostty.packages.x86_64-linux.default;
+      ## It started to build instead of downloading quite often
+      # package = inputs.ghostty.packages.x86_64-linux.default;
       enableFishIntegration = true;
       enableBashIntegration = true;
       # Colors

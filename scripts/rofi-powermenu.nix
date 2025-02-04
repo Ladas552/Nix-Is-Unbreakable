@@ -1,4 +1,8 @@
-{ pkgs, meta }:
+{
+  pkgs,
+  lib,
+  meta,
+}:
 # Power Menu that uses Rofi. Can be modified to have multiple actions, for example stopping MPD before Suspend
 pkgs.writeShellScriptBin "powermenu.sh" ''
   ## Author : Aditya Shakya (adi1090x)
@@ -12,7 +16,7 @@ pkgs.writeShellScriptBin "powermenu.sh" ''
   theme='power-manager'
 
   # CMDs
-  uptime="`uptime | sed -e 's/up //g'`"
+  uptime="`${pkgs.procps}/bin/uptime -p | sed -e 's/up //g'`"
   host=`hostname`
 
   # Options
