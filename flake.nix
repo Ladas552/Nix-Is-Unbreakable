@@ -4,6 +4,8 @@
   inputs = {
     # nixpkgs links
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/9db269672dbdbb519e0bd3ea24f01506c135e46f";
+    # The second nixpkgs.url because i don't know whym but Osu-lazer can have working nvidia on it. idk why, see https://github.com/NixOS/nixpkgs/issues/372135
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
     # Home-manager
@@ -27,7 +29,9 @@
     stylix.url = "github:danth/stylix";
     # Neovim
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:nix-community/nixvim/f99264c1fb8e98e0712cdad2744afa8b40661dcc";
+      # hash because it si waiting to merge and without it my build fails
+      # https://github.com/nix-community/nixvim/issues/2967
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

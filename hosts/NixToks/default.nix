@@ -90,7 +90,7 @@
     useGlobalPkgs = true;
   };
   # Latest kernel
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   # Bootloader.
   boot.loader = {
     grub = {

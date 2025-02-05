@@ -10,6 +10,9 @@
   };
   # NOTE: zfs datasets are created manually
   config = lib.mkIf config.custom.zfs.enable {
+    # https://github.com/NixOS/nixpkgs/issues/378790
+    # Zen kernel is affected too, so I just use lts for a while lol
+    nixpkgs.config.allowBroken = true;
     # Stolen from @iynaix and @xarvex, like the whole thing
     boot = {
       supportedFilesystems.zfs = true;
