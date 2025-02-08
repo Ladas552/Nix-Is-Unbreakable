@@ -64,7 +64,9 @@ in
         telescope = {
           enable = true;
         };
-
+        neogit = {
+          enable = true;
+        };
         dashboard = {
           enable = true;
           settings = {
