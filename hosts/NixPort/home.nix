@@ -40,7 +40,7 @@
     #pkgs-master
     vesktop
     libreoffice-fresh
-    shotcut
+    # shotcut
     imagemagick
     wl-clipboard
     candy-icons
