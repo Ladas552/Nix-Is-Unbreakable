@@ -256,10 +256,10 @@ in
             };
           };
         };
-
-        overseer = {
-          enable = true;
-        };
+        # Installs neotest, which is broken
+        # overseer = {
+        #   enable = true;
+        # };
 
         flash.enable = true;
 

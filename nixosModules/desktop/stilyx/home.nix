@@ -18,6 +18,13 @@
     ghostty.enable = false;
     rofi.enable = false;
   };
+  # Icons
+  stylix.iconTheme = {
+    enable = true;
+    package = pkgs.candy-icons;
+    dark = "candy-icons";
+    light = "candy-icons";
+  };
   #all of the below is from @xsharawi
   stylix.cursor.name = "BreezeX-RosePine-Linux";
   # forceing because stylix is dumb

@@ -43,7 +43,6 @@
     # shotcut
     imagemagick
     wl-clipboard
-    candy-icons
     ffmpeg
     gst_all_1.gst-libav
     floorp

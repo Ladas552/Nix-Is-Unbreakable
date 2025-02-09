@@ -29,14 +29,12 @@
     stylix.url = "github:danth/stylix";
     # Neovim
     nixvim = {
-      url = "github:nix-community/nixvim/f99264c1fb8e98e0712cdad2744afa8b40661dcc";
-      # hash because it si waiting to merge and without it my build fails
-      # https://github.com/nix-community/nixvim/issues/2967
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Software for Norg
-    norgolith.url = "github:NTBBloodbath/norgolith/push-zvtqorolqxqq";
+    norgolith.url = "github:NTBBloodbath/norgolith";
 
     # Niri
     niri.url = "github:sodiboo/niri-flake";

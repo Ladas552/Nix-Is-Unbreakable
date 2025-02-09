@@ -50,7 +50,6 @@
     # shotcut
     imagemagick
     wl-clipboard
-    candy-icons
     cowsay
     ffmpeg
     gst_all_1.gst-libav
