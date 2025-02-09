@@ -1,17 +1,26 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   options.custom = {
-    general.enable = lib.mkEnableOption "enable general";
+    nix.enable = lib.mkEnableOption "enable nix";
   };
 
-  config = lib.mkIf config.custom.general.enable {
-    # Disable X11 prompt for Git. Changes work only after Reboot for some reason
-    # Here is the issue: https://github.com/NixOS/nixpkgs/issues/24311
-    programs.ssh.askPassword = "";
+  config = lib.mkIf config.custom.nix.enable {
     # Optimize nix experience by removing cache and store garbage
     nix.settings.auto-optimise-store = true;
     nix.optimise.automatic = true;
+    # Set nixpath for nixd
+    nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    # Better Error messages
+    nix.package = pkgs.nixVersions.latest;
+    # I don't use channels
+    programs.command-not-found.enable = false;
     # Less building text
     documentation = {
       enable = true;

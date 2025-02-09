@@ -1,8 +1,6 @@
 {
-  config,
   pkgs,
   inputs,
-  lib,
   pkgs-master,
   meta,
   ...
@@ -29,14 +27,6 @@
   };
   # ZFS needs it
   networking.hostId = "f6d40058";
-  # Set nixpath for nixd
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-  # Better Error messages
-  nix.package = pkgs.nixVersions.latest;
-  # Replace sh with dash for the meme by Greg
-  environment.binsh = lib.getExe pkgs.dash;
-  # I don't use channels
-  programs.command-not-found.enable = false;
   #modules
   custom = {
     niri.enable = true;
@@ -46,9 +36,11 @@
     games.enable = true;
     fonts.enable = true;
     otd.enable = true;
-    powermanager.enable = true;
-    pam.enable = true;
+    printers.enable = true;
+    tlp.enable = true;
     stylix.enable = true;
+    grub.enable = true;
+    xkb.enable = true;
     zerotier.enable = true;
     zfs.enable = true;
   };
@@ -64,54 +56,9 @@
   };
   # Latest kernel
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
-  # Bootloader.
-  boot = {
-    initrd.systemd.enable = true;
-    supportedFilesystems.ntfs = true;
-    loader = {
-      grub = {
-        enable = true;
-        efiSupport = true;
-        device = "nodev";
-        useOSProber = true;
-        timeoutStyle = "hidden";
-        gfxmodeEfi = "1920x1080";
-        gfxmodeBios = "1920x1080";
-      };
-      efi = {
-        efiSysMountPoint = "/boot";
-        canTouchEfiVariables = true;
-      };
-    };
-  };
-  networking.hostName = "${meta.host}"; # Define your hostname.
-
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Asia/Almaty";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "ru_RU.UTF-8";
-    LC_IDENTIFICATION = "ru_RU.UTF-8";
-    LC_MEASUREMENT = "ru_RU.UTF-8";
-    LC_MONETARY = "ru_RU.UTF-8";
-    LC_NAME = "ru_RU.UTF-8";
-    LC_NUMERIC = "ru_RU.UTF-8";
-    LC_PAPER = "ru_RU.UTF-8";
-    LC_TELEPHONE = "ru_RU.UTF-8";
-    LC_TIME = "ru_RU.UTF-8";
-  };
 
   environment.systemPackages = with pkgs; [
     # whatever I couldn't install in Home Manager
@@ -119,44 +66,7 @@
     cachix
     gcc
     gnumake
-    sops
   ];
-  # Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "us,kz";
-    xkb.variant = "";
-    xkb.options = "grp:caps_toggle";
-    xkb.model = "pc105";
-  };
-  # Cache
-  nix.settings = {
-    trusted-users = [
-      "root"
-      "${meta.user}"
-      "@wheel"
-    ];
-    substituters = [
-      "https://ghostty.cachix.org/"
-      "https://cache.nixos.org/"
-    ];
-    trusted-public-keys = [
-      "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
-    ];
-    extra-substituters = [
-      "https://cache.garnix.io"
-      "https://niri.cachix.org"
-      "https://devenv.cachix.org"
-      "https://helix.cachix.org"
-      "https://nix-community.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-      "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
-      "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
-      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
   # Radeon
   # Enable OpenGL and hardware accelerated graphics drivers
   services.xserver.videoDrivers = [ "modesetting" ];
@@ -176,9 +86,6 @@
     initrd.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${meta.user} = {
     isNormalUser = true;
@@ -190,12 +97,6 @@
     password = "4558";
     # hashedPasswordFile = config.sops.secrets."mystuff/host_pwd".path;
   };
-
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 9993 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

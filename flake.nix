@@ -22,6 +22,7 @@
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
 
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     # Ghostty master branch
     # It started to build instead of downloading quite often
     # ghostty.url = "github:ghostty-org/ghostty";
@@ -50,14 +51,6 @@
     # i don't like compiling rust
     helix-overlay.url = "github:helix-editor/helix";
 
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-
-    # Games
-    # aagl = {
-    #   url = "github:ezKEa/aagl-gtk-on-nix";
-    #   inputs.nixpkgs.follows = "nixpkgs"; # Name of nixpkgs input you want to use
-    # };
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs =

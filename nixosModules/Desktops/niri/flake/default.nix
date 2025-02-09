@@ -21,7 +21,6 @@
 
     custom = {
       thunar.enable = lib.mkDefault true;
-      pam.enable = lib.mkDefault true;
     };
 
     environment.systemPackages = with pkgs; [

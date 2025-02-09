@@ -2,6 +2,7 @@
   lib,
   config,
   inputs,
+  pkgs,
   meta,
   ...
 }:
@@ -15,6 +16,8 @@
   imports = [ inputs.sops-nix.nixosModules.sops ];
 
   config = lib.mkIf config.custom.secrets.enable {
+
+    environment.systemPackages = [ pkgs.sops ];
 
     sops.defaultSopsFile = ../../secrets/secrets.yaml;
     sops.defaultSopsFormat = "yaml";

@@ -9,10 +9,10 @@
 # So most lines are commented out, but have a good night seeing what works on your system
 {
   options.custom = {
-    virtualisation.enable = lib.mkEnableOption "enable virtualisation";
+    qemu.enable = lib.mkEnableOption "enable qemu";
   };
 
-  config = lib.mkIf config.custom.virtualisation.enable {
+  config = lib.mkIf config.custom.qemu.enable {
     # Wayroid
     # virtualisation.waydroid.enable = true;
     environment.systemPackages = with pkgs; [

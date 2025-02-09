@@ -35,11 +35,6 @@
       autoEnable = true;
       polarity = "dark";
 
-      # cursor = {
-      #   package = pkgs.catppuccin-cursors;
-      #   name = "Catppuccin";
-      #   size = 12;
-      # };
       fonts = {
         serif = config.stylix.fonts.monospace;
         sansSerif = config.stylix.fonts.monospace;
@@ -49,7 +44,7 @@
         };
         monospace = {
           package = pkgs.nerd-fonts.jetbrains-mono;
-          name = "JetBrainsMono";
+          name = "JetBrainsMono NFM";
         };
         sizes = {
           terminal = 14;
@@ -57,38 +52,5 @@
         };
       };
     };
-    #  gtk = {
-    #    enable = true;
-    #    theme = {
-    #      name = "Graphite-dark";
-    #      package = pkgs.graphite-gtk-theme;
-    #    };
-    #    iconTheme = {
-    #      name = "Candy";
-    #      package = pkgs.candy-icons;
-    #    };
-    #    cursorTheme = {
-    #      name = "Graphite";
-    #      package = pkgs.graphite-cursors;
-    #    };
-    #    gtk3.extraConfig = {
-    #      Settings = ''
-    #        gtk-application-prefer-dark-theme=1
-    #        '';
-    #    };
-    #    gtk4.extraConfig = {
-    #      Settings = ''
-    #        gtk-application-prefer-dark-theme=1
-    #        '';
-    #    };
-    #  };
-    #  qt = {
-    #    enable = true;
-    #    platformTheme = "gtk";
-    #    style.name = "adwaita-dark";
-    #  };
-    #  programs.gpg.enable = true;
-    #
-    #  services.gpg-agent.enable = true;
   };
 }

@@ -6,10 +6,10 @@
 }:
 {
   options.custom = {
-    sounds.enable = lib.mkEnableOption "enable sounds";
+    pipewire.enable = lib.mkEnableOption "enable pipewire";
   };
 
-  config = lib.mkIf config.custom.sounds.enable {
+  config = lib.mkIf config.custom.pipewire.enable {
     environment.systemPackages = [ pkgs.sbc ];
     # Enable sound with pipewire.
     services.pulseaudio.enable = false;
