@@ -10,6 +10,7 @@
 
   customhm = {
     helix.enable = true;
+    nixvim.enable = true;
     shell.enable = false;
     fastfetch.enable = true;
     lf.enable = true;
