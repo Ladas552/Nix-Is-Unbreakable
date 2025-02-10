@@ -50,6 +50,9 @@
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
     # i don't like compiling rust
     helix-overlay.url = "github:helix-editor/helix";
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+    };
 
   };
 
@@ -84,7 +87,9 @@
             inherit inputs pkgs-master;
           };
 
-          modules = [ ./hosts/NixPort ];
+          modules = [
+            ./hosts/NixPort
+          ];
         };
         # NixOS WSL setup
         NixwsL = nixpkgs.lib.nixosSystem {

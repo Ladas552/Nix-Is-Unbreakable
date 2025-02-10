@@ -1,4 +1,9 @@
-{ lib, meta, ... }:
+{
+  lib,
+  config,
+  meta,
+  ...
+}:
 
 {
   imports = [
@@ -35,14 +40,13 @@
   manual.manpages.enable = false;
   customhm = {
     nixvim = lib.mkDefault {
-      enable = true;
-      options = true;
-      keymaps = true;
-      colorschemes.catppuccin = true;
+      options = config.customhm.nixvim.enable;
+      keymaps = config.customhm.nixvim.enable;
+      colorschemes.catppuccin = config.customhm.nixvim.enable;
       plugins = {
-        NixToks = (!meta.isTermux);
-        NixMux = meta.isTermux;
-        Neorg = true;
+        NixToks = config.customhm.nixvim.enable && (!meta.isTermux);
+        NixMux = config.customhm.nixvim.enable && meta.isTermux;
+        Neorg = config.customhm.nixvim.enable;
       };
     };
     shell.enable = lib.mkDefault true;

@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   inputs,
   ...
 }:
@@ -25,6 +26,7 @@
     programs.nixvim = {
       enable = true;
       enableMan = false;
+      package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
       defaultEditor = lib.mkDefault true;
       # Performance
       performance = {
