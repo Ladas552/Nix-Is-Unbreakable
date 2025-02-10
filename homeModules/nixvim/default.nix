@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  meta,
   inputs,
   ...
 }:
@@ -26,7 +27,9 @@
     programs.nixvim = {
       enable = true;
       enableMan = false;
-      package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+      package = lib.mkIf (
+        meta.system == "x86_64-linux"
+      ) inputs.neovim-nightly-overlay.packages.x86_64-linux.default;
       defaultEditor = lib.mkDefault true;
       # Performance
       performance = {
