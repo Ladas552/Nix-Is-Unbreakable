@@ -66,6 +66,7 @@
     cachix
     gcc
     gnumake
+    networkmanagerapplet
   ];
   # Radeon
   # Enable OpenGL and hardware accelerated graphics drivers

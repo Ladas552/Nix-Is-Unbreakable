@@ -94,6 +94,7 @@
     cachix
     gcc
     gnumake
+    networkmanagerapplet
   ];
   # Nvidia
   # Enable OpenGL and hardware accelerated graphics drivers

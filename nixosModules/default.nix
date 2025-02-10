@@ -33,7 +33,6 @@
     ./zfs
   ];
   custom = {
-
     cache.enable = lib.mkDefault true;
     general.enable = lib.mkDefault true;
     nix.enable = lib.mkDefault true;
@@ -43,6 +42,5 @@
     secrets.enable = lib.mkDefault true;
     openssh.enable = lib.mkDefault true;
     firewall.enable = lib.mkDefault true;
-
   };
 }
