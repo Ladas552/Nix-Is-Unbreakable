@@ -48,7 +48,7 @@
     };
     users."${meta.user}" = import ./home.nix;
     useUserPackages = true;
-    useGlobalPkgs = true;
+    useGlobalPkgs = false;
   };
   environment.systemPackages = with pkgs; [
     # whatever I couldn't install in Home Manager

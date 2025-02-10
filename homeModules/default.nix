@@ -24,6 +24,7 @@
     ./mpd
     ./mpv
     ./nixvim
+    ./neovim
     ./obs
     ./rofi
     ./qutebrowser

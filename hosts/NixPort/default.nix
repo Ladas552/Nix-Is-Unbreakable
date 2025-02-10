@@ -52,7 +52,7 @@
     };
     users."${meta.user}" = import ./home.nix;
     useUserPackages = true;
-    useGlobalPkgs = true;
+    useGlobalPkgs = false;
   };
   # Latest kernel
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
