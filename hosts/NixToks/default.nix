@@ -81,6 +81,9 @@
   # Latest kernel
   # boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
+  # Enable networking
+  networking.networkmanager.enable = true;
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
