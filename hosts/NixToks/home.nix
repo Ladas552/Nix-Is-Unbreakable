@@ -13,28 +13,28 @@
   imports = [ ./../../homeModules ];
 
   customhm = {
-    emacs.enable = true;
     #flameshot.enable = true;
     #kitty.enable = true;
-    obs.enable = true;
     #qutebrowser.enable = true;
     #vim.enable = true;
     chromium.enable = true;
     direnv.enable = true;
+    emacs.enable = true;
     fastfetch.enable = true;
     gh.enable = true;
     ghostty.enable = true;
     helix.enable = true;
     imv.enable = true;
+    lf.enable = true;
     mangohud.enable = true;
     mpd.enable = true;
     mpv.enable = true;
+    obs.enable = true;
+    rofi.enable = true;
     syncthing.enable = true;
     thunderbird.enable = true;
-    lf.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
-    rofi.enable = true;
   };
 
   # Me
