@@ -1,8 +1,9 @@
 { ... }:
 {
   imports = [
-    ./nixd.nix
+    ./nix.nix
     ./typst.nix
     ./c.nix
+    ./lua.nix
   ];
 }

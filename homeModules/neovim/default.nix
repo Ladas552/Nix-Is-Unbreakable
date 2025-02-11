@@ -3,6 +3,7 @@
   pkgs,
   config,
   inputs,
+  meta,
   ...
 }:
 # Stolen from @NTBBloodbath/tundra
@@ -10,6 +11,7 @@ let
   binpath = lib.makeBinPath (
     with pkgs;
     [
+      tinymist
       lua-language-server
       nixd
       stylua
@@ -52,10 +54,12 @@ in
       })
     ];
 
-    home.packages = with pkgs; [
-      # neovim-stable
-      neovim-nightly
-      unzip # for rocks installation
-    ];
+    home.packages =
+      with pkgs;
+      [
+        unzip # for rocks installation
+      ]
+      ++ lib.optionals meta.isTermux [ neovim-stable ]
+      ++ lib.optionals (!meta.isTermux) [ neovim-nightly ];
   };
 }
