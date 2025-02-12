@@ -8,7 +8,7 @@
       pkgs.lua-language-server
     ];
     languages = {
-      language-server.lua-language-server = {
+      language-server.lua-language-server.config.settings.Lua = {
         diagnostics = {
           globals = [
             "_G"

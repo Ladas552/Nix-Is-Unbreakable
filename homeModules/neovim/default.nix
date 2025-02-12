@@ -11,6 +11,9 @@ let
   binpath = lib.makeBinPath (
     with pkgs;
     [
+      gopls
+      clang-tools
+      typst
       tinymist
       lua-language-server
       nixd
@@ -61,5 +64,11 @@ in
       ]
       ++ lib.optionals meta.isTermux [ neovim-stable ]
       ++ lib.optionals (!meta.isTermux) [ neovim-nightly ];
+
+    home.sessionVariables = lib.mkDefault {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+      SUDO_EDITOR = "nvim";
+    };
   };
 }
