@@ -33,6 +33,10 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-rocks = {
+      url = "github:Ladas552/nvim-rocks-config";
+      flake = false;
+    };
 
     # Software for Norg
     norgolith.url = "github:NTBBloodbath/norgolith";

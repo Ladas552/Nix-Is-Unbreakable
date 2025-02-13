@@ -11,19 +11,27 @@ let
   binpath = lib.makeBinPath (
     with pkgs;
     [
-      gopls
-      clang-tools
-      typst
-      tinymist
+      # LSP
       lua-language-server
       nixd
+      gopls
+      clang-tools
+      # Typst dependencies
+      typst
+      tinymist
+      # Formatters
       stylua
+      # rocks.nvim dependencies
       lua51Packages.lua
       lua51Packages.luarocks
+      # Trying to make norg parser build, doesn't work
+      lua51Packages.rocks-dev-nvim
+      luajitPackages.luarocks-build-treesitter-parser
     ]
   );
   neovimConfig = pkgs.neovimUtils.makeNeovimConfig {
     extraLuaPackages = p: [ p.magick ]; # I can't have rocks.nvim install it b/c that version will not find imagemagick c binary
+    # Doesn't work anyways btw
     luaRcContent =
       # lua
       ''
@@ -39,6 +47,7 @@ let
   );
 in
 {
+  # custom option to modulry enable and disable neovim
   options.customhm = {
     neovim.enable = lib.mkEnableOption "enable neovim";
   };
@@ -56,15 +65,27 @@ in
         ) fullConfig;
       })
     ];
+    # config for neovim
+    home.file.".config/nvim" = {
+      enable = true;
+      recursive = true;
+      source = inputs.neovim-rocks;
+    };
 
     home.packages =
       with pkgs;
       [
         unzip # for rocks installation
+        # Trying to make treesitter build norg
+        # doesn't work btw
+        lua51Packages.luarocks
+        lua51Packages.lua
+        lua51Packages.rocks-dev-nvim
+        luajitPackages.luarocks-build-treesitter-parser
       ]
       ++ lib.optionals meta.isTermux [ neovim-stable ]
       ++ lib.optionals (!meta.isTermux) [ neovim-nightly ];
-
+    # environmental vatiables to not open nano
     home.sessionVariables = lib.mkDefault {
       EDITOR = "nvim";
       VISUAL = "nvim";
