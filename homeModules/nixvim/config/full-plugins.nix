@@ -126,11 +126,6 @@ in
           enable = true;
         };
 
-        wilder = {
-          enable = true;
-          enableCmdlineEnter = true;
-        };
-
         colorizer.enable = true;
 
         telescope = {
@@ -205,48 +200,62 @@ in
           };
         };
         # cmp
-        cmp = {
+        blink-cmp = {
           enable = true;
-          autoEnableSources = false;
           settings = {
-            completion.completeopt = "menu,menuone,preview,noselect";
-            snippet.expand = # lua
-              ''
-                function(args)
-                  require("luasnip").lsp_expand(args.body)
-                end,
-              '';
-            sources = [
-              { name = "nvim_lsp"; }
-              { name = "buffer"; }
-              { name = "path"; }
-              { name = "neorg"; }
-              { name = "luasnip"; }
-            ];
-            mapping = {
-              "<S-Tab>" = "cmp.mapping.select_prev_item()"; # previous suggestion
-              "<Tab>" = "cmp.mapping.select_next_item()"; # next suggestion
-              "<C-b>" = "cmp.mapping.scroll_docs(-4)";
-              "<C-f>" = "cmp.mapping.scroll_docs(4)";
-              "<C-Space>" = "cmp.mapping.complete()"; # show completion suggestions
-              "<ESC>" = "cmp.mapping.abort()"; # close completion window
-              "<CR>" = "cmp.mapping.confirm { select = false }";
+            keymap = {
+              preset = "enter";
+              "<Tab>" = [
+                "select_next"
+                "fallback"
+              ];
+              "<S-Tab>" = [
+                "select_prev"
+                "accept"
+                "fallback"
+              ];
+            };
+            signature = {
+              enabled = true;
+              window.border = "rounded";
+            };
+            completion = {
+              documentation = {
+                auto_show = true;
+                auto_show_delay_ms = 1000;
+                window.border = "rounded";
+              };
+              list.selection = {
+                preselect = false;
+                auto_insert = true;
+              };
+              menu = {
+                border = "single";
+                draw.columns = {
+                  # idk how to set it up
+                  # { "label",     "label_description", gap = 1 },
+                  # { "kind_icon", "kind" },
+                };
+              };
+              ghost_text.enabled = true;
+              keyword.range = "prefix"; # can also be `full`
+            };
+            sources = {
+              providers = {
+                buffer.score_offset = -7;
+              };
+              default = [
+                "lsp"
+                "path"
+                "snippets"
+                "buffer"
+              ];
             };
           };
         };
-        cmp-path.enable = true;
-        cmp-buffer.enable = true;
-        cmp_luasnip.enable = true;
-        cmp-nvim-lsp.enable = true;
-        cmp-spell.enable = true;
         luasnip.enable = true;
 
         #Workflow
-        wtf = {
-          enable = true;
-          context = true;
-        };
-
         oil = {
           enable = true;
           settings = {

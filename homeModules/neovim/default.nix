@@ -25,12 +25,18 @@ let
       lua51Packages.lua
       lua51Packages.luarocks
       # Trying to make norg parser build, doesn't work
+      pkgs.tree-sitter
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
       lua51Packages.rocks-dev-nvim
       luajitPackages.luarocks-build-treesitter-parser
+
     ]
   );
   neovimConfig = pkgs.neovimUtils.makeNeovimConfig {
-    extraLuaPackages = p: [ p.magick ]; # I can't have rocks.nvim install it b/c that version will not find imagemagick c binary
+    extraLuaPackages = p: [
+      p.magick
+      p.luarocks
+    ]; # I can't have rocks.nvim install it b/c that version will not find imagemagick c binary
     # Doesn't work anyways btw
     luaRcContent =
       # lua
@@ -65,6 +71,26 @@ in
         ) fullConfig;
       })
     ];
+    # so it knows where the header files are
+    home.file.".local/share/nvim/rocks/luarocks-config.lua" = {
+      enable = true;
+      text = # lua
+        ''
+          lua_version = "5.1"
+
+          rocks_trees = { {
+              name = "rocks.nvim",
+              root = "/home/${meta.user}/.local/share/nvim/rocks"
+            } }
+
+          variables = {
+            LUA_INCDIR = "${pkgs.lua5_1}/include"
+          }
+
+          arch = "linux-x86_64"
+
+        '';
+    };
     # config for neovim
     home.file.".config/nvim" = {
       enable = true;

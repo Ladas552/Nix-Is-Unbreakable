@@ -32,6 +32,7 @@
       ) inputs.neovim-nightly-overlay.packages.x86_64-linux.default;
       defaultEditor = lib.mkDefault true;
       # Performance
+      luaLoader.enable = true;
       performance = {
         byteCompileLua = {
           enable = true;
