@@ -110,10 +110,6 @@ in
           enable = true;
         };
 
-        lsp-status = {
-          enable = true;
-        };
-
         barbar = {
           enable = true;
           settings = {

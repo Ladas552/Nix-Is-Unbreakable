@@ -41,6 +41,7 @@
   manual.manpages.enable = false;
   customhm = {
     nixvim = lib.mkDefault {
+      autocmd = config.customhm.nixvim.enable;
       options = config.customhm.nixvim.enable;
       keymaps = config.customhm.nixvim.enable;
       colorschemes.catppuccin = config.customhm.nixvim.enable;

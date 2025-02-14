@@ -45,6 +45,8 @@
         autochdir = true;
         #Clipboard
         clipboard.providers.wl-copy.enable = true;
+        #Set cursor coloring in the terminal
+        guicursor = "n-v-c:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor25-Cursor";
       };
     };
   };
