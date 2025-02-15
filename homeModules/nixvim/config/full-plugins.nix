@@ -76,7 +76,7 @@ in
             tinymist = {
               enable = true;
               settings = {
-                exportPdf = "onType";
+                exportPdf = "onSave";
               };
             };
             clangd = {

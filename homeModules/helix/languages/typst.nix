@@ -9,7 +9,7 @@
         command = "tinymist";
         config = {
           capabilities.hoverProvider = false;
-          exportPdf = "onType";
+          exportPdf = "onSave";
           outputPath = "$root/$name";
           typstExtraArgs = [ "src.typ" ];
         };
