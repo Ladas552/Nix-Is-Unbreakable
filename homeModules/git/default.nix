@@ -21,7 +21,6 @@
         "result-bin"
         "result-man"
         "target"
-        ".devenv"
         ".direnv"
       ];
     };

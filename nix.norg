@@ -24,7 +24,6 @@ I start to have a life other than computers so I kinda begin to forget what I di
     Example: {./scripts/musnow.nix}[To look up comment metadata of mpd track]
 
 ** Repository
-   devenv and direnv are nice for developing, these files are here if you use them in your shell. I did try defining them in `flake.nix`
 
 ** ZFS
    I use ZFS as a file system, it provides me with snapshots and compression via zstd. You can't install zfs in calimaries, so need to use nixos iso and configure drive with a {:./docs/zfs.norg:}[script], after that it is simple `nixos-install --flake "github:Ladas552/Nixos-Is-Unbreakable#Host` and setting up a root password at the end
