@@ -197,7 +197,7 @@ in
         };
         # cmp
         blink-cmp = {
-          enable = true;
+          enable = false;
           settings = {
             keymap = {
               preset = "enter";

@@ -23,6 +23,17 @@
             key = "<S-u>";
             mode = "n";
           }
+          # Helix comment maps
+          {
+            action = "<cmd>norm gcc<CR>";
+            key = "<C-c>";
+            mode = "n";
+          }
+          {
+            action = "<cmd>norm gc<CR>";
+            key = "<C-c>";
+            mode = "v";
+          }
           # Disable accidentally pressing Ctrl-Z and suspending Neovim
           {
             action = "<Nop>";

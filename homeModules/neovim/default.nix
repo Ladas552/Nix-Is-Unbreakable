@@ -88,7 +88,6 @@ in
           }
 
           arch = "linux-x86_64"
-
         '';
     };
     # config for neovim
