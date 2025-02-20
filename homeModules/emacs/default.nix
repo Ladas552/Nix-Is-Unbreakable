@@ -22,13 +22,16 @@
           (load-theme 'catppuccin :no-confirm)
           (setq catppuccin-flavor 'macchiato)
           (catppuccin-reload)
+          ;; Icons
+          (when (display-graphic-p)
+            (require 'all-the-icons))
           ;; Fonts
-          
+
           ;; dashboard initialisation
           (require 'dashboard)
           (dashboard-setup-startup-hook)
           (require 'page-break-lines)
-          
+
           ;; Set the title
           (setq dashboard-banner-logo-title "Time-Waste-Mode enabled")
 
@@ -48,8 +51,9 @@
           ;; enable cycle navigation between each section
           (setq dashboard-navigation-cycle t)
 
-          ;; To use icons, doesn't work tho
-          (setq dashboard-set-heading-icons t)
+          ;; To use icons
+          (setq dashboard-icon-type 'all-the-icons)          
+          (setq dashboard-set-heading-icons nil) ; not `t` because some bug, idk
           (setq dashboard-set-file-icons t)
 
           ;; modify the widget heading name
@@ -65,13 +69,13 @@
         '';
       extraPackages =
         epkgs: with pkgs.emacsPackages; [
-          # Org Mode
-          org
-          # Zettlekasten for org
-          zk
+          # Note Taking
+          org # Org-mode
+          zk # Zettlekasten for org
           # UI
           catppuccin-theme # colorscheme
           solaire-mode # color unreal bufferst darker
+          all-the-icons # Icons like nerdfonts
           # Dashboard
           dashboard # new Start up buffer
           page-break-lines # pretty horizontal lines
