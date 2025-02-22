@@ -28,6 +28,7 @@ in
     home.packages = with pkgs; [
       black
       stylua
+      typstyle
       # typix web integration
       websocat
     ];
@@ -77,6 +78,8 @@ in
               enable = true;
               settings = {
                 exportPdf = "onSave";
+                fontPaths = ["./fonts"];
+                formatterMode = "typstyle";
               };
             };
             clangd = {
@@ -101,7 +104,7 @@ in
           };
         };
 
-        lsp-lines.enable = true;
+        # lsp-lines.enable = true;
         friendly-snippets.enable = true;
         lint.enable = true;
         trim.enable = true;
@@ -401,14 +404,57 @@ in
       # Options for Neorg to work well
       extraConfigLua = # lua
         ''
-          require 'typst-preview'.setup {
-            follow_cursor = true,
-            open_cmd = "chromium %s",
-            dependencies_bin = {
-              ['typst-preview'] = "tinymist",
-              ['websocat'] = "websocat",
+                    require 'typst-preview'.setup {
+                      follow_cursor = true,
+                      open_cmd = "chromium %s",
+                      dependencies_bin = {
+                        ['typst-preview'] = "tinymist",
+                        ['websocat'] = "websocat",
+                      },
+                    }
+
+          local severity = vim.diagnostic.severity
+          vim.diagnostic.config({
+            underline = {
+              enable = true,
+              severity = {
+                min = severity.WARN,
+              },
             },
-          }
+            virtual_lines = {
+              enable = true,
+              current_line = true,
+            },
+            signs = {
+              severity = {
+                min = severity.HINT,
+              },
+              -- I don't like sign collumn
+              text = {
+                [vim.diagnostic.severity.ERROR] = "",
+                [vim.diagnostic.severity.WARN] = "",
+                [vim.diagnostic.severity.INFO] = "",
+                [vim.diagnostic.severity.HINT] = "",
+              },
+              numhl = {
+                [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+                [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+                [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+                [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+              },
+            },
+            virtual_text = false,
+            -- virtual_lines = true,
+            -- underline = true,
+            update_in_insert = true,
+            severity_sort = true,
+            float = {
+              source = "if_many",
+              border = "rounded",
+              show_header = false,
+            },
+          })
+
         '';
     };
   };

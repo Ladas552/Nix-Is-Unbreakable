@@ -58,12 +58,6 @@
             key = "<esc>";
             mode = "n";
           }
-          # Do not copy on paste
-          {
-            action = "_dP";
-            key = "p";
-            mode = "n";
-          }
           # Stay in visual mode after indenting with < or >
           {
             action = ">gv";

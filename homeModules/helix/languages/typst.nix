@@ -3,7 +3,10 @@
 {
 
   programs.helix = {
-    extraPackages = [ pkgs.tinymist ];
+    extraPackages = [
+      pkgs.tinymist
+      pkgs.typstyle
+    ];
     languages = {
       language-server.tinymist = {
         command = "tinymist";
@@ -12,6 +15,8 @@
           exportPdf = "onSave";
           outputPath = "$root/$name";
           typstExtraArgs = [ "src.typ" ];
+          fontPaths = [ "./fonts" ];
+          formatterMode = "typstyle";
         };
       };
       language = [
