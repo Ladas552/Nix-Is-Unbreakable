@@ -365,21 +365,21 @@ in
           };
         };
 
-        image = {
-          enable = true;
-          windowOverlapClearEnabled = true;
-          extraOptions = {
-            integrations.typst = {
-              enabled = false;
-            };
-          };
-          integrations.neorg = {
-            enabled = true;
-            clearInInsertMode = true;
-            onlyRenderImageAtCursor = true;
-            filetypes = [ "norg" ];
-          };
-        };
+        # image = {
+        #   enable = true;
+        #   windowOverlapClearEnabled = true;
+        #   extraOptions = {
+        #     integrations.typst = {
+        #       enabled = false;
+        #     };
+        #   };
+        #   integrations.neorg = {
+        #     enabled = true;
+        #     clearInInsertMode = true;
+        #     onlyRenderImageAtCursor = true;
+        #     filetypes = [ "norg" ];
+        #   };
+        # };
 
         neogit = {
           enable = true;
