@@ -6,7 +6,7 @@
     wpaperd.enable = lib.mkEnableOption "enable wpaperd";
   };
   config = lib.mkIf config.customhm.wpaperd.enable {
-    programs.wpaperd = {
+    services.wpaperd = {
       enable = true;
       settings = {
         eDP-1 = {

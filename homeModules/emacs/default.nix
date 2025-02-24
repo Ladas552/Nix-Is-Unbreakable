@@ -81,6 +81,7 @@
           page-break-lines # pretty horizontal lines
         ];
     };
-    services.emacs.enable = true;
+    # emacs on startup eats 10% cpu on cold start
+    # services.emacs.enable = true;
   };
 }
