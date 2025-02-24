@@ -64,7 +64,7 @@
     libqalculate
     lshw
     nuspell
-    pamixer
+    # pamixer
     pavucontrol
     python3
     qbittorrent

@@ -15,6 +15,7 @@
   customhm = {
     nixvim.enable = true;
     # neovim.enable = true;
+    # emacs.enable = true;
     chromium.enable = true;
     direnv.enable = true;
     fastfetch.enable = true;
@@ -55,7 +56,7 @@
     keepassxc
     libqalculate
     lshw
-    pamixer
+    # pamixer
     pavucontrol
     qbittorrent
     telegram-desktop

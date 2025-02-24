@@ -64,7 +64,7 @@
     services.sanoid = {
       enable = true;
       datasets = {
-        "zroot/persist" = {
+        "zroot/root" = {
           hourly = 50;
           daily = 15;
           weekly = 3;
@@ -73,7 +73,7 @@
       };
     };
     home-manager.users.${meta.user}.home.shellAliases = {
-      zfs-list = "zfs list -o name,used,avail,compressratio,mountpoint";
+      zfs-list = "zfs list -o name,lused,used,avail,compressratio,mountpoint";
     };
   };
 }

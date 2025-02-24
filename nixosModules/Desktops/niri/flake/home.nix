@@ -18,7 +18,15 @@
     settings = {
       #one liners
       outputs."eDP-1".scale = if meta.host == "NixPort" then 2.0 else 1.0;
-      outputs."HDMI-A-1".scale = 2.0;
+      outputs."HDMI-A-1" = {
+        scale = 2.0;
+        # scale = 1.0;
+        # mode = {
+        #   height = 1080;
+        #   refresh = 60.000;
+        #   width = 1920;
+        # };
+      };
       hotkey-overlay.skip-at-startup = true;
       prefer-no-csd = true;
       screenshot-path = "~/Pictures/screenshots/Niri%Y-%m-%d %H-%M-%S.png";

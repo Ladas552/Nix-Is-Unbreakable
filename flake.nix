@@ -3,12 +3,10 @@
 
   inputs = {
     # nixpkgs links
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:nixos/nixpkgs/9db269672dbdbb519e0bd3ea24f01506c135e46f";
     # The second nixpkgs.url because i don't know why, but Osu-lazer can have working nvidia on it. idk why, see https://github.com/NixOS/nixpkgs/issues/372135
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
-    # https://github.com/NixOS/nixpkgs/issues/383265
-    nixpkgs.url = "github:Mic92/nixpkgs/fix-grub";
     # Home-manager
     home-manager = {
       url = "github:nix-community/home-manager";
