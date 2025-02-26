@@ -24,24 +24,17 @@ let
       # rocks.nvim dependencies
       lua51Packages.lua
       lua51Packages.luarocks
-      # Trying to make norg parser build, doesn't work
-      pkgs.tree-sitter
-      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-      lua51Packages.rocks-dev-nvim
-      luajitPackages.luarocks-build-treesitter-parser
-
     ]
   );
   neovimConfig = pkgs.neovimUtils.makeNeovimConfig {
     extraLuaPackages = p: [
-      p.magick
-      p.luarocks
-    ]; # I can't have rocks.nvim install it b/c that version will not find imagemagick c binary
-    # Doesn't work anyways btw
+      # p.magick
+      # p.luarocks
+    ]; # My neovim breaks if I install anything with this list
     luaRcContent =
       # lua
       ''
-        vim.g.nix_packdir = "${pkgs.vimUtils.packDir pkgs.neovim-stable.passthru.packpathDirs}"
+        vim.g.nix_packdir = "${pkgs.vimUtils.packDir pkgs.neovim-nightly.passthru.packpathDirs}"
         vim.cmd.source(('~/.config/%s/init.lua'):format(vim.env.NVIM_APPNAME or 'nvim'))
       '';
   };
@@ -101,8 +94,7 @@ in
       with pkgs;
       [
         unzip # for rocks installation
-        # Trying to make treesitter build norg
-        # doesn't work btw
+        # Makes treesitter work, I guess. I just don't want to remove it
         lua51Packages.luarocks
         lua51Packages.lua
         lua51Packages.rocks-dev-nvim
