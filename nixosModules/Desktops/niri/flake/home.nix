@@ -17,16 +17,6 @@
   programs.niri = {
     settings = {
       #one liners
-      outputs."eDP-1".scale = if meta.host == "NixPort" then 2.0 else 1.0;
-      outputs."HDMI-A-1" = {
-        scale = 2.0;
-        # scale = 1.0;
-        # mode = {
-        #   height = 1080;
-        #   refresh = 60.000;
-        #   width = 1920;
-        # };
-      };
       hotkey-overlay.skip-at-startup = true;
       prefer-no-csd = true;
       screenshot-path = "~/Pictures/screenshots/Niri%Y-%m-%d %H-%M-%S.png";
@@ -40,7 +30,18 @@
           ];
         }
       ];
-      # attribute sets
+      # Monitors
+      outputs."eDP-1".scale = if meta.host == "NixPort" then 2.0 else 1.0;
+      outputs."HDMI-A-1" = {
+        scale = 2.0;
+        # scale = 1.0;
+        # mode = {
+        #   height = 1080;
+        #   refresh = 60.000;
+        #   width = 1920;
+        # };
+      };
+      # Input Devices
       input = {
         workspace-auto-back-and-forth = true;
         keyboard = {
@@ -76,6 +77,19 @@
             angle = 45;
           };
         };
+        tab-indicator = {
+          hide-when-single-tab = true;
+          place-within-column = true;
+          position = "right";
+          gaps-between-tabs = 10.0;
+          width = 4.0;
+          length.total-proportion = 0.1;
+          corner-radius = 10.0;
+          gap = -8.0;
+          active = {
+            color = "#BA4B5D";
+          };
+        };
         preset-column-widths = [
           { proportion = 0.25; }
           { proportion = 0.5; }
@@ -85,28 +99,35 @@
       };
       # Window Rules
       window-rules = [
+        # Shadows in floating mode
         {
           matches = [
-            { app-id = ".qemu-system-x86_64-wrapped"; }
-            { app-id = "vesktop"; }
-            { app-id = "steam_app_0"; }
+            { is-floating = true; }
           ];
-          open-fullscreen = true;
-          default-column-width.proportion = 1.0;
+          shadow.enable = true;
         }
+        {
+          matches = [
+            { app-id = "mpv"; }
+          ];
+          shadow.enable = false;
+        }
+        # Full screen/size apps
         {
           matches = [ { app-id = "steam_proton"; } ];
           default-column-width = { };
         }
         {
           matches = [
+            { app-id = ".qemu-system-x86_64-wrapped"; }
+            { app-id = "vesktop"; }
+            { app-id = "steam_app_0"; }
             { app-id = "darksoulsii.exe"; }
             { app-id = "steam-"; }
             { title = "DARK SOULS II"; }
           ];
           open-fullscreen = true;
           default-column-width.proportion = 1.0;
-          variable-refresh-rate = false;
         }
         {
           matches = [
@@ -127,6 +148,7 @@
           focus-ring.enable = false;
           variable-refresh-rate = false;
         }
+        # Screencast
         {
           matches = [
             { app-id = ''r#"^org\.keepassxc\.KeePassXC$"#''; }
@@ -134,6 +156,16 @@
           ];
           block-out-from = "screencast";
         }
+        {
+          matches = [
+            { is-window-cast-target = true; }
+          ];
+          focus-ring = {
+            active.color = "#BA4B5D";
+            inactive.color = "#BA4B5D";
+          };
+        }
+        # Borders/Focus-ring
         {
           matches = [
             {
@@ -320,6 +352,8 @@
         # Floating Windows
         "Ctrl+Alt+S".action = toggle-window-floating;
         "Mod+Tab".action = switch-focus-between-floating-and-tiling;
+        # Tabbed layout
+        "Ctrl+Alt+A".action = toggle-column-tabbed-display;
 
         "Mod+Left".action = focus-column-left;
         "Mod+Down".action = focus-window-down;
