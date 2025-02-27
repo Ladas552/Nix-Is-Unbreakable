@@ -19,6 +19,7 @@ let
       # Typst dependencies
       typst
       tinymist
+      typstyle
       # Formatters
       stylua
       # rocks.nvim dependencies

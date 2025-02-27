@@ -17,6 +17,9 @@
         shiftwidth = 2; # 2 spaces for indent width
         expandtab = true; # expand tab to spaces
         autoindent = true; # copy indent from current line when starting new one
+        copyindent = true;
+        smartindent = true;
+        preserveindent = true;
         #Search
         ignorecase = true; # ignore case when searching
         smartcase = true; # if you include mixed case in your search, assumes you want case-sensitive
