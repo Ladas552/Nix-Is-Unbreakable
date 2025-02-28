@@ -586,11 +586,11 @@
     "neovim-rocks": {
       "flake": false,
       "locked": {
-        "lastModified": 1740683461,
-        "narHash": "sha256-c0AyK4LdgKS1EqwzPJKVKHizSl3yhDXIKIafrXAmAUk=",
+        "lastModified": 1740774821,
+        "narHash": "sha256-iedWawxfYT6rKFropNGNl6ptu5pk//P2J4uV/852D4Y=",
         "owner": "Ladas552",
         "repo": "nvim-rocks-config",
-        "rev": "4dda354cefa2cd0d434b1ef31edb0f2f6b957957",
+        "rev": "4c12f44d18ea26797467a2a323292f84aa6a328a",
         "type": "github"
       },
       "original": {
@@ -808,11 +808,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1740770725,
-        "narHash": "sha256-/rTAkGJEOd/5BcNZ26o6M+MfW6UAppgPvgQKnAxZX3U=",
+        "lastModified": 1740775474,
+        "narHash": "sha256-Xjk2/qQ8tbjPEEuhoDxxHN99vd1WLNdOzFl41kLYq+I=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "8113e2003d97888d43693e4631689dca515e6954",
+        "rev": "7380f4b4ea7b6bb5267d277982023dadde0bf42d",
         "type": "github"
       },
       "original": {
