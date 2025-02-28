@@ -27,6 +27,8 @@ let
       lua51Packages.luarocks
     ]
   );
+  # https://www.reddit.com/r/neovim/comments/vyqcny/treesitter_uv_dlopen_libstdcso6_problem_on_wsl/
+  parsers = pkgs.tree-sitter.withPlugins (_: pkgs.tree-sitter.allGrammars);
   neovimConfig = pkgs.neovimUtils.makeNeovimConfig {
     extraLuaPackages = p: [
       # p.magick
@@ -35,6 +37,7 @@ let
     luaRcContent =
       # lua
       ''
+        vim.opt.runtimepath:append("${parsers}")
         vim.g.nix_packdir = "${pkgs.vimUtils.packDir pkgs.neovim-nightly.passthru.packpathDirs}"
         vim.cmd.source(('~/.config/%s/init.lua'):format(vim.env.NVIM_APPNAME or 'nvim'))
       '';
@@ -95,11 +98,6 @@ in
       with pkgs;
       [
         unzip # for rocks installation
-        # Makes treesitter work, I guess. I just don't want to remove it
-        lua51Packages.luarocks
-        lua51Packages.lua
-        lua51Packages.rocks-dev-nvim
-        luajitPackages.luarocks-build-treesitter-parser
       ]
       ++ lib.optionals meta.isTermux [ neovim-stable ]
       ++ lib.optionals (!meta.isTermux) [ neovim-nightly ];
