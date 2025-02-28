@@ -27,6 +27,7 @@ let
       lua51Packages.luarocks
     ]
   );
+  # Download treesitter binaries from nixpkgs instead of building them
   # https://www.reddit.com/r/neovim/comments/vyqcny/treesitter_uv_dlopen_libstdcso6_problem_on_wsl/
   parsers = pkgs.tree-sitter.withPlugins (_: pkgs.tree-sitter.allGrammars);
   neovimConfig = pkgs.neovimUtils.makeNeovimConfig {
