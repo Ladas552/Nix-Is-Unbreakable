@@ -33,6 +33,9 @@
       a = "rename";
       r = "";
       "<backspace2>" = "set hidden!";
+      "<enter>" = "open";
+      f = "search";
+      F = "filter"; 
     };
     cmdKeybindings = {
       "<tab>" = "cmd-menu-complete";

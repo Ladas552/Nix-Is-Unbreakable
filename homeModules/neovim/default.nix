@@ -88,11 +88,11 @@ in
         '';
     };
     # config for neovim
-    # home.file.".config/nvim" = {
-    #   enable = true;
-    #   recursive = true;
-    #   source = inputs.neovim-rocks;
-    # };
+    home.file.".config/nvim" = {
+      enable = true;
+      recursive = true;
+      source = inputs.neovim-rocks;
+    };
 
     home.packages =
       with pkgs;

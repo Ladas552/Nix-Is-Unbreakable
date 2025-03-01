@@ -808,11 +808,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1740824983,
-        "narHash": "sha256-1Db2u+tRnTymM0VMJxiQOou9Two1m0IOrQBTrJXItDE=",
+        "lastModified": 1740839991,
+        "narHash": "sha256-Bg/chv4PwxeSHK0jg+xDn0w48/BbZO4z6zYj1SGUKaQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1461d87fb40df7531bb71fc8f790891a1e6c237c",
+        "rev": "4e52cfc516d5673e46e0586268d8e689c42c0899",
         "type": "github"
       },
       "original": {
@@ -1000,11 +1000,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1740822898,
-        "narHash": "sha256-oAFKpThSofs8iH4DukU2C8wqgwImryrlDAr7j2Ag07Q=",
+        "lastModified": 1740835691,
+        "narHash": "sha256-KcCwolUsUq/aA06OdYORUWn5bhG3eNxWQTXDHqo1oto=",
         "owner": "NTBBloodbath",
         "repo": "norgolith",
-        "rev": "4547d8f0d1abe70ff54ec48007ad8600cf087018",
+        "rev": "5a445cd04c7eb4b277b8f3a78dca267b30534ba4",
         "type": "github"
       },
       "original": {
