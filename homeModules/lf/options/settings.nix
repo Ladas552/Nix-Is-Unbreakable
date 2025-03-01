@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, pkgs, ... }:
 
 {
   programs.lf.settings = {
@@ -11,8 +11,9 @@
     incsearch = true;
     ignorecase = true;
     smartcase = true;
-    shell = "bash";
+    shell = "fish";
     scrolloff = 8;
     watch = true;
+    mouse = true;
   };
 }
