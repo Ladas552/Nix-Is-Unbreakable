@@ -56,7 +56,7 @@
     keepassxc
     libqalculate
     lshw
-    # pamixer
+    pamixer
     pavucontrol
     qbittorrent
     telegram-desktop
