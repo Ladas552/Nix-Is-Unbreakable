@@ -23,6 +23,7 @@
       DD = "delete";
       "<f-7>" = ''push %mkdir<space>""<c-b>'';
       "<f-1>" = ''push %touch<space>""<c-b>'';
+      "<c-d>" = ''quit'';
       V = "unselect";
       "<esc>" = '':unselect;clear'';
       t = ":tag-toggle; down";
