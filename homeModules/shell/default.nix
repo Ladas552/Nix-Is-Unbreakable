@@ -111,12 +111,12 @@
       # Neorg
       j = ''nvim -c "Neorg journal today"'';
       # directories
-      mc = "ranger";
-      mcv = "ranger ${config.xdg.userDirs.videos}";
-      mcva = "ranger ${config.xdg.userDirs.videos}/Anime/";
-      mcm = "ranger ${config.xdg.userDirs.music}";
-      mcc = "ranger ~/.config/";
-      mcp = "ranger ${config.xdg.userDirs.pictures}";
+      mc = "lf";
+      mcv = "lf ${config.xdg.userDirs.videos}";
+      mcva = "lf ${config.xdg.userDirs.videos}/Anime/";
+      mcm = "lf ${config.xdg.userDirs.music}";
+      mcc = "lf ~/.config/";
+      mcp = "lf ${config.xdg.userDirs.pictures}";
       # yt-dlp scripts
       dl-video = "yt-dlp --embed-thumbnail -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 --output '%(title)s.%(ext)s'";
       dl-clips = "yt-dlp --embed-thumbnail -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 --ignore-errors --output '${config.xdg.userDirs.videos}/clips/%(playlist)s/%(playlist_index)s-%(title)s.%(ext)s' --yes-playlist";

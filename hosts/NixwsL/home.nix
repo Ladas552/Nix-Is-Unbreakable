@@ -76,8 +76,8 @@
       eh = "hx ${meta.self}";
       v = "nvim";
       ls = "eza";
-      mc = "ranger";
-      mcc = "ranger ~/.config/";
+      mc = "lf";
+      mcc = "lf ~/.config/";
     };
     shellAliases = { };
   };
@@ -93,7 +93,7 @@
     v = "nvim";
     ls = "eza";
     cd = "z";
-    mc = "ranger";
+    mc = "lf";
     clean = "nh clean all";
     yy = "nh os switch ${meta.self}";
     yyy = "nh os switch -u ${meta.self}";

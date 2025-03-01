@@ -53,6 +53,5 @@
     };
     shell.enable = lib.mkDefault true;
     git.enable = lib.mkDefault true;
-    ranger.enable = lib.mkDefault true;
   };
 }

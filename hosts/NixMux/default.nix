@@ -61,7 +61,7 @@
     Welcome to nix-on-droid!
 
     * Rebuild system: yy
-    * Ranger TUI: mc
+    * lf TUI file manager: mc
     * Edit config: en
     * Today's journal: j
 

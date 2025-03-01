@@ -9,9 +9,10 @@
     findlen = 0;
     # icons = true;
     incsearch = true;
+    incfilter = true;
     ignorecase = true;
     smartcase = true;
-    shell = "fish";
+    shell = "bash";
     scrolloff = 8;
     watch = true;
     mouse = true;

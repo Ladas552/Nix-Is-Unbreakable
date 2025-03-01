@@ -92,7 +92,7 @@
     # cli tools
     ls = "eza";
     cd = "z";
-    mc = "ranger";
+    mc = "lf";
     h = "hx";
     # System Mantaining
     en = "hx ${meta.self}";
