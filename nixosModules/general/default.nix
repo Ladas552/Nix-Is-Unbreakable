@@ -13,6 +13,8 @@
   };
 
   config = lib.mkIf config.custom.general.enable {
+    # Disable nano
+    programs.nano.enable = false;
     # Enable Swaylock to unlock the screen
     security.pam.services.swaylock = { };
     # Disable X11 prompt for Git. Changes work only after Reboot for some reason
