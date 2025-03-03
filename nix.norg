@@ -41,7 +41,6 @@ I start to have a life other than computers so I kinda begin to forget what I di
    - To write comments to stuff like Sops-nix. I start to forget even how to set them up.
 
 ** Programs
-   - *lf*. Configure custom commands and scripts. Use Pistol instead of XDG-open
    - *Nix-on-droid*. Add files like `termux-edit-open` and `termux.properties` into the declarative ways. UPDATE: Can't do that with `home.file` need to wait for update apparently
    - *Xremap* or *Keyd*. The button that I have on Acer, binded to Shift+WinL+A. I need to bind ti to PrintScreen
 

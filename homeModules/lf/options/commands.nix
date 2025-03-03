@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 {
   # Todo
-  # edit "open" command to pistol as tutorial
+  ## edit "open" command to custom opener script with defined filename-program pattern
   programs.lf = {
     commands = {
       trash = ''%${lib.getExe' pkgs.trash-cli "trash-put"} "$fx"'';
@@ -24,8 +24,10 @@
         '';
     };
     keybindings = {
+      # Open text editor
       e = "open-nvim";
       E = "open-hx";
+      # Ranger muscle memory
       Dd = "trash";
       DD = "delete";
       "<f-7>" = ''push %mkdir<space>""<c-b>'';
@@ -40,8 +42,11 @@
       r = "";
       "<backspace2>" = "set hidden!";
       "<enter>" = "open";
+      # Rebind find to search
       f = "search";
       F = "filter";
+      # Zoxide integration
+      z = ''push :z<space>'';
     };
     cmdKeybindings = {
       "<tab>" = "cmd-menu-complete";
@@ -60,6 +65,5 @@
               esac
           '';
     };
-                # *.rar)  ${lib.getExe pkgs.unrar} l "$1";;
   };
 }
