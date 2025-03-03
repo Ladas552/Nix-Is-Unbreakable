@@ -36,7 +36,6 @@
       t = ":tag-toggle; down";
       w = "";
       S = "$fish";
-      i = ''$\${lib.getExe' pkgs.bat "bat"} "$f"'';
       a = "rename";
       r = "";
       "<backspace2>" = "set hidden!";
@@ -48,31 +47,19 @@
       "<tab>" = "cmd-menu-complete";
       "<backtab>" = "cmd-menu-complete-back";
     };
-    extraConfig =
-      let
-        previewer = pkgs.writeShellScriptBin "pv.sh" #bash
-        ''
-          file=$1
-          w=$2
-          h=$3
-          x=$4
-          y=$5
-
-          if [[ "$( ${pkgs.file}/bin/file -Lb --mime-type "$file")" =~ ^image ]]; then
-              ${pkgs.kitty}/bin/kitty +kitten icat --silent --stdin no --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "$file" < /dev/null > /dev/tty
-              exit 1
-          fi
-
-          ${pkgs.pistol}/bin/pistol "$file"
-        '';
-        cleaner = pkgs.writeShellScriptBin "clean.sh" #bash
-        ''
-          ${pkgs.kitty}/bin/kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
-        '';
-      in
-      ''
-        set cleaner ${cleaner}/bin/clean.sh
-        set previewer ${previewer}/bin/pv.sh
-      '';
+    previewer = {
+      keybinding = "i";
+      source =
+        pkgs.writeShellScript "pv.sh" # bash
+          ''
+            #!/usr/bin/env bash
+            file=$1
+              case "$1" in
+                *.pdf)  ${lib.getExe' pkgs.poppler-utils "pdftotext"} -layout -q -f 1 -l 3 "$1" -;;
+                *)      ${lib.getExe pkgs.pistol} "$1";;
+              esac
+          '';
+    };
+                # *.rar)  ${lib.getExe pkgs.unrar} l "$1";;
   };
 }
