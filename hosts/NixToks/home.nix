@@ -69,6 +69,7 @@
     python3
     qbittorrent
     telegram-desktop
+    zotero
     #   texlive.combined.scheme-small
     #   texliveFull
     typst

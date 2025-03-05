@@ -62,6 +62,7 @@
     telegram-desktop
     typst
     xarchiver
+    zotero
   ];
 
   # Environment and Dependencies
