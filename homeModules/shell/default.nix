@@ -50,6 +50,12 @@
       shellInit = ''
         set -gx pure_show_system_time true
         set -gx pure_color_system_time FF78C5
+        abbr --set-cursor --command nix rn run nixpkgs#%
+        abbr --set-cursor --command nix bn build nixpkgs#%
+        abbr --set-cursor --command nix sn shell nixpkgs#%
+        abbr --set-cursor --command nix rg run github:%
+        abbr --set-cursor --command nix bg build github:%
+        abbr --set-cursor --command nix sg shell github:%
       '';
       plugins = with pkgs.fishPlugins; [
         {
