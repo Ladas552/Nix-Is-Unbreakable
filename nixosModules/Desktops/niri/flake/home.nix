@@ -337,6 +337,23 @@
           ];
           allow-when-locked = true;
         };
+        
+        "Mod+XF86AudioRaiseVolume" = {
+          action = spawn [
+            "brightnessctl"
+            "set"
+            "2%+"
+          ];
+          allow-when-locked = true;
+        };
+        "Mod\+XF86AudioLowerVolume" = {
+          action = spawn [
+            "brightnessctl"
+            "set"
+            "2%-"
+          ];
+          allow-when-locked = true;
+        };
         # shows a list of important hotkeys.
         "Mod+Shift+T".action = show-hotkey-overlay;
         # Screenshots

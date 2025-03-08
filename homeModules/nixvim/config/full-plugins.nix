@@ -77,7 +77,7 @@ in
             tinymist = {
               enable = true;
               settings = {
-                exportPdf = "onSave";
+                exportPdf = "onType";
                 fontPaths = ["./fonts"];
                 formatterMode = "typstyle";
               };

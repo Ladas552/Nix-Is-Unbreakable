@@ -12,7 +12,7 @@
         command = "tinymist";
         config = {
           capabilities.hoverProvider = false;
-          exportPdf = "onSave";
+          exportPdf = "onType";
           outputPath = "$root/$name";
           typstExtraArgs = [ "src.typ" ];
           fontPaths = [ "./fonts" ];

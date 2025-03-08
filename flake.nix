@@ -37,9 +37,6 @@
       flake = false;
     };
 
-    # Software for Norg
-    norgolith.url = "github:NTBBloodbath/norgolith";
-
     # Niri
     niri.url = "github:sodiboo/niri-flake";
 
