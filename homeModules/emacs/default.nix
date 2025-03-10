@@ -79,6 +79,8 @@
           # Dashboard
           dashboard # new Start up buffer
           page-break-lines # pretty horizontal lines
+          # Better emacs Terminal
+          eat
         ];
     };
     # emacs on startup eats 10% cpu on cold start

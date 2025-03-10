@@ -1,8 +1,8 @@
 { ... }:
 {
   imports = [
+    ./c.nix
     ./nix.nix
     ./typst.nix
-    ./c.nix
   ];
 }
