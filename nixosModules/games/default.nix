@@ -30,7 +30,7 @@
         # Launchers
         prismlauncher
         # PC games
-        pkgs-master.osu-lazer-bin
+        inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
         # stepmania
         openmw
         daggerfall-unity

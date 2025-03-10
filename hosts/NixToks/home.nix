@@ -21,7 +21,7 @@
     # nixvim.enable = true;
     chromium.enable = true;
     direnv.enable = true;
-    emacs.enable = true;
+    # emacs.enable = true;
     fastfetch.enable = true;
     gh.enable = true;
     ghostty.enable = true;
