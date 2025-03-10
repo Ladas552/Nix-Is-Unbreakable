@@ -57,6 +57,12 @@
           abbr --set-cursor --command nix rg run github:%
           abbr --set-cursor --command nix bg build github:%
           abbr --set-cursor --command nix sg shell github:%
+          abbr --set-cursor --command nix nr run nixpkgs#%
+          abbr --set-cursor --command nix nb build nixpkgs#%
+          abbr --set-cursor --command nix ns shell nixpkgs#%
+          abbr --set-cursor --command nix gr run github:%
+          abbr --set-cursor --command nix gb build github:%
+          abbr --set-cursor --command nix gs shell github:%
         '';
       plugins = with pkgs.fishPlugins; [
         {
