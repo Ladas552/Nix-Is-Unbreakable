@@ -68,15 +68,19 @@
         window-inherit-font-size = false;
         window-theme = "dark";
         resize-overlay = "never";
-        gtk-titlebar = false;
+        gtk-titlebar = if meta.host == "NixwsL" then true else false;
         window-decoration = false;
         confirm-close-surface = false;
         gtk-tabs-location = "bottom";
         gtk-single-instance = true;
+        # Shaders
+        # custom-shader = "${inputs.ghostty-shaders}/glitchy.glsl";
 
         # Shell
         command = "fish";
         shell-integration = "fish";
+        working-directory = "inherit";
+        cursor-click-to-move = true;
         # Font
         # bold-is-bright = true;
         font-family = "JetBrainsMono NFM SemiBold";

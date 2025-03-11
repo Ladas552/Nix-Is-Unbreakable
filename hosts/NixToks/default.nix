@@ -78,8 +78,9 @@
     useUserPackages = true;
     useGlobalPkgs = false;
   };
-  # Latest kernel
-  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+
+  # Xanmod kernel
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
 
   # Enable networking
   networking.networkmanager.enable = true;

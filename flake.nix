@@ -55,6 +55,11 @@
     # for osu: https://github.com/NixOS/nixpkgs/issues/372135#issuecomment-2688708953
     nix-gaming.url = "github:fufexan/nix-gaming";
 
+    # ghostty-shaders = {
+    #   url = "github:hackr-sh/ghostty-shaders";
+    #   flake = false;
+    # };
+
   };
 
   outputs =
