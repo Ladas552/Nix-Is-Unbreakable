@@ -364,7 +364,8 @@
         #   "${lib.getExe pkgs.slurp} | ${lib.getExe pkgs.grim} -g -"
         # ];
         "Print".action = screenshot;
-        "Shift+Print".action = screenshot-screen;
+        # idk, broke on new flaek udpate
+        # "Shift+Print".action = screenshot-screen;
         "Alt+Print".action = screenshot-window;
         # Window Management
         "Mod+Q".action = close-window;
