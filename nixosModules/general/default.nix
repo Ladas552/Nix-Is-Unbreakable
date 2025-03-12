@@ -13,6 +13,10 @@
   };
 
   config = lib.mkIf config.custom.general.enable {
+    # clear out journalctl logs
+    services.journald.extraConfig = "MaxRetentionSec=14day";
+    # Allow core dumps
+    systemd.coredump.enable = true;
     # Disable nano
     programs.nano.enable = false;
     # Enable Swaylock to unlock the screen
