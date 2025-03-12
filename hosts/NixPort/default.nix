@@ -60,6 +60,12 @@
   # https://wiki.archlinux.org/title/Lenovo_ThinkPad_T14s_(AMD)_Gen_3#Display
   boot.kernelParams = [ "amdgpu.dcdebugmask=0x10" ];
 
+  # Linux sheduler, works post 6.12
+  services.scx = {
+    enable = true;
+    package = pkgs.scx.rustscheds;
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
 

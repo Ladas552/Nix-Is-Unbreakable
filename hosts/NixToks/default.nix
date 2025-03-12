@@ -82,6 +82,12 @@
   # Xanmod kernel
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
 
+  # Linux sheduler, works post 6.12
+  services.scx = {
+    enable = true;
+    package = pkgs.scx.rustscheds;
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
 

@@ -61,7 +61,7 @@
             file=$1
               case "$1" in
                 *.pdf)  ${lib.getExe' pkgs.poppler-utils "pdftotext"} -layout -q -f 1 -l 3 "$1" -;;
-                *)      ${lib.getExe pkgs.pistol} "$1";;
+                *)      ${lib.getExe' pkgs.pistol "pistol"} "$1";;
               esac
           '';
     };
