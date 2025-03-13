@@ -70,7 +70,7 @@
       };
     };
     home-manager.users.${meta.user}.home.shellAliases = {
-      zfs-list = "zfs list -o name,lused,used,avail,compressratio,mountpoint";
+      zfs-list = "zfs list -o name,lused,used,avail,compressratio,mountpoint";zfs-snapshots = "zfs list -t snapshot -S creation -o name,creation,used,written,refer";
     };
   };
 }
