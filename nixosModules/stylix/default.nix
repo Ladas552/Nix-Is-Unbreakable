@@ -51,6 +51,11 @@
           popups = 14;
         };
       };
+      cursor = {
+        name = "BreezeX-RosePine-Linux";
+        size = 28;
+        package = pkgs.rose-pine-cursor;
+      };
     };
   };
 }
