@@ -81,6 +81,8 @@
           page-break-lines # pretty horizontal lines
           # Better emacs Terminal
           eat
+          # git client
+          magit
         ];
     };
     # emacs on startup eats 10% cpu on cold start

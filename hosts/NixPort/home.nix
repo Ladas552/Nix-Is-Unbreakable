@@ -15,7 +15,7 @@
   customhm = {
     # nixvim.enable = true;
     neovim.enable = true;
-    # emacs.enable = true;
+    emacs.enable = true;
     chromium.enable = true;
     direnv.enable = true;
     fastfetch.enable = true;
