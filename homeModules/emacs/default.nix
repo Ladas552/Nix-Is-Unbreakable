@@ -22,6 +22,9 @@
           (load-theme 'catppuccin :no-confirm)
           (setq catppuccin-flavor 'macchiato)
           (catppuccin-reload)
+          
+          ;; prettify nix/store paths
+          (global-pretty-sha-path-mode)
           ;; Icons
           (when (display-graphic-p)
             (require 'all-the-icons))
@@ -65,7 +68,7 @@
 
           ;; Add solaire integration
           (solaire-global-mode +1)
-          (add-hook 'dashboard-before-initialize-hook #'solaire-mode)          
+          (add-hook 'dashboard-before-initialize-hook #'solaire-mode)
         '';
       extraPackages =
         epkgs: with pkgs.emacsPackages; [
@@ -79,10 +82,10 @@
           # Dashboard
           dashboard # new Start up buffer
           page-break-lines # pretty horizontal lines
-          # Better emacs Terminal
-          eat
-          # git client
-          magit
+          # Utilities
+          eat # Better emacs Terminal
+          magit # git client
+          pretty-sha-path # shorten nix/store paths
         ];
     };
     # emacs on startup eats 10% cpu on cold start
