@@ -38,7 +38,11 @@
     otd.enable = true;
     printers.enable = true;
     tlp.enable = true;
-    stylix.enable = true;
+    stylix = {
+      enable = true;
+      catppuccin = true;
+      oksolar-light = false;
+    };
     grub.enable = true;
     xkb.enable = true;
     zerotier.enable = true;

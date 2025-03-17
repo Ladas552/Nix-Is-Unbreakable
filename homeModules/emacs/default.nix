@@ -19,9 +19,12 @@
       extraConfig = # commonlisp
         ''
           ;; default theme
-          (load-theme 'catppuccin :no-confirm)
-          (setq catppuccin-flavor 'macchiato)
-          (catppuccin-reload)
+          ;; (load-theme 'catppuccin :no-confirm)
+          ;; (setq catppuccin-flavor 'macchiato)
+          ;; (catppuccin-reload)
+          ;; more colorschemes
+          (require 'doom-themes)
+          (load-theme 'doom-oksolar-light :ensure)
           
           ;; prettify nix/store paths
           (global-pretty-sha-path-mode)
@@ -77,6 +80,7 @@
           zk # Zettlekasten for org
           # UI
           catppuccin-theme # colorscheme
+          doom-themes # more colorchemes
           solaire-mode # color unreal bufferst darker
           all-the-icons # Icons like nerdfonts
           # Dashboard

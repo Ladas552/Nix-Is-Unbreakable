@@ -12,13 +12,14 @@
     stylix.enable = lib.mkEnableOption "enable stylix";
   };
 
-  imports = [ inputs.stylix.nixosModules.stylix ];
+  imports = [
+    inputs.stylix.nixosModules.stylix
+    ./oksolar.nix
+    ./catppuccin.nix
+  ];
 
   config = lib.mkIf config.custom.stylix.enable {
-    home-manager = {
-      users."${meta.user}" = import ./home.nix;
-    };
-    #To always use the dark theme
+    #To always use the stylix theme in gtk4 apps
     environment = {
       etc = {
         "xdg/gtk-3.0/settings.ini".text =
@@ -31,9 +32,7 @@
     stylix = {
       enable = true;
       image = ./wallpapers/Sacrifice.jpg;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
       autoEnable = true;
-      polarity = "dark";
 
       fonts = {
         serif = config.stylix.fonts.monospace;

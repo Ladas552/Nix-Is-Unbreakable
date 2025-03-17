@@ -59,7 +59,11 @@
     otd.enable = true;
     tlp.enable = true;
     #distrobox.enable = true;
-    stylix.enable = true;
+    stylix = {
+      enable = true;
+      catppuccin = true;
+      oksolar-light = false;
+    };
     # nix-ld.enable = true;
     printers.enable = true;
     # clamav.enable = true;
