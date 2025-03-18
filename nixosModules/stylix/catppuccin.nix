@@ -35,11 +35,11 @@
           light = "candy-icons";
         };
       };
-      dconf.settings = lib.mkForce {
-        "org/gnome/desktop/interface" = {
-          color-scheme = "prefer-dark";
-        };
-      };
+      # dconf.settings = lib.mkForce {
+      #   "org/gnome/desktop/interface" = {
+      #     color-scheme = "prefer-dark";
+      #   };
+      # };
     };
   };
 }

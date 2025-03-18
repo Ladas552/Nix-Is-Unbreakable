@@ -34,6 +34,7 @@
         # stepmania
         openmw
         daggerfall-unity
+        mindustry
         # Utilities
         # xclicker
         # Dependencies
