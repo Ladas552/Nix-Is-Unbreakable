@@ -18,7 +18,6 @@
   ];
 
   config = lib.mkIf config.custom.niri.enable {
-
     custom = {
       thunar.enable = lib.mkDefault true;
     };
