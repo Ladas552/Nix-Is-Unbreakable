@@ -38,6 +38,7 @@
           };
           "=" = ":format";
           K = "signature_help";
+          "$" = "goto_line_end";
         };
       };
     };
