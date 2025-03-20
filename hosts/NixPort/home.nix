@@ -68,6 +68,11 @@
   # Environment and Dependencies
   xdg = {
     enable = true;
+    mime.enable = true;
+    # mimeApps = {
+    #   enable = true;
+    # };
+
   };
 
   # Environmental Variables

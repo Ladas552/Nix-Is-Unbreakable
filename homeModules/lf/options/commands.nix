@@ -2,6 +2,7 @@
 {
   # Todo
   ## edit "open" command to custom opener script with defined filename-program pattern
+  ## make `dircounts false` and `calcdirsize` with a simple command, and the same one to revert the count back
   programs.lf = {
     commands = {
       trash = ''%${lib.getExe' pkgs.trash-cli "trash-put"} "$fx"'';

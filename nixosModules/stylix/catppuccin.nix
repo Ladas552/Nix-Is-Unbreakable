@@ -19,7 +19,7 @@
         targets = {
           bspwm.enable = false;
           kitty.enable = false;
-          # xfce.enable = config.custom.xfce.enable;
+          xfce.enable = config.custom.xfce.enable;
           vesktop.enable = true;
           fish.enable = false;
           nixvim.enable = false;
