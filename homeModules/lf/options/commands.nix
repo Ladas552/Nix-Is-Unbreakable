@@ -60,9 +60,11 @@
           ''
             #!/usr/bin/env bash
             file=$1
-              case "$1" in
-                *.pdf)  ${lib.getExe' pkgs.poppler-utils "pdftotext"} -layout -q -f 1 -l 3 "$1" -;;
-                *)      ${lib.getExe' pkgs.pistol "pistol"} "$1";;
+              case "$(${lib.getExe' pkgs.file "file"} -Lb --mime-type -- "$1")" in
+                application/pdf)
+                  ${lib.getExe' pkgs.poppler-utils "pdftotext"} -layout -q -f 1 -l 3 "$1" -;;
+                *)
+                  ${lib.getExe' pkgs.pistol "pistol"} "$1";;
               esac
           '';
     };

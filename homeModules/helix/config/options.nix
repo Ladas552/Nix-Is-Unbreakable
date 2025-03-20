@@ -10,6 +10,7 @@
         # to remove useless text
         auto-signature-help = false;
         display-signature-help-docs = false;
+        display-progress-messages = true;
       };
       inline-diagnostics = {
         cursor-line = "warning";
@@ -34,6 +35,23 @@
       soft-wrap = {
         enable = true;
         wrap-indicator = "";
+        wrap-at-text-width = true;
+      };
+      statusline = {
+        left = [
+          "mode"
+          "file-base-name"
+          "read-only-indicator"
+          "file-modification-indicator"
+        ];
+        right = [
+          "diagnostics"
+          "register"
+          "position"
+          "total-line-numbers"
+          "file-encoding"
+          "spinner"
+        ];
       };
       true-color = true;
       undercurl = true;
@@ -47,6 +65,9 @@
       file-picker = {
         hidden = false;
       };
+      continue-comments = false;
+      trim-trailing-whitespace = true;
+      trim-final-newlines = true;
     };
   };
 }

@@ -37,7 +37,7 @@
             "x" = ":buffer-close";
           };
           "=" = ":format";
-          space.K = "signature_help";
+          K = "signature_help";
         };
       };
     };
