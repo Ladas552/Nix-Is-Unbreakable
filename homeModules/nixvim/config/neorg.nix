@@ -132,6 +132,7 @@ in
                   life = "${meta.norg}/Life";
                   work = "${meta.norg}/Study";
                   journal = "${meta.norg}/Journal";
+                  archive = "${meta.norg}/Archive";
                 };
                 default_workspace = "general";
               };
