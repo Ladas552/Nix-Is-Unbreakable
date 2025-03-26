@@ -4,6 +4,9 @@
   programs.helix = {
     settings = {
       keys = {
+        select = {
+          G = "goto_last_line";
+        };
         normal = {
           # Swap file pickers
           space = {

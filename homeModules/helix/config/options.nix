@@ -1,8 +1,8 @@
-{ meta, ... }:
+{ meta, lib, ... }:
 
 {
   programs.helix.settings = {
-    theme = if meta.isTermux then "adwaita-dark" else "catppuccin_macchiato";
+    theme = lib.mkDefault "adwaita-dark";
     editor = {
       # LSP
       lsp = {
@@ -35,7 +35,7 @@
       soft-wrap = {
         enable = true;
         wrap-indicator = "";
-        wrap-at-text-width = true;
+        wrap-at-text-width = false;
       };
       statusline = {
         left = [

@@ -56,8 +56,6 @@
       settings = {
         # To look at docs for settings use:
         # ghostty +show-config --docs --default | nvim
-        # Enable custom pallet
-        theme = "dracata";
         # Windows
         background-opacity = 0.95;
         background-blur-radius = 20;
@@ -83,8 +81,6 @@
         cursor-click-to-move = true;
         # Font
         # bold-is-bright = true;
-        font-family = "JetBrainsMono NFM SemiBold";
-        font-size = if meta.host == "NixPort" then 11 else 13;
         #freetype-load-flags = "no-hinting,no-force-autohint,no-monochrome,no-autohint";
         #font-family = "Pixel Code";
 

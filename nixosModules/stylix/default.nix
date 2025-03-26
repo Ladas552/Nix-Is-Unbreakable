@@ -43,10 +43,10 @@
         };
         monospace = {
           package = pkgs.nerd-fonts.jetbrains-mono;
-          name = "JetBrainsMono NFM";
+          name = "JetBrainsMono NFM SemiBold";
         };
         sizes = {
-          terminal = 14;
+          terminal = if meta.host == "NixPort" then 11 else 13;
           popups = 14;
         };
       };

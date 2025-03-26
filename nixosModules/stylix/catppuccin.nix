@@ -35,6 +35,14 @@
           light = "candy-icons";
         };
       };
+      # Other modules
+      programs.helix.settings.theme = "catppuccin_macchiato";
+      # Enable custom pallet
+      programs.ghostty.settings = {
+        theme = "dracata";
+        font-size = if meta.host == "NixPort" then 11 else 13;
+        font-family = "JetBrainsMono NFM SemiBold";
+      };
       # dconf.settings = lib.mkForce {
       #   "org/gnome/desktop/interface" = {
       #     color-scheme = "prefer-dark";
