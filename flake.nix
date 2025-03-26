@@ -4,6 +4,7 @@
   inputs = {
     # nixpkgs links
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-gimp.url = "github:nixos/nixpkgs/c88e4e90048eaeaadc0caec090fed4ce5cc62240";
 
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     # Home-manager
@@ -66,12 +67,17 @@
       self,
       nixpkgs,
       nixpkgs-master,
+      nixpkgs-gimp,
       home-manager,
       ...
     }@inputs:
     # this is only for pkgs-master because I don't know how to use nixpkgs.config for pkgs-master along for unstable pkgs, pkgs doesn't get imported btw
     let
       pkgs-master = import nixpkgs-master {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
+      pkgs-gimp = import nixpkgs-gimp {
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
@@ -89,7 +95,7 @@
         # My Acer Swift Go 14 with ryzen 7640U
         NixPort = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs pkgs-master;
+            inherit inputs pkgs-master pkgs-gimp;
           };
 
           modules = [

@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   pkgs-master,
+  pkgs-gimp,
   meta,
   ...
 }:
@@ -80,6 +81,7 @@
     gcc
     gnumake
     networkmanagerapplet
+    pkgs-gimp.gimp
   ];
   # Radeon
   # Enable OpenGL and hardware accelerated graphics drivers
