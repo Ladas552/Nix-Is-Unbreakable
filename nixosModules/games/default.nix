@@ -28,7 +28,6 @@
       with pkgs;
       [
         # Launchers
-        prismlauncher
         # PC games
         inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
         # stepmania
@@ -53,6 +52,7 @@
         # Launchers
         bottles
         heroic
+        prismlauncher
         # PC games
         arx-libertatis
         # Dependencies
