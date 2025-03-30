@@ -100,7 +100,10 @@ in
         unzip # for rocks installation
       ]
       ++ lib.optionals meta.isTermux [ neovim-stable ]
-      ++ lib.optionals (!meta.isTermux) [ neovim-nightly ];
+      ++ lib.optionals (!meta.isTermux) [
+        neovim-stable
+        # neovim-nightly
+      ];
     # environmental vatiables to not open nano
     home.sessionVariables = lib.mkDefault {
       EDITOR = "nvim";

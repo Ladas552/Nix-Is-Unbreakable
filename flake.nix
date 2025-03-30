@@ -49,9 +49,7 @@
     # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
     helix-overlay.url = "github:helix-editor/helix";
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
+    # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     # for osu: https://github.com/NixOS/nixpkgs/issues/372135#issuecomment-2688708953
     nix-gaming.url = "github:fufexan/nix-gaming";
 
