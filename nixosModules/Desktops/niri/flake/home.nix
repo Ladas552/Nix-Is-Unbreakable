@@ -216,7 +216,7 @@
         "Super+M".action = spawn [
           "ghostty"
           "-e"
-          "ncmpcpp"
+          "rmpc"
         ];
         "Super+H".action = spawn [
           "ghostty"
@@ -337,7 +337,7 @@
           ];
           allow-when-locked = true;
         };
-        
+
         "Mod+XF86AudioRaiseVolume" = {
           action = spawn [
             "brightnessctl"
