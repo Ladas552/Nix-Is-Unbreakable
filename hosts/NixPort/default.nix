@@ -34,7 +34,7 @@
     openssh.enable = true;
     bluetooth.enable = true;
     kde-connect.enable = true;
-    games.enable = true;
+    # games.enable = true;
     fonts.enable = true;
     otd.enable = true;
     printers.enable = true;
@@ -82,6 +82,28 @@
     gnumake
     networkmanagerapplet
     pkgs-gimp.gimp
+
+    # Launchers
+    # PC games
+    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+    # stepmania
+    openmw
+    daggerfall-unity
+    mindustry
+    # Utilities
+    # xclicker
+    # Dependencies
+    steam-run
+    # Emulators
+    duckstation
+    blastem
+    mgba
+    snes9x-gtk
+    punes
+    melonDS
+    # doesn't work       retroarchFull
+    # too complex and need a special controller      mame
+
   ];
   # Radeon
   # Enable OpenGL and hardware accelerated graphics drivers

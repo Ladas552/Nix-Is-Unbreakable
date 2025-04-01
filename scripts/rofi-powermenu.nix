@@ -16,7 +16,7 @@ pkgs.writeShellScriptBin "powermenu.sh" ''
   theme='power-manager'
 
   # CMDs
-  uptime="`${lib.getExe' pkgs.procps "uptime"} -p | sed -e 's/up //g'`"
+  uptime="`${lib.meta.getExe' pkgs.procps "uptime"} -p | sed -e 's/up //g'`"
   host=`hostname`
 
   # Options
