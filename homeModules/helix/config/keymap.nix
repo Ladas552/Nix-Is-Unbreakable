@@ -6,6 +6,9 @@
       keys = {
         select = {
           G = "goto_last_line";
+          # better manual surrouns
+          m.s = "select_textobject_around";
+          m.a = "surround_add";
         };
         normal = {
           # Swap file pickers
@@ -19,6 +22,9 @@
             f = "file_picker_in_current_directory";
             F = "file_picker";
           };
+          # better manual surrouns
+          m.s = "select_textobject_around";
+          m.a = "surround_add";
           # Muscle  Memory
           esc = [
             "collapse_selection"
