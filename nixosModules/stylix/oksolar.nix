@@ -39,7 +39,7 @@
         bspwm.enable = false;
         # xfce.enable = config.custom.xfce.enable;
         vesktop.enable = true;
-        # fish.enable = false;
+        fish.enable = false;
         # nixvim.enable = false;
         # helix.enable = false;
         # emacs.enable = false;
