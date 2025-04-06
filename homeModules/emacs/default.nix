@@ -25,7 +25,7 @@
           ;; more colorschemes
           (require 'doom-themes)
           (load-theme 'doom-oksolar-light :ensure)
-          
+
           ;; prettify nix/store paths
           (global-pretty-sha-path-mode)
           ;; Icons

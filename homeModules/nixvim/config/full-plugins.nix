@@ -78,7 +78,7 @@ in
               enable = true;
               settings = {
                 exportPdf = "onType";
-                fontPaths = ["./fonts"];
+                fontPaths = [ "./fonts" ];
                 formatterMode = "typstyle";
               };
             };
