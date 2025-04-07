@@ -67,7 +67,7 @@
         window-theme = "dark";
         resize-overlay = "never";
         gtk-titlebar = if meta.host == "NixwsL" then true else false;
-        window-decoration = false;
+        window-decoration = if meta.host == "NixwsL" then true else false;
         confirm-close-surface = false;
         gtk-tabs-location = "bottom";
         gtk-single-instance = true;

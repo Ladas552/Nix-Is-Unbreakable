@@ -17,6 +17,7 @@
     shell.enable = false;
     direnv.enable = true;
     gh.enable = true;
+    lf.enable = true;
     ghostty.enable = true;
     helix.enable = true;
     yt-dlp.enable = true;
