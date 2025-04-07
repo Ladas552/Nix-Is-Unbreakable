@@ -1,8 +1,6 @@
 {
   pkgs,
   inputs,
-  pkgs-master,
-  pkgs-gimp,
   meta,
   ...
 }:
@@ -52,7 +50,7 @@
 
   home-manager = {
     extraSpecialArgs = {
-      inherit inputs pkgs-master;
+      inherit inputs;
       inherit meta;
     };
     users."${meta.user}" = import ./home.nix;
@@ -81,8 +79,6 @@
     gcc
     gnumake
     networkmanagerapplet
-    pkgs-gimp.gimp
-
     # Launchers
     # PC games
     inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin

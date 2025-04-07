@@ -3,7 +3,6 @@
   pkgs,
   inputs,
   lib,
-  pkgs-master,
   meta,
   ...
 }:
@@ -43,7 +42,7 @@
 
   home-manager = {
     extraSpecialArgs = {
-      inherit inputs pkgs-master;
+      inherit inputs;
       inherit meta;
     };
     users."${meta.user}" = import ./home.nix;

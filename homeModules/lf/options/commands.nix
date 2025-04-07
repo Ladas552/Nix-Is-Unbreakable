@@ -55,13 +55,13 @@
     };
     previewer = {
       keybinding = "i";
-      source = "${lib.getExe' pkgs.ctpv "ctpv"}";
+      source = "${lib.meta.getExe' pkgs.ctpv "ctpv"}";
     };
     extraConfig = # bash
       ''
-        &${lib.getExe' pkgs.ctpv "ctpv"} -s $id
-        cmd on-quit %${lib.getExe' pkgs.ctpv "ctpv"} -e $id
-        set cleaner ${lib.getExe' pkgs.ctpv "ctpvclear"}
+        &${lib.meta.getExe' pkgs.ctpv "ctpv"} -s $id
+        cmd on-quit %${lib.meta.getExe' pkgs.ctpv "ctpv"} -e $id
+        set cleaner ${lib.meta.getExe' pkgs.ctpv "ctpvclear"}
       '';
   };
 }

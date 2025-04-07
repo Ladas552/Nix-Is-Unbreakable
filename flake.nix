@@ -4,9 +4,7 @@
   inputs = {
     # nixpkgs links
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-gimp.url = "github:nixos/nixpkgs/c88e4e90048eaeaadc0caec090fed4ce5cc62240";
 
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     # Home-manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -22,9 +20,6 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
-    # Ghostty master branch
-    # It started to build instead of downloading quite often
-    # ghostty.url = "github:ghostty-org/ghostty";
 
     stylix.url = "github:danth/stylix";
     # Neovim
@@ -64,28 +59,15 @@
     {
       self,
       nixpkgs,
-      nixpkgs-master,
-      nixpkgs-gimp,
       home-manager,
       ...
     }@inputs:
-    # this is only for pkgs-master because I don't know how to use nixpkgs.config for pkgs-master along for unstable pkgs, pkgs doesn't get imported btw
-    let
-      pkgs-master = import nixpkgs-master {
-        system = "x86_64-linux";
-        config.allowUnfree = true;
-      };
-      pkgs-gimp = import nixpkgs-gimp {
-        system = "x86_64-linux";
-        config.allowUnfree = true;
-      };
-    in
     {
       nixosConfigurations = {
         # My Lenovo 50-70y laptop with nvidia 860M
         NixToks = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs pkgs-master;
+            inherit inputs;
           };
 
           modules = [ ./hosts/NixToks ];
@@ -93,7 +75,7 @@
         # My Acer Swift Go 14 with ryzen 7640U
         NixPort = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs pkgs-master pkgs-gimp;
+            inherit inputs;
           };
 
           modules = [
@@ -103,7 +85,7 @@
         # NixOS WSL setup
         NixwsL = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs pkgs-master;
+            inherit inputs;
           };
 
           modules = [ ./hosts/NixwsL ];
@@ -111,7 +93,7 @@
         # Nix VM for testing major config changes
         NixVM = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs pkgs-master;
+            inherit inputs;
           };
 
           modules = [ ./hosts/NixVM ];
