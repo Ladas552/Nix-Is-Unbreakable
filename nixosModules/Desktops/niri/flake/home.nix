@@ -375,12 +375,12 @@
         # Tabbed layout
         "Ctrl+Alt+A".action = toggle-column-tabbed-display;
 
-        "Mod+Left".action = focus-column-left;
+        "Mod+Left".action = focus-column-left-or-last;
         "Mod+Down".action = focus-window-down;
         "Mod+Up".action = focus-window-up;
-        "Mod+Right".action = focus-column-right;
-        "Mod+A".action = focus-column-left;
-        "Mod+S".action = focus-column-right;
+        "Mod+Right".action = focus-column-right-or-first;
+        "Mod+A".action = focus-column-left-or-last;
+        "Mod+S".action = focus-column-right-or-first;
 
         "Mod+Shift+Left".action = move-column-left;
         "Mod+Shift+Down".action = move-window-down;
