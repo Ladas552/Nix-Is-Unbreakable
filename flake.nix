@@ -45,6 +45,11 @@
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
     helix-overlay.url = "github:helix-editor/helix";
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # for osu: https://github.com/NixOS/nixpkgs/issues/372135#issuecomment-2688708953
     nix-gaming.url = "github:fufexan/nix-gaming";
 

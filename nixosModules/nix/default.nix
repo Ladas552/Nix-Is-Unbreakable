@@ -11,14 +11,19 @@
     nix.enable = lib.mkEnableOption "enable nix";
   };
 
+  imports = [
+    inputs.lix-module.nixosModules.default
+  ];
+
   config = lib.mkIf config.custom.nix.enable {
+
     # Optimize nix experience by removing cache and store garbage
     nix.settings.auto-optimise-store = true;
     nix.optimise.automatic = true;
     # Set nixpath for nixd
     nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     # Better Error messages
-    nix.package = pkgs.nixVersions.latest;
+    # nix.package = pkgs.nixVersions.latest;
     # I don't use channels
     programs.command-not-found.enable = false;
     # Less building text

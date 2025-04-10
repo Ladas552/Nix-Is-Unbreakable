@@ -31,7 +31,7 @@
       user = "${meta.user}";
       environment = {
         XKB_DEFAULT_LAYOUT = "us,kz";
-         XKB_DEFAULT_OPTIONS = "grp:caps_toggle";
+        XKB_DEFAULT_OPTIONS = "grp:caps_toggle";
       };
     };
 
