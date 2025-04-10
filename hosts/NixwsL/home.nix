@@ -98,6 +98,12 @@
     yy = "nh os switch ${meta.self}";
     yyy = "nh os switch -u ${meta.self}";
     n = "ssh-add ~/.ssh/NixToks";
+    # Git
+    g = "git";
+    gal = "git add ./*";
+    gcm = "git commit -m";
+    gpr = "git pull --rebase";
+    gpu = "git push";
   };
   # Me
   home.username = "${meta.user}";
