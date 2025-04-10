@@ -29,6 +29,8 @@
   #modules
   custom = {
     niri.enable = true;
+    # cage.ghostty.enable = true;
+    # cage.cagebreak.enable = true;
     openssh.enable = true;
     bluetooth.enable = true;
     kde-connect.enable = true;

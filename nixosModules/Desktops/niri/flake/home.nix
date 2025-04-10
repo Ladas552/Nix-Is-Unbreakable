@@ -167,15 +167,6 @@
             inactive.color = "#BA4B5D";
           };
         }
-        # Borders/Focus-ring
-        {
-          matches = [
-            {
-              app-id = "com.mitchellh.ghostty";
-            }
-          ];
-          draw-border-with-background = false;
-        }
       ];
       switch-events = {
         lid-close.action.spawn = [
