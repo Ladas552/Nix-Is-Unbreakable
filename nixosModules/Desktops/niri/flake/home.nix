@@ -24,6 +24,7 @@
       layout.default-column-display = "tabbed";
       # Autostart
       spawn-at-startup = [
+        { command = [ "xfce4-power-manager" ]; }
         { command = [ "wpaperd" ]; }
         {
           command = [

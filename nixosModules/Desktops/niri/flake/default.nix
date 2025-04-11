@@ -25,6 +25,7 @@
     environment.systemPackages = with pkgs; [
       xwayland-satellite
       brightnessctl
+      xfce.xfce4-power-manager
     ];
 
     environment.variables = {
@@ -37,6 +38,8 @@
       enable = true;
       package = pkgs.niri;
     };
+
+
 
     home-manager = {
       users."${meta.user}" = import ./home.nix;

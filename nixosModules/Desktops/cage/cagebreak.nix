@@ -30,6 +30,9 @@
       };
     };
 
+    environment.variables = {
+      WAYLAND_DEBUG = 1;
+    };
     environment.systemPackages = with pkgs; [
       brightnessctl
       cagebreak
