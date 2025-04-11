@@ -20,7 +20,6 @@
       hotkey-overlay.skip-at-startup = true;
       prefer-no-csd = true;
       screenshot-path = "~/Pictures/screenshots/Niri%Y-%m-%d %H-%M-%S.png";
-      cursor.size = 40;
       layout.default-column-display = "tabbed";
       # Autostart
       spawn-at-startup = [
