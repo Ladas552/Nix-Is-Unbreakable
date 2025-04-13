@@ -31,6 +31,10 @@
       url = "github:Ladas552/nvim-rocks-config";
       flake = false;
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Niri
     niri.url = "github:sodiboo/niri-flake";
