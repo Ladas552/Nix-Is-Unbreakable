@@ -13,8 +13,8 @@
 
   customhm = {
     # nixvim.enable = true;
-    # neovim.enable = true;
-    nvf.enable = true;
+    neovim.enable = true;
+    # nvf.enable = true;
     emacs.enable = true;
     chromium.enable = true;
     direnv.enable = true;

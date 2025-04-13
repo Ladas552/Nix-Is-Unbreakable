@@ -23,6 +23,7 @@
           vesktop.enable = true;
           fish.enable = false;
           nixvim.enable = false;
+          nvf.enable = false;
           helix.enable = false;
           emacs.enable = false;
           ghostty.enable = false;
