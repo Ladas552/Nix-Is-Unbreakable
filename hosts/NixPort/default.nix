@@ -32,6 +32,7 @@
     # cage.ghostty.enable = true;
     # cage.cagebreak.enable = true;
     openssh.enable = true;
+    distrobox.enable = true;
     bluetooth.enable = true;
     kde-connect.enable = true;
     # games.enable = true;
@@ -66,17 +67,18 @@
   boot.kernelParams = [ "amdgpu.dcdebugmask=0x10" ];
 
   # Linux sheduler, works post 6.12
-  services.scx = {
-    enable = true;
-    package = pkgs.scx.rustscheds;
-  };
+  # services.scx = {
+  #   enable = true;
+  #   package = pkgs.scx.rustscheds;
+  # };
+  # IT seems to stutter and restart sometimes, breaking my desktop IO devices
 
   # Enable networking
   networking.networkmanager.enable = true;
 
   environment.systemPackages = with pkgs; [
     # whatever I couldn't install in Home Manager
-    python3
+    python314
     cachix
     gcc
     gnumake
@@ -147,5 +149,4 @@
   # Testing nix-on-droid in waydroid
   virtualisation.waydroid.enable = true;
   programs.adb.enable = true;
-
 }

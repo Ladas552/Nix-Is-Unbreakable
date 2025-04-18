@@ -39,7 +39,14 @@
       package = pkgs.niri;
     };
 
-
+    xdg.portal = {
+      enable = lib.mkDefault true;
+      xdgOpenUsePortal = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      config = {
+        niri."org.freedesktop.impl.portal.FileChooser" = "gtk";
+      };
+    };
 
     home-manager = {
       users."${meta.user}" = import ./home.nix;

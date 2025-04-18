@@ -41,9 +41,6 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
   # Standalone Packages for user
   home.packages = with pkgs; [
-    # waydroid script
-    lzip
-
     vesktop
     libreoffice-fresh
     # shotcut
@@ -79,4 +76,5 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
 }
