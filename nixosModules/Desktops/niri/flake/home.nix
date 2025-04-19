@@ -372,8 +372,8 @@
         "Ctrl+Alt+A".action = toggle-column-tabbed-display;
 
         "Mod+Left".action = focus-column-left-or-last;
-        "Mod+Down".action = focus-window-down;
-        "Mod+Up".action = focus-window-up;
+        "Mod+Down".action = focus-window-down-or-top;
+        "Mod+Up".action = focus-window-up-or-bottom;
         "Mod+Right".action = focus-column-right-or-first;
         "Mod+A".action = focus-column-left-or-last;
         "Mod+S".action = focus-column-right-or-first;
