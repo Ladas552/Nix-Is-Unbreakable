@@ -40,13 +40,13 @@
       # Monitors
       outputs."eDP-1".scale = if meta.host == "NixPort" then 2.0 else 1.0;
       outputs."HDMI-A-1" = {
-        scale = 2.0;
-        # scale = 1.0;
-        # mode = {
-        #   height = 1080;
-        #   refresh = 60.000;
-        #   width = 1920;
-        # };
+        # scale = 2.0;
+        scale = 1.0;
+        mode = {
+          height = 1080;
+          refresh = 60.000;
+          width = 1920;
+        };
       };
       # Input Devices
       input = {

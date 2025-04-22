@@ -48,3 +48,17 @@ I start to have a life other than computers so I kinda begin to forget what I di
 
 *** Sessions
     - I want to make wm independent variables for applications. So that I can have For example, 2 configured Launcher applications, but I only want one. Then I just change the variable, and every other module that uses variable `isLauncher` also follows. Basically to have a dozen of WM configs, but if I one day want to switch rofi for dmenu, keybinds would stay the same.
+
+
+*** GreetD
+    I can define custom option per session to define a greetD launching binary depending on what module I enable. It will make so that I only need 1 greetD script module for every WM session that I want to try and also makes it less combersome to switch them over.
+
+    something like
+    @code nix
+    custom.greetd.binary = lib.mkStringOption "Binary for greetd"
+    config = lib.mkString config.custom.greetd.binary = "{pkgs.niri}/bin/niri-session"
+
+    services.greetd.initial_session.command == "${custom.greetd.binary}";
+    @end
+
+    it's a mock up, need to look up the docs for it
