@@ -35,6 +35,7 @@
     ./swaylock
     ./syncthing
     ./wpaperd
+    ./vesktop
     ./vim
     ./yt-dlp
     ./zathura

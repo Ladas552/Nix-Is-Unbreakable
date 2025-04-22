@@ -31,6 +31,7 @@
     mpd.enable = true;
     mpv.enable = true;
     obs.enable = true;
+    vesktop.enable = true;
     rofi.enable = true;
     syncthing.enable = true;
     thunderbird.enable = true;

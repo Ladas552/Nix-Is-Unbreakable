@@ -29,6 +29,7 @@
     obs.enable = true;
     rofi.enable = true;
     syncthing.enable = true;
+    vesktop.enable = true;
     thunderbird.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
