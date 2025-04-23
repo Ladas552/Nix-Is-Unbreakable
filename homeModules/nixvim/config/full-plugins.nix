@@ -34,11 +34,16 @@ in
     ];
 
     programs.nixvim = {
+      performance.combinePlugins.standalonePlugins = [
+        "oil.nvim"
+        "norg-meta-grammar"
+        "typst-preview.nvim"
+        "neorg"
+      ];
       extraPlugins = [
         pkgs.vimPlugins.typst-preview-nvim
         pkgs.vimPlugins."gitsigns-nvim"
         pkgs.vimPlugins."lspkind-nvim"
-        pkgs.vimPlugins.nvim-treesitter-parsers.org
         pkgs.vimPlugins.img-clip-nvim
         # Broke on latest NixVim
         # typst-tools.nvim
@@ -315,7 +320,6 @@ in
             markdown
             markdown_inline
             nix
-            org
             python
             rasi
             requirements

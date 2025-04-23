@@ -53,9 +53,6 @@ in
   };
 
   config = lib.mkIf (config.customhm.nixvim.enable && config.customhm.nixvim.plugins.Neorg) {
-    home.packages =
-      [ ]
-      ++ lib.optionals (meta.system == "x86_64-linux") [ inputs.norgolith.packages.x86_64-linux.default ];
     programs.nixvim = {
       extraPlugins = [
         treesitter-norg-meta

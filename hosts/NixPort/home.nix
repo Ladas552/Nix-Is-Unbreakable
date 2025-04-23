@@ -12,8 +12,8 @@
   imports = [ ./../../homeModules ];
 
   customhm = {
-    # nixvim.enable = true;
-    neovim.enable = true;
+    nixvim.enable = true;
+    # neovim.enable = true;
     # nvf.enable = true;
     emacs.enable = true;
     chromium.enable = true;
@@ -42,7 +42,6 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
   # Standalone Packages for user
   home.packages = with pkgs; [
-    vesktop
     libreoffice-fresh
     # shotcut
     imagemagick

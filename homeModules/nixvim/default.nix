@@ -28,9 +28,9 @@
     programs.nixvim = {
       enable = true;
       enableMan = false;
-      package = lib.mkIf (
-        meta.system == "x86_64-linux"
-      ) inputs.neovim-nightly-overlay.packages.x86_64-linux.default;
+      # package = lib.mkIf (
+      #   meta.system == "x86_64-linux"
+      # ) inputs.neovim-nightly-overlay.packages.x86_64-linux.default;
       defaultEditor = lib.mkDefault true;
       # Performance
       luaLoader.enable = true;
@@ -40,6 +40,7 @@
           nvimRuntime = true;
           plugins = true;
         };
+        combinePlugins.enable = true;
       };
     };
     home.sessionVariables = lib.mkDefault {
