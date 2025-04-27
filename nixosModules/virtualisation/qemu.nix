@@ -48,11 +48,11 @@
       };
     };
     users.users."${meta.user}".extraGroups = [ "libvirtd" ];
-    # home-manager.users."ladas552".dconf.settings = {
-    #   "org/virt-manager/virt-manager/connections" = {
-    #     autoconnect = [ "qemu:///system" ];
-    #     uris = [ "qemu:///system" ];
-    #   };
-    # };
+    home-manager.users."ladas552".dconf.settings = {
+      "org/virt-manager/virt-manager/connections" = {
+        autoconnect = [ "qemu:///system" ];
+        uris = [ "qemu:///system" ];
+      };
+    };
   };
 }

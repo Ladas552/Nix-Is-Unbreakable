@@ -44,20 +44,20 @@
       };
     };
 
-    # home-manager.users."${meta.user}" = {
-    #   programs.ssh = {
-    #     enable = true;
-    #     forwardAgent = true;
-    #     addKeysToAgent = "yes";
-    #     controlMaster = "auto";
-    #     controlPersist = "10m";
+    home-manager.users."${meta.user}" = {
+      programs.ssh = {
+        enable = true;
+        forwardAgent = true;
+        addKeysToAgent = "yes";
+        controlMaster = "auto";
+        controlPersist = "10m";
 
-    #     matchBlocks."${meta.user}" = {
-    #       host = "${meta.host}";
-    #       user = "${meta.user}";
-    #       identityFile = [ "~/.ssh/NixToks" ];
-    #     };
-    #   };
-    # };
+        matchBlocks."${meta.user}" = {
+          host = "${meta.host}";
+          user = "${meta.user}";
+          identityFile = [ "~/.ssh/NixToks" ];
+        };
+      };
+    };
   };
 }

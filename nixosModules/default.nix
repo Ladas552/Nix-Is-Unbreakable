@@ -3,7 +3,7 @@
 {
 
   imports = [
-    # ./Desktops
+    ./Desktops
     ./bluetooth
     ./cache
     ./clamav
@@ -24,8 +24,8 @@
     ./plymouth
     ./printers
     ./secrets
-    # ./stylix
-    # ./thunar
+    ./stylix
+    ./thunar
     ./tlp
     ./virtualisation
     ./xkb

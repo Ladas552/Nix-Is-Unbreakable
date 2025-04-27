@@ -5,12 +5,19 @@
     settings = {
       keys = {
         select = {
+          "C-c" = "toggle_block_comment";
           G = "goto_last_line";
           # better manual surrouns
           m.s = "select_textobject_around";
           m.a = "surround_add";
+          "$" = "goto_line_end";
+        };
+        insert = {
+          "C-backspace" = "delete_word_backward";
         };
         normal = {
+          # comment blocks instead of line comments
+          "A-c" = "toggle_block_comments";
           # Swap file pickers
           space = {
             e =
