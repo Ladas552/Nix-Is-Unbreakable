@@ -12,7 +12,7 @@
     ./../../scripts
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
-    inputs.home-manager.nixosModules.default
+    # inputs.home-manager.nixosModules.default
   ];
   _module.args = {
     meta = {
@@ -28,7 +28,7 @@
   networking.hostId = "f6d40058";
   #modules
   custom = {
-    niri.enable = true;
+    # niri.enable = true;
     # cage.ghostty.enable = true;
     # cage.cagebreak.enable = true;
     openssh.enable = true;
@@ -40,26 +40,26 @@
     otd.enable = true;
     printers.enable = true;
     tlp.enable = true;
-    stylix = {
-      enable = true;
-      catppuccin = true;
-      oksolar-light = false;
-    };
+    # stylix = {
+    #   enable = true;
+    #   catppuccin = true;
+    #   oksolar-light = false;
+    # };
     grub.enable = true;
     xkb.enable = true;
     zerotier.enable = true;
     zfs.enable = true;
   };
 
-  home-manager = {
-    extraSpecialArgs = {
-      inherit inputs;
-      inherit meta;
-    };
-    users."${meta.user}" = import ./home.nix;
-    useUserPackages = true;
-    useGlobalPkgs = false;
-  };
+  # home-manager = {
+  #   extraSpecialArgs = {
+  #     inherit inputs;
+  #     inherit meta;
+  #   };
+  #   users."${meta.user}" = import ./home.nix;
+  #   useUserPackages = true;
+  #   useGlobalPkgs = false;
+  # };
   # Xanmod kernel
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
 
