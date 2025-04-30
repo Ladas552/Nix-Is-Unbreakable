@@ -34,12 +34,15 @@ in
     ];
 
     programs.nixvim = {
-      performance.combinePlugins.standalonePlugins = [
-        "oil.nvim"
-        "norg-meta-grammar"
-        "typst-preview.nvim"
-        "neorg"
-      ];
+      performance.combinePlugins = {
+        enable = true;
+        standalonePlugins = [
+          "oil.nvim"
+          "norg-meta-grammar"
+          "typst-preview.nvim"
+          "neorg"
+        ];
+      };
       extraPlugins = [
         pkgs.vimPlugins.typst-preview-nvim
         pkgs.vimPlugins."gitsigns-nvim"

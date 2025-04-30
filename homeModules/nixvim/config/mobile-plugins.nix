@@ -34,10 +34,6 @@ in
   config = lib.mkIf (config.customhm.nixvim.enable && config.customhm.nixvim.plugins.NixMux) {
 
     programs.nixvim = {
-      performance.combinePlugins.standalonePlugins = [
-        "norg-meta-grammar"
-        "neorg"
-      ];
       extraPlugins = [
         pkgs.vimPlugins."gitsigns-nvim"
         img-clip.nvim

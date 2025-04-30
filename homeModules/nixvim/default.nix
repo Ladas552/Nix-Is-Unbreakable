@@ -40,7 +40,6 @@
           nvimRuntime = true;
           plugins = true;
         };
-        combinePlugins.enable = true;
       };
     };
     home.sessionVariables = lib.mkDefault {
