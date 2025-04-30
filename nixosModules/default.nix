@@ -12,6 +12,7 @@
     ./games
     ./general
     ./grub
+    ./systemd-boot
     ./kde-connect
     ./libinput
     ./lightdm
