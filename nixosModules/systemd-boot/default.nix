@@ -23,7 +23,7 @@
           windows = lib.mkIf (meta.host == "NixPort") {
             "11-home" = {
               title = "Windows 11 Home";
-              efiDeviceHandle = "FS1";
+              efiDeviceHandle = "HD0b";
               sortKey = "z_windows";
             };
           };

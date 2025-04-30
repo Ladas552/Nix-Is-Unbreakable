@@ -5,7 +5,7 @@
     settings = {
       keys = {
         select = {
-          "C-c" = "toggle_block_comment";
+          "C-c" = "toggle_block_comments";
           G = "goto_last_line";
           # better manual surrouns
           m.s = "select_textobject_around";
