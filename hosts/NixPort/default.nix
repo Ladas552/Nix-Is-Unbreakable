@@ -45,7 +45,8 @@
       catppuccin = true;
       oksolar-light = false;
     };
-    grub.enable = true;
+    # grub.enable = true;
+    systemd-boot.enable = true;
     xkb.enable = true;
     zerotier.enable = true;
     zfs.enable = true;
