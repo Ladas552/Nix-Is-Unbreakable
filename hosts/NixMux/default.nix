@@ -114,5 +114,5 @@
     useUserPackages = true;
     useGlobalPkgs = false;
   };
-  user.shell = "${pkgs.fish}/bin/fish";
+  user.shell = "${pkgs.nushell}/bin/nu";
 }

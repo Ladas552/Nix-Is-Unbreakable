@@ -58,7 +58,9 @@
   };
 
   programs.fish = {
-    enable = true;
+    # Need this in nix-on-droid
+    # https://github.com/termux/termux-app/pull/4417
+    enable = false;
     plugins = with pkgs.fishPlugins; [
       {
         name = "autopair";
@@ -87,10 +89,24 @@
     preferAbbrs = true;
     shellAbbrs = config.home.shellAliases;
   };
-
+  programs.nushell = {
+    enable = true;
+    settings = {
+      buffer_editor = "${lib.getExe' pkgs.helix "hx"}";
+      show_banner = false;
+      render_right_prompt_on_last_line = true;
+      float_precision = 2;
+      table = {
+        mode = "markdown";
+      };
+    };
+    envFile.text = # nu
+      ''
+        $env.PROMPT_COMMAND_RIGHT = ""
+      '';
+  };
   home.shellAliases = {
     # cli tools
-    ls = "eza";
     cd = "z";
     mc = "lf";
     h = "hx";
@@ -119,10 +135,6 @@
     };
     zoxide = {
       enable = true;
-    };
-    eza = {
-      enable = true;
-      extraOptions = [ "--icons" ];
     };
   };
 
