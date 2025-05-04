@@ -62,3 +62,11 @@ I start to have a life other than computers so I kinda begin to forget what I di
     @end
 
     it's a mock up, need to look up the docs for it
+
+*** Overlays
+I defined overlays, but need to add the Helix overlay in there
+
+*** packages
+I need to define Nixvim and Nvf in separate packages
+
+But before that I need to redefine my `meta.` attribute set, because I need stuff to still work in outside of my Nixos or  home-manager. Tho I can still define the attributes with `?`, but idk if I can do it for sub attribute sets. Maybe I can uset he new commonAttribute I stole from Iynaix
