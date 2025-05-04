@@ -50,9 +50,9 @@
     niri.enable = true;
     openssh.enable = true;
     fonts.enable = true;
-    pam.enable = true;
     secrets.enable = true;
     zerotier.enable = false;
+    systemd-boot.enable = true;
   };
   # For ZFS
   networking.hostId = "cb82b8e4";
@@ -64,7 +64,7 @@
     };
     users."${meta.user}" = import ./home.nix;
     useUserPackages = true;
-    useGlobalPkgs = false;
+    useGlobalPkgs = true;
   };
   # Latest kernel
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;

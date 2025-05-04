@@ -66,11 +66,42 @@
 
   outputs =
     {
-      self,
       nixpkgs,
-      home-manager,
+      self,
       ...
     }@inputs:
+    let
+      system = "x86_64-linux";
+      lib = nixpkgs.lib;
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      createCommonArgs = system: {
+        inherit
+          self
+          inputs
+          nixpkgs
+          lib
+          pkgs
+          system
+          ;
+        specialArgs = {
+          inherit self inputs;
+        };
+      };
+      commonArgs = createCommonArgs system;
+      # call with forAllSystems (commonArgs: function body)
+      forAllSystems =
+        fn:
+        lib.genAttrs [
+          "x86_64-linux"
+          "aarch64-linux"
+          "x86_64-darwin"
+          "aarch64-darwin"
+        ] (system: fn (createCommonArgs system));
+    in
+
     {
       nixosConfigurations = {
         # My Lenovo 50-70y laptop with nvidia 860M
@@ -79,7 +110,7 @@
             inherit inputs;
           };
 
-          modules = [ ./hosts/NixToks ];
+          modules = [ ./hosts/NixToks (import ./overlays.nix)];
         };
         # My Acer Swift Go 14 with ryzen 7640U
         NixPort = nixpkgs.lib.nixosSystem {
@@ -89,6 +120,7 @@
 
           modules = [
             ./hosts/NixPort
+            (import ./overlays.nix)
           ];
         };
         # NixOS WSL setup
@@ -97,7 +129,7 @@
             inherit inputs;
           };
 
-          modules = [ ./hosts/NixwsL ];
+          modules = [ ./hosts/NixwsL (import ./overlays.nix)];
         };
         # Nix VM for testing major config changes
         NixVM = nixpkgs.lib.nixosSystem {
@@ -105,7 +137,7 @@
             inherit inputs;
           };
 
-          modules = [ ./hosts/NixVM ];
+          modules = [ ./hosts/NixVM (import ./overlays.nix)];
         };
       };
       # My android phone/tablet for Termux
@@ -120,8 +152,10 @@
             config.allowUnfree = true;
           };
 
-          modules = [ ./hosts/NixMux ];
+          modules = [ ./hosts/NixMux (import ./overlays.nix)];
         };
       };
+      # packages = forAllSystems (system: (import ./pkgs inputs.nixpkgs.legacyPackages.${system}));
+      packages = forAllSystems (commonArgs': (import ./pkgs commonArgs'));
     };
 }

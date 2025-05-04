@@ -10,7 +10,6 @@
 {
   imports = [
     ./../../nixosModules
-    ./../../scripts
     inputs.home-manager.nixosModules.default
     inputs.nixos-wsl.nixosModules.default
   ];
@@ -53,7 +52,7 @@
     };
     users."${meta.user}" = import ./home.nix;
     useUserPackages = true;
-    useGlobalPkgs = false;
+    useGlobalPkgs = true;
   };
   environment.systemPackages = with pkgs; [
     # whatever I couldn't install in Home Manager
@@ -62,6 +61,7 @@
     cachix
     gcc
     gnumake
+    custom.wpick
   ];
 
   # This value determines the NixOS release from which the default

@@ -114,6 +114,7 @@
   home.packages = with pkgs; [
     libqalculate
     typst
+    neovim-stable
   ];
   # Environment and Dependencies
   xdg = {

@@ -9,7 +9,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./../../nixosModules
-    ./../../scripts
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.common-cpu-amd-zenpower
     inputs.home-manager.nixosModules.default
@@ -59,7 +58,7 @@
     };
     users."${meta.user}" = import ./home.nix;
     useUserPackages = true;
-    useGlobalPkgs = false;
+    useGlobalPkgs = true;
   };
   # Xanmod kernel
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;

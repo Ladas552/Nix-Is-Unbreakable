@@ -11,7 +11,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./../../nixosModules
-    ./../../scripts
     # Searchable hardware nodules with `nix repl` and command:
     # (builtins.getFlake ''/home/ladas552/Nix-Is-Unbreakable'').inputs.nixos-hardware.outputs.nixosModules
     # enable trimming
@@ -79,7 +78,7 @@
     };
     users."${meta.user}" = import ./home.nix;
     useUserPackages = true;
-    useGlobalPkgs = false;
+    useGlobalPkgs = true;
   };
 
   # Xanmod kernel

@@ -112,7 +112,7 @@
     backupFileExtension = "hm-bak";
     config = import ./home.nix;
     useUserPackages = true;
-    useGlobalPkgs = false;
+    useGlobalPkgs = true;
   };
   user.shell = "${pkgs.nushell}/bin/nu";
 }
