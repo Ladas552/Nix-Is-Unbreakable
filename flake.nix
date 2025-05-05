@@ -164,6 +164,17 @@
             ./overlays.nix
           ];
         };
+        # Nix Iso for live cd
+        NixIso = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+
+          modules = [
+            ./hosts/NixIso
+            ./overlays.nix
+          ];
+        };
       };
       # My android phone/tablet for Termux
       nixOnDroidConfigurations = {
