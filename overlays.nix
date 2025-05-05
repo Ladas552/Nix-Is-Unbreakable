@@ -2,6 +2,7 @@
   inputs,
   lib,
   pkgs,
+  meta,
   ...
 }:
 
@@ -63,7 +64,7 @@ in
         (prev.custom or { })
         // (import ./pkgs {
           inherit (prev) pkgs;
-          inherit inputs;
+          inherit inputs meta;
         });
     })
     # define a pkgs.neovim overlay as packages
