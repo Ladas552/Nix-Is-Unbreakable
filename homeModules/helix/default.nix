@@ -22,11 +22,7 @@
 
     programs.helix = {
       enable = true;
-      package =
-        if meta.system == "x86_64-linux" then
-          inputs.helix-overlay.packages.x86_64-linux.default
-        else
-          pkgs.helix;
+      package = if meta.isTermux then pkgs.helix else inputs.helix-overlay.packages.x86_64-linux.default;
     };
   };
 }

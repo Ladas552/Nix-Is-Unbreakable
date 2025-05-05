@@ -71,8 +71,15 @@
       ...
     }@inputs:
     let
+      meta = {
+        isTermux = false;
+        host = "";
+        norg = "";
+        self = "";
+        user = "ladas552";
+      };
       system = "x86_64-linux";
-      lib = nixpkgs.lib;
+      lib = inputs.nixpkgs.lib;
       pkgs = import inputs.nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -85,9 +92,10 @@
           lib
           pkgs
           system
+          meta
           ;
         specialArgs = {
-          inherit self inputs;
+          inherit self inputs meta;
         };
       };
       commonArgs = createCommonArgs system;
@@ -110,7 +118,10 @@
             inherit inputs;
           };
 
-          modules = [ ./hosts/NixToks (import ./overlays.nix)];
+          modules = [
+            ./hosts/NixToks
+            ./overlays.nix
+          ];
         };
         # My Acer Swift Go 14 with ryzen 7640U
         NixPort = nixpkgs.lib.nixosSystem {
@@ -120,16 +131,26 @@
 
           modules = [
             ./hosts/NixPort
-            (import ./overlays.nix)
+            ./overlays.nix
           ];
         };
         # NixOS WSL setup
         NixwsL = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
+            inherit inputs meta;
+            # meta = {
+
+            #   host = "NixwsL";
+            #   norg = "~/Documents/Norg";
+            #   self = "/home/ladas552/Nix-Is-Unbreakable";
+            #   user = "ladas552";
+            # };
           };
 
-          modules = [ ./hosts/NixwsL (import ./overlays.nix)];
+          modules = [
+            ./hosts/NixwsL
+            ./overlays.nix
+          ];
         };
         # Nix VM for testing major config changes
         NixVM = nixpkgs.lib.nixosSystem {
@@ -137,7 +158,10 @@
             inherit inputs;
           };
 
-          modules = [ ./hosts/NixVM (import ./overlays.nix)];
+          modules = [
+            ./hosts/NixVM
+            ./overlays.nix
+          ];
         };
       };
       # My android phone/tablet for Termux
@@ -152,10 +176,12 @@
             config.allowUnfree = true;
           };
 
-          modules = [ ./hosts/NixMux (import ./overlays.nix)];
+          modules = [
+            ./hosts/NixMux
+            ./overlays.nix
+          ];
         };
       };
-      # packages = forAllSystems (system: (import ./pkgs inputs.nixpkgs.legacyPackages.${system}));
       packages = forAllSystems (commonArgs': (import ./pkgs commonArgs'));
     };
 }

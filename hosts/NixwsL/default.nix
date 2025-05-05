@@ -3,7 +3,12 @@
   pkgs,
   inputs,
   lib,
-  meta,
+  meta ? {
+    host = "NixwsL";
+    norg = "~/Documents/Norg";
+    self = "/home/ladas552/Nix-Is-Unbreakable";
+    user = "ladas552";
+  },
   ...
 }:
 
@@ -13,15 +18,15 @@
     inputs.home-manager.nixosModules.default
     inputs.nixos-wsl.nixosModules.default
   ];
-  _module.args = {
-    meta = {
-      host = "NixwsL";
-      self = "/home/ladas552/Nix-Is-Unbreakable";
-      user = "ladas552";
-      system = "x86_64-linux";
-      isTermux = false;
-    };
-  };
+  # _module.args = {
+  #   meta = {
+  #     host = "NixwsL";
+  #     self = "/home/ladas552/Nix-Is-Unbreakable";
+  #     user = "ladas552";
+  #     system = "x86_64-linux";
+  #     isTermux = false;
+  #   };
+  # };
   #modules
   custom = {
     pipewire.enable = false;
@@ -61,7 +66,8 @@
     cachix
     gcc
     gnumake
-    custom.wpick
+    # custom.wpick
+    # custom.nvf-full.neovim
   ];
 
   # This value determines the NixOS release from which the default

@@ -68,7 +68,7 @@ in
     })
     # define a pkgs.neovim overlay as packages
     # neovim stable uses pkgs.neovim
-    # neovim nightlu uses the github input
+    # neovim nightly uses the github input
     (_: super: {
       neovim-stable = pkgs.wrapNeovimUnstable (super.neovim-unwrapped.overrideAttrs (oldAttrs: {
         buildInputs = oldAttrs.buildInputs ++ [ super.tree-sitter ];
