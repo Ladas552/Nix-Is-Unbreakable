@@ -1,7 +1,7 @@
 {
   pkgs,
   inputs,
-  meta,
+  # meta,
   ...
 }:
 {
@@ -17,14 +17,14 @@
   #   }).neovim;
 
   # full neovim with nixd setup (requires path to dotfiles repo)
-  nvf-full =
-    (inputs.nvf.lib.neovimConfiguration {
-      inherit pkgs;
-      modules = [ ./nvf ];
-      extraSpecialArgs = {
-        inherit meta;
-      };
-    }).neovim;
+  # nvf-full =
+  #   (inputs.nvf.lib.neovimConfiguration {
+  #     inherit pkgs;
+  #     modules = [ ./nvf ];
+  #     extraSpecialArgs = {
+  #       inherit meta;
+  #     };
+  #   }).neovim;
   default = pkgs.writeShellScriptBin "hello" ''echo "Hello World"'';
   rofi-wifi = pkgs.callPackage ./rofi-wifi.nix { };
   word-lookup = pkgs.callPackage ./word-lookup.nix { };

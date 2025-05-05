@@ -26,6 +26,8 @@
       xwayland-satellite
       brightnessctl
       xfce.xfce4-power-manager
+      custom.rofi-powermenu
+      custom.wpick
     ];
 
     environment.variables = {

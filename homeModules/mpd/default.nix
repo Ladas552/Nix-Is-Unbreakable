@@ -14,6 +14,7 @@
     home.packages = with pkgs; [
       rmpc
       mpc-cli
+      custom.musnow
     ];
     programs.ncmpcpp = {
       enable = false;
