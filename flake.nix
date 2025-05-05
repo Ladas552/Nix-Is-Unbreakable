@@ -137,7 +137,8 @@
         # NixOS WSL setup
         NixwsL = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs meta;
+            inherit inputs;
+            # meta;
             # meta = {
 
             #   host = "NixwsL";
