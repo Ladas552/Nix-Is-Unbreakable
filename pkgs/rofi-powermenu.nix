@@ -11,7 +11,7 @@ pkgs.writeShellScriptBin "powermenu.sh" ''
   #
 
   # Current Theme
-  dir="../homeModules/rofi"
+  dir="~/Nix-Is-Unbreakable/homeModules/rofi"
   theme='power-manager'
 
   # CMDs
