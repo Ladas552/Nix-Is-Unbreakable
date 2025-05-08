@@ -11,6 +11,11 @@
       enable = true;
       userName = "Ladas552";
       userEmail = "l.tokshalov@gmail.com";
+      extraConfig = {
+        init.defaultBranch = "master";
+        gpg.format = "ssh";
+        user.signingkey = "~/.ssh/NixToks.pub";
+      };
       aliases = {
         cm = "commit -m";
         al = "add ./*";
