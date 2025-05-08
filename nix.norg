@@ -69,4 +69,12 @@ I defined overlays, but need to add the Helix overlay in there
 *** packages
 I need to define Nixvim and Nvf in separate packages
 
-But before that I need to redefine my `meta.` attribute set, because I need stuff to still work in outside of my Nixos or  home-manager. Tho I can still define the attributes with `?`, but idk if I can do it for sub attribute sets. Maybe I can uset he new commonAttribute I stole from Iynaix
+    -But before that I need to redefine my `meta.` attribute set, because I need stuff to still work in outside of my Nixos or  home-manager. Tho I can still define the attributes with `?`, but idk if I can do it for sub attribute sets. Maybe I can uset he new commonAttribute I stole from Iynaix-
+
+    I did manage to make it work with passing dummy meta arg set to ./overlays and ./pkgs. And using _module.args for filling in the dummy meta arg set. Now My packages can be personolised. Like for example, I disabled Neorg plugin for anything that isn't a nixos host
+**** Nix-On-Droid
+     So the packages and overlay don't work on phone because:
+     ~ packages are build for x86_64-linux
+     ~ passing ./overlays.nix to nixonDroid host makes and error, because the overlay has `nixpkgs.overlays` config option which doesn't work for importing nixpkgs directly. And I can't seem to just import the ./overlays.nix directly. It errors out because it isn't a correct type of list. Or if I make it a list, they can't find `lib`, `pkgs` and other attributes for making neovim overlay.
+
+     I think I can make *pkgs* work if I define 2 package outuputs. But can't seem to make it dynamic for all the outputs.
