@@ -190,7 +190,6 @@
 
           modules = [
             ./hosts/NixMux
-            ./overlays.nix
           ];
         };
       };
