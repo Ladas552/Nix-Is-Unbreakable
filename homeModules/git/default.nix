@@ -13,6 +13,7 @@
       userEmail = "l.tokshalov@gmail.com";
       extraConfig = {
         init.defaultBranch = "master";
+        commit.gpgsign = true;
         gpg.format = "ssh";
         user.signingkey = "~/.ssh/NixToks.pub";
       };
