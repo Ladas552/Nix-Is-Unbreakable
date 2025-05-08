@@ -13,9 +13,10 @@
       userEmail = "l.tokshalov@gmail.com";
       extraConfig = {
         init.defaultBranch = "master";
-        commit.gpgsign = true;
         gpg.format = "ssh";
+        #it can't read it. permission error or something
         user.signingkey = "~/.ssh/NixToks.pub";
+        # commit.gpgsign = true;
       };
       aliases = {
         cm = "commit -m";
