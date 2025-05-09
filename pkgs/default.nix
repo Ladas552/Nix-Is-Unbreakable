@@ -6,18 +6,8 @@
 }:
 {
 
-  # neovim config via nvf
-  # neovim-iynaix =
-  #   (inputs.nvf.lib.neovimConfiguration {
-  #     inherit pkgs;
-  #     modules = [ ./neovim-iynaix ];
-  #     extraSpecialArgs = {
-  #       dots = null;
-  #     };
-  #   }).neovim;
-
-  # full neovim with nixd setup (requires path to dotfiles repo)
-  nvf-full =
+  # my nvf config
+  nvf =
     (inputs.nvf.lib.neovimConfiguration {
       inherit pkgs;
       modules = [ ./nvf ];

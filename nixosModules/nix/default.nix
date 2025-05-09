@@ -12,7 +12,8 @@
   };
 
   imports = [
-    inputs.lix-module.nixosModules.default
+    # it doesn't support `?shallow=1` that norgolith uses
+    # inputs.lix-module.nixosModules.default
   ];
 
   config = lib.mkIf config.custom.nix.enable {
@@ -23,7 +24,7 @@
     # Set nixpath for nixd
     nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     # Better Error messages
-    # nix.package = pkgs.nixVersions.latest;
+    nix.package = pkgs.nixVersions.latest;
     # I don't use channels
     programs.command-not-found.enable = false;
     # Less building text
