@@ -76,20 +76,36 @@
       };
       system = "x86_64-linux";
       lib = inputs.nixpkgs.lib;
-      pkgs = import inputs.nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
+      supportedSystems = [
+        "x86_64-linux"
+        "x86_64-darwin"
+        "aarch64-linux"
+        "aarch64-darwin"
+      ];
+      forSystems = nixpkgs.lib.genAttrs supportedSystems;
+
+      nixpkgsFor = forSystems (
+        system:
+        import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }
+      );
+      # pkgs = import inputs.nixpkgs {
+      #   inherit system;
+      #   config.allowUnfree = true;
+      # };
       createCommonArgs = system: {
         inherit
           self
           inputs
           nixpkgs
           lib
-          pkgs
-          system
+          # system
+          # pkgs
           meta
           ;
+        pkgs = nixpkgsFor.${system};
         specialArgs = {
           inherit self inputs meta;
         };
