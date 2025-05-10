@@ -18,11 +18,11 @@
     ./config/mobile-plugins.nix
     ./config/colorscheme.nix
   ];
-
   enableMan = false;
   # package = lib.mkIf (
   #   meta.system == "x86_64-linux"
   # ) inputs.neovim-nightly-overlay.packages.x86_64-linux.default;
+  withRuby = false;
   # Performance
   luaLoader.enable = true;
   performance = {

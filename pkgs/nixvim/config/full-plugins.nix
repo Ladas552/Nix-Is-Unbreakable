@@ -20,14 +20,15 @@ in
 {
 
   config = lib.mkIf (!meta.isTermux) {
-    #formatters
-    # home.packages = with pkgs; [
-    #   black
-    #   stylua
-    #   typstyle
-    #   # typix web integration
-    #   websocat
-    # ];
+    #formatters and dependencies
+    extraPackages = with pkgs;[
+      git
+      curl
+      black
+      stylua
+      typstyle
+      websocat
+    ];
 
     # performance.combinePlugins = {
     #   enable = true;

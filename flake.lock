@@ -930,11 +930,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1746799975,
-        "narHash": "sha256-mboar60KabTPhaFSXjsPrkFU0zUUthdFoIdOmmOkq2Y=",
+        "lastModified": 1746852864,
+        "narHash": "sha256-4pE761eSft4GUboGMdseBC7WvfY81CMHuCuxnVy9PwI=",
         "owner": "notashelf",
         "repo": "nvf",
-        "rev": "65e1fdd97ba4d04e36d23117b02a454d1523b632",
+        "rev": "fee3bbe536b5bf484aedebafa5130b485068b64f",
         "type": "github"
       },
       "original": {
