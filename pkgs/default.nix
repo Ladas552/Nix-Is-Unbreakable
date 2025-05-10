@@ -15,6 +15,16 @@
         inherit meta;
       };
     }).neovim;
+  # my nixvim config
+  nixvim = (
+    inputs.nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule {
+      inherit pkgs;
+      module = import ./nixvim;
+      extraSpecialArgs = {
+        inherit meta;
+      };
+    }
+  );
   default = pkgs.writeShellScriptBin "hello" ''echo "Hello World"'';
   restore = pkgs.callPackage ./restore.nix { };
   rofi-wifi = pkgs.callPackage ./rofi-wifi.nix { };
