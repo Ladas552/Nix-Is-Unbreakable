@@ -171,7 +171,7 @@ in
         enable = true;
         folding = true;
         nixvimInjections = true;
-        grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+        grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
           lua
           rust
           bash

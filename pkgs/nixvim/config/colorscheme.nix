@@ -1,4 +1,3 @@
-{ lib, config, ... }:
 {
   colorschemes.catppuccin = {
     enable = true;

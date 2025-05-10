@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  inputs,
   config,
   meta,
   ...
@@ -56,7 +55,7 @@ in
     ];
     plugins = {
       treesitter = {
-        grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+        grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
           treesitter-norg-meta
           norg
         ];

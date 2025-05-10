@@ -1,13 +1,12 @@
 # {
 #   lib,
 #   config,
-#   pkgs,
+# pkgs,
 #   meta,
 #   inputs,
 #   ...
 # }:
 {
-
   imports = [
     # Neorg module only for overlay. Don't forget to reenable overlay in flake.nix
     # ./nvim/neorg.nix

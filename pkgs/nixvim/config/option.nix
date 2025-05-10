@@ -1,5 +1,3 @@
-{ config, lib, ... }:
-
 {
   opts = {
     #Numbers on side
