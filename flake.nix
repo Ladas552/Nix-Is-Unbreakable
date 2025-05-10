@@ -189,31 +189,41 @@
         };
       };
       # My android phone/tablet for Termux
-      nixOnDroidConfigurations = {
-        NixMux = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-          extraSpecialArgs = {
-            inherit inputs;
+      nixOnDroidConfigurations =
+        let
+          meta = {
+            isTermux = true;
+            host = "NixMux";
+            self = "/data/data/com.termux.nix/files/home/Nix-Is-Unbreakable";
+            norg = "~/storage/downloads/Norg";
+            user = "ladas552";
           };
-          pkgs = import nixpkgs {
-            system = "aarch64-linux";
-            overlays = [
-              (_: prev: {
-                custom =
-                  (prev.custom or { })
-                  // (import ./pkgs {
-                    inherit (prev) pkgs;
-                    inherit inputs meta;
-                  });
-              })
-            ];
-            config.allowUnfree = true;
-          };
+        in
+        {
+          NixMux = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+            extraSpecialArgs = {
+              inherit inputs;
+            };
+            pkgs = import nixpkgs {
+              system = "aarch64-linux";
+              overlays = [
+                (_: prev: {
+                  custom =
+                    (prev.custom or { })
+                    // (import ./pkgs {
+                      inherit (prev) pkgs;
+                      inherit inputs meta;
+                    });
+                })
+              ];
+              config.allowUnfree = true;
+            };
 
-          modules = [
-            ./hosts/NixMux
-          ];
+            modules = [
+              ./hosts/NixMux
+            ];
+          };
         };
-      };
       packages = forAllSystems (commonArgs': (import ./pkgs commonArgs'));
     };
 }
