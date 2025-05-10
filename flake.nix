@@ -196,7 +196,16 @@
           };
           pkgs = import nixpkgs {
             system = "aarch64-linux";
-
+            overlays = [
+              (_: prev: {
+                custom =
+                  (prev.custom or { })
+                  // (import ./pkgs {
+                    inherit (prev) pkgs;
+                    inherit inputs meta;
+                  });
+              })
+            ];
             config.allowUnfree = true;
           };
 
