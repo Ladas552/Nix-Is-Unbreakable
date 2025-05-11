@@ -30,15 +30,16 @@ in
       websocat
     ];
 
-    # performance.combinePlugins = {
-    #   enable = true;
-    #   standalonePlugins = [
-    #     "oil.nvim"
-    #     "norg-meta-grammar"
-    #     "typst-preview.nvim"
-    #     "neorg"
-    #   ];
-    # };
+    performance.combinePlugins = {
+      enable = true;
+      standalonePlugins = [
+        "oil.nvim"
+        "norg-meta-grammar"
+        "typst-preview.nvim"
+        "neorg"
+        "blink.cmp"
+      ];
+    };
     extraPlugins = [
       pkgs.vimPlugins.typst-preview-nvim
       pkgs.vimPlugins."gitsigns-nvim"
@@ -204,7 +205,7 @@ in
       };
       # cmp
       blink-cmp = {
-        # enable = true;
+        enable = true;
         settings = {
           keymap = {
             preset = "enter";
@@ -287,7 +288,7 @@ in
       treesitter = {
         enable = true;
         folding = true;
-        nixvimInjections = true;
+        nixvimInjections = false;
         grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
           bash
           bibtex
