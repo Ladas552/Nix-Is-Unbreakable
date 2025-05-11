@@ -32,4 +32,8 @@
       plugins = true;
     };
   };
+  dependencies = {
+    git.enable = true;
+    curl.enable = true;
+  };
 }
