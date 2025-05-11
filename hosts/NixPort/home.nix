@@ -12,8 +12,8 @@
   imports = [ ./../../homeModules ];
 
   customhm = {
-    nixvim.enable = true;
-    # neovim.enable = true;
+    # nixvim.enable = true;
+    neovim.enable = true;
     # nvf.enable = true;
     emacs.enable = true;
     chromium.enable = true;

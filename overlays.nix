@@ -43,6 +43,7 @@ let
         vim.cmd.source(('~/.config/%s/init.lua'):format(vim.env.NVIM_APPNAME or 'nvim'))
       '';
   };
+
   fullConfig = (
     neovimConfig
     // {

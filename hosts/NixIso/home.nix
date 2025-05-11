@@ -12,7 +12,6 @@
     vim.enable = true;
     nixvim = {
       enable = true;
-      plugins.Neorg = false;
     };
     chromium.enable = true;
     direnv.enable = true;

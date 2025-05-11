@@ -35,6 +35,9 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    blink-cmp = {
+      url = "github:Saghen/blink.cmp";
+    };
 
     # Niri
     niri.url = "github:sodiboo/niri-flake";

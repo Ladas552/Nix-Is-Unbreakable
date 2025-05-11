@@ -9,7 +9,7 @@
 {
   imports = [
     # Neorg module only for overlay. Don't forget to reenable overlay in flake.nix
-    # ./nvim/neorg.nix
+    # ./config/neorg-overlay.nix
     ./config/autocmd.nix
     ./config/option.nix
     ./config/keymaps.nix

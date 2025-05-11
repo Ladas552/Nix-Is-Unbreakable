@@ -142,11 +142,12 @@ in
         };
       };
     };
-    extraConfigLua = # lua
-      ''
-        vim.g.maplocalleader = "  "
-        vim.wo.foldlevel = 99
-        vim.wo.conceallevel = 2
-      '';
+  globals = {
+    maplocalleader = "<leader> ";
+  };
+  opts = {
+    foldlevel = 99;
+    conceallevel = 2;
+  };
   };
 }

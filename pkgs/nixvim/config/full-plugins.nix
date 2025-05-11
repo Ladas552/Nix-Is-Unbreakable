@@ -3,6 +3,7 @@
   lib,
   config,
   meta,
+  inputs,
   ...
 }:
 let
@@ -21,7 +22,7 @@ in
 
   config = lib.mkIf (!meta.isTermux) {
     #formatters and dependencies
-    extraPackages = with pkgs;[
+    extraPackages = with pkgs; [
       git
       curl
       black
@@ -206,7 +207,12 @@ in
       # cmp
       blink-cmp = {
         enable = true;
+
+        package = inputs.blink-cmp.packages.${pkgs.system}.default;
         settings = {
+          fuzzy.prebuilt_binaries.download = false;
+          fuzzy.implementation = "rust";
+          fuzzy.prebuilt_binaries.ignore_version_mismatch = true;
           keymap = {
             preset = "enter";
             "<Tab>" = [
