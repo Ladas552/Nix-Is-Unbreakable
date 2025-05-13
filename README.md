@@ -1,3 +1,5 @@
+![nix](https://socialify.git.ci/Ladas552/Nix-Is-Unbreakable/image?font=Rokkitt&logo=https%3A%2F%2Fraw.githubusercontent.com%2FNixOS%2Fnixos-artwork%2Frefs%2Fheads%2Fmaster%2Flogo%2Fnix-snowflake-rainbow.svg&name=1&owner=1&pattern=Transparent&stargazers=1&theme=Auto)
+
 # What is this?
 This is my multi host, modular Nix config. It declares configs for different programs using Nix language, such as:
 - [NixVim](https://github.com/nix-community/nixvim) - Neovim declared in Nix
