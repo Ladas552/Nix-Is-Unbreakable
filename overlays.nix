@@ -32,9 +32,9 @@ let
   parsers = pkgs.tree-sitter.withPlugins (_: pkgs.tree-sitter.allGrammars);
   neovimConfig = pkgs.neovimUtils.makeNeovimConfig {
     extraLuaPackages = p: [
-      # p.magick
+      p.magick
       # p.luarocks
-    ]; # My neovim breaks if I install anything with this list
+    ];
     luaRcContent =
       # lua
       ''
@@ -68,6 +68,7 @@ in
           inherit inputs meta;
         });
     })
+
     # define a pkgs.neovim overlay as packages
     # neovim stable uses pkgs.neovim
     # neovim nightly uses the github input
@@ -82,5 +83,6 @@ in
         })
       ) fullConfig;
     })
+
   ];
 }
