@@ -1,6 +1,7 @@
 {
   pkgs,
   meta,
+  lib,
   ...
 }:
 
@@ -18,9 +19,11 @@
         config.nixd = {
           nixpkgs.expr = "import <nixpkgs> { }";
           options = {
-            nixos.expr = "(builtins.getFlake ''${meta.self}'').nixosConfigurations.NixToks.options";
+            nixos.expr = lib.mkIf (!meta.isTermux) "(builtins.getFlake ''${meta.self}'').nixosConfigurations.NixToks.options";
             home-manager.expr = "(builtins.getFlake ''${meta.self}'').nixosConfigurations.NixToks.options.home-manager.users.type.getSubOptions []";
             nix-on-droid.expr = "(builtins.getFlake ''${meta.self}'').nixOnDroidConfigurations.NixMux.options";
+            nixvim.expr = "(builtins.getFlake ''${meta.self}'').packages.x86_64-linux.nixvim.options";
+            nvf.expr = "(builtins.getFlake ''${meta.self}'').packages.x86_64-linux.nvf.neovimConfig";
           };
         };
       };
