@@ -207,12 +207,7 @@ in
       # cmp
       blink-cmp = {
         enable = true;
-
-        package = inputs.blink-cmp.packages.${pkgs.system}.default;
         settings = {
-          fuzzy.prebuilt_binaries.download = false;
-          fuzzy.implementation = "rust";
-          fuzzy.prebuilt_binaries.ignore_version_mismatch = true;
           keymap = {
             preset = "enter";
             "<Tab>" = [
