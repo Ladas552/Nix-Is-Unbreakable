@@ -25,6 +25,7 @@
     ./mpv
     ./nixvim
     ./neovim
+    ./neovide
     ./nvf
     ./obs
     ./rofi

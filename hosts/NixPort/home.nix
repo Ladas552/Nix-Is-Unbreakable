@@ -15,6 +15,7 @@
     nixvim.enable = true;
     # neovim.enable = true;
     # nvf.enable = true;
+    neovide.enable = true;
     emacs.enable = true;
     chromium.enable = true;
     direnv.enable = true;

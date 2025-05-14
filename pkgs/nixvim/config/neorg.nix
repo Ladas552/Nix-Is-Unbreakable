@@ -143,7 +143,7 @@ in
       };
     };
   globals = {
-    maplocalleader = "<leader> ";
+    maplocalleader = "  ";
   };
   opts = {
     foldlevel = 99;
