@@ -50,6 +50,7 @@
       ];
       config = {
         niri."org.freedesktop.impl.portal.FileChooser" = "gtk";
+        niri.default = "gnome";
         common.default = "gnome";
         obs.default = "gnome";
       };
