@@ -7,21 +7,29 @@
 }:
 
 {
-  # It is self made for my own machine config and I am switching to Niri flake so it stays as back up yes shut up idc
+  # Niri module that doesn't use niri-flake
   options.custom = {
     niri.enable = lib.mkEnableOption "enable niri";
   };
+
   imports = [ ./greetd.nix ];
 
   config = lib.mkIf config.custom.niri.enable {
+    # kdl config
+    home-manager.users."${meta.user}" = import ./home.nix;
+
     custom = {
       thunar.enable = lib.mkDefault true;
-      pam.enable = lib.mkDefault true;
     };
 
+    programs.niri.enable = true;
+
     environment.systemPackages = with pkgs; [
-      niri
       xwayland-satellite
+      brightnessctl
+      xfce.xfce4-power-manager
+      custom.rofi-powermenu
+      custom.wpick
     ];
 
     environment.variables = {
@@ -34,34 +42,18 @@
       "/share/applications"
     ];
     xdg.portal = {
-      enable = lib.mkDefault true;
+      enable = true;
       xdgOpenUsePortal = true;
-      # wlr.enable = true;
-      # extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-      extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gnome
+        pkgs.xdg-desktop-portal-gtk
+      ];
       config = {
+        niri."org.freedesktop.impl.portal.FileChooser" = "gtk";
         common.default = "gnome";
         obs.default = "gnome";
       };
     };
-    home-manager.users."${meta.user}" = {
-      home.file.".config/niri/config.kdl" = {
-        source = ./config.kdl;
-      };
-      home.shellAliases = {
-        niv = "niri validate -c ${meta.self}/nixosModules/desktop/sessions/niri/bare/config.kdl ";
-      };
-      xdg.portal.enable = true;
-      xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
-      xdg.portal.config = {
-        common.default = "gnome";
-        obs.default = "gnome";
-      };
-      customhm = {
-        mako.enable = lib.mkDefault true;
-        swaylock.enable = lib.mkDefault true;
-        wpaperd.enable = lib.mkDefault true;
-      };
-    };
+
   };
 }

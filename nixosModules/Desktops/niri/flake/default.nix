@@ -8,7 +8,9 @@
 }:
 
 {
-  # Niri using flake, testing
+  # Niri using flake
+  # uncomment the niri inputs in flake.nix to use this
+  # TODO: Pipewire capture doens't work
   options.custom = {
     niri.enable = lib.mkEnableOption "enable niri";
   };
