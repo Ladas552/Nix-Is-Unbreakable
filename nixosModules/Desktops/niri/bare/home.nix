@@ -319,18 +319,14 @@
         // Brightness
         XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "10%-"; }
         XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "10%+"; }
-        // Brightness with a knob
-        Mod+XF86AudioLowerVolume allow-when-locked=true { spawn "brightnessctl" "set" "2%-"; }
-        Mod+XF86AudioRaiseVolume allow-when-locked=true { spawn "brightnessctl" "set" "2%+"; }
-
 
         // Window Management
 
         Mod+Q { close-window; }
         // Tabbed
-        Ctrl+Alt+A { toggle-column-tabbed-display; }
+        Alt+Ctrl+A { toggle-column-tabbed-display; }
         // Floating
-        Ctrl+Alt+S { toggle-window-floating; }
+        Alt+Ctrl+S { toggle-window-floating; }
         Mod+Tab { switch-focus-between-floating-and-tiling; }
 
 
@@ -443,6 +439,7 @@
         Mod+Alt+F {   maximize-column; }
         Mod+Alt+C {   center-column; }
         Mod+Shift+F { fullscreen-window; }
+        // Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
 
         // Finer width adjustments.
         // This command can also:
@@ -452,11 +449,11 @@
         // * adjust width as a percentage of screen width: "-10%" or "+10%"
         // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
         // set-column-width "100" will make the column occupy 200 physical screen pixels.
-        Alt+Ctrl+Left {  set-column-width "-10%"; }
+        Alt+Ctrl+Left { set-column-width "-10%"; }
         Alt+Ctrl+Right { set-column-width "+10%"; }
 
         // Finer height adjustments when in column with other windows.
-        Alt+Ctrl+Up {   set-window-height "-10%"; }
+        Alt+Ctrl+Up { set-window-height "-10%"; }
         Alt+Ctrl+Down { set-window-height "+10%"; }
 
         // Actions to switch layouts.
@@ -473,6 +470,27 @@
         // Powers off the monitors. To turn them back on, do any input like
         // moving the mouse or pressing any other key.
         Mod+Shift+P { power-off-monitors; }
+
+        // Knob binds
+
+        /// Brightness with a knob
+        Mod+XF86AudioRaiseVolume allow-when-locked=true { spawn "brightnessctl" "set" "2%+"; }
+        Mod+XF86AudioLowerVolume allow-when-locked=true { spawn "brightnessctl" "set" "2%-"; }
+
+        /// Change mpd track with a knob
+        Shift+Alt+XF86AudioRaiseVolume allow-when-locked=true { spawn "mpc" "next"; }
+        Shift+Alt+XF86AudioLowerVolume allow-when-locked=true { spawn "mpc" "prev"; }
+        Shift+Alt+XF86AudioMute allow-when-locked=true { spawn "mpc" "shuffle"; }
+
+        /// Change window focus with a knob
+        /// dk if it's usable
+        /// Ctrl+XF86AudioRaiseVolume { focus-window-down-or-column-right; }
+        /// Ctrl+XF86AudioLowerVolume { focus-window-up-or-column-left; }
+
+        /// Change collumn size with a knob
+        Alt+Ctrl+XF86AudioRaiseVolume { set-column-width "+1%"; }
+        Alt+Ctrl+XF86AudioLowerVolume { set-column-width "-1%"; }
+        Alt+Ctrl+XF86AudioMute { switch-preset-column-width; }
       }
 
       // Switch events
