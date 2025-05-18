@@ -11,8 +11,8 @@ I also declare configuration as packages that you can try with `nix run
 github:Ladas552/Nix-Is-Unbreakable#app`, replace `app` with:
 
 - [nvf](https://github.com/NotAShelf/nvf) - Nix declared Neovim
-- [Nixvim](https://github.com/nix-community/nixvim) - another Nix declared Neovim
-- rofi-powermenu - power menu made of Rofi with a nice theme
+- [nixvim](https://github.com/nix-community/nixvim) - another Nix declared Neovim
+- rofi-powermenu - power menu made of Rofi with a [nice theme](https://github.com/adi1090x/rofi)
 - all the other scripts in [pkgs directory](./pkgs/default.nix)
 
 # Overview of things to note
@@ -23,7 +23,7 @@ github:Ladas552/Nix-Is-Unbreakable#app`, replace `app` with:
 - [Nix-On-Droid](https://github.com/nix-community/nix-on-droid) on phone, even if unmantained, it still works
 - [NixOS-WSL](https://github.com/nix-community/NixOS-WSL) for Windows partition
 - NixVM for testing, you shouldn't use it unless testing breaking changes
-
+- NixIso for my portable NixOS image
 ## Modular
 
 Config is modular in a way that depending on host, the changes for programs can change. Like For
