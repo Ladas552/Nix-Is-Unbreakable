@@ -14,6 +14,8 @@
     custom = {
       thunar.enable = true;
       libinput.enable = true;
+      # init xfce session
+      greetd.command = "${lib.meta.getExe' pkgs.xfce.xfce4-session "startxfce4"}";
     };
     services.xserver = {
       enable = true;

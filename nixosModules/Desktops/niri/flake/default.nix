@@ -14,14 +14,13 @@
   options.custom = {
     niri.enable = lib.mkEnableOption "enable niri";
   };
-  imports = [
-    inputs.niri.nixosModules.niri
-    ./greetd.nix
-  ];
+  imports = [ inputs.niri.nixosModules.niri ];
 
   config = lib.mkIf config.custom.niri.enable {
     custom = {
       thunar.enable = lib.mkDefault true;
+      # init niri session
+      greetd.command = "${lib.meta.getExe' pkgs.niri "niri-session"}";
     };
 
     environment.systemPackages = with pkgs; [

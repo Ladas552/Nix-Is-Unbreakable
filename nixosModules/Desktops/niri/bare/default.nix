@@ -12,14 +12,14 @@
     niri.enable = lib.mkEnableOption "enable niri";
   };
 
-  imports = [ ./greetd.nix ];
-
   config = lib.mkIf config.custom.niri.enable {
     # kdl config
     home-manager.users."${meta.user}" = import ./home.nix;
 
     custom = {
       thunar.enable = lib.mkDefault true;
+      # init niri session
+      greetd.command = "${lib.meta.getExe' pkgs.niri "niri-session"}";
     };
 
     programs.niri.enable = true;

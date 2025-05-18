@@ -17,18 +17,8 @@
 
   config = lib.mkIf config.custom.cage.cagebreak.enable {
 
-    services.displayManager.autoLogin.enable = true;
-    services.displayManager.autoLogin.user = "${meta.user}";
-    services.greetd = {
-      enable = true;
-      settings = rec {
-        initial_session = {
-          command = "${lib.meta.getExe' pkgs.cagebreak "cagebreak"}";
-          user = "${meta.user}";
-        };
-        default_session = initial_session;
-      };
-    };
+    # init cagebreak ghostty session
+    custom.greetd.command = "${lib.meta.getExe' pkgs.cagebreak "cagebreak"}";
 
     environment.variables = {
       WAYLAND_DEBUG = 1;

@@ -28,6 +28,7 @@
   #modules
   custom = {
     niri.enable = true;
+    # xfce.enable = true;
     # cage.ghostty.enable = true;
     # cage.cagebreak.enable = true;
     openssh.enable = true;
