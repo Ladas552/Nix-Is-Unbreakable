@@ -21,7 +21,7 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:nix-community/stylix";
     # Neovim
     nixvim = {
       url = "github:nix-community/nixvim";
