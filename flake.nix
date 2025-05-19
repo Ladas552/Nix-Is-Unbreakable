@@ -77,7 +77,6 @@
         self = "";
         user = "ladas552";
       };
-      system = "x86_64-linux";
       lib = inputs.nixpkgs.lib;
       supportedSystems = [
         "x86_64-linux"
@@ -94,18 +93,12 @@
           config.allowUnfree = true;
         }
       );
-      # pkgs = import inputs.nixpkgs {
-      #   inherit system;
-      #   config.allowUnfree = true;
-      # };
       createCommonArgs = system: {
         inherit
           self
           inputs
           nixpkgs
           lib
-          # system
-          # pkgs
           meta
           ;
         pkgs = nixpkgsFor.${system};
@@ -113,7 +106,6 @@
           inherit self inputs meta;
         };
       };
-      commonArgs = createCommonArgs system;
       # call with forAllSystems (commonArgs: function body)
       forAllSystems =
         fn:
@@ -153,14 +145,6 @@
         NixwsL = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
-            # meta;
-            # meta = {
-
-            #   host = "NixwsL";
-            #   norg = "~/Documents/Norg";
-            #   self = "/home/ladas552/Nix-Is-Unbreakable";
-            #   user = "ladas552";
-            # };
           };
 
           modules = [

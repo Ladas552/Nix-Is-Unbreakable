@@ -112,7 +112,7 @@
       yy = "nh os switch ${meta.self}";
       yyy = "nh os switch -u ${meta.self}";
       en = "nvim ${meta.self}";
-      enn = "nvim ${meta.self}/hosts/NixToks/";
+      enn = "nvim ${meta.self}/hosts/${meta.host}/";
       eh = "hx ${meta.self}";
       n = "ssh-add ~/.ssh/NixToks";
       # Git
