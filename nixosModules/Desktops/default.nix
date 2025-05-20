@@ -24,7 +24,7 @@
     ./cage/cagebreak.nix
   ];
 
-  config = {
+  config = lib.mkIf (!config.custom.lightdm.enable) {
     services.displayManager.autoLogin.enable = true;
     services.displayManager.autoLogin.user = "${meta.user}";
     services.greetd = {

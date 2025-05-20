@@ -15,7 +15,7 @@
     services.displayManager.defaultSession = "xfce+bspwm";
     custom = {
       xfce.enable = true; # enable a different custom module
-      greetd.command = "${lib.meta.getExe' pkgs.xfce.xfce4-session "startxfce4"}";
+      lightdm.enable = true;
     };
     services.xserver = {
       enable = true;
@@ -25,6 +25,10 @@
       };
     };
 
+    environment.variables = {
+      # https://wiki.archlinux.org/title/Bspwm#Performance_issues_using_fish
+      SXHKD_SHELL = "${lib.getExe' pkgs.dash "dash"}";
+    };
     home-manager = {
       users."${meta.user}" = import ./bspwm.nix;
     };

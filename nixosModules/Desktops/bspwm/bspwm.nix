@@ -4,7 +4,15 @@
   xsession.windowManager.bspwm = {
     enable = true;
     monitors = {
-      eDP-1-1 = [
+      eDP-1-1 = lib.mkIf (meta.host == "NixToks") [
+        "[1]"
+        "[2]"
+        "[3]"
+        "[4]"
+        "[5]"
+        "[6]"
+      ];
+      eDP-1 = lib.mkIf (meta.host == "NixPort") [
         "[1]"
         "[2]"
         "[3]"
