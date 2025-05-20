@@ -9,7 +9,7 @@
       enable = true;
       settings = {
         layer = "overlay";
-        defaultTimeout = 5000;
+        default-timeout = 5000;
         height = 1000;
       };
     };
