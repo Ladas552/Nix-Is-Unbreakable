@@ -26,6 +26,21 @@ let
 
     meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg-meta";
   };
+
+  norg = pkgs.tree-sitter.buildGrammar {
+    language = "norg";
+    version = "0.0.0+rev=d89d95a";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "nvim-neorg";
+      repo = "tree-sitter-norg";
+      rev = "d89d95af13d409f30a6c7676387bde311ec4a2c8";
+      hash = "sha256-z3h5qMuNKnpQgV62xZ02F5vWEq4VEnm5lxwEnIFu+Rw=";
+    };
+
+    meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg";
+
+  };
   # Neorg Plugins
   neorg-query = pkgs.vimUtils.buildVimPlugin {
     name = "neorg-query";
@@ -142,12 +157,12 @@ in
         };
       };
     };
-  globals = {
-    maplocalleader = "  ";
-  };
-  opts = {
-    foldlevel = 99;
-    conceallevel = 2;
-  };
+    globals = {
+      maplocalleader = "  ";
+    };
+    opts = {
+      foldlevel = 99;
+      conceallevel = 2;
+    };
   };
 }
