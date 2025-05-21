@@ -60,6 +60,7 @@
           accel-profile "flat"
         }
         workspace-auto-back-and-forth
+        mod-key "Alt"
 
         // Uncomment this to make the mouse warp to the center of newly focused windows.
         // warp-mouse-to-focus
@@ -264,7 +265,7 @@
       // Keybinds
       binds {
         // shows a list of important hotkeys.
-        Mod+Shift+T { show-hotkey-overlay; }
+        Super+Shift+T { show-hotkey-overlay; }
 
         // Apps
 
@@ -278,7 +279,7 @@
         Super+M {spawn "ghostty" "-e" "rmpc";}
         Super+H {spawn "ghostty" "-e" "btop";}
         // You can also use a shell:
-        // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
+        // Super+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
 
         // GUI apps
         Super+F { spawn "thunar"; }
@@ -322,124 +323,124 @@
 
         // Window Management
 
-        Mod+Q { close-window; }
+        Super+Q { close-window; }
         // Tabbed
         Alt+Ctrl+A { toggle-column-tabbed-display; }
         // Floating
         Alt+Ctrl+S { toggle-window-floating; }
-        Mod+Tab { switch-focus-between-floating-and-tiling; }
+        Super+Tab { switch-focus-between-floating-and-tiling; }
 
 
 
-        Mod+Left  { focus-column-left-or-last; }
-        Mod+Down  { focus-window-down-or-top; }
-        Mod+Up    { focus-window-up-or-bottom; }
-        Mod+Right { focus-column-right-or-first; }
-        Mod+A     { focus-column-left-or-last; }
-        Mod+S     { focus-column-right-or-first; }
-       // Mod+J     { focus-window-down; }
-       // Mod+K     { focus-window-up; }
+        Super+Left  { focus-column-left-or-last; }
+        Super+Down  { focus-window-down-or-top; }
+        Super+Up    { focus-window-up-or-bottom; }
+        Super+Right { focus-column-right-or-first; }
+        Super+A     { focus-column-left-or-last; }
+        Super+S     { focus-column-right-or-first; }
+       // Super+J     { focus-window-down; }
+       // Super+K     { focus-window-up; }
 
-        Mod+Shift+Left  { move-column-left; }
-        Mod+Shift+Down  { move-window-down; }
-        Mod+Shift+Up    { move-window-up; }
-        Mod+Shift+Right { move-column-right; }
-        Mod+Shift+A     { move-column-left; }
-        Mod+Shift+S     { move-column-right; }
-        // Mod+Ctrl+H      { move-column-left; }
-        // Mod+Ctrl+J      { move-window-down; }
-        // Mod+Ctrl+K      { move-window-up; }
-        // Mod+Ctrl+L      { move-column-right; }
+        Super+Shift+Left  { move-column-left; }
+        Super+Shift+Down  { move-window-down; }
+        Super+Shift+Up    { move-window-up; }
+        Super+Shift+Right { move-column-right; }
+        Super+Shift+A     { move-column-left; }
+        Super+Shift+S     { move-column-right; }
+        // Super+Ctrl+H      { move-column-left; }
+        // Super+Ctrl+J      { move-window-down; }
+        // Super+Ctrl+K      { move-window-up; }
+        // Super+Ctrl+L      { move-column-right; }
 
-        Mod+Page_Up { focus-column-first; }
-        Mod+Page_Down  { focus-column-last; }
-        Mod+Shift+Page_Up { move-column-to-first; }
-        Mod+Shift+Page_Down  { move-column-to-last; }
+        Super+Page_Up { focus-column-first; }
+        Super+Page_Down  { focus-column-last; }
+        Super+Shift+Page_Up { move-column-to-first; }
+        Super+Shift+Page_Down  { move-column-to-last; }
 
-        Mod+Ctrl+Left     { focus-monitor-left; }
-        Mod+Ctrl+Down     { focus-monitor-down; }
-        Mod+Ctrl+Up     { focus-monitor-up; }
-        Mod+Ctrl+Right     { focus-monitor-right; }
+        Super+Ctrl+Left     { focus-monitor-left; }
+        Super+Ctrl+Down     { focus-monitor-down; }
+        Super+Ctrl+Up     { focus-monitor-up; }
+        Super+Ctrl+Right     { focus-monitor-right; }
 
-        Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-        Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-        Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-        Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-        Mod+Shift+H     { move-column-to-monitor-left; }
-        Mod+Shift+J     { move-column-to-monitor-down; }
-        Mod+Shift+K     { move-column-to-monitor-up; }
-        Mod+Shift+L     { move-column-to-monitor-right; }
+        Super+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+        Super+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+        Super+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+        Super+Shift+Ctrl+Right { move-column-to-monitor-right; }
+        Super+Shift+H     { move-column-to-monitor-left; }
+        Super+Shift+J     { move-column-to-monitor-down; }
+        Super+Shift+K     { move-column-to-monitor-up; }
+        Super+Shift+L     { move-column-to-monitor-right; }
 
-        // Mod+Page_Up        { focus-workspace-up; }
-        // Mod+Page_Down      { focus-workspace-down; }
-        Mod+Ctrl+A         { focus-workspace-up; }
-        Mod+Ctrl+S         { focus-workspace-down; }
-        // Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-        // Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-        Mod+Shift+Ctrl+A   { move-column-to-workspace-up; }
-        Mod+Shift+Ctrl+S   { move-column-to-workspace-down; }
+        // Super+Page_Up        { focus-workspace-up; }
+        // Super+Page_Down      { focus-workspace-down; }
+        Super+Ctrl+A         { focus-workspace-up; }
+        Super+Ctrl+S         { focus-workspace-down; }
+        // Super+Ctrl+Page_Up   { move-column-to-workspace-up; }
+        // Super+Ctrl+Page_Down { move-column-to-workspace-down; }
+        Super+Shift+Ctrl+A   { move-column-to-workspace-up; }
+        Super+Shift+Ctrl+S   { move-column-to-workspace-down; }
 
-        // Mod+Shift+Page_Down { move-workspace-down; }
-        // Mod+Shift+Page_Up   { move-workspace-up; }
+        // Super+Shift+Page_Down { move-workspace-down; }
+        // Super+Shift+Page_Up   { move-workspace-up; }
 
-        Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-        Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-        Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-        Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+        Super+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+        Super+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+        Super+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+        Super+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
-        Mod+WheelScrollRight      { focus-column-right; }
-        Mod+WheelScrollLeft       { focus-column-left; }
-        Mod+Ctrl+WheelScrollRight { move-column-right; }
-        Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+        Super+WheelScrollRight      { focus-column-right; }
+        Super+WheelScrollLeft       { focus-column-left; }
+        Super+Ctrl+WheelScrollRight { move-column-right; }
+        Super+Ctrl+WheelScrollLeft  { move-column-left; }
 
         // Usually scrolling up and down with Shift in applications results in
         // horizontal scrolling; these binds replicate that.
-        Mod+Shift+WheelScrollDown      { focus-column-right; }
-        Mod+Shift+WheelScrollUp        { focus-column-left; }
-        Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
-        Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+        Super+Shift+WheelScrollDown      { focus-column-right; }
+        Super+Shift+WheelScrollUp        { focus-column-left; }
+        Super+Ctrl+Shift+WheelScrollDown { move-column-right; }
+        Super+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
         // Touchpad gestures
         //// Workspaces
-        Mod+TouchpadScrollRight { focus-column-right; }
-        Mod+TouchpadScrollUp { focus-workspace-up; }
+        Super+TouchpadScrollRight { focus-column-right; }
+        Super+TouchpadScrollUp { focus-workspace-up; }
 
-        Mod+Shift+TouchpadScrollDown { move-column-to-workspace-down; }
-        Mod+Shift+TouchpadScrollUp { move-column-to-workspace-up; }
+        Super+Shift+TouchpadScrollDown { move-column-to-workspace-down; }
+        Super+Shift+TouchpadScrollUp { move-column-to-workspace-up; }
 
 
         //// Collumns
-        Mod+TouchpadScrollDown { focus-workspace-down; }
-        Mod+TouchpadScrollLeft { focus-column-left; }
+        Super+TouchpadScrollDown { focus-workspace-down; }
+        Super+TouchpadScrollLeft { focus-column-left; }
 
-        Mod+Shift+TouchpadScrollLeft { move-column-left; }
-        Mod+Shift+TouchpadScrollRight { move-column-right; }
+        Super+Shift+TouchpadScrollLeft { move-column-left; }
+        Super+Shift+TouchpadScrollRight { move-column-right; }
 
 
         // Worlspaces
 
-        Mod+1 { focus-workspace 1; }
-        Mod+2 { focus-workspace 2; }
-        Mod+3 { focus-workspace 3; }
-        Mod+Shift+1 { move-column-to-workspace 1; }
-        Mod+Shift+2 { move-column-to-workspace 2; }
-        Mod+Shift+3 { move-column-to-workspace 3; }
+        Super+1 { focus-workspace 1; }
+        Super+2 { focus-workspace 2; }
+        Super+3 { focus-workspace 3; }
+        Super+Shift+1 { move-column-to-workspace 1; }
+        Super+Shift+2 { move-column-to-workspace 2; }
+        Super+Shift+3 { move-column-to-workspace 3; }
 
         // Switches focus between the current and the previous workspace.
-        // Mod+Tab { focus-workspace-previous; }
+        // Super+Tab { focus-workspace-previous; }
 
-        Mod+Comma  { consume-window-into-column; }
-        Mod+Period { expel-window-from-column; }
+        Super+Comma  { consume-window-into-column; }
+        Super+Period { expel-window-from-column; }
 
         // There are also commands that consume or expel a single window to the side.
-        Mod+BracketLeft  { consume-or-expel-window-left; }
-        Mod+BracketRight { consume-or-expel-window-right; }
+        Super+BracketLeft  { consume-or-expel-window-left; }
+        Super+BracketRight { consume-or-expel-window-right; }
 
-        Mod+R {       switch-preset-column-width; }
-        Mod+Alt+F {   maximize-column; }
-        Mod+Alt+C {   center-column; }
-        Mod+Shift+F { fullscreen-window; }
-        // Mod+Ctrl+Shift+F { toggle-windowed-fullscreen; }
+        Super+R {       switch-preset-column-width; }
+        Super+Alt+F {   maximize-column; }
+        Super+Alt+C {   center-column; }
+        Super+Shift+F { fullscreen-window; }
+        Super+Ctrl+Shift+F { toggle-windowed-fullscreen; }
 
         // Finer width adjustments.
         // This command can also:
@@ -461,21 +462,21 @@
         // a matching layout switch hotkey configured in xkb options above.
         // Having both at once on the same hotkey will break the switching,
         // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-        // Mod+Space       { switch-layout "next"; }
-        // Mod+Shift+Space { switch-layout "prev"; }
+        // Super+Space       { switch-layout "next"; }
+        // Super+Shift+Space { switch-layout "prev"; }
 
         // The quit action will show a confirmation dialog to avoid accidental exits.
-        Mod+Ctrl+Shift+Q { quit; }
+        Super+Ctrl+Shift+Q { quit; }
 
         // Powers off the monitors. To turn them back on, do any input like
         // moving the mouse or pressing any other key.
-        Mod+Shift+P { power-off-monitors; }
+        Super+Shift+P { power-off-monitors; }
 
         // Knob binds
 
         /// Brightness with a knob
-        Mod+XF86AudioRaiseVolume allow-when-locked=true { spawn "brightnessctl" "set" "2%+"; }
-        Mod+XF86AudioLowerVolume allow-when-locked=true { spawn "brightnessctl" "set" "2%-"; }
+        Super+XF86AudioRaiseVolume allow-when-locked=true { spawn "brightnessctl" "set" "2%+"; }
+        Super+XF86AudioLowerVolume allow-when-locked=true { spawn "brightnessctl" "set" "2%-"; }
 
         /// Change mpd track with a knob
         Shift+Alt+XF86AudioRaiseVolume allow-when-locked=true { spawn "mpc" "next"; }
