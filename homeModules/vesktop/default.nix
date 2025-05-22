@@ -5,12 +5,13 @@
     vesktop.enable = lib.mkEnableOption "enable vesktop";
   };
   config = lib.mkIf config.customhm.vesktop.enable {
+    services.arrpc.enable = true;
     programs.vesktop = {
       enable = true;
       settings = {
         discordBranch = "stable";
         minimizeToTray = true;
-        arRPC = false;
+        arRPC = true;
         splashColor = "rgb(218, 219, 222)";
         splashBackground = "rgb(11, 12, 13)";
         spellCheckLanguages = [
@@ -121,7 +122,6 @@
               enabled = true;
               disableFade = true;
               eagerLoad = true;
-
             };
             BetterUploadButton = {
               enabled = true;
@@ -151,7 +151,6 @@
               hideButton = false;
               replaceElements = 0;
               dearrowByDefault = true;
-
             };
             DisableCallIdle = {
               enabled = true;
@@ -293,7 +292,6 @@
               mode = "nick-user";
               displayNames = false;
               inReplies = true;
-
             };
             SilentMessageToggle = {
               enabled = true;
@@ -419,6 +417,9 @@
               enabled = true;
             };
             DisableDeepLinks = {
+              enabled = true;
+            };
+            "WebRichPresence (arRPC)" = {
               enabled = true;
             };
           };

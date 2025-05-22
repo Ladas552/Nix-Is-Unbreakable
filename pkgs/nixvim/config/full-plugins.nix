@@ -23,12 +23,8 @@ in
   config = lib.mkIf (!meta.isTermux) {
     #formatters and dependencies
     extraPackages = with pkgs; [
-      git
-      curl
       black
       stylua
-      typstyle
-      websocat
     ];
 
     performance.combinePlugins = {
@@ -39,10 +35,10 @@ in
         "typst-preview.nvim"
         "neorg"
         "blink.cmp"
+        "snacks.nvim"
       ];
     };
     extraPlugins = [
-      pkgs.vimPlugins.typst-preview-nvim
       pkgs.vimPlugins."gitsigns-nvim"
       pkgs.vimPlugins."lspkind-nvim"
       pkgs.vimPlugins.img-clip-nvim
@@ -110,7 +106,6 @@ in
         };
       };
 
-      # lsp-lines.enable = true;
       friendly-snippets.enable = true;
       lint.enable = true;
       trim.enable = true;
@@ -275,8 +270,6 @@ in
       #   enable = true;
       # };
 
-      flash.enable = true;
-
       nvim-autopairs = {
         enable = true;
         settings = {
@@ -370,22 +363,6 @@ in
         };
       };
 
-      # image = {
-      #   enable = true;
-      #   windowOverlapClearEnabled = true;
-      #   extraOptions = {
-      #     integrations.typst = {
-      #       enabled = false;
-      #     };
-      #   };
-      #   integrations.neorg = {
-      #     enabled = true;
-      #     clearInInsertMode = true;
-      #     onlyRenderImageAtCursor = true;
-      #     filetypes = [ "norg" ];
-      #   };
-      # };
-
       neogit = {
         enable = true;
       };
@@ -405,19 +382,49 @@ in
       otter = {
         enable = true;
       };
+
+      typst-preview = {
+        enable = true;
+        settings = {
+          follow_cursor = true;
+          open_cmd = "chromium %s";
+        };
+      };
+
+      snacks = {
+        enable = true;
+        settings = {
+          bigfile.enabled = true;
+          image.enabled = true;
+        };
+      };
+
+      cord = lib.mkIf (meta.host != "") {
+        enable = true;
+        settings = {
+          editor = {
+            client = "1375074497681690665";
+            tooltip = "Nix flavored Neovim";
+            icon = "nixvim_logo";
+          };
+          display = {
+            theme = "catppuccin";
+            flavor = "accent";
+          };
+          text = {
+            default = "Editing in Neovim";
+            workspace = "Moving Blazingly Fast";
+            viewing = "Viewing in Neovim";
+            docs = "RTFMing";
+            vcs = "Solving git conflicts";
+            notes = "Norging it";
+            dashboard = "In ~";
+          };
+        };
+      };
     };
-    # Options for Neorg to work well
     extraConfigLua = # lua
       ''
-                  require 'typst-preview'.setup {
-                    follow_cursor = true,
-                    open_cmd = "chromium %s",
-                    dependencies_bin = {
-                      ['typst-preview'] = "tinymist",
-                      ['websocat'] = "websocat",
-                    },
-                  }
-
         local severity = vim.diagnostic.severity
         vim.diagnostic.config({
           underline = {
