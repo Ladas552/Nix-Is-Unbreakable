@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   meta,
+  self,
   ...
 }:
 {
@@ -34,5 +35,5 @@
   Subtitlenator = pkgs.callPackage ./Subtitlenator.nix { };
   musnow = pkgs.callPackage ./musnow.nix { };
   wpick = pkgs.callPackage ./wpick.nix { };
-  rofi-powermenu = pkgs.callPackage ./rofi-powermenu.nix { };
+  rofi-powermenu = pkgs.callPackage ./rofi-powermenu.nix { inherit self; };
 }

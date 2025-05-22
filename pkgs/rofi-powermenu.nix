@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  self,
 }:
 # Power Menu that uses Rofi. Can be modified to have multiple actions, for example stopping MPD before Suspend
 pkgs.writeShellScriptBin "powermenu.sh" ''
@@ -11,7 +12,7 @@ pkgs.writeShellScriptBin "powermenu.sh" ''
   #
 
   # Current Theme
-  dir="~/Nix-Is-Unbreakable/homeModules/rofi"
+  dir="${self}/homeModules/rofi"
   theme='power-manager'
 
   # CMDs
