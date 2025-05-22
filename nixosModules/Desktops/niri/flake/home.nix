@@ -21,6 +21,8 @@
       prefer-no-csd = true;
       screenshot-path = "~/Pictures/screenshots/Niri%Y-%m-%d %H-%M-%S.png";
       layout.default-column-display = "tabbed";
+      cursor.hide-after-inactive-ms = 10000;
+      gestures.hot-corners = false;
       # Autostart
       spawn-at-startup = [
         {
@@ -50,6 +52,7 @@
       };
       # Input Devices
       input = {
+        mod-key = "Alt";
         workspace-auto-back-and-forth = true;
         keyboard = {
           xkb.layout = "us,kz";
@@ -334,24 +337,8 @@
           allow-when-locked = true;
         };
 
-        "Mod+XF86AudioRaiseVolume" = {
-          action = spawn [
-            "brightnessctl"
-            "set"
-            "2%+"
-          ];
-          allow-when-locked = true;
-        };
-        "Mod\+XF86AudioLowerVolume" = {
-          action = spawn [
-            "brightnessctl"
-            "set"
-            "2%-"
-          ];
-          allow-when-locked = true;
-        };
         # shows a list of important hotkeys.
-        "Mod+Shift+T".action = show-hotkey-overlay;
+        "Super+Shift+T".action = show-hotkey-overlay;
         # Screenshots
         # was testing if it got better quility
         # "Print".action = spawn [
@@ -364,117 +351,118 @@
         # "Shift+Print".action = screenshot-screen;
         "Alt+Print".action = screenshot-window;
         # Window Management
-        "Mod+Q".action = close-window;
+        "Super+Q".action = close-window;
         # Floating Windows
         "Ctrl+Alt+S".action = toggle-window-floating;
-        "Mod+Tab".action = switch-focus-between-floating-and-tiling;
+        "Super+Tab".action = switch-focus-between-floating-and-tiling;
         # Tabbed layout
         "Ctrl+Alt+A".action = toggle-column-tabbed-display;
 
-        "Mod+Left".action = focus-column-left-or-last;
-        "Mod+Down".action = focus-window-down-or-top;
-        "Mod+Up".action = focus-window-up-or-bottom;
-        "Mod+Right".action = focus-column-right-or-first;
-        "Mod+A".action = focus-column-left-or-last;
-        "Mod+S".action = focus-column-right-or-first;
+        "Super+Left".action = focus-column-left-or-last;
+        "Super+Down".action = focus-window-down-or-top;
+        "Super+Up".action = focus-window-up-or-bottom;
+        "Super+Right".action = focus-column-right-or-first;
+        "Super+A".action = focus-column-left-or-last;
+        "Super+S".action = focus-column-right-or-first;
 
-        "Mod+Shift+Left".action = move-column-left;
-        "Mod+Shift+Down".action = move-window-down;
-        "Mod+Shift+Up".action = move-window-up;
-        "Mod+Shift+Right".action = move-column-right;
-        "Mod+Shift+A".action = move-column-left;
-        "Mod+Shift+S".action = move-column-right;
-        # "Mod+Ctrl+H".action = move-column-left;
-        # "Mod+Ctrl+J".action = move-window-down;
-        # "Mod+Ctrl+K".action = move-window-up;
-        # "Mod+Ctrl+L".action = move-column-right;
+        "Super+Shift+Left".action = move-column-left;
+        "Super+Shift+Down".action = move-window-down;
+        "Super+Shift+Up".action = move-window-up;
+        "Super+Shift+Right".action = move-column-right;
+        "Super+Shift+A".action = move-column-left;
+        "Super+Shift+S".action = move-column-right;
+        # "Super+Ctrl+H".action = move-column-left;
+        # "Super+Ctrl+J".action = move-window-down;
+        # "Super+Ctrl+K".action = move-window-up;
+        # "Super+Ctrl+L".action = move-column-right;
 
-        "Mod+Page_Up".action = focus-column-first;
-        "Mod+Page_Down".action = focus-column-last;
-        "Mod+Shift+Page_Up".action = move-column-to-first;
-        "Mod+Shift+Page_Down".action = move-column-to-last;
+        "Super+Page_Up".action = focus-column-first;
+        "Super+Page_Down".action = focus-column-last;
+        "Super+Shift+Page_Up".action = move-column-to-first;
+        "Super+Shift+Page_Down".action = move-column-to-last;
 
-        "Mod+Ctrl+Right".action = focus-monitor-right;
-        "Mod+Ctrl+Down".action = focus-monitor-down;
-        "Mod+Ctrl+Up".action = focus-monitor-up;
-        "Mod+Ctrl+Left".action = focus-monitor-left;
+        "Super+Ctrl+Right".action = focus-monitor-right;
+        "Super+Ctrl+Down".action = focus-monitor-down;
+        "Super+Ctrl+Up".action = focus-monitor-up;
+        "Super+Ctrl+Left".action = focus-monitor-left;
 
-        "Mod+Shift+Ctrl+Left".action = move-column-to-monitor-left;
-        "Mod+Shift+Ctrl+Down".action = move-column-to-monitor-down;
-        "Mod+Shift+Ctrl+Up".action = move-column-to-monitor-up;
-        "Mod+Shift+Ctrl+Right".action = move-column-to-monitor-right;
-        "Mod+Shift+H".action = move-column-to-monitor-left;
-        "Mod+Shift+J".action = move-column-to-monitor-down;
-        "Mod+Shift+K".action = move-column-to-monitor-up;
-        "Mod+Shift+L".action = move-column-to-monitor-right;
+        "Super+Shift+Ctrl+Left".action = move-column-to-monitor-left;
+        "Super+Shift+Ctrl+Down".action = move-column-to-monitor-down;
+        "Super+Shift+Ctrl+Up".action = move-column-to-monitor-up;
+        "Super+Shift+Ctrl+Right".action = move-column-to-monitor-right;
+        "Super+Shift+H".action = move-column-to-monitor-left;
+        "Super+Shift+J".action = move-column-to-monitor-down;
+        "Super+Shift+K".action = move-column-to-monitor-up;
+        "Super+Shift+L".action = move-column-to-monitor-right;
 
-        "Mod+Ctrl+A".action = focus-workspace-up;
-        "Mod+Ctrl+S".action = focus-workspace-down;
+        "Super+Ctrl+A".action = focus-workspace-up;
+        "Super+Ctrl+S".action = focus-workspace-down;
 
-        "Mod+Shift+Ctrl+A".action = move-column-to-workspace-up;
-        "Mod+Shift+Ctrl+S".action = move-column-to-workspace-down;
+        "Super+Shift+Ctrl+A".action = move-column-to-workspace-up;
+        "Super+Shift+Ctrl+S".action = move-column-to-workspace-down;
         # Mouse scroll
-        "Mod+WheelScrollDown" = {
+        "Super+WheelScrollDown" = {
           action = focus-workspace-down;
           cooldown-ms = 150;
         };
-        "Mod+WheelScrollUp" = {
+        "Super+WheelScrollUp" = {
           action = focus-workspace-up;
           cooldown-ms = 150;
         };
-        "Mod+Ctrl+WheelScrollDown" = {
+        "Super+Ctrl+WheelScrollDown" = {
           action = move-column-to-workspace-down;
           cooldown-ms = 150;
         };
-        "Mod+Ctrl+WheelScrollUp" = {
+        "Super+Ctrl+WheelScrollUp" = {
           action = move-column-to-workspace-up;
           cooldown-ms = 150;
         };
 
-        "Mod+WheelScrollRight".action = focus-column-right;
-        "Mod+WheelScrollLeft".action = focus-column-left;
-        "Mod+Ctrl+WheelScrollRight".action = move-column-right;
-        "Mod+Ctrl+WheelScrollLeft".action = move-column-left;
+        "Super+WheelScrollRight".action = focus-column-right;
+        "Super+WheelScrollLeft".action = focus-column-left;
+        "Super+Ctrl+WheelScrollRight".action = move-column-right;
+        "Super+Ctrl+WheelScrollLeft".action = move-column-left;
 
-        "Mod+Shift+WheelScrollDown".action = focus-column-right;
-        "Mod+Shift+WheelScrollUp".action = focus-column-left;
-        "Mod+Ctrl+Shift+WheelScrollDown".action = move-column-right;
-        "Mod+Ctrl+Shift+WheelScrollUp".action = move-column-left;
+        "Super+Shift+WheelScrollDown".action = focus-column-right;
+        "Super+Shift+WheelScrollUp".action = focus-column-left;
+        "Super+Ctrl+Shift+WheelScrollDown".action = move-column-right;
+        "Super+Ctrl+Shift+WheelScrollUp".action = move-column-left;
 
         # Touchpad gestures
         ## Workspaces
-        "Mod+Shift+TouchpadScrollUp".action = move-column-to-workspace-up;
-        "Mod+Shift+TouchpadScrollDown".action = move-column-to-workspace-down;
-        "Mod+TouchpadScrollUp".action = focus-workspace-up;
-        "Mod+TouchpadScrollDown".action = focus-workspace-down;
+        "Super+Shift+TouchpadScrollUp".action = move-column-to-workspace-up;
+        "Super+Shift+TouchpadScrollDown".action = move-column-to-workspace-down;
+        "Super+TouchpadScrollUp".action = focus-workspace-up;
+        "Super+TouchpadScrollDown".action = focus-workspace-down;
         ## Collumns
-        "Mod+TouchpadScrollRight".action = focus-column-right;
-        "Mod+TouchpadScrollLeft".action = focus-column-left;
+        "Super+TouchpadScrollRight".action = focus-column-right;
+        "Super+TouchpadScrollLeft".action = focus-column-left;
 
-        "Mod+Shift+TouchpadScrollRight".action = move-column-right;
-        "Mod+Shift+TouchpadScrollLeft".action = move-column-left;
+        "Super+Shift+TouchpadScrollRight".action = move-column-right;
+        "Super+Shift+TouchpadScrollLeft".action = move-column-left;
         # Workspaces
-        "Mod+1".action.focus-workspace = 1;
-        "Mod+2".action.focus-workspace = 2;
-        "Mod+3".action.focus-workspace = 3;
-        "Mod+Shift+1".action.move-column-to-workspace = 1;
-        "Mod+Shift+2".action.move-column-to-workspace = 2;
-        "Mod+Shift+3".action.move-column-to-workspace = 3;
+        "Super+1".action.focus-workspace = 1;
+        "Super+2".action.focus-workspace = 2;
+        "Super+3".action.focus-workspace = 3;
+        "Super+Shift+1".action.move-column-to-workspace = 1;
+        "Super+Shift+2".action.move-column-to-workspace = 2;
+        "Super+Shift+3".action.move-column-to-workspace = 3;
         # Switches focus between the current and the previous workspace.
 
-        # "Mod+Tab".action = focus-workspace-previous;
+        # "Super+Tab".action = focus-workspace-previous;
 
-        "Mod+Comma".action = consume-window-into-column;
-        "Mod+Period".action = expel-window-from-column;
+        "Super+Comma".action = consume-window-into-column;
+        "Super+Period".action = expel-window-from-column;
         # There are also commands that consume or expel a single window to the side.
-        "Mod+BracketLeft".action = consume-or-expel-window-left;
-        "Mod+BracketRight".action = consume-or-expel-window-right;
+        "Super+BracketLeft".action = consume-or-expel-window-left;
+        "Super+BracketRight".action = consume-or-expel-window-right;
         # Resize
 
-        "Mod+R".action = switch-preset-column-width;
-        "Mod+Alt+F".action = maximize-column;
-        "Mod+Alt+C".action = center-column;
-        "Mod+Shift+F".action = fullscreen-window;
+        "Super+R".action = switch-preset-column-width;
+        "Super+Alt+F".action = maximize-column;
+        "Super+Alt+C".action = center-column;
+        "Super+Shift+F".action = fullscreen-window;
+        "Super+Ctrl+Shift+F".action = toggle-windowed-fullscreen;
 
         "Alt+Ctrl+Left".action = set-column-width "-10%";
         "Alt+Ctrl+Right".action = set-column-width "+10%";
@@ -482,9 +470,58 @@
         "Alt+Ctrl+Up".action = set-window-height "-10%";
         "Alt+Ctrl+Down".action = set-window-height "+10%";
 
-        "Mod+Ctrl+Shift+Q".action = quit;
+        "Super+Ctrl+Shift+Q".action = quit;
 
-        "Mod+Shift+P".action = power-off-monitors;
+        "Super+Shift+P".action = power-off-monitors;
+        # Knob binds
+
+        ## Brightness with a knob
+        "Super+XF86AudioRaiseVolume" = {
+          allow-when-locked = true;
+          action = [
+            spawn
+            "brightnessctl"
+            "set"
+            "2%+"
+          ];
+        };
+        "Super+XF86AudioLowerVolume" = {
+          allow-when-locked = true;
+          action = [
+            spawn
+            "brightnessctl"
+            "set"
+            "2%-"
+          ];
+        };
+
+        ## Change mpd track with a knob
+        "Shift+Alt+XF86AudioRaiseVolume" = {
+          allow-when-locked = true;
+          action = spawn [
+            "mpc"
+            "next"
+          ];
+        };
+        "Shift+Alt+XF86AudioLowerVolume" = {
+          allow-when-locked = true;
+          action = spawn [
+            "mpc"
+            "prev"
+          ];
+        };
+        "Shift+Alt+XF86AudioMute" = {
+          allow-when-locked = true;
+          action = spawn [
+            "mpc"
+            "shuffle"
+          ];
+        };
+
+        ## Change collumn size with a knob
+        "Alt+Ctrl+XF86AudioRaiseVolume".action = set-column-width "+1%";
+        "Alt+Ctrl+XF86AudioLowerVolume".action = set-column-width "-1%";
+        "Alt+Ctrl+XF86AudioMute".action = switch-preset-column-width;
       };
     };
   };

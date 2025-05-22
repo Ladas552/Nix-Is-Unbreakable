@@ -68,6 +68,11 @@
         // Focus windows and outputs automatically when moving the mouse into them.
         // focus-follows-mouse
       }
+      gestures {
+        hot-corners {
+          off
+        }
+      }
 
       // Settings that influence how windows are positioned and sized.
       // Find more information on the wiki:
@@ -163,6 +168,7 @@
       cursor {
           xcursor-theme "default"
           xcursor-size 24
+          hide-after-inactive-ms 10000
       }
 
       hotkey-overlay {
