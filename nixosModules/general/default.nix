@@ -26,6 +26,16 @@
     programs.ssh.askPassword = "";
     # Define your hostname.
     networking.hostName = "${meta.host}";
+    # something stolen from https://kokada.dev/blog/an-unordered-list-of-hidden-gems-inside-nixos/
+    ## Faster wifi connection
+    networking.networkmanager.wifi.backend = "iwd";
+    ## Using cpu to comress RAM like swap
+    zramSwap = {
+      enable = true;
+      algorithm = "zstd";
+    };
+    ## Suppousetly faster dbus
+    services.dbus.implementation = "broker";
 
     # Set your time zone.
     time.timeZone = "Asia/Almaty";

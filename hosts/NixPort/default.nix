@@ -41,6 +41,7 @@
     otd.enable = true;
     printers.enable = true;
     tlp.enable = true;
+    # plymouth.enable = true;
     stylix = {
       enable = true;
       catppuccin = true;
