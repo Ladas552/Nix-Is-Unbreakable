@@ -122,7 +122,7 @@
         # My Lenovo 50-70y laptop with nvidia 860M
         NixToks = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
+            inherit inputs self;
           };
 
           modules = [
@@ -133,7 +133,7 @@
         # My Acer Swift Go 14 with ryzen 7640U
         NixPort = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
+            inherit inputs self;
           };
 
           modules = [
@@ -144,7 +144,7 @@
         # NixOS WSL setup
         NixwsL = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
+            inherit inputs self;
           };
 
           modules = [
@@ -155,7 +155,7 @@
         # Nix VM for testing major config changes
         NixVM = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
+            inherit inputs self;
           };
 
           modules = [
@@ -166,7 +166,7 @@
         # Nix Iso for live cd
         NixIso = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
+            inherit inputs self;
           };
 
           modules = [
@@ -199,7 +199,7 @@
                     (prev.custom or { })
                     // (import ./pkgs {
                       inherit (prev) pkgs;
-                      inherit inputs meta;
+                      inherit inputs meta self;
                     });
                 })
               ];
