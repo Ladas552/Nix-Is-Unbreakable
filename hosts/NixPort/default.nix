@@ -33,7 +33,7 @@
     # labwc.enable = true;
     # cage.cagebreak.enable = true;
     openssh.enable = true;
-    distrobox.enable = true;
+    # distrobox.enable = true;
     bluetooth.enable = true;
     kde-connect.enable = true;
     # games.enable = true;
@@ -41,7 +41,7 @@
     otd.enable = true;
     printers.enable = true;
     tlp.enable = true;
-    # plymouth.enable = true;
+    plymouth.enable = true;
     stylix = {
       enable = true;
       catppuccin = true;
@@ -135,7 +135,7 @@
       "networkmanager"
       "wheel"
       # for adb
-      "adbusers"
+      # "adbusers"
     ];
     password = "4558";
     # hashedPasswordFile = config.sops.secrets."mystuff/host_pwd".path;
@@ -150,6 +150,6 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
   # Testing nix-on-droid in waydroid
-  virtualisation.waydroid.enable = true;
-  programs.adb.enable = true;
+  # virtualisation.waydroid.enable = true;
+  # programs.adb.enable = true;
 }

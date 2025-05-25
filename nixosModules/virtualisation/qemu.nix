@@ -14,6 +14,7 @@
 
   config = lib.mkIf config.custom.qemu.enable {
     # Wayroid
+    # Delete images in `/var/lib/waydroid` after removing the option
     # virtualisation.waydroid.enable = true;
     environment.systemPackages = with pkgs; [
       open-vm-tools
