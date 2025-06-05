@@ -34,6 +34,7 @@
     thunderbird.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
+    chawan.enable = true;
   };
 
   # Me

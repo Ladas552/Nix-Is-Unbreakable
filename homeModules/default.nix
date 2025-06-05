@@ -10,6 +10,7 @@
     ./chromium
     ./direnv
     ./emacs
+    ./chawan
     ./fastfetch
     ./thunderbird
     ./flameshot
