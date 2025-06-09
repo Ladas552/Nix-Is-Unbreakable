@@ -31,7 +31,6 @@ in
       enable = true;
       standalonePlugins = [
         "oil.nvim"
-        "norg-meta-grammar"
         "typst-preview.nvim"
         "neorg"
         "blink.cmp"

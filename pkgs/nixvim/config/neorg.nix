@@ -62,107 +62,100 @@ let
   };
 in
 {
-  config = lib.mkIf (lib.isString meta.norg) {
-    extraPlugins = [
-      treesitter-norg-meta
-      # neorg-query
-      # neorg-interim-ls
-    ];
-    plugins = {
-      treesitter = {
-        grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
-          treesitter-norg-meta
-          norg
-        ];
-      };
-      # Neorg
-      neorg = {
-        enable = true;
-        telescopeIntegration.enable = true;
-        settings.load = {
-          # Don't seem to work on Nixvim
-          # Extra modules
-          # "external.query" = {
-          #   __empty = null;
-          #   index_on_launch = true;
-          #   update_on_change = true;
-          # };
-          # "external.interim-ls" = {
-          #   __empty = null;
-          #   config = {
-          #     completion_provider = {
-          #       categories = true;
-          #     };
-          #   };
-          # };
-          # Core
-          "core.defaults" = {
-            __empty = null;
+  plugins = {
+    treesitter = {
+      grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
+        treesitter-norg-meta
+        norg
+      ];
+    };
+    # Neorg
+    neorg = {
+      enable = true;
+      telescopeIntegration.enable = true;
+      settings.load = {
+        # Don't seem to work on Nixvim
+        # Extra modules
+        # "external.query" = {
+        #   __empty = null;
+        #   index_on_launch = true;
+        #   update_on_change = true;
+        # };
+        # "external.interim-ls" = {
+        #   __empty = null;
+        #   config = {
+        #     completion_provider = {
+        #       categories = true;
+        #     };
+        #   };
+        # };
+        # Core
+        "core.defaults" = {
+          __empty = null;
+        };
+        "core.esupports.metagen" = lib.mkIf (lib.isString meta.norg) {
+          config = {
+            timezone = "implicit-local";
+            type = "empty";
+            undojoin_updates = false;
           };
-          "core.esupports.metagen" = {
-            config = {
-              timezone = "implicit-local";
-              type = "empty";
-              undojoin_updates = false;
+        };
+        "core.tangle" = {
+          config = {
+            report_on_empty = true;
+            tangle_on_write = false;
+          };
+        };
+        # "core.completion" = {
+        #   config = {
+        #     engine = {
+        #       module_name = "external.lsp-completion";
+        #     };
+        #   };
+        # };
+        "core.keybinds" = lib.mkIf (lib.isString meta.norg) {
+          config = {
+            default_keybinds = true;
+            neorg_leader = "<Leader><Leader>";
+          };
+        };
+        "core.journal" = lib.mkIf (lib.isString meta.norg) {
+          config = {
+            workspace = "journal";
+            journal_folder = "/./";
+          };
+        };
+        "core.dirman" = lib.mkIf (lib.isString meta.norg) {
+          config = {
+            workspaces = {
+              general = "${meta.norg}";
+              life = "${meta.norg}/Life";
+              work = "${meta.norg}/Study";
+              journal = "${meta.norg}/Journal";
+              archive = "${meta.norg}/Archive";
             };
+            default_workspace = "general";
           };
-          "core.tangle" = {
-            config = {
-              report_on_empty = true;
-              tangle_on_write = false;
-            };
+        };
+        "core.concealer" = {
+          config = {
+            icon_preset = "diamond";
           };
-          # "core.completion" = {
-          #   config = {
-          #     engine = {
-          #       module_name = "external.lsp-completion";
-          #     };
-          #   };
-          # };
-          "core.keybinds" = {
-            config = {
-              default_keybinds = true;
-              neorg_leader = "<Leader><Leader>";
-            };
-          };
-          "core.journal" = {
-            config = {
-              workspace = "journal";
-              journal_folder = "/./";
-            };
-          };
-          "core.dirman" = {
-            config = {
-              workspaces = {
-                general = "${meta.norg}";
-                life = "${meta.norg}/Life";
-                work = "${meta.norg}/Study";
-                journal = "${meta.norg}/Journal";
-                archive = "${meta.norg}/Archive";
-              };
-              default_workspace = "general";
-            };
-          };
-          "core.concealer" = {
-            config = {
-              icon_preset = "diamond";
-            };
-          };
-          "core.summary" = {
-            __empty = null;
-          };
-          "core.integrations.telescope" = {
-            __empty = null;
-          };
+        };
+        "core.summary" = lib.mkIf (lib.isString meta.norg) {
+          __empty = null;
+        };
+        "core.integrations.telescope" = lib.mkIf (lib.isString meta.norg) {
+          __empty = null;
         };
       };
     };
-    globals = {
-      maplocalleader = "  ";
-    };
-    opts = {
-      foldlevel = 99;
-      conceallevel = 2;
-    };
+  };
+  globals = {
+    maplocalleader = "  ";
+  };
+  opts = {
+    foldlevel = 99;
+    conceallevel = 2;
   };
 }
