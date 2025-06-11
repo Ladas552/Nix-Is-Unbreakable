@@ -22,6 +22,7 @@
           xfce.enable = config.custom.xfce.enable;
           vesktop.enable = false;
           fish.enable = false;
+          neovide.enable = false;
           nixvim.enable = false;
           nvf.enable = false;
           helix.enable = false;
