@@ -57,6 +57,12 @@
           user = "${meta.user}";
           identityFile = [ "~/.ssh/NixToks" ];
         };
+
+        matchBlocks."aur.archlinux.org" = {
+          host = "aur.archlinux.org";
+          user = "aur";
+          identityFile = [ "~/.ssh/aur" ];
+        };
       };
     };
   };

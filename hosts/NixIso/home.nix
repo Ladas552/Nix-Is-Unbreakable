@@ -10,9 +10,6 @@
 
   customhm = {
     vim.enable = true;
-    nixvim = {
-      enable = true;
-    };
     chromium.enable = true;
     direnv.enable = true;
     fastfetch.enable = true;

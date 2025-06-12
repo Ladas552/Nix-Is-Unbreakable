@@ -21,6 +21,7 @@
     meta = {
       host = "NixIso";
       self = "github:Ladas552/Nix-Is-Unbreakable";
+      norg = null;
       user = "nixos";
       system = "x86_64-linux";
       isTermux = false;
