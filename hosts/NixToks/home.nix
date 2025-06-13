@@ -16,8 +16,8 @@
     # kitty.enable = true;
     # qutebrowser.enable = true;
     # vim.enable = true;
-    neovim.enable = true;
-    # nixvim.enable = true;
+    # neovim.enable = true;
+    nixvim.enable = true;
     chromium.enable = true;
     direnv.enable = true;
     # emacs.enable = true;

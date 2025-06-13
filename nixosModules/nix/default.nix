@@ -18,13 +18,6 @@
 
   config = lib.mkIf config.custom.nix.enable {
 
-    # Optimize nix experience by removing cache and store garbage
-    nix.settings.auto-optimise-store = true;
-    nix.optimise.automatic = true;
-    # Set nixpath for nixd
-    nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-    # Better Error messages
-    nix.package = pkgs.nixVersions.latest;
     # I don't use channels
     programs.command-not-found.enable = false;
     # Less building text
@@ -34,16 +27,30 @@
       man.enable = true;
       dev.enable = false;
     };
-    # Make builds run with low priority so my system stays responsive
-    nix.daemonCPUSchedPolicy = "idle";
-    nix.daemonIOSchedClass = "idle";
-    # Flakes
-    nix.settings = {
-      warn-dirty = false;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+    # Nix options
+    nix = {
+      # Make builds run with low priority so my system stays responsive
+      daemonCPUSchedPolicy = "idle";
+      daemonIOSchedClass = "idle";
+      # Better Error messages
+      package = pkgs.nixVersions.latest;
+      # Optimize nix experience by removing cache and store garbage
+      optimise.automatic = true;
+      # disable channels completely
+      channel.enable = false;
+      registry = (lib.mapAttrs (_: flake: { inherit flake; }) inputs);
+      nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") inputs;
+      settings = {
+        # Optimize nix experience by removing cache and store garbage
+        auto-optimise-store = true;
+        warn-dirty = false;
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+        nix-path = lib.mapAttrsToList (n: _: "${n}=flake:${n}") inputs;
+        flake-registry = ""; # optional, ensures flakes are truly self-contained
+      };
     };
     # nixpkgs options
     nixpkgs.config = {
