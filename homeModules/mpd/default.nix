@@ -307,18 +307,18 @@
         '';
     };
     # Enable if discord is pressent on the system
-    # services.mpd-discord-rpc = {
-    #   enable = true;
-    #   settings = {
-    #     format = {
-    #       details = "$title";
-    #       state = "By $artist";
-    #       large_image = ":nerd:";
-    #       large_text = "WW91IGhhdmUgbm8gbGlmZQ==";
-    #       small_text = "WW91IGhhdmUgbm8gbGlmZQ==";
-    #     };
-    #   };
-    # };
+    services.mpd-discord-rpc = {
+      enable = config.services.arrpc.enable;
+      settings = {
+        format = {
+          details = "$title";
+          state = "By $artist";
+          large_image = ":nerd:";
+          large_text = "WW91IGhhdmUgbm8gbGlmZQ==";
+          small_text = "WW91IGhhdmUgbm8gbGlmZQ==";
+        };
+      };
+    };
     services.mpdris2 = {
       enable = true;
       multimediaKeys = true;
