@@ -39,7 +39,7 @@
     # X11
     libinput.enable = true;
     xkb.enable = true;
-    #   bspwm.enable = true;
+    # bspwm.enable = true;
     #lightdm.enable = true;
     # xfce.enable = true;
     # Wayland

@@ -29,6 +29,7 @@
           emacs.enable = false;
           ghostty.enable = false;
           rofi.enable = false;
+          tofi.enable = false;
         };
         iconTheme = {
           enable = true;

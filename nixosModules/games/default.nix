@@ -28,7 +28,8 @@
       heroic
       prismlauncher
       # PC games
-      inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+      # inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+      osu-lazer-bin
       arx-libertatis
       # stepmania
       openmw
