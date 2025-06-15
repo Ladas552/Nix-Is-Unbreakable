@@ -1,6 +1,6 @@
 { pkgs, lib }:
 let
-  git = lib.getExe' pkgs.git "git";
+  git = lib.meta.getExe' pkgs.git "git";
 in
 # Quick git alias
 # gcp "your commit" to push new commit
