@@ -90,8 +90,9 @@
     package = pkgs.scx.rustscheds;
   };
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  # Networking
+  # NixToks wifi card is dead
+  networking.networkmanager.enable = false;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -99,15 +100,9 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  environment.systemPackages = with pkgs; [
-    # whatever I couldn't install in Home Manager
-    python3
-    #      nvtopPackages.full # they need to update cuda for unstable to use it in home manager
-    cachix
-    gcc
-    gnumake
-    networkmanagerapplet
-  ];
+  # environment.systemPackages = with pkgs; [
+  # ];
+
   # Nvidia
   # Enable OpenGL and hardware accelerated graphics drivers
 
@@ -153,7 +148,7 @@
     isNormalUser = true;
     description = "Ladas552";
     extraGroups = [
-      "networkmanager"
+      # "networkmanager"
       "wheel"
     ];
     # hashedPasswordFile = config.sops.secrets."mystuff/host_pwd".path;
