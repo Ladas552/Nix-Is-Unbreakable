@@ -30,6 +30,7 @@
   );
   default = pkgs.writeShellScriptBin "hello" ''echo "Hello World"'';
   restore = pkgs.callPackage ./restore.nix { };
+  gcp = pkgs.callPackage ./addcommitpush.nix { };
   rofi-wifi = pkgs.callPackage ./rofi-wifi.nix { };
   word-lookup = pkgs.callPackage ./word-lookup.nix { };
   Subtitlenator = pkgs.callPackage ./Subtitlenator.nix { };

@@ -18,6 +18,7 @@
       duf
       unimatrix
       wgetpaste
+      custom.gcp
     ];
     programs = {
       ripgrep.enable = true;
