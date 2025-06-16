@@ -211,6 +211,14 @@
           match app-id="mpv"
           shadow { off; }
       }
+      window-rule {
+        match title="Picture-in-Picture"
+        default-column-width { fixed 420; }
+        default-window-height { fixed 236; }
+        default-floating-position x=50 y=50 relative-to="bottom-right"
+        open-focused false
+        open-floating true
+      }
 
       window-rule {
         // this is for software I run in Bottles

@@ -122,6 +122,16 @@
           ];
           shadow.enable = false;
         }
+        {
+          matches = [ { title = "Picture-in-Picture"; } ];
+          default-column-width.fixed = 420;
+          default-window-height.fixed = 236;
+          default-floating-position.x = 50;
+          default-floating-position.y = 50;
+          default-floating-position.relative-to = "bottom-right";
+          open-focused = false;
+          open-floating = true;
+        }
         # Full screen/size apps
         {
           matches = [ { app-id = "steam_proton"; } ];
