@@ -14,14 +14,15 @@
   };
   # importing the Desktop environment modules
   imports = [
-    # ./niri/flake
-    ./niri/bare
-    ./xfce
     ./bspwm
-    ./wayfire
-    ./labwc
-    ./cage/ghostty.nix
     ./cage/cagebreak.nix
+    ./cage/ghostty.nix
+    ./hyprland
+    ./labwc
+    ./niri/bare
+    # ./niri/flake
+    ./wayfire
+    ./xfce
   ];
 
   config = lib.mkIf (!config.custom.lightdm.enable) {

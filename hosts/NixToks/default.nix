@@ -44,6 +44,7 @@
     # xfce.enable = true;
     # Wayland
     niri.enable = true;
+    # hyprland.enable = true;
     # wayfire.enable = true;
     # labwc.enable = true;
     # Network
