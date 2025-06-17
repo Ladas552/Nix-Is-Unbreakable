@@ -17,7 +17,7 @@
 
     custom = {
       thunar.enable = true;
-      greetd.command = "uwsm start default";
+      greetd.command = "uwsm start ${pkgs.hyprland}/share/wayland-sessions/hyprland.desktop";
     };
 
     programs.hyprland = {

@@ -8,8 +8,6 @@
 {
   customhm = {
     mako.enable = lib.mkDefault true;
-    swaylock.enable = lib.mkDefault true;
-    wpaperd.enable = lib.mkDefault true;
   };
 
   wayland.windowManager.hyprland = {
@@ -17,6 +15,7 @@
     systemd.enable = false;
     plugins = with pkgs; [ ];
     settings = {
+      monitor = lib.mkIf (meta.host == "NixToks") "eDP-1, 1920x1080@60, 0x0, 1";
 
       # Options
       general = {
@@ -24,7 +23,7 @@
         resize_on_border = true;
       };
 
-      inputs = {
+      input = {
         # Keyboard layout
         kb_layout = "us,kz";
         kb_options = "grp:caps_toggle";
@@ -34,6 +33,7 @@
         touchpad = {
           disable_while_typing = false;
           natural_scroll = true;
+          scroll_factor = 0.2;
         };
       };
 
@@ -41,7 +41,7 @@
         font_family = "JetBrainsMono NFM Regular";
         splash_font_family = "splash_font_family";
       };
-      Ecosystem = {
+      ecosystem = {
         no_update_news = true;
         no_donation_nag = true;
       };
@@ -63,6 +63,10 @@
       # Keybinds
       bind = [
         "SUPER, T, exec, ghostty"
+        "SUPER, W, exec, floorp"
+        "SUPER, space, exec, rofi -show"
+        "SUPER, 1, workspace, 1"
+        "SUPER, 2, workspace, 2"
       ];
 
       # autostart
