@@ -394,8 +394,19 @@ in
         enable = true;
         settings = {
           bigfile.enabled = true;
-          image.enabled = true;
+          image = {
+            enabled = true;
+            doc.inline = false;
+            doc.float = true;
+            convert.notify = false;
+          };
         };
+        # only make it load on specific file types
+        luaConfig.post = ''
+          require("snacks.image").langs = function ()
+            return {"markdown", "typst", "norg"}
+          end
+        '';
       };
 
       cord = lib.mkIf (meta.host != "") {

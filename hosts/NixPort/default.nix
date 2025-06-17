@@ -88,7 +88,7 @@
     networkmanagerapplet
     # Launchers
     # PC games
-    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+    osu-lazer-bin
     # stepmania
     openmw
     daggerfall-unity
