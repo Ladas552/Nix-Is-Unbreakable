@@ -151,16 +151,7 @@
       }
     ]
     #Plugins
-    ++ [
-      #Neorg Journal
-      {
-        action = "<cmd>Neorg journal today<CR>";
-        key = "<leader>j";
-        mode = "n";
-        options.desc = "Journal today";
-      }
-    ]
-    ++ [
+    ++ lib.optionals config.plugins.telescope.enable [
       #Telescope
       {
         action = "<cmd>Telescope find_files<CR>";
@@ -187,7 +178,102 @@
         options.desc = "Grep current buffer";
       }
     ]
+    ++ lib.optionals (config.plugins.snacks.settings.picker.enabled && config.plugins.snacks.enable) [
+      {
+        action = "<cmd>lua Snacks.picker.recent()<CR>";
+        key = "<leader>fr";
+        mode = "n";
+        options.desc = "Recent files";
+      }
+      {
+        action = "<cmd>lua Snacks.picker.files()<CR>";
+        key = "<leader>ff";
+        mode = "n";
+        options.desc = "Find Files";
+      }
+      {
+        action = "<cmd>lua Snacks.picker.diagnostics()<CR>";
+        key = "<leader>d";
+        mode = "n";
+        options.desc = "Show diagnostics";
+      }
+      {
+        action = "<cmd>lua Snacks.picker.grep()<CR>";
+        key = "<leader>fs";
+        mode = "n";
+        options.desc = "Rip-grep";
+      }
+      {
+        action = "<cmd>lua Snacks.picker.grep_buffers()<CR>";
+        key = "<leader>fc";
+        mode = "n";
+        options.desc = "Grep openned buffers";
+      }
+      {
+        action = "<cmd>lua Snacks.picker.buffers()<CR>";
+        key = "<leader>b";
+        mode = "n";
+        options.desc = "List buffers";
+      }
+      {
+        action = "<cmd>lua Snacks.picker.lsp_config()<CR>";
+        key = "<leader>fl";
+        mode = "n";
+        options.desc = "Show LSP config";
+      }
+      {
+        action = "<cmd>lua Snacks.picker.help()<CR>";
+        key = "<f1>";
+        mode = "n";
+        options.desc = ":h";
+      }
+      {
+        action = "<cmd>lua Snacks.picker.undo()<CR>";
+        key = "<leader>fu";
+        mode = "n";
+        options.desc = "Undo history";
+      }
+      {
+        action = "<cmd>lua Snacks.picker.icons()<CR>";
+        key = "<leader>fi";
+        mode = "n";
+        options.desc = "Icon browser";
+      }
+      {
+        action = "<cmd>lua Snacks.picker.highlights()<CR>";
+        key = "<leader>fh";
+        mode = "n";
+        options.desc = "Highlight list";
+      }
+      {
+        action = "<cmd>lua Snacks.picker.pick()<CR>";
+        key = "<leader>fp";
+        mode = "n";
+        options.desc = "Picker picker";
+      }
+      {
+        action = "<cmd>lua Snacks.picker.command_history()<CR>";
+        key = "<leader>f?";
+        mode = "n";
+        options.desc = "Command history";
+      }
+      {
+        action = "<cmd>lua Snacks.picker.spelling()<CR>";
+        key = "z=";
+        mode = "n";
+        options.desc = "Spelling list";
+      }
+    ]
     ++ lib.optionals config.plugins.neorg.enable [
+      #Neorg Journal
+      {
+        action = "<cmd>Neorg journal today<CR>";
+        key = "<leader>j";
+        mode = "n";
+        options.desc = "Journal today";
+      }
+    ]
+    ++ lib.optionals (config.plugins.neorg.enable && config.plugins.telescope.enable) [
       # Telescope Neorg Integration
       {
         action = "<cmd>Telescope neorg find_norg_files<CR>";

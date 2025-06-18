@@ -72,7 +72,7 @@ in
     # Neorg
     neorg = {
       enable = true;
-      telescopeIntegration.enable = true;
+      telescopeIntegration.enable = config.plugins.telescope.enable;
       settings.load = {
         # Don't seem to work on Nixvim
         # Extra modules
@@ -145,9 +145,11 @@ in
         "core.summary" = lib.mkIf (lib.isString meta.norg) {
           __empty = null;
         };
-        "core.integrations.telescope" = lib.mkIf (lib.isString meta.norg) {
-          __empty = null;
-        };
+        "core.integrations.telescope" =
+          lib.mkIf (lib.isString meta.norg && config.plugins.telescope.enable)
+            {
+              __empty = null;
+            };
       };
     };
   };
