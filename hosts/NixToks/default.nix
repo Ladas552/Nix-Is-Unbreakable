@@ -57,7 +57,7 @@
     games.enable = true;
     otd.enable = true;
     tlp.enable = true;
-    #distrobox.enable = true;
+    distrobox.enable = true;
     stylix = {
       enable = true;
       catppuccin = true;
@@ -66,7 +66,7 @@
     # nix-ld.enable = true;
     printers.enable = true;
     # clamav.enable = true;
-    # plymouth.enable = true;
+    plymouth.enable = true;
     grub.enable = true;
     qemu.enable = true;
     zfs.enable = true;
