@@ -29,7 +29,7 @@
     services.displayManager.autoLogin.enable = true;
     services.displayManager.autoLogin.user = "${meta.user}";
     services.greetd = {
-      enable = true;
+      enable = lib.mkDefault true;
       settings = rec {
         # initial session for autologin
         # https://wiki.archlinux.org/title/Greetd#Enabling_autologin

@@ -14,7 +14,7 @@
     # Include the results of the hardware scan.
     ./../../nixosModules
     inputs.home-manager.nixosModules.default
-    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+    "${modulesPath}/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix"
   ];
   _module.args = {
     meta = {
@@ -26,11 +26,12 @@
       isTermux = false;
     };
   };
-  nixpkgs.hostPlatform = "x86_64-linux";
+    services.greetd.enable = false;
+  nixpkgs.hostPlatform = "${meta.system}";
   services.openssh.settings.PermitRootLogin = lib.mkForce "yes";
   #modules
   custom = {
-    niri.enable = true;
+    # niri.enable = true;
     # cage.ghostty.enable = true;
     # cage.cagebreak.enable = true;
     openssh.enable = true;
@@ -43,7 +44,7 @@
       catppuccin = true;
       oksolar-light = false;
     };
-    systemd-boot.enable = true;
+    # systemd-boot.enable = true;
     xkb.enable = true;
   };
 
@@ -54,7 +55,7 @@
     };
     users."${meta.user}" = import ./home.nix;
     useUserPackages = true;
-    useGlobalPkgs = false;
+    useGlobalPkgs = true;
   };
   # Xanmod kernel
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
@@ -66,10 +67,7 @@
   environment.systemPackages = with pkgs; [
     gparted
     networkmanagerapplet
-    # Calamares for graphical installation
-    libsForQt5.kpmcore
-    calamares-nixos
-    calamares-nixos-extensions
+    custom.restore
     # Get list of locales
     glibcLocales
   ];
@@ -95,21 +93,11 @@
   #   boot.kernelParams = [ "amdgpu.dcdebugmask=0x10" ];
   # };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${meta.user} = {
-    isNormalUser = true;
-    description = "nixos";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-  };
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }

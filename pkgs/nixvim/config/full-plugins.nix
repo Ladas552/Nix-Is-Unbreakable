@@ -25,6 +25,7 @@ in
     extraPackages = with pkgs; [
       black
       stylua
+      sqlite
     ];
 
     performance.combinePlugins = {
