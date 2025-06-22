@@ -5,35 +5,13 @@
   meta,
   ...
 }:
-let
-  img-clip.nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "img-clip.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "HakonHarnes";
-      repo = "img-clip.nvim";
-      rev = "28a32d811d69042f4fa5c3d5fa35571df2bc1623";
-      sha256 = "0yi94bsr3yja619lrh9npsqrzvbk2207j3wnzdvidbbb1nix2dsd";
-    };
-  };
-
-  typst-tools.nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "typst-tools.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "max397574";
-      repo = "typst-tools.nvim";
-      rev = "a16c20c6e5756164458f72faf4353b435376cb4f";
-      sha256 = "0hppipi30p75i0rvhin6lphp2wvb3xpf7sr8x21zainx3d69pfby";
-    };
-  };
-in
 {
 
   config = lib.mkIf meta.isTermux {
 
     extraPlugins = [
       pkgs.vimPlugins."gitsigns-nvim"
-      img-clip.nvim
-      #typst-tools.nvim
+      pkgs.vimPlugins.img-clip-nvim
     ];
     plugins = {
 
@@ -57,12 +35,28 @@ in
 
       colorizer.enable = true;
 
-      telescope = {
-        enable = true;
-      };
       neogit = {
         enable = true;
       };
+
+      telescope = {
+        enable = false;
+        # settings.defaults = {
+        #   path_display = "truncate";
+        # };
+      };
+
+      snacks = {
+        enable = true;
+        settings = {
+          bigfile.enabled = true;
+          image.enabled = false;
+          picker = {
+            enabled = true;
+          };
+        };
+      };
+
       dashboard = {
         enable = true;
         settings = {
@@ -74,81 +68,130 @@ in
               "Good living ain't ya?"
               " "
             ];
-            center = [
-              {
-                action = "Telescope oldfiles";
-                desc = " Recent files";
-                icon = "󰥔 ";
-                key = "R";
-              }
-              {
-                action = "ene | startinsert";
-                desc = " New file";
-                icon = " ";
-                key = "N";
-              }
-              {
-                action = "Neorg workspace life";
-                desc = " Neorg Life";
-                icon = "󰠮 ";
-                key = "E";
-              }
-              {
-                action = "Neorg workspace work";
-                desc = " Neorg Work";
-                icon = " ";
-                key = "W";
-              }
-              {
-                action = "Neorg journal today";
-                desc = " Neorg Journal";
-                icon = "󰛓 ";
-                key = "J";
-              }
-              {
-                action = "qa";
-                desc = " Quit";
-                icon = "󰩈 ";
-                key = "Q";
-              }
-            ];
+            center =
+              [ ]
+              ++ lib.optionals config.plugins.telescope.enable [
+                {
+                  action = "Telescope oldfiles";
+                  desc = " Recent Files";
+                  icon = "󰥔 ";
+                  key = "R";
+                }
+                {
+                  action = "Telescope find_files";
+                  desc = " Find Files";
+                  icon = " ";
+                  key = "F";
+                }
+              ]
+
+              ++ lib.optionals (config.plugins.snacks.settings.picker.enabled && config.plugins.snacks.enable) [
+                {
+                  action = "lua Snacks.picker.recent()";
+                  desc = " Recent Files";
+                  icon = "󰥔 ";
+                  key = "R";
+                }
+                {
+                  action = "lua Snacks.picker.projects()";
+                  desc = " List Projects";
+                  icon = " ";
+                  key = "F";
+                }
+              ]
+              ++ [
+                {
+                  action = "ene | startinsert";
+                  desc = " New File";
+                  icon = " ";
+                  key = "N";
+                }
+              ]
+              ++ lib.optionals config.plugins.neorg.enable [
+                {
+                  action = "Neorg workspace life";
+                  desc = " Neorg Life";
+                  icon = "󰠮 ";
+                  key = "E";
+                }
+                {
+                  action = "Neorg workspace work";
+                  desc = " Neorg Work";
+                  icon = " ";
+                  key = "W";
+                }
+                {
+                  action = "Neorg journal today";
+                  desc = " Neorg Journal";
+                  icon = "󰛓 ";
+                  key = "J";
+                }
+              ]
+              ++ [
+                {
+                  action = "qa";
+                  desc = " Quit";
+                  icon = "󰩈 ";
+                  key = "Q";
+                }
+              ];
             footer = [ "Just Do Something Already!" ];
           };
         };
       };
-      #cmp
-      cmp = {
+      # cmp
+      blink-cmp = {
         enable = true;
-        autoEnableSources = false;
         settings = {
-          completion.completeopt = "menu,menuone,preview,noselect";
-          snippet.expand = # lua
-            ''
-              function(args)
-                require("luasnip").lsp_expand(args.body)
-              end,
-            '';
-          sources = [
-            { name = "buffer"; }
-            { name = "path"; }
-            { name = "neorg"; }
-            { name = "luasnip"; }
-          ];
-          mapping = {
-            "<S-Tab>" = "cmp.mapping.select_prev_item()"; # previous suggestion
-            "<Tab>" = "cmp.mapping.select_next_item()"; # next suggestion
-            "<C-b>" = "cmp.mapping.scroll_docs(-4)";
-            "<C-f>" = "cmp.mapping.scroll_docs(4)";
-            "<C-Space>" = "cmp.mapping.complete()"; # show completion suggestions
-            "<ESC>" = "cmp.mapping.abort()"; # close completion window
-            "<CR>" = "cmp.mapping.confirm { select = false }";
+          keymap = {
+            preset = "enter";
+            "<Tab>" = [
+              "select_next"
+              "fallback"
+            ];
+            "<S-Tab>" = [
+              "select_prev"
+              "accept"
+              "fallback"
+            ];
+          };
+          signature = {
+            enabled = true;
+            window.border = "rounded";
+          };
+          completion = {
+            documentation = {
+              auto_show = true;
+              auto_show_delay_ms = 1000;
+              window.border = "rounded";
+            };
+            list.selection = {
+              preselect = false;
+              auto_insert = true;
+            };
+            menu = {
+              border = "single";
+              draw.columns = {
+                # idk how to set it up
+                # { "label",     "label_description", gap = 1 },
+                # { "kind_icon", "kind" },
+              };
+            };
+            ghost_text.enabled = true;
+            keyword.range = "prefix"; # can also be `full`
+          };
+          sources = {
+            providers = {
+              buffer.score_offset = -7;
+            };
+            default = [
+              "path"
+              "snippets"
+              "buffer"
+            ];
           };
         };
       };
-      cmp-path.enable = true;
-      cmp-buffer.enable = true;
-      cmp_luasnip.enable = true;
-      cmp-spell.enable = true;
       luasnip.enable = true;
 
       oil = {
@@ -182,8 +225,6 @@ in
           highlight.enable = true;
         };
       };
-
-      flash.enable = true;
 
       auto-save = {
         enable = true;
