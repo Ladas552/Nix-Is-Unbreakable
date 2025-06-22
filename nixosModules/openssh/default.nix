@@ -53,7 +53,7 @@
         controlPersist = "10m";
 
         matchBlocks."${meta.user}" = {
-          host = "${meta.host}";
+          host = "github.com";
           user = "${meta.user}";
           identityFile = [ "~/.ssh/NixToks" ];
         };
