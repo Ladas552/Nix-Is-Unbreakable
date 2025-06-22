@@ -64,7 +64,9 @@
     useGlobalPkgs = true;
   };
   # Xanmod kernel
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+
 
   # https://wiki.archlinux.org/title/Lenovo_ThinkPad_T14s_(AMD)_Gen_3#Display
   boot.kernelParams = [ "amdgpu.dcdebugmask=0x10" ];
