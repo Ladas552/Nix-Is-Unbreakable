@@ -26,6 +26,7 @@
     rofi.enable = true;
     thunderbird.enable = true;
     zathura.enable = true;
+    shell.fish.enable = true;
   };
 
   # Me

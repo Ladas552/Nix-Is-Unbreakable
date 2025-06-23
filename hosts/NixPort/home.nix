@@ -35,6 +35,7 @@
     yt-dlp.enable = true;
     zathura.enable = true;
     chawan.enable = true;
+    shell.fish.enable = true;
   };
 
   # Me

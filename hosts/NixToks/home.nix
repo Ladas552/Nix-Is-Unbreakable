@@ -38,6 +38,7 @@
     thunderbird.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
+    shell.fish.enable = true;
   };
 
   # Me

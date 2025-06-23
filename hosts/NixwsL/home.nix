@@ -22,6 +22,7 @@
     helix.enable = true;
     yt-dlp.enable = true;
     nixvim.enable = false;
+    shell.fish.enable = true;
   };
   # Shell
   programs = {

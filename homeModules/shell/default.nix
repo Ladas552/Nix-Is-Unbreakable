@@ -10,7 +10,10 @@
   options.customhm = {
     shell.enable = lib.mkEnableOption "enable shell";
   };
-
+  imports = [
+    ./fish.nix
+    ./nushell.nix
+  ];
   config = lib.mkIf config.customhm.shell.enable {
     # Shell programs
     home.packages = with pkgs; [

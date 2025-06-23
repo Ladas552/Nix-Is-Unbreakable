@@ -15,6 +15,7 @@
     direnv.enable = true;
     imv.enable = true;
     nixvim.enable = false;
+    shell.fish.enable = true;
   };
   # Me
   home.username = "${meta.user}";
