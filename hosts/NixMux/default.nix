@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   meta,
+  lib,
   ...
 }:
 
@@ -41,7 +42,8 @@
   # Backup etc files instead of failing to activate generation if a file already exists in /etc
   environment.etcBackupExtension = ".bak";
   # Set nixpath for nixd
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.registry = (lib.mapAttrs (_: flake: { inherit flake; }) inputs);
+  nix.nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") inputs;
   # Better Error messages
   nix.package = pkgs.nixVersions.latest;
   # Read the changelog before changing this value
@@ -52,6 +54,7 @@
   android-integration = {
     termux-open.enable = true;
     termux-open-url.enable = true;
+    xdg-open.enable = true;
     termux-reload-settings.enable = true;
     termux-setup-storage.enable = true;
   };
@@ -114,5 +117,5 @@
     useUserPackages = true;
     useGlobalPkgs = true;
   };
-  user.shell = "${pkgs.nushell}/bin/nu";
+  user.shell = "${pkgs.fish}/bin/fish";
 }

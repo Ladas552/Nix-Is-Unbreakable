@@ -15,6 +15,8 @@
     fastfetch.enable = true;
     gh.enable = true;
     lf.enable = true;
+    chawan.enable = true;
+    git.enable = true;
   };
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
@@ -58,9 +60,24 @@
   };
 
   programs.fish = {
-    # Need this in nix-on-droid
-    # https://github.com/termux/termux-app/pull/4417
-    enable = false;
+    enable = true;
+    shellInit = # fish
+      ''
+        set -gx pure_enable_container_detection false
+        abbr --set-cursor --command nix rn run nixpkgs#%
+        abbr --set-cursor --command nix bn build nixpkgs#%
+        abbr --set-cursor --command nix sn shell nixpkgs#%
+        abbr --set-cursor --command nix rg run github:%
+        abbr --set-cursor --command nix bg build github:%
+        abbr --set-cursor --command nix sg shell github:%
+        abbr --set-cursor --command nix nr run nixpkgs#%
+        abbr --set-cursor --command nix nb build nixpkgs#%
+        abbr --set-cursor --command nix ns shell nixpkgs#%
+        abbr --set-cursor --command nix gr run github:%
+        abbr --set-cursor --command nix gb build github:%
+        abbr --set-cursor --command nix gs shell github:%
+      '';
+
     plugins = with pkgs.fishPlugins; [
       {
         name = "autopair";
@@ -88,22 +105,6 @@
 
     preferAbbrs = true;
     shellAbbrs = config.home.shellAliases;
-  };
-  programs.nushell = {
-    enable = true;
-    settings = {
-      buffer_editor = "${lib.getExe' pkgs.helix "hx"}";
-      show_banner = false;
-      render_right_prompt_on_last_line = true;
-      float_precision = 2;
-      table = {
-        mode = "markdown";
-      };
-    };
-    envFile.text = # nu
-      ''
-        $env.PROMPT_COMMAND_RIGHT = ""
-      '';
   };
   home.shellAliases = {
     # cli tools
