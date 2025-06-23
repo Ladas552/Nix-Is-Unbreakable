@@ -11,7 +11,7 @@
       settings = {
         discordBranch = "stable";
         minimizeToTray = true;
-        arRPC = true;
+        arRPC = config.services.arrpc.enable;
         splashColor = "rgb(218, 219, 222)";
         splashBackground = "rgb(11, 12, 13)";
         spellCheckLanguages = [
@@ -420,7 +420,7 @@
               enabled = true;
             };
             "WebRichPresence (arRPC)" = {
-              enabled = true;
+              enabled = config.services.arrpc.enable;
             };
           };
         };
