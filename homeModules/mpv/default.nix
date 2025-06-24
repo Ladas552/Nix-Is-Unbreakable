@@ -10,6 +10,9 @@
   };
 
   config = lib.mkIf config.customhm.mpv.enable {
+    home.packages = with pkgs; [
+      ff2mpv
+    ];
     programs.mpv = {
       enable = true;
       config = {

@@ -17,6 +17,7 @@
     # nvf.enable = true;
     neovide.enable = true;
     # emacs.enable = true;
+    chawan.enable = true;
     chromium.enable = true;
     direnv.enable = true;
     fastfetch.enable = true;
@@ -30,11 +31,10 @@
     obs.enable = true;
     rofi.enable = true;
     syncthing.enable = true;
-    vesktop.enable = true;
     thunderbird.enable = true;
+    vesktop.enable = true;
     yt-dlp.enable = true;
     zathura.enable = true;
-    chawan.enable = true;
     shell.fish.enable = true;
   };
 

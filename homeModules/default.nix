@@ -7,12 +7,11 @@
 
 {
   imports = [
+    ./chawan
     ./chromium
     ./direnv
     ./emacs
-    ./chawan
     ./fastfetch
-    ./thunderbird
     ./flameshot
     ./gh
     ./ghostty
@@ -20,25 +19,27 @@
     ./helix
     ./imv
     ./kitty
+    ./lf
+    ./librewolf
     ./mako
     ./mangohud
     ./mpd
     ./mpv
-    ./nixvim
-    ./neovim
     ./neovide
+    ./neovim
+    ./nixvim
     ./nvf
     ./obs
-    ./rofi
     ./qutebrowser
-    ./lf
     ./ranger
+    ./rofi
     ./shell
     ./swaylock
     ./syncthing
-    ./wpaperd
+    ./thunderbird
     ./vesktop
     ./vim
+    ./wpaperd
     ./yt-dlp
     ./zathura
   ];
