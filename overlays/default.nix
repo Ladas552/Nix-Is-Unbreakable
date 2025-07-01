@@ -64,7 +64,7 @@ in
     (_: prev: {
       custom =
         (prev.custom or { })
-        // (import ./pkgs {
+        // (import ../pkgs {
           inherit (prev) pkgs;
           inherit inputs meta self;
         });
@@ -84,6 +84,14 @@ in
         })
       ) fullConfig;
     })
-
+    (_: prev: {
+      # patches from PRs to make ctpv for lf better
+      ctpv = prev.ctpv.overrideAttrs (o: {
+        patches = (o.patches or [ ]) ++ [
+          ./ctpv-js.patch
+          ./ctpv-magick.patch
+        ];
+      });
+    })
   ];
 }

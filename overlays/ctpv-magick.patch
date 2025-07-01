@@ -1,0 +1,38 @@
+From dcd1a969b657087d9538544ec019044f7b1041cc Mon Sep 17 00:00:00 2001
+From: amolinae06 <amolinaegames@gmail.com>
+Date: Thu, 23 Jan 2025 21:15:27 -0600
+Subject: [PATCH] merge pull requests
+
+---
+ README.md      | 10 +++++-----
+ doc/ctpv.1     |  2 +-
+ sh/helpers.sh  |  2 +-
+ sh/prev/svg.sh |  2 +-
+ 4 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/doc/ctpv.1 b/doc/ctpv.1
+index 0f5c191..4e3ab8f 100644
+--- a/doc/ctpv.1
++++ b/doc/ctpv.1
+@@ -117,7 +117,7 @@ pdf	T{
+ pdftoppm
+ T}
+ svg	T{
+-convert
++magick
+ T}
+ text	T{
+ bat cat highlight source\-highlight
+diff --git a/sh/prev/svg.sh b/sh/prev/svg.sh
+index e455e55..fd0f3c6 100644
+--- a/sh/prev/svg.sh
++++ b/sh/prev/svg.sh
+@@ -1,7 +1,7 @@
+ # svg: convert
+
+ svg() {
+-	convert "$f" "jpg:$cache_f"
++	magick "$f" "jpg:$cache_f"
+ }
+
+ convert_and_show_image svg

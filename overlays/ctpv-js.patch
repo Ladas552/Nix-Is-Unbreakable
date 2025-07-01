@@ -1,0 +1,24 @@
+From e957151089eb7781adc0cd894552421b15c9e40c Mon Sep 17 00:00:00 2001
+From: sarmong <42828375+sarmong@users.noreply.github.com>
+Date: Thu, 27 Mar 2025 21:28:50 +0200
+Subject: [PATCH] feat: handle javascript preview like text
+
+---
+ previews.h | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/previews.h b/previews.h
+index 7be4aed..00089f6 100644
+--- a/previews.h
++++ b/previews.h
+@@ -48,6 +48,11 @@ Preview b_previews[] = {
+     PR(NULL,      "application",    "pdf",            pdf,                     PREV_ATTR_NONE),
+     PR(NULL,      "application",    "json",           jq,                      PREV_ATTR_NONE),
+
++    PR(NULL,      "application",    "javascript",     bat,                     PREV_ATTR_NONE),
++    PR(NULL,      "application",    "javascript",     highlight,               PREV_ATTR_NONE),
++    PR(NULL,      "application",    "javascript",     source_highlight,        PREV_ATTR_NONE),
++    PR(NULL,      "application",    "javascript",     cat,                     PREV_ATTR_NONE),
++
+     PR(NULL,      "inode",          "directory",      ls,                      PREV_ATTR_NONE),
+     PR(NULL,      "inode",          "symlink",        symlink,                 PREV_ATTR_NONE),

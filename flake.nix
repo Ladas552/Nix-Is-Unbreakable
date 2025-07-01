@@ -124,7 +124,7 @@
 
           modules = [
             ./hosts/NixToks
-            ./overlays.nix
+            ./overlays
           ];
         };
         # My Acer Swift Go 14 with ryzen 7640U
@@ -135,7 +135,7 @@
 
           modules = [
             ./hosts/NixPort
-            ./overlays.nix
+            ./overlays
           ];
         };
         # NixOS WSL setup
@@ -146,7 +146,7 @@
 
           modules = [
             ./hosts/NixwsL
-            ./overlays.nix
+            ./overlays
           ];
         };
         # Nix VM for testing major config changes
@@ -157,7 +157,7 @@
 
           modules = [
             ./hosts/NixVM
-            ./overlays.nix
+            ./overlays
           ];
         };
         # Nix Iso for live cd
@@ -168,7 +168,7 @@
 
           modules = [
             ./hosts/NixIso
-            ./overlays.nix
+            ./overlays
           ];
         };
       };
