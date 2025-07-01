@@ -42,6 +42,36 @@ I write comments on things, that might explain certain ways of doing things, or 
 
 Also, I have [Norg document](./nix.norg), containing notes and TODO for the config, and folder `/docs` for containing more specific instructions.
 
+## Directory structure
+
+```mermaid
+flowchart TD
+    flake[flake] --> A[docs]
+    flake --> C[homeModules]
+    flake --> F[hosts]
+    flake --> N[nixosModules]
+    flake --> R[overlays]
+    flake --> T[pkgs]
+    flake --> V[secrets]
+
+    A -->|norg files with information| B[storage]
+    C -->|directories containing config files| D[pkgs]
+    C -->|importing all home-manager modules| E[default.nix]
+    F --> G[all-my-hosts]
+    G -->|custom iso for reinstalling| H[NixIso]
+    G -->|nix-on-droid config| I[NixMux]
+    G -->|acer laptop| J[NixPort]
+    G -->|soon to be server| K[NixToks]
+    G -->|experimenting host| L[NixVM]
+    G -->|wsl for windows| M[NixWSL]
+    N -->|importing all NixOS modules| O[default.nix]
+    N -->|graphical sessions and WMs| P[Desktops]
+    N -->|all other modules| Q[other modules]
+    R -->|overlaying nixpkgs and applying patches| S[patches]
+    T -->|scripts and neovim configs| U[derivations]
+    V -->|try to decrypt it| W{secrets.yaml}
+```
+
 ## Name
 
 Yes, it is a [JoJo's reference](https://github.com/user-attachments/assets/7c467d52-a430-4bb3-9493-a5ffa0d69dd4)

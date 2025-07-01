@@ -214,5 +214,7 @@
           };
         };
       packages = forAllSystems (commonArgs': (import ./pkgs commonArgs'));
+      # flake templates
+      templates = import ./templates;
     };
 }
