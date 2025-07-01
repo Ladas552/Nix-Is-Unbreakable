@@ -9,6 +9,17 @@
       open-nvim = ''$nvim $f'';
       open-hx = ''$hx $f'';
       q = ''quit'';
+      touch = # bash
+        ''
+          %{{
+          printf "Create file/directory: "
+          read -r target
+          if [ -n "$target" ]; then
+          ${lib.getExe' pkgs.bonk "bonk"} "$target"
+          lf -remote "send $ip reload"
+          fi
+          }}
+        '';
       # zoxide integration
       z = # bash
         ''
@@ -31,8 +42,8 @@
       # Ranger muscle memory
       Dd = "trash";
       DD = "delete";
-      "<f-7>" = ''push %mkdir<space>""<c-b>'';
-      "<f-1>" = ''push %touch<space>""<c-b>'';
+      "<f-7>" = ''touch'';
+      "<f-1>" = ''touch'';
       "<c-d>" = ''quit'';
       V = "unselect";
       "<esc>" = '':unselect;clear'';
