@@ -12,6 +12,7 @@
     ./direnv
     ./emacs
     ./fastfetch
+    ./foot
     ./flameshot
     ./gh
     ./ghostty
@@ -43,9 +44,9 @@
     ./yt-dlp
     ./zathura
   ];
-  manual.manpages.enable = false;
-  customhm = {
-    shell.enable = lib.mkDefault true;
-    git.enable = lib.mkDefault true;
-  };
+    manual.manpages.enable = false;
+    customhm = {
+      shell.enable = lib.mkDefault true;
+      git.enable = lib.mkDefault true;
+    };
 }

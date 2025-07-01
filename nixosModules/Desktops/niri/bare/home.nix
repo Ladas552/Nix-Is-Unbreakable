@@ -28,7 +28,7 @@
       }
 
       environment {
-        TERMINAL "ghostty"
+        TERMINAL "foot"
         DISPLAY ":0"
         __NV_PRIME_RENDER_OFFLOAD "1"
         __GLX_VENDOR_LIBRARY_NAME "nvidia"
@@ -283,15 +283,15 @@
 
         // Apps
 
-        Super+T { spawn "ghostty"; }
+        Super+T { spawn "foot"; }
         // Super+Ctrl+T { spawn "kitty"; }
         Super+Space { spawn "rofi" "-show"; }
         Super+L { spawn "swaylock"; }
         Super+E {spawn "emacs"; }
-        Super+N {spawn "ghostty" "-e" "nvim";}
-        Super+J {spawn "ghostty" "-e" "nvim" "-c" "'Neorg journal today'";}
-        Super+M {spawn "ghostty" "-e" "rmpc";}
-        Super+H {spawn "ghostty" "-e" "btop";}
+        Super+N {spawn "foot" "-e" "nvim";}
+        Super+J {spawn "foot" "-e" "nvim" "-c" "'Neorg journal today'";}
+        Super+M {spawn "foot" "-e" "rmpc";}
+        Super+H {spawn "foot" "-e" "btop";}
         // You can also use a shell:
         // Super+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
 

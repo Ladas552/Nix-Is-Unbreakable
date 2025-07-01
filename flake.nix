@@ -53,8 +53,13 @@
     helix-overlay.url = "github:helix-editor/helix";
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
+    # ghostty.url = "github:ghostty-org/ghostty";
     # ghostty-shaders = {
     #   url = "github:hackr-sh/ghostty-shaders";
+    #   flake = false;
+    # };
+    # ghostty-cursor = {
+    #   url = "github:KroneCorylus/shader-playground";
     #   flake = false;
     # };
 

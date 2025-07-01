@@ -33,8 +33,8 @@
         color5 = "#ff78c5"; # magenta
         color6 = "#8ae9fc"; # cyan
         color7 = "#bbbbbb"; # white
-        color8 = "#545454"; # br black
-        color9 = "#ff5454"; # br red
+        color8 =  "#545454"; # br black
+        color9 =  "#ff5454"; # br red
         color10 = "#50fa7b"; # br green
         color11 = "#f0fa8b"; # br yellow
         color12 = "#bd92f8"; # br blue

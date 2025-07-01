@@ -22,7 +22,8 @@
     direnv.enable = true;
     fastfetch.enable = true;
     gh.enable = true;
-    ghostty.enable = true;
+    # ghostty.enable = true;
+    foot.enable = true;
     helix.enable = true;
     imv.enable = true;
     lf.enable = true;

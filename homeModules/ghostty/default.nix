@@ -73,6 +73,7 @@
         gtk-single-instance = true;
         # Shaders
         # custom-shader = "${inputs.ghostty-shaders}/glitchy.glsl";
+        # custom-shader = "${inputs.ghostty-cursor}/shaders/debug_cursor_animated.glsl";
 
         # Shell
         command = "fish";

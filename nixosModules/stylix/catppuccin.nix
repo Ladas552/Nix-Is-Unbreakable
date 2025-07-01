@@ -28,6 +28,7 @@
           helix.enable = false;
           emacs.enable = false;
           ghostty.enable = false;
+          foot.enable = false;
           rofi.enable = false;
           tofi.enable = false;
         };
