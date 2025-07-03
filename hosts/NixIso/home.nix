@@ -45,7 +45,7 @@
     libqalculate
     lshw
     pamixer
-    pavucontrol
+    pwvucontrol
     qbittorrent
     telegram-desktop
     xarchiver

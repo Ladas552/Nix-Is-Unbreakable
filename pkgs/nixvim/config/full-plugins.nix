@@ -419,7 +419,7 @@ in
         settings = {
           bigfile.enabled = true;
           image = {
-            enabled = true;
+            enabled = false;
             doc.inline = false;
             doc.float = true;
             convert.notify = false;

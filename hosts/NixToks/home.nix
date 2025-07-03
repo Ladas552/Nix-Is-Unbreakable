@@ -66,7 +66,7 @@
     lshw
     nuspell
     pamixer
-    pavucontrol
+    pwvucontrol
     python3
     qbittorrent
     telegram-desktop

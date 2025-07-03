@@ -46,6 +46,16 @@ I start to have a life other than computers so I kinda begin to forget what I di
 
 ** Modulations
 
+** Terminal
+   options for terminals, like what they support for different programs to navigate easely.
+
+   For example,
+   @code nix
+   options.customhm.terminal.name = "kitty";
+   options.customhm.terminal.image = null or sixel or kitty;
+   @end
+   and so on. tho idk how can I pass the home-manager options to my nixos layer, and if I need to tbh
+
 *** Sessions
     - I want to make wm independent variables for applications. So that I can have For example, 2 configured Launcher applications, but I only want one. Then I just change the variable, and every other module that uses variable `isLauncher` also follows. Basically to have a dozen of WM configs, but if I one day want to switch rofi for dmenu, keybinds would stay the same.
 

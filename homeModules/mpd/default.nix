@@ -139,7 +139,7 @@
               status_update_interval_ms: 1000,
               select_current_song_on_change: true,
               album_art: (
-                  method: Kitty,
+                  method: ${if (config.customhm.ghostty.enable == true) then "Kitty" else "Sixel"},
               ),
               keybinds: (
                   global: {
