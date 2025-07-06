@@ -268,7 +268,8 @@
       }
       window-rule {
           match is-window-cast-target=true
-          focus-ring {
+          border {
+              on
               active-color "#BA4B5D"
               inactive-color "#BA4B5D"
           }
