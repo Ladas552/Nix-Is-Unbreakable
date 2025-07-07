@@ -124,7 +124,6 @@ in
       enable = true;
       telescopeIntegration.enable = config.plugins.telescope.enable;
       settings.load = {
-        # Don't seem to work on Nixvim
         # Extra modules
         "external.query" = {
           __empty = null;
