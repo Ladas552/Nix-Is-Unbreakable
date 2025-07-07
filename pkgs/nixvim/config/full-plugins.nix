@@ -36,6 +36,7 @@ in
         "neorg"
         "blink.cmp"
         "snacks.nvim"
+        "neorg-query"
       ];
     };
     extraPlugins = [

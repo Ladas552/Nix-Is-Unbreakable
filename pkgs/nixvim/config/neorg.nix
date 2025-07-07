@@ -42,26 +42,76 @@ let
 
   };
   # Neorg Plugins
+  src = pkgs.fetchFromGitHub {
+    owner = "benlubas";
+    repo = "neorg-query";
+    rev = "3b1e0cf87725a5d341cf55e22e1193f57a8f6ddd";
+    hash = "sha256-AWB2p9dizeVq5ieLJHU1eL0TjoNIEUwKazVNnFNwO9s=";
+  };
+  lib-neorg_query = pkgs.rustPlatform.buildRustPackage {
+    inherit src;
+    name = "neorg_query";
+
+    useFetchCargoVendor = true;
+    cargoHash = "sha256-m/QhtE6e2wmTRBQ8xrWfgsmvDaaR1s9z/BLoFgFz/Do=";
+
+    nativeBuildInputs = [ pkgs.gitMinimal ];
+
+  };
   neorg-query = pkgs.vimUtils.buildVimPlugin {
     name = "neorg-query";
-    src = pkgs.fetchFromGitHub {
-      owner = "benlubas";
-      repo = "neorg-query";
-      rev = "36729d83695226e0ddbbe6503583d36b0433c93a";
-      sha256 = "1dahz32qprj7xa3m0wz6bnkgzdb5mi9rly6m6ccw5d9z0qa6ghm5";
-    };
+    inherit src;
+    preInstall =
+      let
+        ext = pkgs.stdenv.hostPlatform.extensions.sharedLibrary;
+      in
+      ''
+        mkdir -p $out/lua/neorg_query
+        ln -s ${lib-neorg_query}/lib/libneorg_query${ext} $out/lua/
+      '';
+    nvimSkipModules = [
+      # skip checks
+      "neorg.modules.external.query.module"
+      "neorg_query.formatter"
+      "neorg_query.api"
+    ];
   };
   neorg-interim-ls = pkgs.vimUtils.buildVimPlugin {
     name = "neorg-interim-ls";
     src = pkgs.fetchFromGitHub {
       owner = "benlubas";
       repo = "neorg-interim-ls";
-      rev = "5aec3bb82a774dce797e5796d3be906aa3361650";
-      sha256 = "11ldv4cqaxlgamsvgay8b3dvrf15sb36fihnsli0f53nnv6l65cg";
+      rev = "348cd121d8b872248e9b0e48e3611c54dfad83f0";
+      sha256 = "1vszvmsy27n68ivi6bmk1hifi00dg33mc9iz66nv2gfmwcfwbsfz";
     };
+    nvimSkipModules = [
+      # skip checks
+      "neorg.modules.external.lsp-completion.module"
+      "neorg.modules.external.interim-ls.module"
+      "neorg.modules.external.refactor.module"
+    ];
+  };
+  neorg-conceal-wrap = pkgs.vimUtils.buildVimPlugin {
+    name = "neorg-conceal-wrap";
+    src = pkgs.fetchFromGitHub {
+      owner = "benlubas";
+      repo = "neorg-conceal-wrap";
+      rev = "e08b06042b175355496d3b5b033658021b90cd82";
+      sha256 = "1jy40wrmv7fdglglzcaasayh9hn8k99ccz35ssjgmmxnk76n5gnz";
+    };
+    nvimSkipModules = [
+      # skip checks
+      "neorg.modules.external.conceal-wrap.module"
+    ];
   };
 in
 {
+  extraPlugins = [
+    neorg-conceal-wrap
+    neorg-interim-ls
+    neorg-query
+  ];
+  performance.combinePlugins.pathsToLink = [ "/lib" ];
   plugins = {
     treesitter = {
       grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
@@ -76,19 +126,19 @@ in
       settings.load = {
         # Don't seem to work on Nixvim
         # Extra modules
-        # "external.query" = {
-        #   __empty = null;
-        #   index_on_launch = true;
-        #   update_on_change = true;
-        # };
-        # "external.interim-ls" = {
-        #   __empty = null;
-        #   config = {
-        #     completion_provider = {
-        #       categories = true;
-        #     };
-        #   };
-        # };
+        "external.query" = {
+          __empty = null;
+          index_on_launch = true;
+          update_on_change = true;
+        };
+        "external.interim-ls" = {
+          __empty = null;
+          config = {
+            completion_provider = {
+              categories = true;
+            };
+          };
+        };
         # Core
         "core.defaults" = {
           __empty = null;
@@ -106,13 +156,13 @@ in
             tangle_on_write = false;
           };
         };
-        # "core.completion" = {
-        #   config = {
-        #     engine = {
-        #       module_name = "external.lsp-completion";
-        #     };
-        #   };
-        # };
+        "core.completion" = {
+          config = {
+            engine = {
+              module_name = "external.lsp-completion";
+            };
+          };
+        };
         "core.keybinds" = lib.mkIf (lib.isString meta.norg) {
           config = {
             default_keybinds = true;
