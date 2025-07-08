@@ -14,6 +14,7 @@
         };
         insert = {
           "C-backspace" = "delete_word_backward";
+          "C-w" = "delete_word_backward";
         };
         normal = {
           # comment blocks instead of line comments

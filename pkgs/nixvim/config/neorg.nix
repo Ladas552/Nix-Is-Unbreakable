@@ -126,12 +126,12 @@ in
       settings.load = {
         # Extra modules
         "external.query" = {
-          __empty = null;
-          index_on_launch = true;
-          update_on_change = true;
+          config = {
+            index_on_launch = true;
+            update_on_change = true;
+          };
         };
         "external.interim-ls" = {
-          __empty = null;
           config = {
             completion_provider = {
               categories = true;
