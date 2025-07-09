@@ -9,6 +9,9 @@
 
   config = lib.mkIf meta.isTermux {
 
+    extraPackages = with pkgs; [
+      sqlite
+    ];
     extraPlugins = [
       pkgs.vimPlugins."gitsigns-nvim"
       pkgs.vimPlugins.img-clip-nvim
@@ -185,6 +188,7 @@
               buffer.score_offset = -7;
             };
             default = [
+              "lsp"
               "path"
               "snippets"
               "buffer"
