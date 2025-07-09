@@ -288,11 +288,11 @@
         // Super+Ctrl+T { spawn "kitty"; }
         Super+Space { spawn "rofi" "-show"; }
         Super+L { spawn "swaylock"; }
-        Super+E {spawn "emacs"; }
         Super+N {spawn "footclient" "-e" "nvim";}
         Super+J {spawn "footclient" "-e" "nvim" "-c" "Neorg journal today";}
         Super+M {spawn "footclient" "-e" "rmpc";}
         Super+H {spawn "footclient" "-e" "btop";}
+        Super+G {spawn "footclient" "-e" "qalc";}
         // You can also use a shell:
         // Super+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
 
