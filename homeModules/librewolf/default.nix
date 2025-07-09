@@ -12,7 +12,6 @@
     librewolf.enable = lib.mkEnableOption "enable librewolf";
   };
   config = lib.mkIf config.customhm.librewolf.enable {
-    stylix.targets.librewolf.profileNames = [ "${meta.user}" ];
     programs.librewolf = {
       enable = true;
       nativeMessagingHosts = [

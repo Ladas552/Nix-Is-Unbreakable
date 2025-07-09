@@ -36,6 +36,7 @@
     };
     home-manager.users."${meta.user}".stylix = {
       targets = {
+        librewolf.profileNames = [ "${meta.user}" ];
         bspwm.enable = false;
         # xfce.enable = config.custom.xfce.enable;
         vesktop.enable = true;

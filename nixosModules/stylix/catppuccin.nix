@@ -17,6 +17,7 @@
     home-manager.users."${meta.user}" = {
       stylix = {
         targets = {
+          librewolf.profileNames = [ "${meta.user}" ];
           bspwm.enable = false;
           kitty.enable = false;
           xfce.enable = config.custom.xfce.enable;
