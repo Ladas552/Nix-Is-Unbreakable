@@ -51,11 +51,11 @@
     openssh.enable = true;
     bluetooth.enable = true;
     zerotier.enable = true;
-    kde-connect.enable = true;
+    # kde-connect.enable = true;
     #host services
     fonts.enable = true;
-    games.enable = true;
-    otd.enable = true;
+    # games.enable = true;
+    # otd.enable = true;
     tlp.enable = true;
     distrobox.enable = true;
     stylix = {
@@ -64,7 +64,7 @@
       oksolar-light = false;
     };
     # nix-ld.enable = true;
-    printers.enable = true;
+    # printers.enable = true;
     # clamav.enable = true;
     plymouth.enable = true;
     grub.enable = true;

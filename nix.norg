@@ -29,6 +29,9 @@ I start to have a life other than computers so I kinda begin to forget what I di
    I use ZFS as a file system, it provides me with snapshots and compression via zstd. You can't install zfs in calimaries, so need to use nixos iso and configure drive with a {:./docs/zfs.norg:}[script], after that it is simple `nixos-install --flake "github:Ladas552/Nixos-Is-Unbreakable#Host` and setting up a root password at the end
 
    Zfs is controlled by a {./nixosModules/services/zfs.nix}[ZFS] module, that also houses my file system config, with a {:./docs/zfs.norg:}[script], they should all be the same, but would need adjustment, namely `/dev/sda` vs `/dev/nvme0n1p` stuff, but thous can be grabbed from Gparted that comes in NixIso
+
+*** To import zpool
+    `sudo zpool import -d /dev/nbd0 -R /mnt zroot`
 *** Passwords
     - root
       I still don't know how to setup passwords declarativly, so just setup root password right after installation in a terminal prompt.
