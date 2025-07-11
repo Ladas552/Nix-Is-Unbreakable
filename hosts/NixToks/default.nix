@@ -37,19 +37,19 @@
   #modules
   custom = {
     # X11
-    libinput.enable = true;
+    # libinput.enable = true;
     xkb.enable = true;
     # bspwm.enable = true;
-    #lightdm.enable = true;
+    # lightdm.enable = true;
     # xfce.enable = true;
     # Wayland
-    niri.enable = true;
+    # niri.enable = true;
     # hyprland.enable = true;
     # wayfire.enable = true;
     # labwc.enable = true;
     # Network
     openssh.enable = true;
-    bluetooth.enable = true;
+    # bluetooth.enable = true;
     zerotier.enable = true;
     # kde-connect.enable = true;
     #host services

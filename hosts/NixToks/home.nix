@@ -19,26 +19,26 @@
     # neovim.enable = true;
     nixvim.enable = true;
     # nvf.enable = true;
-    chromium.enable = true;
+    # chromium.enable = true;
     direnv.enable = true;
     # emacs.enable = true;
     fastfetch.enable = true;
     gh.enable = true;
     # ghostty.enable = true;
-    foot.enable = true;
+    # foot.enable = true;
     helix.enable = true;
-    imv.enable = true;
+    # imv.enable = true;
     lf.enable = true;
-    mangohud.enable = true;
+    # mangohud.enable = true;
     mpd.enable = true;
-    mpv.enable = true;
-    obs.enable = true;
-    vesktop.enable = true;
-    rofi.enable = true;
+    # mpv.enable = true;
+    # obs.enable = true;
+    # vesktop.enable = true;
+    # rofi.enable = true;
     syncthing.enable = true;
-    thunderbird.enable = true;
+    # thunderbird.enable = true;
     yt-dlp.enable = true;
-    zathura.enable = true;
+    # zathura.enable = true;
     shell.fish.enable = true;
   };
 
@@ -49,34 +49,32 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
   # Standalone Packages for user
   home.packages = with pkgs; [
-    libreoffice-fresh
+    # libreoffice-fresh
     # shotcut
     imagemagick
-    wl-clipboard
-    cowsay
+    # wl-clipboard
+    # cowsay
     ffmpeg
     gst_all_1.gst-libav
-    floorp
-    hello
-    hunspell
-    hunspellDicts.en-us-large
-    hunspellDicts.ru-ru
-    keepassxc
+    # floorp
+    # hello
+    # hunspell
+    # hunspellDicts.en-us-large
+    # hunspellDicts.ru-ru
+    # keepassxc
     libqalculate
     lshw
     nuspell
-    pamixer
-    pwvucontrol
+    # pamixer
+    # pwvucontrol
     python3
     qbittorrent
-    telegram-desktop
-    zotero
+    # telegram-desktop
+    # zotero
     #   texlive.combined.scheme-small
     #   texliveFull
     typst
-    xarchiver
-    # Broken on latest nixpkgs
-    # pymol
+    # xarchiver
   ];
 
   # nixpkgs.config.allowUnfree = true;
@@ -112,7 +110,7 @@
 
   # Environmental Variables
   home.sessionVariables = {
-    BROWSER = "floorp";
+    # BROWSER = "floorp";
     #   ELECTRON_LAUNCH_FLAGS = "--ozone-platform-hint=auto --ozone-platform=wayland --enable-webrtc-pipewire-capturer --enable-features=WaylandWindowDecorations";
     #XDG_BIN_HOME = "$HOME/.local/bin";
     #PATH = "$HOME/.local/bin";
