@@ -18,7 +18,7 @@
       // Check the wiki for a full description of the configuration:
       // https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
       output "eDP-1" {
-          scale ${if (meta.host == "NixPort") then "2" else "1"}
+          scale ${if (meta.host == "NixPort") then "1.5" else "1"}
       }
 
       output "HDMI-A-1" {
@@ -229,10 +229,14 @@
       window-rule {
         match app-id=".qemu-system-x86_64-wrapped"
         match app-id="vesktop"
+        match app-id="legcord"
         match app-id="steam_app_0"
         match app-id="darksoulsii.exe"
         match app-id="steam-"
         match title="DARK SOULS II"
+        match app-id="osu!"
+        match title="osu!"
+        variable-refresh-rate false
         open-fullscreen true
         default-column-width { proportion 1.000000; }
       }
@@ -243,17 +247,6 @@
 
         open-maximized true
         // default-column-width { proportion 1.00; }
-      }
-      window-rule {
-        // Only works  in non full screen
-        match app-id="osu!"
-        match title="osu!"
-        default-column-width { proportion 1.00; }
-        open-maximized true
-        focus-ring {
-          off
-        }
-        variable-refresh-rate false
       }
       // Example: block out two password managers from screen capture.
       // (This example rule is commented out with a "/-" in front.)

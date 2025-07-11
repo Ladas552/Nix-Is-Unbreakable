@@ -45,7 +45,7 @@
       # Enable custom pallet
       programs.ghostty.settings = {
         theme = "dracata";
-        font-size = if meta.host == "NixPort" then 11 else 13;
+        font-size = 13;
         font-family = "JetBrainsMono NFM SemiBold";
       };
       # dconf.settings = lib.mkForce {

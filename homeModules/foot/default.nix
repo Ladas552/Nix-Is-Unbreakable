@@ -17,10 +17,7 @@
       settings = {
         main.shell = "fish";
         main.font =
-          let
-            size = if meta.host == "NixPort" then "11" else "13";
-          in
-          "monospace:size=${size}";
+          "monospace:size=13";
         bell.system = "no";
         cursor = {
           blink = "yes";
@@ -30,7 +27,7 @@
         key-bindings = {
           scrollback-up-half-page = "Shift+Control+Up";
           scrollback-down-half-page = "Shift+Control+Down";
-          font-increase = "Shift+Control+plus";
+          font-increase = "Shift+Control+equal";
           font-decrease = "Shift+Control+minus";
           font-reset = "Shift+Control+BackSpace";
           quit = "Shift+Control+w";
