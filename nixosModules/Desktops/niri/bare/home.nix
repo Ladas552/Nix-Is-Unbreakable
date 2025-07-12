@@ -49,7 +49,7 @@
           natural-scroll
           // scroll-method "edge"
           middle-emulation
-          scroll-factor 0.2
+          scroll-factor 1
           // accel-speed 0.2
           // accel-profile "flat"
         }
@@ -242,7 +242,7 @@
       }
 
       window-rule {
-        match app-id="floorp"
+        match app-id="librewolf"
         match app-id="thunderbird"
 
         open-maximized true
@@ -291,7 +291,7 @@
 
         // GUI apps
         Super+F { spawn "thunar"; }
-        Super+W { spawn "floorp"; }
+        Super+W { spawn "librewolf"; }
 
         // MPD
 

@@ -1,5 +1,6 @@
 {
   description = "Phoenix flake";
+  # stolen from @c4710n https://elixirforum.com/t/flake-nix-phoenix-postgresql/52622/6
   # The whole flake is a mess
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";

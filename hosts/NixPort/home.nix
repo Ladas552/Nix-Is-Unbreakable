@@ -52,7 +52,7 @@
     wl-clipboard
     ffmpeg
     gst_all_1.gst-libav
-    floorp
+    librewolf
     hunspell
     hunspellDicts.en-us-large
     hunspellDicts.ru-ru
@@ -75,7 +75,7 @@
 
   # Environmental Variables
   home.sessionVariables = {
-    BROWSER = "floorp";
+    BROWSER = "librewolf";
   };
 
   # Let Home Manager install and manage itself.
