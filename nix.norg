@@ -25,6 +25,55 @@ I start to have a life other than computers so I kinda begin to forget what I di
 
 ** Repository
 
+** Nixos-hardware module
+   Searchable hardware nodules with `nix repl` and command:
+   @code nix
+   (builtins.getFlake ''/home/ladas552/Nix-Is-Unbreakable'').inputs.nixos-hardware.outputs.nixosModules
+   @end
+
+** Wayland + Electron apps
+   Enable these environmental variables if `NIXOS_OZONE_WL = "1";` doesn't work for you.
+   @code sh
+   ELECTRON_LAUNCH_FLAGS = "--ozone-platform-hint=auto --ozone-platform=wayland --enable-webrtc-pipewire-capturer --enable-features=WaylandWindowDecorations";
+   @end
+
+   And enable these for `fcitx5`
+   @code sh
+   ELECTRON_LAUNCH_FLAGS = "--enable-wayland-ime --wayland-text-input-version=3 --enable-features=WaylandLinuxDrmSyncobj";
+   @end
+
+** xdg.mimeApps
+   Better to declare them in both NixOS options and Home-Manager
+   Example is here
+   @code nix
+   xdg = {
+     enable = true;
+     mime.enable = true;
+     mimeApps = {
+       enable = true;
+       associations.added = {
+         "text/plain" = [ "neovim.desktop" ];
+         "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
+         "image/*" = [ "imv.desktop" ];
+         "video/*" = [ "mpv.desktop" ];
+       };
+       defaultApplications = {
+         "text/plain" = [ "" ];
+         "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
+         "image/*" = [ "imv.desktop" ];
+         "video/*" = [ "mpv.desktop" ];
+       };
+     };
+   };
+
+   @end
+
+** Sops and secrets
+   Defined in `nixosModules/secrets`, uses the ssh key from my host to decrypt secrets automatically.
+   Can be used as a file, like `${config.sops.secrets."secret"}` and as a string, with `"$(cat ${config.sops.secrets."secret".path})"`
+
+   Change secrets with `sops edit`, creating the keys as per documentation on `sops-nix` repository.
+
 ** ZFS
    I use ZFS as a file system, it provides me with snapshots and compression via zstd. You can't install zfs in calimaries, so need to use nixos iso and configure drive with a {:./docs/zfs.norg:}[script], after that it is simple `nixos-install --flake "github:Ladas552/Nixos-Is-Unbreakable#Host` and setting up a root password at the end
 
@@ -40,8 +89,7 @@ I start to have a life other than computers so I kinda begin to forget what I di
 
 * TODOs
 ** Notes
-   - -To write comments in shell scripts-
-   - To write comments to stuff like Sops-nix. I start to forget even how to set them up.
+   Explain Nix-on-droid shenanigans
 
 ** Programs
    - *Nix-on-droid*. Add files like `termux-edit-open` and `termux.properties` into the declarative ways. UPDATE: Can't do that with `home.file` need to wait for update apparently

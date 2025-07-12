@@ -11,8 +11,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./../../nixosModules
-    # Searchable hardware nodules with `nix repl` and command:
-    # (builtins.getFlake ''/home/ladas552/Nix-Is-Unbreakable'').inputs.nixos-hardware.outputs.nixosModules
     # enable trimming
     inputs.nixos-hardware.nixosModules.common-pc-laptop-ssd
     inputs.home-manager.nixosModules.default
@@ -36,39 +34,26 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   #modules
   custom = {
-    # X11
-    # libinput.enable = true;
     xkb.enable = true;
-    # bspwm.enable = true;
-    # lightdm.enable = true;
-    # xfce.enable = true;
-    # Wayland
-    # niri.enable = true;
-    # hyprland.enable = true;
-    # wayfire.enable = true;
-    # labwc.enable = true;
+    # nix-ld.enable = true;
     # Network
     openssh.enable = true;
-    # bluetooth.enable = true;
     zerotier.enable = true;
-    # kde-connect.enable = true;
-    #host services
+    # Host services
     fonts.enable = true;
-    # games.enable = true;
-    # otd.enable = true;
     tlp.enable = true;
+    # Virtualisation
     distrobox.enable = true;
+    qemu.enable = true;
+    # Eye candy
+    plymouth.enable = true;
     stylix = {
       enable = true;
       catppuccin = true;
       oksolar-light = false;
     };
-    # nix-ld.enable = true;
-    # printers.enable = true;
-    # clamav.enable = true;
-    plymouth.enable = true;
+    # Essential for boot
     grub.enable = true;
-    qemu.enable = true;
     zfs.enable = true;
   };
 
@@ -94,15 +79,6 @@
   # Networking
   # NixToks wifi card is dead
   networking.networkmanager.enable = false;
-
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # environment.systemPackages = with pkgs; [
-  # ];
 
   # Nvidia
   # Enable OpenGL and hardware accelerated graphics drivers
@@ -140,23 +116,15 @@
     GBM_BACKEND = "nvidia-drm";
   };
   # IF statement to enable vitalization for Nvidia in Docker. If Docker module is disabled it returns false, if enabled returns true
-  hardware.nvidia-container-toolkit.enable = config.custom.podman.enable;
-  # This is the same thing but made harder. It was the firstier attempt and above ifs fixed one
-  # hardware.nvidia-container-toolkit.enable = (lib.mkIf config.custom.docker.enable true);
+  hardware.nvidia-container-toolkit.enable = config.virtualisation.podman.enable;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${meta.user} = {
     isNormalUser = true;
     description = "Ladas552";
     extraGroups = [
-      # "networkmanager"
       "wheel"
     ];
-    # hashedPasswordFile = config.sops.secrets."mystuff/host_pwd".path;
-    #packages = with pkgs; [
-    # firefox
-    #  thunderbird
-    #];
   };
 
   # This value determines the NixOS release from which the default
