@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  meta,
   ...
 }:
 
@@ -13,8 +12,9 @@
   config = lib.mkIf config.custom.immich.enable {
     services.immich = {
       enable = true;
-      openFirewall = true;
-      mediaLocation = "/home/${meta.user}/Pictures";
+      openFirewall = false; # Only allow specific ports for specific networks
+      host = "0.0.0.0";
     };
+    networking.firewall.interfaces."zt+".allowedTCPPorts = [ 2283 ]; # Only allow ZeroTier
   };
 }

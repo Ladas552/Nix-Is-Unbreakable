@@ -7,10 +7,13 @@
 }:
 {
   # a custom option for defining greetD command and autolaunch it later
-  options.custom.greetd.command = lib.options.mkOption {
-    default = "${lib.meta.getExe' pkgs.fish "fish"}";
-    description = "The binary to use on greetD launch";
-    type = lib.types.str;
+  options.custom.greetd = {
+    enable = lib.mkEnableOption "enable greetd";
+    command = lib.options.mkOption {
+      default = "${lib.meta.getExe' pkgs.fish "fish"}";
+      description = "The binary to use on greetD launch";
+      type = lib.types.str;
+    };
   };
   # importing the Desktop environment modules
   imports = [
@@ -25,7 +28,7 @@
     ./xfce
   ];
 
-  config = lib.mkIf (!config.custom.lightdm.enable) {
+  config = lib.mkIf (!config.custom.lightdm.enable && config.custom.greetd.enable) {
     services.displayManager.autoLogin.enable = true;
     services.displayManager.autoLogin.user = "${meta.user}";
     services.greetd = {

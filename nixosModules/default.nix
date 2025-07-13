@@ -4,7 +4,7 @@
 
   imports = [
     ./Desktops
-    ./immich
+    ./Server
     ./bluetooth
     ./cache
     ./clamav
