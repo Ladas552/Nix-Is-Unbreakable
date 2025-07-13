@@ -34,6 +34,7 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   #modules
   custom = {
+    immich.enable = true;
     xkb.enable = true;
     # nix-ld.enable = true;
     # Network
