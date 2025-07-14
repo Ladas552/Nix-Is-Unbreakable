@@ -36,6 +36,7 @@
   custom = {
     immich.enable = true;
     xkb.enable = true;
+    greetd.enable = false;
     # nix-ld.enable = true;
     # Network
     openssh.enable = true;

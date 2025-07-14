@@ -44,5 +44,7 @@
     secrets.enable = lib.mkDefault true;
     openssh.enable = lib.mkDefault true;
     firewall.enable = lib.mkDefault true;
-  };
+    greetd.enable = lib.mkDefault true;
+
+};
 }
