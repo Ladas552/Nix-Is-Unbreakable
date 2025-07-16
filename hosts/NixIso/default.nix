@@ -26,7 +26,7 @@
       isTermux = false;
     };
   };
-    services.greetd.enable = false;
+  services.greetd.enable = false;
   nixpkgs.hostPlatform = "${meta.system}";
   services.openssh.settings.PermitRootLogin = lib.mkForce "yes";
   #modules

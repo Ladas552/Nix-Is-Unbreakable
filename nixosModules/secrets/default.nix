@@ -30,5 +30,11 @@
 
     sops.secrets."mystuff/zero_net_id".neededForUsers = true;
     sops.secrets."mystuff/zero_net_id" = { };
+
+    sops.secrets."mystuff/zero_net_nixtoks".neededForUsers = true;
+    sops.secrets."mystuff/zero_net_nixtoks" = { };
+
+    sops.secrets."mystuff/nextcloud".neededForUsers = true;
+    sops.secrets."mystuff/nextcloud" = { };
   };
 }

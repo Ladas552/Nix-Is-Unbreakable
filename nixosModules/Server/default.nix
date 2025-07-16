@@ -1,4 +1,7 @@
 { ... }:
 {
-  imports = [ ./immich ];
+  imports = [
+    ./immich
+    ./nextcloud
+  ];
 }

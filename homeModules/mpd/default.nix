@@ -320,7 +320,7 @@
       };
     };
     services.mpdris2 = {
-      enable = true;
+      # enable = true;
       multimediaKeys = true;
       notifications = true;
     };

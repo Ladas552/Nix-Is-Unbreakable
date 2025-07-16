@@ -34,7 +34,9 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   #modules
   custom = {
+    # Services
     immich.enable = true;
+    nextcloud.enable = true;
     xkb.enable = true;
     # nix-ld.enable = true;
     # Network
@@ -72,10 +74,10 @@
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
 
   # Linux sheduler, works post 6.12
-  services.scx = {
-    enable = true;
-    package = pkgs.scx.rustscheds;
-  };
+  # services.scx = {
+  #   enable = true;
+  #   package = pkgs.scx.rustscheds;
+  # };
 
   # Networking
   # NixToks wifi card is dead
