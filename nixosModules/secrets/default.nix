@@ -36,5 +36,8 @@
 
     sops.secrets."mystuff/nextcloud".neededForUsers = true;
     sops.secrets."mystuff/nextcloud" = { };
+
+    sops.secrets."mystuff/kavita".neededForUsers = true;
+    sops.secrets."mystuff/kavita" = { };
   };
 }

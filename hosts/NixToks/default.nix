@@ -37,6 +37,7 @@
     # Services
     immich.enable = true;
     nextcloud.enable = true;
+    kavita.enable = true;
     xkb.enable = true;
     greetd.enable = false;
     # nix-ld.enable = true;

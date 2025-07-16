@@ -3,5 +3,6 @@
   imports = [
     ./immich
     ./nextcloud
+    ./kavita
   ];
 }
