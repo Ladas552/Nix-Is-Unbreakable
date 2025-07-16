@@ -13,7 +13,7 @@
 
     services.kavita = {
       enable = true;
-      tokenKeyFile = config.sops.secrets"mystuff/kavita".path;
+      tokenKeyFile = config.sops.secrets."mystuff/kavita".path;
     };
     networking.firewall.interfaces."zt+".allowedTCPPorts = [ 5000 ]; # Only allow ZeroTier
   };
