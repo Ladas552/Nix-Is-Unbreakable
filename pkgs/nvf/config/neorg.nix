@@ -6,54 +6,12 @@
   meta,
   ...
 }:
-let
-  #Norg meta treesitter-parser
-
-  treesitter-norg-meta = pkgs.tree-sitter.buildGrammar {
-    language = "norg-meta";
-    version = "0.1.0";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "nvim-neorg";
-      repo = "tree-sitter-norg-meta";
-      rev = "refs/tags/v0.1.0";
-      hash = "sha256-8qSdwHlfnjFuQF4zNdLtU2/tzDRhDZbo9K54Xxgn5+8=";
-    };
-
-    fixupPhase = ''
-      mkdir -p $out/queries/norg-meta
-      mv $out/queries/*.scm $out/queries/norg-meta/
-    '';
-
-    meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg-meta";
-  };
-
-  norg = pkgs.tree-sitter.buildGrammar {
-    language = "norg";
-    version = "0.0.0+rev=d89d95a";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "nvim-neorg";
-      repo = "tree-sitter-norg";
-      rev = "d89d95af13d409f30a6c7676387bde311ec4a2c8";
-      hash = "sha256-z3h5qMuNKnpQgV62xZ02F5vWEq4VEnm5lxwEnIFu+Rw=";
-    };
-
-    meta.homepage = "https://github.com/nvim-neorg/tree-sitter-norg";
-
-  };
-in
 {
   vim = {
-    treesitter.grammars = [
-      norg
-      treesitter-norg-meta
-    ];
     notes.neorg = {
       enable = true;
       treesitter = {
         enable = true;
-        norgPackage = norg;
       };
       setupOpts.load = {
         # Core
