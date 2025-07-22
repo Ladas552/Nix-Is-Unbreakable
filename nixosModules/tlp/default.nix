@@ -14,6 +14,5 @@
     services.tlp.enable = true;
     services.power-profiles-daemon.enable = false;
     services.upower.enable = true;
-    powerManagement.powertop.enable = true;
   };
 }

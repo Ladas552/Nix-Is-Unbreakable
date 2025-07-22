@@ -149,6 +149,11 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
+  ## Powermanagment
+  ## It disabled usb after some time of incativity, so not usable on desktop
+
+  powerManagement.powertop.enable = true;
+
   ## Turn of screen and don't go to sleep
 
   services.logind = {
@@ -163,4 +168,5 @@
     device = "zmedia/files";
     fsType = "zfs";
   };
+
 }
