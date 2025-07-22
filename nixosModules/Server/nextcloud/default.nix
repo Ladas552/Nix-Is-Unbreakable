@@ -50,7 +50,7 @@
       configureRedis = true;
       maxUploadSize = "50G";
       hostName = "nextcloud.ladas552.me";
-      settings.trusted_domains = [ "10.144.32.1" ];
+      settings.trusted_domains = [ "${config.custom.homelab.ip}" ];
       config = {
         dbtype = "pgsql";
         dbuser = "nextcloud";

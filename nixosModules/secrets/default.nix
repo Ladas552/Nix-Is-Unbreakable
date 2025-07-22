@@ -39,5 +39,8 @@
 
     sops.secrets."mystuff/kavita".neededForUsers = true;
     sops.secrets."mystuff/kavita" = { };
+
+    sops.secrets."mystuff/homepage".neededForUsers = true;
+    sops.secrets."mystuff/homepage" = { };
   };
 }

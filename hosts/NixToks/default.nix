@@ -38,6 +38,10 @@
     immich.enable = true;
     nextcloud.enable = true;
     kavita.enable = true;
+    sonarr.enable = true;
+    radarr.enable = true;
+    deluge.enable = true;
+    homepage-dashboard.enable = true;
     xkb.enable = true;
     greetd.enable = false;
     # nix-ld.enable = true;
@@ -129,6 +133,11 @@
     description = "Ladas552";
     extraGroups = [
       "wheel"
+      "deluge"
+      "immich"
+      "kavita"
+      "radarr"
+      "sonarr"
     ];
   };
 
