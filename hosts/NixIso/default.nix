@@ -8,7 +8,7 @@
   ...
 }:
 # build the image with
-# nix run nixpkgs#nixos-generators -- --format iso --flake "github:Nix-Is-Unbreakable#NixIso" -o result
+# nix run nixpkgs#nixos-generators -- --format iso --flake "github:Ladas552/Nix-Is-Unbreakable#NixIso" -o result
 {
   imports = [
     # Include the results of the hardware scan.
