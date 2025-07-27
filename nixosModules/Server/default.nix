@@ -15,6 +15,7 @@
     ./sonarr
     ./radarr
     ./homepage-dashboard
+    ./ncps
   ];
 
 }
