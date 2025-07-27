@@ -40,6 +40,7 @@
             layout "us,kz"
             options "grp:caps_toggle"
           }
+          numlock
         }
         //Libinput method
         touchpad {

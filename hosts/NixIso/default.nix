@@ -14,7 +14,7 @@
     # Include the results of the hardware scan.
     ./../../nixosModules
     inputs.home-manager.nixosModules.default
-    "${modulesPath}/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix"
+    "${modulesPath}/installer/cd-dvd/installation-cd-graphical-calamares-gnome.nix"
   ];
   _module.args = {
     meta = {
