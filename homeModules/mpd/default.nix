@@ -12,7 +12,6 @@
 
   config = lib.mkIf config.customhm.mpd.enable {
     home.packages = with pkgs; [
-      rmpc
       mpc-cli
       custom.musnow
     ];
@@ -119,10 +118,11 @@
       };
     };
 
-    # settings for rmpc, no nix module tho
-    home.file.".config/rmpc/config.ron" = {
-      recursive = true;
-      text = # ron
+    # settings for rmpc, half Home-manager module, but poorly done
+    # Todo. add keybinds for skiping to next album with `[` & `]` when it's added to rmpc
+    programs.rmpc = {
+      enable = true;
+      config = # ron
         ''
           #![enable(implicit_some)]
           #![enable(unwrap_newtypes)]
