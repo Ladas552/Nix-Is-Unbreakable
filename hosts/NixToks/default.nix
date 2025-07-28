@@ -41,7 +41,7 @@
     sonarr.enable = true;
     radarr.enable = true;
     deluge.enable = true;
-    ncps.enable = true;
+    # ncps.enable = true;
     homepage-dashboard.enable = true;
     xkb.enable = true;
     greetd.enable = false;

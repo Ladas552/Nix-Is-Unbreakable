@@ -23,12 +23,13 @@
         "https://cache.nixos.org/"
         "https://nix-gaming.cachix.org"
         # https://github.com/kalbasit/ncps local proxy
-        "http://10.144.32.1:8501"
+        # only useful when I have LAN locally connected to my homelab, and not trou a VPN
+        # "http://10.144.32.1:8501"
       ];
       trusted-public-keys = [
         "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-        "10.144.32.1:zlWXi7hCZsoJ2idZXGbmy+k8p4cJK/W2a96DSMAj03s="
+        # "10.144.32.1:zlWXi7hCZsoJ2idZXGbmy+k8p4cJK/W2a96DSMAj03s="
       ];
       extra-substituters = [
         "https://cache.garnix.io"
