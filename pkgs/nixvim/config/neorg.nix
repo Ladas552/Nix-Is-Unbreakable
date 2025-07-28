@@ -52,7 +52,6 @@ let
     inherit src;
     name = "neorg_query";
 
-    useFetchCargoVendor = true;
     cargoHash = "sha256-m/QhtE6e2wmTRBQ8xrWfgsmvDaaR1s9z/BLoFgFz/Do=";
 
     nativeBuildInputs = [ pkgs.gitMinimal ];
