@@ -14,7 +14,6 @@
 
     services.sonarr = {
       enable = true;
-      user = meta.user;
       settings = {
         server = {
           urlbase = config.custom.homelab.ip;

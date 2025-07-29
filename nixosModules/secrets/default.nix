@@ -42,5 +42,16 @@
 
     sops.secrets."mystuff/homepage".neededForUsers = true;
     sops.secrets."mystuff/homepage" = { };
+
+    # sops.secrets."mystuff/deluge" = {
+    #   restartUnits = [
+    #     "deluged.service"
+    #     "delugeweb.service"
+    #   ];
+    #   owner = config.users.users.deluge.name;
+    #   group = config.users.users.deluge.group;
+    #   # neededForUsers = true;
+    #   mode = "0660";
+    # };
   };
 }
