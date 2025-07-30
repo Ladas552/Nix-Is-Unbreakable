@@ -9,14 +9,15 @@
   };
   imports = [
     ./deluge
-    ./immich
-    ./nextcloud
-    ./kavita
-    ./sonarr
-    ./radarr
     ./homepage-dashboard
-    ./ncps
+    ./immich
     ./jellyfin
+    ./kavita
+    ./miniflux
+    ./ncps
+    ./nextcloud
+    ./radarr
+    ./sonarr
   ];
 
 }

@@ -92,6 +92,12 @@
                 href = "http://${config.custom.homelab.ip}:8096";
               };
             }
+            {
+              "Miniflux" = {
+                description = "RSS feed";
+                href = "http://${config.custom.homelab.ip}:8067";
+              };
+            }
           ];
         }
 

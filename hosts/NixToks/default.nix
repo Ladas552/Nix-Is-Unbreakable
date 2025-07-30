@@ -42,6 +42,7 @@
     radarr.enable = true;
     deluge.enable = true;
     jellyfin.enable = true;
+    miniflux.enable = true;
     # ncps.enable = true;
     homepage-dashboard.enable = true;
     xkb.enable = true;

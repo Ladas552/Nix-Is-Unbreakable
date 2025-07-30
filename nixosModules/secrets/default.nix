@@ -53,5 +53,12 @@
     #   # neededForUsers = true;
     #   mode = "0660";
     # };
+
+    sops.secrets."mystuff/minifluxl" = { };
+    sops.secrets."mystuff/minifluxp" = { };
+    sops.templates."miniflux-admin-credentials".content = ''
+      ADMIN_USERNAME="${config.sops.placeholder."mystuff/minifluxl"}"
+      ADMIN_PASSWORD="${config.sops.placeholder."mystuff/minifluxp"}"
+    '';
   };
 }
