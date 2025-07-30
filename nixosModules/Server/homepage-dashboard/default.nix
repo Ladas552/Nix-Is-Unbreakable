@@ -86,6 +86,12 @@
                 href = "http://${config.custom.homelab.ip}:7878";
               };
             }
+            {
+              "Jellyfin" = {
+                description = "Watch";
+                href = "http://${config.custom.homelab.ip}:8096";
+              };
+            }
           ];
         }
 

@@ -41,6 +41,7 @@
     sonarr.enable = true;
     radarr.enable = true;
     deluge.enable = true;
+    jellyfin.enable = true;
     # ncps.enable = true;
     homepage-dashboard.enable = true;
     xkb.enable = true;

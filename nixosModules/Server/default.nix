@@ -16,6 +16,7 @@
     ./radarr
     ./homepage-dashboard
     ./ncps
+    ./jellyfin
   ];
 
 }
