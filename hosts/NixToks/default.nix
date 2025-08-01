@@ -35,16 +35,16 @@
   #modules
   custom = {
     # Services
-    immich.enable = true;
-    nextcloud.enable = true;
-    kavita.enable = true;
-    sonarr.enable = true;
-    radarr.enable = true;
     deluge.enable = true;
-    jellyfin.enable = true;
-    miniflux.enable = true;
-    # ncps.enable = true;
     homepage-dashboard.enable = true;
+    immich.enable = true;
+    jellyfin.enable = true;
+    kavita.enable = true;
+    miniflux.enable = true;
+    nextcloud.enable = true;
+    radarr.enable = true;
+    sonarr.enable = true;
+    # ncps.enable = true;
     xkb.enable = true;
     greetd.enable = false;
     # nix-ld.enable = true;
@@ -55,8 +55,9 @@
     fonts.enable = true;
     tlp.enable = true;
     # Virtualisation
-    distrobox.enable = true;
-    qemu.enable = true;
+    # incus.enable = true;
+    # distrobox.enable = true;
+    # qemu.enable = true;
     # Eye candy
     plymouth.enable = true;
     stylix = {

@@ -5,6 +5,7 @@
   imports = [
     ./Desktops
     ./Server
+    ./Virtualisation
     ./bluetooth
     ./cache
     ./clamav
@@ -29,7 +30,6 @@
     ./stylix
     ./thunar
     ./tlp
-    ./virtualisation
     ./xkb
     ./zerotier
     ./zfs
