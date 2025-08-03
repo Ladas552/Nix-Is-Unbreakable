@@ -46,6 +46,7 @@
         ];
         right = [
           "diagnostics"
+          "current-working-directory"
           "register"
           "position"
           "total-line-numbers"
@@ -68,6 +69,10 @@
       continue-comments = false;
       trim-trailing-whitespace = true;
       trim-final-newlines = true;
+    }
+    // lib.optionalAttrs (!meta.isTermux) {
+      rainbow-brackets = true;
+      word-completion.trigger-length = 4;
     };
   };
 }

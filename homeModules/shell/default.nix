@@ -82,10 +82,11 @@
       # directories
       mc = "lf";
       mcv = "lf ${config.xdg.userDirs.videos}";
-      mcva = "lf ${config.xdg.userDirs.videos}/Anime/";
       mcm = "lf ${config.xdg.userDirs.music}";
       mcc = "lf ~/.config/";
       mcp = "lf ${config.xdg.userDirs.pictures}";
+    }
+    // lib.optionalAttrs config.customhm.yt-dlp.enable {
       # yt-dlp scripts
       dl-video = "yt-dlp --embed-thumbnail -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 --output '%(title)s.%(ext)s'";
       dl-clips = "yt-dlp --embed-thumbnail -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4 --ignore-errors --output '${config.xdg.userDirs.videos}/clips/%(playlist)s/%(playlist_index)s-%(title)s.%(ext)s' --yes-playlist";

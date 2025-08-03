@@ -107,6 +107,11 @@ I start to have a life other than computers so I kinda begin to forget what I di
    @end
    and so on. tho idk how can I pass the home-manager options to my nixos layer, and if I need to tbh
 
+*** update 2025-08-04
+    So, I am switching from foot to ghostty, and really need to get this working sometime. Most of the time, I don't have 2 terminals configured at the same time, so I can just make them options.
+
+    Also I can make work of `optionalString` To add config based exception for niri. Because `journal` keybind doesn't like `''` in foot, but doesn't work with `""` in ghostty
+
 *** Sessions
     - I want to make wm independent variables for applications. So that I can have For example, 2 configured Launcher applications, but I only want one. Then I just change the variable, and every other module that uses variable `isLauncher` also follows. Basically to have a dozen of WM configs, but if I one day want to switch rofi for dmenu, keybinds would stay the same.
 
