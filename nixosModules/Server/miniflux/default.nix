@@ -10,7 +10,15 @@
   };
 
   config = lib.mkIf config.custom.miniflux.enable {
+    # secrets
+    sops.secrets."mystuff/minifluxl" = { };
+    sops.secrets."mystuff/minifluxp" = { };
+    sops.templates."miniflux-admin-credentials".content = ''
+      ADMIN_USERNAME="${config.sops.placeholder."mystuff/minifluxl"}"
+      ADMIN_PASSWORD="${config.sops.placeholder."mystuff/minifluxp"}"
+    '';
 
+    # module
     services.miniflux = {
       enable = true;
       adminCredentialsFile = "${config.sops.templates."miniflux-admin-credentials".path}";

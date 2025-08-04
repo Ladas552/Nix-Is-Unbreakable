@@ -11,6 +11,10 @@
   };
 
   config = lib.mkIf config.custom.nextcloud.enable {
+    # secrets
+    sops.secrets."mystuff/nextcloud".neededForUsers = true;
+    sops.secrets."mystuff/nextcloud" = { };
+
     networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = [ 8080 ]; # Only allow ZeroTier
 
     # Proxy

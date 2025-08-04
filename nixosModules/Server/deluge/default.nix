@@ -11,7 +11,20 @@
   };
 
   config = lib.mkIf config.custom.deluge.enable {
+    # secrets if declrativly configured
+    # doesn't work btw, because deluge writes the file wrongly
+    # sops.secrets."mystuff/deluge" = {
+    #   restartUnits = [
+    #     "deluged.service"
+    #     "delugeweb.service"
+    #   ];
+    #   owner = config.users.users.deluge.name;
+    #   group = config.users.users.deluge.group;
+    #   # neededForUsers = true;
+    #   mode = "0660";
+    # };
 
+    # module
     services.deluge = {
       enable = true;
       web.enable = true;

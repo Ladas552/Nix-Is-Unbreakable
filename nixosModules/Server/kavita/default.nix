@@ -10,7 +10,10 @@
   };
 
   config = lib.mkIf config.custom.kavita.enable {
-
+    # secrets
+    sops.secrets."mystuff/kavita".neededForUsers = true;
+    sops.secrets."mystuff/kavita" = { };
+    # module
     services.kavita = {
       enable = true;
       tokenKeyFile = config.sops.secrets."mystuff/kavita".path;

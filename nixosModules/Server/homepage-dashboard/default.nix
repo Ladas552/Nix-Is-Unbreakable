@@ -11,7 +11,11 @@
   };
 
   config = lib.mkIf config.custom.homepage-dashboard.enable {
+    # secret
+    sops.secrets."mystuff/homepage".neededForUsers = true;
+    sops.secrets."mystuff/homepage" = { };
 
+    # modules
     services.homepage-dashboard = {
       enable = true;
       environmentFile = config.sops.secrets."mystuff/homepage".path;
