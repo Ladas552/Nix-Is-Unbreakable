@@ -14,7 +14,7 @@
     services.jellyfin = {
       enable = true;
     };
-    networking.firewall.interfaces."zt+".allowedTCPPorts = [
+    networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = [
       8096
       8920
     ]; # Only allow ZeroTier

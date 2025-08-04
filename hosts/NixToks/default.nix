@@ -56,8 +56,8 @@
     tlp.enable = true;
     # Virtualisation
     # incus.enable = true;
-    # distrobox.enable = true;
-    # qemu.enable = true;
+    distrobox.enable = true;
+    qemu.enable = true;
     # Eye candy
     plymouth.enable = true;
     stylix = {

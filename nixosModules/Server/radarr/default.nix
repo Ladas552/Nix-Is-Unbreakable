@@ -22,6 +22,6 @@
         };
       };
     };
-    networking.firewall.interfaces."zt+".allowedTCPPorts = [ 7878 ]; # Only allow ZeroTier
+    networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = [ 7878 ]; # Only allow ZeroTier
   };
 }

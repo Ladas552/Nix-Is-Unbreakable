@@ -20,6 +20,6 @@
         caches = [ "https://cache.nixos.org" ];
       };
     };
-    networking.firewall.interfaces."zt+".allowedTCPPorts = [ 8501 ]; # Only allow ZeroTier
+    networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = [ 8501 ]; # Only allow ZeroTier
   };
 }

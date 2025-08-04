@@ -17,6 +17,6 @@
       host = "10.144.32.1";
       machine-learning.enable = false; # Doesn't seem to work on my nvidia 860m
     };
-    networking.firewall.interfaces."zt+".allowedTCPPorts = [ 2283 ]; # Only allow ZeroTier
+    networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = [ 2283 ]; # Only allow ZeroTier
   };
 }

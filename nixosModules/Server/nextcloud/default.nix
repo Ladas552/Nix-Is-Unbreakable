@@ -11,7 +11,7 @@
   };
 
   config = lib.mkIf config.custom.nextcloud.enable {
-    networking.firewall.interfaces."zt+".allowedTCPPorts = [ 8080 ]; # Only allow ZeroTier
+    networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = [ 8080 ]; # Only allow ZeroTier
 
     # Proxy
     services.nginx = {

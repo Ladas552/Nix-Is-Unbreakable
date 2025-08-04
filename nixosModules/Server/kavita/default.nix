@@ -15,6 +15,6 @@
       enable = true;
       tokenKeyFile = config.sops.secrets."mystuff/kavita".path;
     };
-    networking.firewall.interfaces."zt+".allowedTCPPorts = [ 5000 ]; # Only allow ZeroTier
+    networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = [ 5000 ]; # Only allow ZeroTier
   };
 }
