@@ -14,7 +14,7 @@
     services.immich = {
       enable = true;
       openFirewall = false; # Only allow specific ports for specific networks
-      host = "10.144.32.1";
+      host = "${config.custom.homelab.ip}";
       machine-learning.enable = false; # Doesn't seem to work on my nvidia 860m
     };
     networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = lib.mkIf config.custom.zerotier.enable [
