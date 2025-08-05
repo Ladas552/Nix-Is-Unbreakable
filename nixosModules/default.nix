@@ -14,7 +14,6 @@
     ./games
     ./general
     ./grub
-    ./systemd-boot
     ./kde-connect
     ./libinput
     ./lightdm
@@ -28,6 +27,8 @@
     ./printers
     ./secrets
     ./stylix
+    ./systemd-boot
+    ./tailscale
     ./thunar
     ./tlp
     ./xkb
@@ -36,15 +37,16 @@
   ];
   custom = {
     cache.enable = lib.mkDefault true;
-    general.enable = lib.mkDefault true;
-    nix.enable = lib.mkDefault true;
-    nix-helper.enable = lib.mkDefault true;
+    firewall.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
+    general.enable = lib.mkDefault true;
+    greetd.enable = lib.mkDefault true;
+    nix-helper.enable = lib.mkDefault true;
+    nix.enable = lib.mkDefault true;
+    openssh.enable = lib.mkDefault true;
     pipewire.enable = lib.mkDefault true;
     secrets.enable = lib.mkDefault true;
-    openssh.enable = lib.mkDefault true;
-    firewall.enable = lib.mkDefault true;
-    greetd.enable = lib.mkDefault true;
+    tailscale.enable = lib.mkDefault true;
 
 };
 }
