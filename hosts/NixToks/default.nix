@@ -50,7 +50,8 @@
     # nix-ld.enable = true;
     # Network
     openssh.enable = true;
-    zerotier.enable = true;
+    # zerotier.enable = true;
+    tailscale.enable = true;
     # Host services
     fonts.enable = true;
     tlp.enable = true;

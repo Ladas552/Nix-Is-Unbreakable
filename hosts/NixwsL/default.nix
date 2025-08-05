@@ -32,7 +32,8 @@
   custom = {
     pipewire.enable = false;
     fonts.enable = true;
-    zerotier.enable = true;
+    # zerotier.enable = true;
+    tailscale.enable = true;
     stylix = {
       enable = false;
       catppuccin = false;

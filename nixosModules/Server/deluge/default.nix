@@ -42,6 +42,11 @@
       #        torrentfiles_location = "${config.services.deluge.dataDir}/torrent-files";
       #      };
     };
-    networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = [ 8112 ]; # Only allow ZeroTier
+    networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = lib.mkIf config.custom.zerotier.enable [
+      8112
+    ]; # Only allow ZeroTier
+    networking.firewall.interfaces.tailscale0.allowedTCPPorts =
+      lib.mkIf config.custom.tailscale.enable
+        [ 8112 ]; # Only allow Tailscale
   };
 }

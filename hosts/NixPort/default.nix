@@ -50,7 +50,8 @@
     # grub.enable = true;
     systemd-boot.enable = true;
     xkb.enable = true;
-    zerotier.enable = true;
+    # zerotier.enable = true;
+    tailscale.enable = true;
     zfs.enable = true;
   };
 

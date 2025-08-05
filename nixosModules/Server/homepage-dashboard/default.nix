@@ -109,6 +109,11 @@
       bookmarks = [ ];
 
     };
-    networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = [ 8082 ]; # Only allow ZeroTier
+    networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = lib.mkIf config.custom.zerotier.enable [
+      8082
+    ]; # Only allow ZeroTier
+    networking.firewall.interfaces.tailscale0.allowedTCPPorts =
+      lib.mkIf config.custom.tailscale.enable
+        [ 8082 ]; # Only allow Tailscale
   };
 }

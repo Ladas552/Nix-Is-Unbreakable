@@ -46,7 +46,5 @@
     openssh.enable = lib.mkDefault true;
     pipewire.enable = lib.mkDefault true;
     secrets.enable = lib.mkDefault true;
-    tailscale.enable = lib.mkDefault true;
-
-};
+  };
 }

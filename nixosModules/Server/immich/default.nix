@@ -17,6 +17,11 @@
       host = "10.144.32.1";
       machine-learning.enable = false; # Doesn't seem to work on my nvidia 860m
     };
-    networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = [ 2283 ]; # Only allow ZeroTier
+    networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = lib.mkIf config.custom.zerotier.enable [
+      2283
+    ]; # Only allow ZeroTier
+    networking.firewall.interfaces.tailscale0.allowedTCPPorts =
+      lib.mkIf config.custom.tailscale.enable
+        [ 2283 ]; # Only allow Tailscale
   };
 }
