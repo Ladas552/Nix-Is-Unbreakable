@@ -13,7 +13,9 @@
 
     services.jellyfin = {
       enable = true;
+      group = "media";
     };
+    users.users."jellyfin".extraGroups = [ "media" ];
     networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = lib.mkIf config.custom.zerotier.enable [
       8096
       8920

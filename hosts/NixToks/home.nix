@@ -39,6 +39,8 @@
     python3
     qbittorrent
     typst
+    custom.Subtitlenator
+
   ];
 
   # Environment and Dependencies

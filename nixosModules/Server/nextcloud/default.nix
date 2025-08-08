@@ -53,6 +53,8 @@
       after = [ "postgresql.service" ];
     };
 
+    users.users."nextcloud".extraGroups = [ "media" ];
+
     services.nextcloud = {
       enable = true;
       package = pkgs.nextcloud31;

@@ -73,9 +73,9 @@
               };
             }
             {
-              "Deluge" = {
+              "Qbittorrent" = {
                 description = "Torrents";
-                href = "http://${config.custom.homelab.ip}:8112";
+                href = "http://${config.custom.homelab.ip}:8081";
               };
             }
             {

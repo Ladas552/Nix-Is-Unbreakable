@@ -35,7 +35,7 @@
   #modules
   custom = {
     # Services
-    deluge.enable = true;
+    qbittorrent.enable = true;
     homepage-dashboard.enable = true;
     immich.enable = true;
     jellyfin.enable = true;
@@ -138,11 +138,7 @@
     description = "Ladas552";
     extraGroups = [
       "wheel"
-      "deluge"
-      "immich"
-      "kavita"
-      "radarr"
-      "sonarr"
+      "media"
     ];
   };
 
@@ -171,6 +167,11 @@
   ##### Because I have additional drive for NixToks
   fileSystems."/mnt/zmedia" = {
     device = "zmedia/files";
+    fsType = "zfs";
+  };
+  # media files for torrents and stuff on main drive
+  fileSystems."/srv/media" = {
+    device = "zroot/media";
     fsType = "zfs";
   };
 

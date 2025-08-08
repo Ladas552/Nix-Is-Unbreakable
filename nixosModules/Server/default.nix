@@ -8,7 +8,6 @@
     };
   };
   imports = [
-    ./deluge
     ./homepage-dashboard
     ./immich
     ./jellyfin
@@ -16,8 +15,11 @@
     ./miniflux
     ./ncps
     ./nextcloud
+    ./qbittorrent
     ./radarr
     ./sonarr
   ];
-
+  config = {
+    users.groups."media" = { };
+  };
 }

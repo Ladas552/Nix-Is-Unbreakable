@@ -24,5 +24,6 @@
     networking.firewall.interfaces.tailscale0.allowedTCPPorts =
       lib.mkIf config.custom.tailscale.enable
         [ 5000 ]; # Only allow Tailscale
+    users.users."kavita".extraGroups = [ "media" ];
   };
 }
