@@ -73,7 +73,7 @@ flowchart TD
     R -->|overlaying nixpkgs and applying patches| S[patches]
     T -->|scripts and neovim configs| U[derivations]
     V -->|try to decrypt it| W{secrets.yaml}
-    Z -->|flake templates for projects| {flakes}
+    Z -->|flake templates for projects| ZZ{flakes}
 ```
 
 ## Name
