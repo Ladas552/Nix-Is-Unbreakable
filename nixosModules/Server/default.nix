@@ -21,17 +21,4 @@
     ./radarr
     ./sonarr
   ];
-  config = {
-    users.groups."media" = { };
-
-    services.caddy = {
-      enable = true;
-    };
-
-    # Open firewall ports
-    networking.firewall.allowedTCPPorts = [
-      80
-      443
-    ];
-  };
 }

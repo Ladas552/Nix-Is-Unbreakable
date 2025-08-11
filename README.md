@@ -53,6 +53,7 @@ flowchart TD
     flake --> R[overlays]
     flake --> T[pkgs]
     flake --> V[secrets]
+    flake --> Z[templates]
 
     A -->|norg files with information| B[storage]
     C -->|directories containing config files| D[pkgs]
@@ -66,10 +67,13 @@ flowchart TD
     G -->|wsl for windows| M[NixWSL]
     N -->|importing all NixOS modules| O[default.nix]
     N -->|graphical sessions and WMs| P[Desktops]
+    N -->|homelab specific modules| X[Server]
+    N -->|virtual containers| Y[Virtualisation]
     N -->|all other modules| Q[other modules]
     R -->|overlaying nixpkgs and applying patches| S[patches]
     T -->|scripts and neovim configs| U[derivations]
     V -->|try to decrypt it| W{secrets.yaml}
+    Z -->|flake templates for projects| U{flakes}
 ```
 
 ## Name

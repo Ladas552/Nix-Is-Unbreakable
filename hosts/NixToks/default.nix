@@ -163,6 +163,19 @@
     lidSwitch = "ignore";
   };
 
+  ## Stuff to make server operatable
+  users.groups."media" = { };
+
+  services.caddy = {
+    enable = true;
+  };
+
+  # Open firewall ports
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
+
   ##### ZFS MOUNT POINTS
   ##### Because I have additional drive for NixToks
   fileSystems."/mnt/zmedia" = {
