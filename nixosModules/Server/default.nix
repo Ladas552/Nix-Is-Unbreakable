@@ -1,10 +1,12 @@
 { lib, config, ... }:
 {
-  options.custom = {
-    homelab.ip = lib.options.mkOption {
-      description = "ip of my current homelab";
-      default = "127.0.0.1"; # local host
+  options.custom.homelab = {
+    baseDomain = lib.mkOption {
+      default = "nixtoks.taila7a93b.ts.net";
       type = lib.types.str;
+      description = ''
+        Base domain name to be used to access the homelab services via Caddy reverse proxy
+      '';
     };
   };
   imports = [
@@ -21,5 +23,15 @@
   ];
   config = {
     users.groups."media" = { };
+
+    services.caddy = {
+      enable = true;
+    };
+
+    # Open firewall ports
+    networking.firewall.allowedTCPPorts = [
+      80
+      443
+    ];
   };
 }

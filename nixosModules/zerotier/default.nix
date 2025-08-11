@@ -6,8 +6,6 @@
   };
 
   config = lib.mkIf config.custom.zerotier.enable {
-    # homelab ip with zertier, conflicts with tailscale
-    custom.homelab.ip = "10.144.32.1";
     # secrets
     sops.secrets."mystuff/zero_net_id".neededForUsers = true;
     sops.secrets."mystuff/zero_net_id" = { };

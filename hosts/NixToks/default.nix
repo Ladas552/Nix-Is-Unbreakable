@@ -35,15 +35,15 @@
   #modules
   custom = {
     # Services
-    qbittorrent.enable = true;
+    # qbittorrent.enable = true;
     homepage-dashboard.enable = true;
     immich.enable = true;
-    jellyfin.enable = true;
-    kavita.enable = true;
-    miniflux.enable = true;
-    nextcloud.enable = true;
-    radarr.enable = true;
-    sonarr.enable = true;
+    # jellyfin.enable = true;
+    # kavita.enable = true;
+    # miniflux.enable = true;
+    # nextcloud.enable = true;
+    # radarr.enable = true;
+    # sonarr.enable = true;
     # ncps.enable = true;
     xkb.enable = true;
     greetd.enable = false;
