@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
@@ -12,7 +11,7 @@
 
   config = lib.mkIf config.custom.nix-helper.enable {
 
-    # nix helper not available in HomeM right now
+    # got direct support from developers, appose to HM version
     programs.nh = {
       enable = true;
       clean.enable = true;
