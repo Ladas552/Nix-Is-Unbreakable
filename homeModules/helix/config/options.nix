@@ -46,7 +46,9 @@
         ];
         right = [
           "diagnostics"
-          "current-working-directory"
+        ]
+        ++ lib.optionals (!meta.isTermux) [ "current-working-directory" ]
+        ++ [
           "register"
           "position"
           "total-line-numbers"
