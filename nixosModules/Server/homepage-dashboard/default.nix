@@ -60,51 +60,51 @@
             {
               "Immich" = {
                 description = "Photos";
-                href = "https://immich.${config.custom.homelab.baseDomain}";
+                href = "http://${config.services.immich.host}:2283";
               };
             }
-            # {
-            #   "NextCloud" = {
-            #     description = "Drive";
-            #     href = "http://${config.custom.homelab.ip}:8080";
-            #   };
-            # }
-            # {
-            #   "Kavita" = {
-            #     description = "Books";
-            #     href = "http://${config.custom.homelab.ip}:5000";
-            #   };
-            # }
-            # {
-            #   "Qbittorrent" = {
-            #     description = "Torrents";
-            #     href = "http://${config.custom.homelab.ip}:8081";
-            #   };
-            # }
-            # {
-            #   "Sonarr" = {
-            #     description = "TV Shows";
-            #     href = "http://${config.custom.homelab.ip}:8989";
-            #   };
-            # }
-            # {
-            #   "Radarr" = {
-            #     description = "Movies";
-            #     href = "http://${config.custom.homelab.ip}:7878";
-            #   };
-            # }
-            # {
-            #   "Jellyfin" = {
-            #     description = "Watch";
-            #     href = "http://${config.custom.homelab.ip}:8096";
-            #   };
-            # }
-            # {
-            #   "Miniflux" = {
-            #     description = "RSS feed";
-            #     href = "http://${config.custom.homelab.ip}:8067";
-            #   };
-            # }
+            {
+              "NextCloud" = {
+                description = "Drive";
+                href = "http://${config.custom.homelab.ip}:8080";
+              };
+            }
+            {
+              "Kavita" = {
+                description = "Books";
+                href = "http://${config.custom.homelab.ip}:5000";
+              };
+            }
+            {
+              "Qbittorrent" = {
+                description = "Torrents";
+                href = "http://${config.custom.homelab.ip}:8081";
+              };
+            }
+            {
+              "Sonarr" = {
+                description = "TV Shows";
+                href = "http://${config.custom.homelab.ip}:8989";
+              };
+            }
+            {
+              "Radarr" = {
+                description = "Movies";
+                href = "http://${config.custom.homelab.ip}:7878";
+              };
+            }
+            {
+              "Jellyfin" = {
+                description = "Watch";
+                href = "http://${config.custom.homelab.ip}:8096";
+              };
+            }
+            {
+              "Miniflux" = {
+                description = "RSS feed";
+                href = "http://${config.custom.homelab.ip}:8067";
+              };
+            }
           ];
         }
 
