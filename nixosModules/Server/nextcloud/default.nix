@@ -15,16 +15,29 @@
     sops.secrets."mystuff/nextcloud".neededForUsers = true;
     sops.secrets."mystuff/nextcloud" = { };
 
-    # caddy
-    services.caddy.virtualHosts."${config.services.nextcloud.hostName}:8080".listenAddresses = [
-      "0.0.0.0"
-    ];
     networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = lib.mkIf config.custom.zerotier.enable [
       8080
     ]; # Only allow ZeroTier
     networking.firewall.interfaces.tailscale0.allowedTCPPorts =
       lib.mkIf config.custom.tailscale.enable
         [ 8080 ]; # Only allow Tailscale
+
+    # Proxy
+    # Nextcloud got hard dependency on nginx, i tried to remove it before, it worked, but didn't remove nginx outright
+    # https://github.com/Ladas552/Nix-Is-Unbreakable/commit/2795a648c92b986df438787737add83f7961bfa6
+    services.nginx = {
+      enable = true;
+      virtualHosts = {
+        "${config.services.nextcloud.hostName}" = {
+          listen = [
+            {
+              addr = "0.0.0.0";
+              port = 8080;
+            }
+          ];
+        };
+      };
+    };
 
     services.postgresql = {
       enable = true;
