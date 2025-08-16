@@ -105,6 +105,12 @@
                 href = "http://${config.custom.homelab.ip}:8067";
               };
             }
+            {
+              "Karakeep" = {
+                description = "Bookmark manager";
+                href = "http://${config.custom.homelab.ip}:9222";
+              };
+            }
           ];
         }
 

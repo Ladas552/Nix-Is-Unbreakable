@@ -18,6 +18,7 @@
     ./homepage-dashboard
     ./immich
     ./jellyfin
+    ./karakeep
     ./kavita
     ./miniflux
     ./ncps

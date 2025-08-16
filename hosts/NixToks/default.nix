@@ -44,6 +44,7 @@
     nextcloud.enable = true;
     radarr.enable = true;
     sonarr.enable = true;
+    karakeep.enable = true;
     # ncps.enable = true;
     xkb.enable = true;
     greetd.enable = false;
