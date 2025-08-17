@@ -41,7 +41,7 @@
     # };
 
     # Niri
-    # niri.url = "github:sodiboo/niri-flake";
+    niri.url = "github:sodiboo/niri-flake";
 
     # Secrets
     sops-nix = {

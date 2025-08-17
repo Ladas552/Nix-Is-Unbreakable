@@ -10,7 +10,6 @@
 {
   # Niri using flake
   # uncomment the niri inputs in flake.nix to use this
-  # TODO: Pipewire capture doens't work
   options.custom = {
     niri.enable = lib.mkEnableOption "enable niri";
   };
@@ -34,6 +33,8 @@
     environment.variables = {
       # Display is for xwayland-satellite, and it doesn't work here. But if this variable is set in niri config it seems to work
       NIXOS_OZONE_WL = "1";
+
+      ELECTRON_LAUNCH_FLAGS = "--enable-wayland-ime --wayland-text-input-version=3 --enable-features=WaylandLinuxDrmSyncobj";
       DISPLAY = ":0";
     };
 

@@ -1,8 +1,6 @@
 {
   lib,
-  pkgs,
   config,
-  inputs,
   meta,
   ...
 }:
@@ -22,7 +20,7 @@
       screenshot-path = "~/Pictures/screenshots/Niri%Y-%m-%d %H-%M-%S.png";
       layout.default-column-display = "tabbed";
       cursor.hide-after-inactive-ms = 10000;
-      gestures.hot-corners = false;
+      gestures.hot-corners.enable = false;
       # Autostart
       spawn-at-startup = [
         {
@@ -40,7 +38,7 @@
         }
       ];
       # Monitors
-      outputs."eDP-1".scale = if meta.host == "NixPort" then 2.0 else 1.0;
+      outputs."eDP-1".scale = if meta.host == "NixPort" then 1.5 else 1.0;
       outputs."HDMI-A-1" = {
         # scale = 2.0;
         scale = 1.0;
@@ -63,7 +61,7 @@
           tap = true;
           natural-scroll = true;
           middle-emulation = true;
-          scroll-factor = 0.2;
+          scroll-factor = 1.0;
         };
       };
       # Environmental Variables
@@ -141,32 +139,24 @@
           matches = [
             { app-id = ".qemu-system-x86_64-wrapped"; }
             { app-id = "vesktop"; }
+            { app-id = "legcord"; }
             { app-id = "steam_app_0"; }
             { app-id = "darksoulsii.exe"; }
             { app-id = "steam-"; }
             { title = "DARK SOULS II"; }
+            { app-id = "osu!"; }
+            { title = "osu!"; }
           ];
+          variable-refresh-rate = false;
           open-fullscreen = true;
           default-column-width.proportion = 1.0;
         }
         {
           matches = [
-            { app-id = "floorp"; }
+            { app-id = "librewolf"; }
             { app-id = "thunderbird"; }
           ];
           open-maximized = true;
-        }
-        {
-          matches = [
-            {
-              app-id = "osu!";
-              title = "osu!";
-            }
-          ];
-          default-column-width.proportion = 1.0;
-          open-maximized = true;
-          focus-ring.enable = false;
-          variable-refresh-rate = false;
         }
         # Screencast
         {
@@ -180,7 +170,8 @@
           matches = [
             { is-window-cast-target = true; }
           ];
-          focus-ring = {
+          border = {
+            enable = true;
             active.color = "#BA4B5D";
             inactive.color = "#BA4B5D";
           };
@@ -209,7 +200,7 @@
           "-show"
         ];
         "Super+L".action = spawn "swaylock";
-        "Super+E".action = spawn "emacs";
+        # "Super+E".action = spawn "emacs";
         "Super+N".action = spawn [
           "ghostty"
           "-e"
@@ -232,9 +223,14 @@
           "-e"
           "btop"
         ];
+        "Super+G".action = spawn [
+          "ghostty"
+          "-e"
+          "qalc"
+        ];
         # GUI apps
         "Super+F".action = spawn "thunar";
-        "Super+W".action = spawn "floorp";
+        "Super+W".action = spawn "librewolf";
         # MPD
         "Shift+Alt+P" = {
           action = spawn [
@@ -357,8 +353,7 @@
         #   "${lib.getExe pkgs.slurp} | ${lib.getExe pkgs.grim} -g -"
         # ];
         "Print".action = screenshot;
-        # idk, broke on new flaek udpate
-        # "Shift+Print".action = screenshot-screen;
+        "Shift+Print".action.screenshot-screen = [ ];
         "Alt+Print".action = screenshot-window;
         # Window Management
         "Super+Q".action = close-window;
@@ -488,8 +483,8 @@
         ## Brightness with a knob
         "Super+XF86AudioRaiseVolume" = {
           allow-when-locked = true;
-          action = [
-            spawn
+          action = spawn [
+
             "brightnessctl"
             "set"
             "2%+"
@@ -497,8 +492,7 @@
         };
         "Super+XF86AudioLowerVolume" = {
           allow-when-locked = true;
-          action = [
-            spawn
+          action = spawn [
             "brightnessctl"
             "set"
             "2%-"

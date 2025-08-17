@@ -22,8 +22,8 @@
     ./cage/ghostty.nix
     ./hyprland
     ./labwc
-    ./niri/bare
-    # ./niri/flake
+    # ./niri/bare
+    ./niri/flake
     ./wayfire
     ./xfce
   ];
