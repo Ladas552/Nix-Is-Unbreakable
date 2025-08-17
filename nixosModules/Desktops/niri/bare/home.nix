@@ -282,7 +282,7 @@
         Super+Space { spawn "rofi" "-show"; }
         Super+L { spawn "swaylock"; }
         Super+N {spawn "ghostty" "-e" "nvim";}
-        Super+J {spawn "ghostty" "-e" "nvim" "-c" "Neorg journal today";}
+        Super+J {spawn "ghostty" "-e" "nvim" "-c" "'Neorg journal today'";}
         Super+M {spawn "ghostty" "-e" "rmpc";}
         Super+H {spawn "ghostty" "-e" "btop";}
         Super+G {spawn "ghostty" "-e" "qalc";}
