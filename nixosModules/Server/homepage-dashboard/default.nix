@@ -108,7 +108,7 @@
             {
               "Karakeep" = {
                 description = "Bookmark manager";
-                href = "http://${config.custom.homelab.ip}:9222";
+                href = "http://${config.custom.homelab.ip}:9221";
               };
             }
           ];

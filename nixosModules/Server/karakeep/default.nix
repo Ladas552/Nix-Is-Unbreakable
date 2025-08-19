@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 
@@ -13,9 +14,9 @@
 
     services.karakeep = {
       enable = true;
-      browser.enable = false;
+      browser.exe = "${lib.getExe' pkgs.ungoogled-chromium "chromium"}";
       extraEnvironment = {
-        PORT = "9222";
+        PORT = "9221";
         DISABLE_SIGNUPS = "true";
         OCR_LANGS = "eng,rus";
         INFERENCE_ENABLE_AUTO_TAGGING = "false";
@@ -23,9 +24,13 @@
     };
     networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = lib.mkIf config.custom.zerotier.enable [
       9222
+      9221
     ]; # Only allow ZeroTier
     networking.firewall.interfaces.tailscale0.allowedTCPPorts =
       lib.mkIf config.custom.tailscale.enable
-        [ 9222 ]; # Only allow Tailscale
+        [
+          9222
+          9221
+        ]; # Only allow Tailscale
   };
 }
