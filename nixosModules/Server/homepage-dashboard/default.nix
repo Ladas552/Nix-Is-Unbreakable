@@ -55,8 +55,9 @@
         }
       ];
       services = [
+
         {
-          "My services" = [
+          "Share/Download files" = [
             {
               "Immich" = {
                 description = "Photos";
@@ -70,17 +71,44 @@
               };
             }
             {
+              "Qbittorrent" = {
+                description = "Torrents";
+                href = "http://${config.custom.homelab.ip}:8081";
+              };
+            }
+            {
+              "Karakeep" = {
+                description = "Bookmark manager";
+                href = "http://${config.custom.homelab.ip}:9221";
+              };
+            }
+          ];
+        }
+        {
+          "Media" = [
+            {
+              "Jellyfin" = {
+                description = "Watch";
+                href = "http://${config.custom.homelab.ip}:8096";
+              };
+            }
+
+            {
               "Kavita" = {
                 description = "Books";
                 href = "http://${config.custom.homelab.ip}:5000";
               };
             }
             {
-              "Qbittorrent" = {
-                description = "Torrents";
-                href = "http://${config.custom.homelab.ip}:8081";
+              "Miniflux" = {
+                description = "RSS feed";
+                href = "http://${config.custom.homelab.ip}:8067";
               };
             }
+          ];
+        }
+        {
+          "Doesn't work" = [
             {
               "Sonarr" = {
                 description = "TV Shows";
@@ -91,24 +119,6 @@
               "Radarr" = {
                 description = "Movies";
                 href = "http://${config.custom.homelab.ip}:7878";
-              };
-            }
-            {
-              "Jellyfin" = {
-                description = "Watch";
-                href = "http://${config.custom.homelab.ip}:8096";
-              };
-            }
-            {
-              "Miniflux" = {
-                description = "RSS feed";
-                href = "http://${config.custom.homelab.ip}:8067";
-              };
-            }
-            {
-              "Karakeep" = {
-                description = "Bookmark manager";
-                href = "http://${config.custom.homelab.ip}:9221";
               };
             }
           ];

@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  inputs,
   ...
 }:
 
@@ -14,7 +13,6 @@
     # modules
     services.immich = {
       enable = true;
-      package = inputs.nixpkgs-immich.outputs.legacyPackages.x86_64-linux.immich;
       openFirewall = false; # Only allow specific ports for specific networks
       host = "${config.custom.homelab.ip}";
       machine-learning.enable = false; # Doesn't seem to work on my nvidia 860m
