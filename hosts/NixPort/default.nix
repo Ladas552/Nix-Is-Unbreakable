@@ -96,7 +96,9 @@
     openmw
     daggerfall-unity
     mindustry
-    luanti
+    # luanti
+    raze
+    vkquake
     # Utilities
     # xclicker
     # Dependencies
