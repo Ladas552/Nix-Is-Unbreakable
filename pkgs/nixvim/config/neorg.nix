@@ -51,11 +51,8 @@ let
   lib-neorg_query = pkgs.rustPlatform.buildRustPackage {
     inherit src;
     name = "neorg_query";
-
     cargoHash = "sha256-m/QhtE6e2wmTRBQ8xrWfgsmvDaaR1s9z/BLoFgFz/Do=";
-
     nativeBuildInputs = [ pkgs.gitMinimal ];
-
   };
   neorg-query = pkgs.vimUtils.buildVimPlugin {
     name = "neorg-query";

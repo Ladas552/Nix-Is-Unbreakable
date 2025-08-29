@@ -13,39 +13,41 @@
   config = lib.mkIf config.custom.games.enable {
     # Steam
     programs.steam = {
-      enable = true;
+      enable = false;
       remotePlay.openFirewall = true;
       # gamescopeSession.enable = true;
       extraCompatPackages = [ pkgs.proton-ge-bin.steamcompattool ];
     };
     hardware.steam-hardware.enable = true;
     environment.sessionVariables.STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
-    programs.gamemode.enable = true;
+    programs.gamemode.enable = false; # huge battery drains on my laptop
     environment.systemPackages = with pkgs; [
       # Launchers
       bottles
-      heroic
-      prismlauncher
+      # heroic
+      # prismlauncher
       # PC games
       osu-lazer-bin
-      arx-libertatis
+      # arx-libertatis
       # stepmania
       openmw
       daggerfall-unity
-      mindustry
+      # luanti
+      raze
+      vkquake
+      # mindustry
       # Utilities
       # xclicker
       # Dependencies
-      winePackages.stagingFull
-      winetricks
+      # winePackages.stagingFull
+      # winetricks
       steam-run
       # Emulators
-      duckstation
-      blastem
-      mgba
-      snes9x-gtk
-      punes
-      melonDS
+      # blastem
+      # mgba
+      # snes9x-gtk
+      # punes
+      # melonDS
       # doesn't work       retroarchFull
       # too complex and need a special controller      mame
     ];

@@ -3,6 +3,7 @@
     #Numbers on side
     nu = true;
     relativenumber = true;
+    numberwidth = 1;
     #Indent
     tabstop = 2; # 2 spaces for tabs (prettier default)
     shiftwidth = 2; # 2 spaces for indent width
