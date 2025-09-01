@@ -8,6 +8,9 @@
   config = lib.mkIf config.customhm.zathura.enable {
     programs.zathura = {
       enable = true;
+      mappings = {
+        "i"= "recolor";
+      };
     };
   };
 }
