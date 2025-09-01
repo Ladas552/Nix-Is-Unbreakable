@@ -47,10 +47,19 @@
     home-manager.users."${meta.user}" = {
       programs.ssh = {
         enable = true;
-        forwardAgent = true;
-        addKeysToAgent = "yes";
-        controlMaster = "auto";
-        controlPersist = "10m";
+
+        matchBlocks."*" = {
+          compression = false;
+          serverAliveInterval = 0;
+          serverAliveCountMax = 3;
+          hashKnownHosts = false;
+          userKnownHostsFile = "~/.ssh/known_hosts";
+          controlPath = "~/.ssh/master-%r@%n:%p";
+          forwardAgent = true;
+          addKeysToAgent = "yes";
+          controlMaster = "auto";
+          controlPersist = "10m";
+        };
 
         matchBlocks."${meta.user}" = {
           host = "github.com";
