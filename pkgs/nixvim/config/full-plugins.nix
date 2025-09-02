@@ -419,13 +419,12 @@ in
           open_cmd = "chromium %s";
         };
       };
-
       snacks = {
         enable = true;
         settings = {
           bigfile.enabled = true;
           image = {
-            enabled = false;
+            enabled = true;
             doc.inline = false;
             doc.float = true;
             convert.notify = false;
