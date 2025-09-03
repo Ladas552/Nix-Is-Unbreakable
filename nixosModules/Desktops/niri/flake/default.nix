@@ -31,11 +31,9 @@
     ];
 
     environment.variables = {
-      # Display is for xwayland-satellite, and it doesn't work here. But if this variable is set in niri config it seems to work
       NIXOS_OZONE_WL = "1";
 
       ELECTRON_LAUNCH_FLAGS = "--enable-wayland-ime --wayland-text-input-version=3 --enable-features=WaylandLinuxDrmSyncobj";
-      DISPLAY = ":0";
     };
 
     programs.niri = {
