@@ -36,7 +36,7 @@ let
       p.magick
       # p.luarocks
     ];
-    luaRcContent =
+    customLuaRC =
       # lua
       ''
         vim.opt.runtimepath:append("${parsers}")

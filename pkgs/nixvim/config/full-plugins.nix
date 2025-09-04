@@ -34,8 +34,6 @@ in
   config = lib.mkIf (!meta.isTermux) {
     #formatters and dependencies
     extraPackages = with pkgs; [
-      black
-      stylua
       sqlite
     ];
 
@@ -99,9 +97,8 @@ in
               formatterMode = "typstyle";
             };
           };
-          clangd = {
-            enable = true;
-          };
+          clangd.enable = true;
+          basedpyright.enable = true;
         };
         keymaps = {
           silent = true;
@@ -120,9 +117,30 @@ in
           };
         };
       };
-
+      conform-nvim = {
+        enable = true;
+        settings = {
+          format_on_save = {
+            timeout_ms = 500;
+          };
+          formatters_by_ft = {
+            python = [
+              "ruff_fix"
+              "ruff_format"
+            ];
+            nix = [ "nixfmt" ];
+            typst = [ "typstyle" ];
+            elixir = [ "mix" ];
+          };
+          formatters = {
+            ruff_format.command = lib.getExe' pkgs.ruff "ruff";
+            ruff_fix.command = lib.getExe' pkgs.ruff "ruff";
+            nixfmt.command = lib.getExe' pkgs.nixfmt "nixfmt";
+            typstyle.command = lib.getExe' pkgs.typstyle "typstyle";
+          };
+        };
+      };
       friendly-snippets.enable = true;
-      lint.enable = true;
       #UI
       which-key = {
         enable = true;
@@ -363,7 +381,7 @@ in
           indent.enable = true;
           highlight.enable = true;
           incremental_selection = {
-            enable = true;
+            enable = false;
             keymaps = {
               init_selection = "<C-space>";
               node_incremental = "<C-space>";
@@ -371,24 +389,6 @@ in
               node_decremental = "<bs>";
             };
           };
-          ensure_installed = [
-            "bash"
-            "fish"
-            "gitignore"
-            "html"
-            "latex"
-            "lua"
-            "make"
-            "markdown"
-            "markdown_inline"
-            "kotlin"
-            "nix"
-            "python"
-            "vim"
-            "rust"
-            "yaml"
-            "zathurarc"
-          ];
         };
       };
 
@@ -442,7 +442,7 @@ in
       };
 
       cord = lib.mkIf (meta.host != "") {
-        enable = true;
+        # enable = true;
         settings = {
           editor = {
             client = "1375074497681690665";
