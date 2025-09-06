@@ -42,6 +42,7 @@
       # winePackages.stagingFull
       # winetricks
       steam-run
+      dosbox
       # Emulators
       # blastem
       # mgba

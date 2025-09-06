@@ -27,6 +27,7 @@
       }
 
       environment {
+        DISPLAY ":0"
         TERMINAL "ghostty"
         __NV_PRIME_RENDER_OFFLOAD "1"
         __GLX_VENDOR_LIBRARY_NAME "nvidia"
@@ -513,5 +514,9 @@
       spawn-at-startup "thunar" "-d"
       spawn-at-startup "wpaperd"
       spawn-at-startup "xfce4-power-manager" "--daemon"
+
+      xwayland-satellite {
+        off
+      }
     '';
 }

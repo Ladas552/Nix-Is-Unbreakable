@@ -16,6 +16,7 @@
     settings = {
       #one liners
       hotkey-overlay.skip-at-startup = true;
+      xwayland-satilate = false;
       prefer-no-csd = true;
       screenshot-path = "~/Pictures/screenshots/Niri%Y-%m-%d %H-%M-%S.png";
       layout.default-column-display = "tabbed";
@@ -66,6 +67,7 @@
       };
       # Environmental Variables
       environment = {
+        DISPLAY = ":0";
         TERMINAL = "ghostty";
         __NV_PRIME_RENDER_OFFLOAD = "1";
         __GLX_VENDOR_LIBRARY_NAME = "nvidia";

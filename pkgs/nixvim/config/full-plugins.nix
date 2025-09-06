@@ -93,6 +93,7 @@ in
             enable = true;
             settings = {
               exportPdf = "onType";
+              outputPath = "$root/$name";
               fontPaths = [ "./fonts" ];
               formatterMode = "typstyle";
             };
@@ -434,11 +435,12 @@ in
           };
         };
         # only make it load on specific file types
-        luaConfig.post = ''
-          require("snacks.image").langs = function ()
-            return {"markdown", "typst", "norg"}
-          end
-        '';
+        luaConfig.post = # lua
+          ''
+            require("snacks.image").langs = function ()
+              return {"markdown", "typst", "norg"}
+            end
+          '';
       };
 
       cord = lib.mkIf (meta.host != "") {

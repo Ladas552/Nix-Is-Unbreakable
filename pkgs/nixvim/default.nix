@@ -19,6 +19,9 @@
     ./config/colorscheme.nix
   ];
   enableMan = false;
+  clipboard.providers.wl-copy.enable = true;
+  # I want to make it copy on keybind, but `+y` doesn't work for me, so this will do
+  clipboard.register = "unnamedplus";
   # package = lib.mkIf (
   #   meta.system == "x86_64-linux"
   # ) inputs.neovim-nightly-overlay.packages.x86_64-linux.default;
