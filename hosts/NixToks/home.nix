@@ -15,7 +15,7 @@
     direnv.enable = true;
     fastfetch.enable = true;
     gh.enable = true;
-    helix.enable = true;
+    # helix.enable = true;
     lf.enable = true;
     mpd.enable = true;
     syncthing.enable = true;

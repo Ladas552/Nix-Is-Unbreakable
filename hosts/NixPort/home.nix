@@ -24,7 +24,7 @@
     gh.enable = true;
     ghostty.enable = true;
     # foot.enable = true;
-    helix.enable = true;
+    # helix.enable = true;
     imv.enable = true;
     lf.enable = true;
     mpd.enable = true;

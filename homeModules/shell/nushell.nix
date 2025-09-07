@@ -14,7 +14,7 @@
     programs.nushell = {
       enable = true;
       settings = {
-        buffer_editor = "${lib.getExe' pkgs.helix "hx"}";
+        buffer_editor = "nvim";
         show_banner = false;
         render_right_prompt_on_last_line = true;
         float_precision = 2;

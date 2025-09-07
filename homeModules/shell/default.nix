@@ -56,7 +56,7 @@
     home.shellAliases = {
       # Better app names
       v = "nvim";
-      h = "hx";
+      # h = "hx";
       cd = "z";
       wiki = "wiki-tui";
       df = "duf";
@@ -67,9 +67,10 @@
       clean = "nh clean all";
       yy = "nh os switch ${meta.self}";
       yyy = "nh os switch -u ${meta.self}";
-      en = "nvim ${meta.self}/flake.nix";
-      enn = "nvim ${meta.self}/hosts/${meta.host}/default.nix";
-      eh = "hx ${meta.self}";
+      en = "nvim -c 'cd ${meta.self}' ${meta.self}/flake.nix";
+      enn = "nvim -c 'cd ${meta.self}' ${meta.self}/hosts/${meta.host}/default.nix";
+      eh = "nvim -c 'cd ${meta.self}' ${meta.self}/flake.nix";
+      # eh = "hx ${meta.self}";
       n = "ssh-add ~/.ssh/NixToks";
       # Git
       g = "git";

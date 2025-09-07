@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   # Todo
   ## edit "open" command to custom opener script with defined filename-program pattern
@@ -7,7 +12,7 @@
     commands = {
       trash = ''%${lib.getExe' pkgs.trash-cli "trash-put"} "$fx"'';
       open-nvim = ''$nvim $f'';
-      open-hx = ''$hx $f'';
+      open-hx = if config.programs.helix.enable then ''$hx $f'' else ''$nvim $f'';
       q = ''quit'';
       touch = # bash
         ''

@@ -50,7 +50,7 @@
     # Overlays
     # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
-    helix-overlay.url = "github:helix-editor/helix";
+    # helix-overlay.url = "github:helix-editor/helix";
     # neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # ghostty.url = "github:ghostty-org/ghostty";

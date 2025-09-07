@@ -46,9 +46,9 @@
         ];
         right = [
           "diagnostics"
-        ]
-        ++ lib.optionals (!meta.isTermux) [ "current-working-directory" ]
-        ++ [
+        # ]
+        # ++ lib.optionals (!meta.isTermux) [ "current-working-directory" ]
+        # ++ [
           "register"
           "position"
           "total-line-numbers"
@@ -71,10 +71,10 @@
       continue-comments = false;
       trim-trailing-whitespace = true;
       trim-final-newlines = true;
-    }
-    // lib.optionalAttrs (!meta.isTermux) {
-      rainbow-brackets = true;
-      word-completion.trigger-length = 4;
     };
+    # // lib.optionalAttrs (!meta.isTermux) {
+    #   rainbow-brackets = true;
+    #   word-completion.trigger-length = 4;
+    # };
   };
 }
