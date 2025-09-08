@@ -105,9 +105,13 @@ in
   extraPlugins = [
     neorg-conceal-wrap
     neorg-interim-ls
-    neorg-query
-  ];
+  ]
+  ++ lib.optionals (!meta.isTermux) [ neorg-query ];
   performance.combinePlugins.pathsToLink = [ "/lib" ];
+  performance.combinePlugins.standalonePlugins = [
+    "neorg"
+    "neorg-query"
+  ];
   plugins = {
     treesitter = {
       grammarPackages = with config.plugins.treesitter.package.builtGrammars; [

@@ -1,0 +1,4 @@
+{ ... }:
+{
+  plugins.otter.enable = true;
+}

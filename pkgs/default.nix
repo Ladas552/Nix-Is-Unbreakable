@@ -17,12 +17,19 @@
       };
     }).neovim;
   # my nixvim config
-  # <leader> keymaps don't work, idk why
-  # if using blink.cmp it causes errors, idk why
   nixvim = (
     inputs.nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule {
       inherit pkgs;
-      module = import ./nixvim;
+      module = import ./nixvim/nixvim.nix;
+      extraSpecialArgs = {
+        inherit meta inputs;
+      };
+    }
+  );
+  nixvim-minimal = (
+    inputs.nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule {
+      inherit pkgs;
+      module = import ./nixvim/nixvim-minimal.nix;
       extraSpecialArgs = {
         inherit meta inputs;
       };

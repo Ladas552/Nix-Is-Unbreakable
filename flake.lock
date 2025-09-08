@@ -485,11 +485,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1757255344,
-        "narHash": "sha256-Msifmj0603NEOnC9Z1122kT8gZGVJ5RfSCdf6kvg2WQ=",
+        "lastModified": 1757281943,
+        "narHash": "sha256-unFS/EV6dJqf//aSIqm35X9LIJ0C0kpY9P05EqToN14=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "1a7905eced82dbfb21e9d7d1a8ee4fccdf608637",
+        "rev": "2365afc0d51d71279b54ab702f8145f069664e2c",
         "type": "github"
       },
       "original": {

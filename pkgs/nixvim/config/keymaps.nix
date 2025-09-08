@@ -139,35 +139,9 @@
         options.desc = "Close Buffer";
       }
     ]
-    #Plugins
-    ++ lib.optionals config.plugins.telescope.enable [
-      #Telescope
-      {
-        action = "<cmd>Telescope find_files<CR>";
-        key = "<leader>ff";
-        mode = "n";
-        options.desc = "Find Files";
-      }
-      {
-        action = "<cmd>Telescope oldfiles<CR>";
-        key = "<leader>fr";
-        mode = "n";
-        options.desc = "Recent Files";
-      }
-      {
-        action = "<cmd>Telescope live_grep<CR>";
-        key = "<leader>fs";
-        mode = "n";
-        options.desc = "Rip-grep";
-      }
-      {
-        action = "<cmd>Telescope grep_string<CR>";
-        key = "<leader>fc";
-        mode = "n";
-        options.desc = "Grep current buffer";
-      }
-    ]
-    ++ lib.optionals (config.plugins.snacks.settings.picker.enabled && config.plugins.snacks.enable) [
+    ++ [
+      #Plugins
+      # snacks picker
       {
         action = "<cmd>lua Snacks.picker.recent()<CR>";
         key = "<leader>fr";
