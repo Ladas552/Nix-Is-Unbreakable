@@ -125,7 +125,7 @@ in
       telescopeIntegration.enable = config.plugins.telescope.enable;
       settings.load = {
         # Extra modules
-        "external.query" = {
+        "external.query" = lib.mkIf (!meta.isTermux) {
           config = {
             index_on_launch = true;
             update_on_change = true;
