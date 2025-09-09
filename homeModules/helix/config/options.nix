@@ -1,4 +1,4 @@
-{ meta, lib, ... }:
+{ lib, ... }:
 
 {
   programs.helix.settings = {
@@ -46,9 +46,9 @@
         ];
         right = [
           "diagnostics"
-        # ]
-        # ++ lib.optionals (!meta.isTermux) [ "current-working-directory" ]
-        # ++ [
+          # ]
+          # ++ lib.optionals (!meta.isTermux) [ "current-working-directory" ]
+          # ++ [
           "register"
           "position"
           "total-line-numbers"
