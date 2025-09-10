@@ -14,6 +14,7 @@
     ./plugins/cmp/blink-cmp.nix
     ./plugins/workflow/auto-save.nix
     ./plugins/workflow/cord.nix
+    ./plugins/workflow/direnv.nix
     ./plugins/workflow/img-clip.nix
     ./plugins/workflow/neogit.nix
     ./plugins/workflow/neorg.nix
@@ -21,6 +22,7 @@
     ./plugins/workflow/oil.nix
     ./plugins/workflow/orgmode.nix
     ./plugins/workflow/otter.nix
+    # ./plugins/workflow/parinfer-rust.nix
     ./plugins/workflow/snacks.nix
     ./plugins/workflow/treesitter.nix
     ./plugins/workflow/typst-preview.nix
@@ -38,6 +40,7 @@
     ./plugins/lsp/lsp-config.nix
     ./plugins/lsp/nixd.nix
     ./plugins/lsp/tinymist.nix
+    ./plugins/lsp/rustaceanvim.nix
   ];
   enableMan = false;
   clipboard.providers.wl-copy.enable = true;
