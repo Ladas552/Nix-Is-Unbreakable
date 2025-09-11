@@ -38,9 +38,6 @@
       noto-fonts-emoji
       nerd-fonts.jetbrains-mono
       # Enable nerd fonts for every font
-      # Before 24.11
-      #(nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
-      # After 24.11, but doesn't seem to work
       #(lib.filter lib.isDerivation (lib.attrValues pkgs.nerd-fonts))
     ];
   };

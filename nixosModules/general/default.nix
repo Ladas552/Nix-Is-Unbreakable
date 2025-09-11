@@ -13,6 +13,8 @@
   };
 
   config = lib.mkIf config.custom.general.enable {
+    # Updates firmware directly from vendors
+    services.fwupd.enable = true;
     # clear out journalctl logs
     services.journald.extraConfig = "MaxRetentionSec=14day";
     # Allow core dumps
