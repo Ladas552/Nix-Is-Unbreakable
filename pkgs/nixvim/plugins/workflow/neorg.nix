@@ -209,4 +209,28 @@ in
     foldlevel = 99;
     conceallevel = 2;
   };
+  keymaps = [
+    #Neorg Journal
+    {
+      action = "<cmd>Neorg journal today<CR>";
+      key = "<leader>j";
+      mode = "n";
+      options.desc = "Journal today";
+    }
+  ]
+  ++ lib.optionals (config.plugins.telescope.enable) [
+    # Telescope Neorg Integration
+    {
+      action = "<cmd>Telescope neorg find_norg_files<CR>";
+      key = "<leader>fn";
+      mode = "n";
+      options.desc = "Find Norg File";
+    }
+    {
+      action = "<cmd>Telescope neorg switch_workspace<CR>";
+      key = "<leader>n";
+      mode = "n";
+      options.desc = "Change Neorg Workspace";
+    }
+  ];
 }
