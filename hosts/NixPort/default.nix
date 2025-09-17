@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   inputs,
   meta,
@@ -27,6 +28,7 @@
   networking.hostId = "f6d40058";
   #modules
   custom = {
+    imp.enable = true;
     niri.enable = true;
     # bspwm.enable = true;
     # cage.ghostty.enable = true;
@@ -109,18 +111,6 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${meta.user} = {
-    isNormalUser = true;
-    description = "Ladas552";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      # for adb
-      # "adbusers"
-    ];
-    password = "4558";
-    # hashedPasswordFile = config.sops.secrets."mystuff/host_pwd".path;
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

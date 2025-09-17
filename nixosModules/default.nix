@@ -6,6 +6,7 @@
     ./Desktops
     ./Server
     ./Virtualisation
+    ./Impermanence
     ./bluetooth
     ./cache
     ./clamav

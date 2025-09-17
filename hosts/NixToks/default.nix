@@ -34,6 +34,7 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   #modules
   custom = {
+    imp.enable = true;
     # Services
     qbittorrent.enable = true;
     homepage-dashboard.enable = true;
@@ -133,15 +134,8 @@
   # IF statement to enable vitalization for Nvidia in Docker. If Docker module is disabled it returns false, if enabled returns true
   hardware.nvidia-container-toolkit.enable = config.virtualisation.podman.enable;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${meta.user} = {
-    isNormalUser = true;
-    description = "Ladas552";
-    extraGroups = [
-      "wheel"
-      "media"
-    ];
-  };
+  # Define a user account. Check Impermanence Module for user password
+  users.users.${meta.user}.extraGroups = [ "media" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
