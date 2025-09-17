@@ -46,6 +46,7 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
   # Standalone Packages for user
   home.packages = with pkgs; [
+    blender
     libreoffice-fresh
     # shotcut
     imagemagick

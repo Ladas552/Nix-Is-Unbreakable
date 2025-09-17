@@ -9,8 +9,11 @@
   options.custom = {
     games.enable = lib.mkEnableOption "enable games";
   };
-
+  imports = [ ./dosbox.nix ];
   config = lib.mkIf config.custom.games.enable {
+    custom.games = {
+      dosbox.enable = true;
+    };
     # Steam
     programs.steam = {
       enable = false;
@@ -42,7 +45,6 @@
       # winePackages.stagingFull
       # winetricks
       steam-run
-      dosbox
       # Emulators
       # blastem
       # mgba
