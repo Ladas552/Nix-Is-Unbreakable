@@ -4,12 +4,6 @@
   inputs,
   lib,
   meta,
-  # meta ? {
-  #   host = "NixwsL";
-  #   norg = "~/Documents/Norg";
-  #   self = "/home/ladas552/Nix-Is-Unbreakable";
-  #   user = "ladas552";
-  # },
   ...
 }:
 
@@ -19,6 +13,7 @@
     inputs.home-manager.nixosModules.default
     inputs.nixos-wsl.nixosModules.default
   ];
+  networking.hostId = "e6a70dac";
   _module.args = {
     meta = {
       host = "NixwsL";
@@ -26,6 +21,7 @@
       user = "ladas552";
       system = "x86_64-linux";
       isTermux = false;
+      norg = null;
     };
   };
   #modules
@@ -33,7 +29,7 @@
     pipewire.enable = false;
     fonts.enable = true;
     # zerotier.enable = true;
-    tailscale.enable = true;
+    tailscale.enable = false;
     stylix = {
       enable = false;
       catppuccin = false;
@@ -41,8 +37,7 @@
     };
 
   };
-
-  # WSL options
+  boot.supportedFilesystems.zfs = true;
   wsl = {
     enable = true;
     defaultUser = "${meta.user}";
@@ -61,16 +56,6 @@
     useUserPackages = true;
     useGlobalPkgs = true;
   };
-  environment.systemPackages = with pkgs; [
-    # whatever I couldn't install in Home Manager
-    python3
-    #      nvtopPackages.full # they need to update cuda for unstable to use it in home manager
-    cachix
-    gcc
-    gnumake
-    # custom.wpick
-    # custom.nvf-full.neovim
-  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

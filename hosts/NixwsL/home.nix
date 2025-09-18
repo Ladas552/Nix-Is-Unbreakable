@@ -14,97 +14,18 @@
   imports = [ ./../../homeModules ];
 
   customhm = {
-    shell.enable = false;
+    foot.enable = true;
+    fastfetch.enable = true;
     direnv.enable = true;
     gh.enable = true;
     lf.enable = true;
-    ghostty.enable = true;
-    helix.enable = true;
-    yt-dlp.enable = true;
-    nixvim.enable = false;
+    nixvim.enable = true;
     shell.fish.enable = true;
   };
-  # Shell
-  programs = {
-    ripgrep.enable = true;
-    fd.enable = true;
-    btop.enable = true;
-    bat.enable = true;
-    fzf = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-    zoxide = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-    eza = {
-      enable = true;
-      enableFishIntegration = true;
-      extraOptions = [ "--icons" ];
-    };
-  };
-
-  # Shells
-  programs.fish = {
-    enable = true;
-    plugins = with pkgs.fishPlugins; [
-      {
-        name = "autopair";
-        src = autopair.src;
-      }
-      {
-        name = "bass";
-        src = bass.src;
-      }
-      {
-        name = "pure";
-        src = pure.src;
-      }
-      {
-        name = "puffer";
-        src = puffer.src;
-      }
-      {
-        name = "sponge";
-        src = sponge.src;
-      }
-    ];
-    shellAbbrs = {
-      clean = "nh clean all";
-      yy = "nh os switch ${meta.self}";
-      yyy = "nh os switch -u ${meta.self}";
-      eh = "hx ${meta.self}";
-      v = "nvim";
-      ls = "eza";
-      mc = "lf";
-      mcc = "lf ~/.config/";
-    };
-    shellAliases = { };
-  };
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-  };
+  # WSL isn't goot with switch for some reason
   home.shellAliases = {
-    cat = "${lib.getExe pkgs.bat}";
-    df = "${lib.getExe pkgs.duf}";
-    cmatrix = "${lib.getExe pkgs.unimatrix} -f -s 95";
-    eh = "hx ${meta.self}";
-    v = "nvim";
-    ls = "eza";
-    cd = "z";
-    mc = "lf";
-    clean = "nh clean all";
-    yy = "nh os switch ${meta.self}";
-    yyy = "nh os switch -u ${meta.self}";
-    n = "ssh-add ~/.ssh/NixToks";
-    # Git
-    g = "git";
-    gal = "git add ./*";
-    gcm = "git commit -m";
-    gpr = "git pull --rebase";
-    gpu = "git push";
+    yy = lib.mkForce "nh os boot ${meta.self}";
+    yyy = lib.mkForce "nh os boot -u ${meta.self}";
   };
   # Me
   home.username = "${meta.user}";
@@ -122,9 +43,9 @@
   };
 
   home.sessionVariables = lib.mkForce {
-    EDITOR = "hx";
-    VISUAL = "hx";
-    SUDO_EDITOR = "hx";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    SUDO_EDITOR = "nvim";
   };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

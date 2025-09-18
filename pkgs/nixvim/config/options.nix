@@ -32,8 +32,8 @@
     #Update
     updatetime = 50;
     #Spelling
-    spelllang = "en_us,ru";
-    spell = true;
+    # spelllang = "en_us,ru";
+    # spell = true;
     #Soft Wrap
     linebreak = true;
     breakindent = true;
