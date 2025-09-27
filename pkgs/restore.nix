@@ -11,5 +11,5 @@ pkgs.writeShellScriptBin "restore.sh" # bash
     mount -t zfs zroot/nix /mnt/nix
     mount -t zfs zroot/tmp /mnt/tmp
     mount -t zfs zroot/cache /mnt/cache
-    nixos-install --flake "github:Ladas552/Nix-Is-Unbreakable#NixPort"
+    nixos-install --no-root-password --flake "github:Ladas552/Nix-Is-Unbreakable#NixPort"
   ''
