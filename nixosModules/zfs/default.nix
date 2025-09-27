@@ -22,14 +22,14 @@
       autoScrub.enable = true;
       trim.enable = true;
     };
-    # standardized filesystem layo
+    # standardized filesystem layout
     fileSystems = {
       "/" = {
         device = "zroot/root";
         fsType = "zfs";
         neededForBoot = true;
       };
-      # boot partitin
+      # boot partition
       "/boot" = {
         device = "/dev/disk/by-label/NIXBOOT";
         fsType = "vfat";
@@ -60,14 +60,24 @@
     };
     services.sanoid = {
       enable = true;
-      datasets = {
-        "zroot/root" = {
-          hourly = 50;
-          daily = 15;
-          weekly = 3;
-          monthly = 1;
+      datasets =
+        { }
+        // lib.optionalAttrs (!config.custom.imp.enable) {
+          "zroot/root" = {
+            hourly = 50;
+            daily = 15;
+            weekly = 3;
+            monthly = 1;
+          }
+          // lib.optionalAttrs config.custom.imp.enable {
+            "zroot/persist" = {
+              hourly = 50;
+              daily = 15;
+              weekly = 3;
+              monthly = 1;
+            };
+          };
         };
-      };
     };
     home-manager.users.${meta.user}.home.shellAliases = {
       zfs-list = "zfs list -o name,lused,used,avail,compressratio,mountpoint";

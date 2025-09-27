@@ -21,6 +21,8 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
+    impermanence.url = "github:nix-community/impermanence";
+
     stylix.url = "github:nix-community/stylix";
     # Neovim
     nixvim = {

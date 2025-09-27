@@ -1,0 +1,72 @@
+@document.meta
+title: impermanence
+description: Commands I used to Install zfs with impermanence
+authors: ladas552
+tangle: ./impermanence.sh
+@end
+Create an editable script with `:Neorg tangle current-file`
+
+So, create Boot Disk with gparted, idk. and /dev/sdaN for zpool too
+
+* Creating Partitions
+
+  - echo "Creating base zpool"
+  @code sh
+  sudo zpool create -f \
+  -o ashift=12 \
+  -o autotrim=on \
+  -O compression=zstd \
+  -O acltype=posixacl \
+  -O atime=off \
+  -O xattr=sa \
+  -O normalization=formD \
+  -O mountpoint=none \
+  zroot "/dev/sda2"
+  @end
+* Mounting Partitions
+  - echo "Creating /"
+  @code sh
+  sudo zfs create -o mountpoint=legacy zroot/root
+  sudo mount -t zfs zroot/root /mnt
+  @end
+
+  - echo "Mounting /boot (efi)"
+    "$BOOTDISK" Is your `/dev/sda1` of wherever your /boot should be
+  @code sh
+  sudo mount --mkdir "$BOOTDISK" /mnt/boot
+  @end
+
+  - echo "Creating /nix"
+  @code sh
+  sudo zfs create -o mountpoint=legacy zroot/nix
+  sudo mount --mkdir -t zfs zroot/nix /mnt/nix
+  @end
+
+  - echo "Creating /tmp"
+  @code sh
+  sudo zfs create -o mountpoint=legacy zroot/tmp
+  sudo mount --mkdir -t zfs zroot/tmp /mnt/tmp
+  @end
+
+  - echo "Creating /cache"
+  @code sh
+  sudo zfs create -o mountpoint=legacy zroot/cache
+  sudo mount --mkdir -t zfs zroot/cache /mnt/cache
+  @end
+
+  - echo "Creating /persist"
+    Only use do that if you have impermanence setup
+  @code sh
+  sudo zfs create -o mountpoint=legacy zroot/persist
+  sudo zfs snapshot zroot/persist@blank
+  sudo mount --mkdir -t zfs zroot/persist /mnt/persist
+  @end
+* Install the OS
+  - Transfer keys
+    namely to `/mnt/home/${meta.user}/.ssh/` so sops could find ssh key and setup secrets
+
+  - install nixos without root-password because immutable user already has password set
+  @code sh
+  sudo nixos-install --no-root-password --flake "github:Ladas552/Nix-Is-Unbreakable#NixVM"
+  @end
+  It should install system in `/mnt`
