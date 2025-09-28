@@ -34,7 +34,7 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   #modules
   custom = {
-    imp.enable = true;
+    # imp.enable = true;
     # Services
     qbittorrent.enable = true;
     homepage-dashboard.enable = true;
