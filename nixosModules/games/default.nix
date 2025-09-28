@@ -54,5 +54,26 @@
       # doesn't work       retroarchFull
       # too complex and need a special controller      mame
     ];
+    # persist games
+    custom.imp.home.directories = [
+      "Games"
+      "id1"
+      ".vkquake"
+      ".snes9x"
+      ".config/arx"
+      ".config/mgba"
+      ".config/openmw"
+      ".config/puNES"
+      ".config/raze"
+      ".config/unity3d"
+      ".local/share/Mindustry"
+      ".local/share/PrismLauncher"
+      ".local/share/arx"
+      ".local/share/blastem"
+      ".local/share/bottles"
+      ".local/share/openmw"
+      ".local/share/osu"
+      ".local/share/puNES"
+    ];
   };
 }

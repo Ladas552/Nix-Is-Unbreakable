@@ -43,6 +43,7 @@
     ./wpaperd
     ./yt-dlp
     ./zathura
+    ./Nixos/impermanence
   ];
   manual.manpages.enable = false;
   customhm = {

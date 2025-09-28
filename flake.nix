@@ -27,7 +27,6 @@
     # Neovim
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-rocks = {
       url = "github:Ladas552/nvim-rocks-config";
@@ -37,9 +36,6 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # blink-cmp = {
-    #   url = "github:Saghen/blink.cmp";
-    # };
 
     # Niri
     # niri.url = "github:sodiboo/niri-flake";

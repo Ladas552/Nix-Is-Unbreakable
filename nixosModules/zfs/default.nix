@@ -68,14 +68,14 @@
             daily = 15;
             weekly = 3;
             monthly = 1;
-          }
-          // lib.optionalAttrs config.custom.imp.enable {
-            "zroot/persist" = {
-              hourly = 50;
-              daily = 15;
-              weekly = 3;
-              monthly = 1;
-            };
+          };
+        }
+        // lib.optionalAttrs config.custom.imp.enable {
+          "zroot/persist" = {
+            hourly = 50;
+            daily = 15;
+            weekly = 3;
+            monthly = 1;
           };
         };
     };
