@@ -95,21 +95,7 @@ in
         );
         users."${meta.user}" = {
           files = lib.unique cfghm.home.files;
-          directories = lib.unique (
-            [
-              "Share"
-              "Pictures"
-              "Projects"
-              "Desktop"
-              "Documents"
-              "Videos"
-              "Music"
-              ".zotero"
-              "Zotero"
-            ]
-            ++ cfg.home.directories
-            ++ cfghm.home.directories
-          );
+          directories = lib.unique ([ ] ++ cfg.home.directories ++ cfghm.home.directories);
         };
       };
       "/cache" = {

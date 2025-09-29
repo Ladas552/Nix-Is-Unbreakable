@@ -123,4 +123,17 @@
   # Testing nix-on-droid in waydroid
   # virtualisation.waydroid.enable = true;
   # programs.adb.enable = true;
+
+  # persist my home on nixport to not interfere with server's /home
+  custom.imp.home.directories = [
+    "Share"
+    "Pictures"
+    "Projects"
+    "Desktop"
+    "Documents"
+    "Videos"
+    "Music"
+    ".zotero"
+    "Zotero"
+  ];
 }

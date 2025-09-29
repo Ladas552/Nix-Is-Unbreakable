@@ -24,7 +24,7 @@
       adminCredentialsFile = "${config.sops.templates."miniflux-admin-credentials".path}";
       config = {
         LISTEN_ADDR = "${config.custom.homelab.ip}:8067";
-        CREATE_ADMIN = "1";
+        CREATE_ADMIN = true;
         LOG_DATE_TIME = "1";
 
         FETCH_BILIBILI_WATCH_TIME = "1";
