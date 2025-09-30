@@ -76,8 +76,20 @@
     };
 
     # persist for impermanance
-    custom.imp.home.directories = [
-      ".ssh"
-    ];
+    custom.imp = {
+      # I don't know half of what these persists do, I stole them
+      root.files = [
+        "/etc/ssh/ssh_host_rsa_key"
+        "/etc/ssh/ssh_host_rsa_key.pub"
+        "/etc/ssh/ssh_host_ed25519_key"
+        "/etc/ssh/ssh_host_ed25519_key.pub"
+      ];
+      home.directories = [
+        ".pki"
+        ".ssh"
+        ".local/share/.gnupg"
+        ".local/share/keyrings"
+      ];
+    };
   };
 }

@@ -27,10 +27,16 @@
         [ "/persist/home/${meta.user}/.ssh/NixToks" ]
       else
         [ "/home/${meta.user}/.ssh/NixToks" ];
-    #sops.age.keyFile = "/home/ladas552/.config/sops/age/keys.txt";
+    sops.age.keyFile =
+      if config.custom.imp.enable then
+        "/persist/home/${meta.user}/.config/sops/age/keys.txt"
+      else
+        "/home/${meta.user}/.config/sops/age/keys.txt";
 
     sops.secrets."mystuff/host_pwd".neededForUsers = true;
     sops.secrets."mystuff/host_pwd" = { };
 
+    # persist for Impermanence
+    custom.imp.home.directories = [ ".config/sops/" ];
   };
 }
