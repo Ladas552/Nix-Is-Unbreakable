@@ -22,7 +22,11 @@
     sops.defaultSopsFile = ../../secrets/secrets.yaml;
     sops.defaultSopsFormat = "yaml";
 
-    sops.age.sshKeyPaths = [ "/home/${meta.user}/.ssh/NixToks" ];
+    sops.age.sshKeyPaths =
+      if config.custom.imp.enable then
+        [ "/persist/home/${meta.user}/.ssh/NixToks" ]
+      else
+        [ "/home/${meta.user}/.ssh/NixToks" ];
     #sops.age.keyFile = "/home/ladas552/.config/sops/age/keys.txt";
 
     sops.secrets."mystuff/host_pwd".neededForUsers = true;
