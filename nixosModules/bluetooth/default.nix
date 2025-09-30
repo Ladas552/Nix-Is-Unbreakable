@@ -24,5 +24,8 @@
         Enable = "Source,Sink,Media,Socket";
       };
     };
+
+    # persist for impermanance
+    custom.imp.root.directories = ["/var/lib/bluetooth"];
   };
 }

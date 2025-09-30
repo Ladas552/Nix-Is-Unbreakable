@@ -74,5 +74,10 @@
         };
       };
     };
+
+    # persist for impermanance
+    custom.imp.home.directories = [
+      ".ssh"
+    ];
   };
 }

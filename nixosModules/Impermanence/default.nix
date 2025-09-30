@@ -55,6 +55,7 @@ in
   };
   imports = [
     ./users.nix
+    ./persist.nix
     inputs.impermanence.nixosModules.impermanence
   ];
   config = lib.mkIf config.custom.imp.enable {
