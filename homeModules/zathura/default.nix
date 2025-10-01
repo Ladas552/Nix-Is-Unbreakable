@@ -12,5 +12,8 @@
         "i"= "recolor";
       };
     };
+
+    # persist for Impermanence
+    customhm.imp.home.cache.directories = [".local/share/zathura"];
   };
 }

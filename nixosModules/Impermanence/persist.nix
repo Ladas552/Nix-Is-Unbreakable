@@ -16,6 +16,15 @@
             "/var/lib/iwd"
           ];
       };
+      home = {
+        cache = {
+          directories = [
+            ".local/share/Trash"
+            ".local/share/qalculate"
+            ".local/share/TelegramDesktop"
+          ];
+        };
+      };
     };
   };
 }

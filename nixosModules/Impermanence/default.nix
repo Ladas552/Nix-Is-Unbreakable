@@ -50,6 +50,18 @@ in
           default = [ ];
           description = "Files to persist in home directory";
         };
+        cache = {
+          directories = lib.mkOption {
+            type = lib.types.listOf lib.types.str;
+            default = [ ];
+            description = "Directories to persist, but not to snapshot";
+          };
+          files = lib.mkOption {
+            type = lib.types.listOf lib.types.str;
+            default = [ ];
+            description = "Files to persist, but not to snapshot";
+          };
+        };
       };
     };
   };
@@ -104,8 +116,8 @@ in
         files = lib.unique cfg.root.cache.files;
         directories = lib.unique cfg.root.cache.directories;
         users."${meta.user}" = {
-          files = lib.unique cfghm.home.cache.files;
-          directories = lib.unique ([ ] ++ cfghm.home.cache.directories);
+          files = lib.unique (cfg.home.cache.files ++ cfghm.home.cache.files);
+          directories = lib.unique (cfg.home.cache.directories ++ cfghm.home.cache.directories);
         };
       };
     };

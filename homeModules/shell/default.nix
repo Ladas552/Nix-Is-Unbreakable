@@ -88,5 +88,8 @@
       mcc = "lf ~/.config/";
       mcp = "lf ${config.xdg.userDirs.pictures}";
     };
+
+    # persist for Impermanence
+    customhm.imp.home.cache.directories = [ ".local/share/zoxide" ];
   };
 }
