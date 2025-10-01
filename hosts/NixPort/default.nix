@@ -65,6 +65,8 @@
     users."${meta.user}" = import ./home.nix;
     useUserPackages = true;
     useGlobalPkgs = true;
+    backupFileExtension = "bk";
+    overwriteBackup = true;
   };
   # Xanmod kernel
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_xanmod;
