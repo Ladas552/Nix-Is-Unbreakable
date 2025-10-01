@@ -17,7 +17,11 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      # No flake compat
+      inputs.flake-compat.follows = "";
+    };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
@@ -27,6 +31,8 @@
     # Neovim
     nixvim = {
       url = "github:nix-community/nixvim";
+      # No SSG
+      inputs.nuschtosSearch.follows = "";
     };
     neovim-rocks = {
       url = "github:Ladas552/nvim-rocks-config";
@@ -35,6 +41,8 @@
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
+      # No flake compat
+      inputs.flake-compat.follows = "";
     };
 
     # Niri
