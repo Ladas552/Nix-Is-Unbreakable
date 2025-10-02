@@ -22,6 +22,7 @@
             ".local/share/Trash"
             ".local/share/qalculate"
             ".local/share/TelegramDesktop"
+            ".local/share/nvim"
           ];
         };
       };
