@@ -427,5 +427,11 @@
         themes.enabledThemes = '''';
       };
     };
+
+    # persist for Impermanence
+    customhm.imp.home.cache = {
+      directories = [ ".config/vesktop/sessionData" ];
+      files = [ ".config/vesktop/state.json" ];
+    };
   };
 }
