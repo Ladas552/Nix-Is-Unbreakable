@@ -54,6 +54,12 @@
       LC_TELEPHONE = "ru_RU.UTF-8";
       LC_TIME = "ru_RU.UTF-8";
     };
-
+    custom.imp = {
+      home = {
+        cache = {
+          files = [ ".local/share/nix/repl-history" ];
+        };
+      };
+    };
   };
 }

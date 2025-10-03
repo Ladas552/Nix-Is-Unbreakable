@@ -343,5 +343,8 @@
         metadata_to_use "artist, album, title, track, name, genre, date, composer, performer, disc, comment"
       '';
     };
+
+    # persist for Impermanence
+    customhm.imp.home.cache.directories = [".local/share/mpd"];
   };
 }

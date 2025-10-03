@@ -103,13 +103,13 @@
     ++ lib.optionals (!meta.isTermux) [
       #Buffer Navigation Desktop
       {
-        action = "<cmd>BufferPrevious<CR>";
+        action = "<cmd>bprevious<CR>";
         key = "<leader>,";
         mode = "n";
         options.desc = "Left Buffer";
       }
       {
-        action = "<cmd>BufferNext<CR>";
+        action = "<cmd>bnext<CR>";
         key = "<leader>.";
         mode = "n";
         options.desc = "Right Buffer";
@@ -118,13 +118,13 @@
     ++ lib.optionals meta.isTermux [
       #Buffer Navigation Termux
       {
-        action = "<cmd>BufferPrevious<CR>";
+        action = "<cmd>bprevious<CR>";
         key = "<leader>.";
         mode = "n";
         options.desc = "Left Buffer";
       }
       {
-        action = "<cmd>BufferNext<CR>";
+        action = "<cmd>bnext<CR>";
         key = "<leader>,";
         mode = "n";
         options.desc = "Right Buffer";
@@ -133,7 +133,7 @@
     ++ [
       # Close Buffer
       {
-        action = "<cmd>BufferClose<CR>";
+        action = "<cmd>bdelete<CR>";
         key = "<leader>x";
         mode = "n";
         options.desc = "Close Buffer";
