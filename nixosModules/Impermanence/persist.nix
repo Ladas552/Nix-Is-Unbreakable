@@ -23,6 +23,8 @@
             ".local/share/qalculate"
             ".local/share/TelegramDesktop"
             ".local/share/nvim"
+            ".local/state/nvim"
+            ".local/state/nvf"
           ];
         };
       };
