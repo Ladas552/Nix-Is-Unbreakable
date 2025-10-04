@@ -132,6 +132,7 @@
     "Pictures"
     "Projects"
     "Desktop"
+    "Downloads"
     "Documents"
     "Videos"
     "Music"
