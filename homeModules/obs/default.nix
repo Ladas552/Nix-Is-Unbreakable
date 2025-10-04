@@ -20,5 +20,8 @@
         obs-pipewire-audio-capture
       ];
     };
+
+    # persist for Impermanence
+    customhm.imp.home.cache.directories = [ ".config/obs-studio" ];
   };
 }

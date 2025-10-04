@@ -27,5 +27,8 @@
           $env.PROMPT_COMMAND_RIGHT = ""
         '';
     };
+
+    # persist for Impermanence
+    customhm.imp.home.cache.files = [".config/nushell/history.txt"];
   };
 }

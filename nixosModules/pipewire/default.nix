@@ -36,5 +36,8 @@
     #     "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
     #   };
     # };
+
+    # persist for Impermanence
+    custom.imp.home.cache.directories = [ ".local/state/wireplumber" ];
   };
 }

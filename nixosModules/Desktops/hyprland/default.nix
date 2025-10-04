@@ -39,5 +39,7 @@
 
     home-manager.users."${meta.user}" = import ./home.nix;
 
+    # persist for Impermanence
+    custom.imp.home.cache.directories = [ ".cache/hyprland" ];
   };
 }

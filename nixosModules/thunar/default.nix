@@ -55,5 +55,11 @@
             </action>
           </actions>
       '';
+
+    # persist for Impermanence
+    custom.imp.home.cache.directories = [
+      ".local/share/gvfs-metadata"
+      ".cache/thumbnails"
+    ];
   };
 }

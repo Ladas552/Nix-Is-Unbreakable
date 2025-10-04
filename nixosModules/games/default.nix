@@ -55,26 +55,33 @@
       # too complex and need a special controller      mame
     ];
     # persist games
-    custom.imp.home.directories = [
-      "Games"
-      "id1"
-      ".vkquake"
-      ".snes9x"
-      ".config/arx"
-      ".config/mgba"
-      ".config/openmw"
-      ".config/puNES"
-      ".config/raze"
-      ".config/unity3d"
-      ".local/share/Mindustry"
-      ".local/share/PrismLauncher"
-      ".local/share/Steam"
-      ".local/share/arx"
-      ".local/share/blastem"
-      ".local/share/bottles"
-      ".local/share/openmw"
-      ".local/share/osu"
-      ".local/share/puNES"
-    ];
+    custom.imp.home = {
+      directories = [
+        "Games"
+        "id1"
+        ".vkquake"
+        ".snes9x"
+        ".config/arx"
+        ".config/mgba"
+        ".config/openmw"
+        ".config/puNES"
+        ".config/raze"
+        ".config/unity3d"
+        ".local/share/Mindustry"
+        ".local/share/PrismLauncher"
+        ".local/share/arx"
+        ".local/share/blastem"
+        ".local/share/bottles"
+        ".local/share/openmw"
+        ".local/share/osu"
+        ".local/share/puNES"
+      ];
+      cache.directories = [
+        ".local/share/Steam"
+        ".cache/mesa_shader_cache"
+        ".cache/mesa_shader_cache_db"
+        ".cache/radv_builtin_shaders"
+      ];
+    };
   };
 }

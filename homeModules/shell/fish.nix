@@ -70,5 +70,8 @@
         }
         // config.home.shellAliases;
     };
+
+    # persist for Impermanence
+    customhm.imp.home.cache.directories = [ ".local/share/fish" ];
   };
 }

@@ -32,6 +32,10 @@
             ".cache/librewolf"
             ".cache/keepassxc"
             ".config/keepassxc"
+            ".config/qBittorrent"
+            ".local/share/qBittorrent"
+            ".cache/nix"
+            ".cache/nix-index"
           ];
         };
       };
