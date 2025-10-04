@@ -17,6 +17,9 @@
           ];
       };
       home = {
+        directories = [
+          ".librewolf"
+        ];
         cache = {
           directories = [
             ".local/share/Trash"
@@ -25,6 +28,10 @@
             ".local/share/nvim"
             ".local/state/nvim"
             ".local/state/nvf"
+            ".config/libreoffice"
+            ".cache/librewolf"
+            ".cache/keepassxc"
+            ".config/keepassxc"
           ];
         };
       };

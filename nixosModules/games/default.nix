@@ -68,6 +68,7 @@
       ".config/unity3d"
       ".local/share/Mindustry"
       ".local/share/PrismLauncher"
+      ".local/share/Steam"
       ".local/share/arx"
       ".local/share/blastem"
       ".local/share/bottles"

@@ -38,5 +38,11 @@
         };
       };
     };
+
+    # persist for Impermanence
+    customhm.imp.home = {
+      directories = [ ".thunderbird" ];
+      cache.directories = [ ".cache/thunderbird" ];
+    };
   };
 }

@@ -55,5 +55,8 @@
         uris = [ "qemu:///system" ];
       };
     };
+
+    # persist for Impermanence
+    custom.imp.root.cache.directories = [ "/var/lib/libvirt" ];
   };
 }

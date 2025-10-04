@@ -28,5 +28,8 @@
         defaultNetwork.settings.dns_enabled = true;
       };
     };
+
+    # persist for Impermanence
+    custom.imp.root.cache.directories = [ "/var/lib/containers" ];
   };
 }

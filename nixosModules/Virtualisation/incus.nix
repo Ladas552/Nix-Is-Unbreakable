@@ -36,5 +36,8 @@
       "9pnet_virtio"
     ];
     networking.firewall.interfaces.ztcfwrb2q6.allowedTCPPorts = [ 8443 ]; # Only allow ZeroTier
+
+    # persist for Impermanence
+    custom.imp.root.cache.directories = [ "/var/lib/incus" ];
   };
 }
