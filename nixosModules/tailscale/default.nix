@@ -19,5 +19,8 @@
       authKeyFile = "${config.sops.secrets."mystuff/tailnet".path}";
       permitCertUid = "caddy";
     };
+
+    # persist for Impermanence
+    custom.imp.root.directories = [ "/var/lib/tailscale/" ];
   };
 }
