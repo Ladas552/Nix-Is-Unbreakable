@@ -17,7 +17,7 @@
   _module.args = {
     meta = {
       host = "NixPort";
-      self = "/home/ladas552/Nix-Is-Unbreakable";
+      self = "/persist/home/ladas552/Projects/my_repos/Nix-Is-Unbreakable";
       user = "ladas552";
       system = "x86_64-linux";
       norg = "~/Documents/Norg";
