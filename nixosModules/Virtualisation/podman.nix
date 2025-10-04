@@ -30,6 +30,9 @@
     };
 
     # persist for Impermanence
-    custom.imp.root.cache.directories = [ "/var/lib/containers" ];
+    custom.imp = {
+      root.cache.directories = [ "/var/lib/containers" ];
+      home.cache.directories = [ ".local/share/containers" ];
+    };
   };
 }
