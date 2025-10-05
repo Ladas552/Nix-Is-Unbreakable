@@ -17,7 +17,7 @@
       );
     };
   };
-  config = lib.mkIf config.custom.imp.enable {
+  config = {
     users.mutableUsers = false;
     users.users = {
       ${meta.user} = {
