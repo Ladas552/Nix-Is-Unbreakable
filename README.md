@@ -19,7 +19,7 @@ github:Ladas552/Nix-Is-Unbreakable#app`, replace `app` with:
 
 ## Hosts
 
-- 2 NixOS hosts with Nvidia and Intel, and AMD APU on laptops. Both on ZFS
+- 2 NixOS hosts with Nvidia and Intel, and AMD APU on laptops. Both on ZFS and NixPort is using [Impermanence](https://github.com/nix-community/impermanence)
 - [Nix-On-Droid](https://github.com/nix-community/nix-on-droid) on phone, even if unmantained, it still works
 - [NixOS-WSL](https://github.com/nix-community/NixOS-WSL) for Windows partition
 - NixVM for testing, you shouldn't use it unless testing breaking changes

@@ -81,9 +81,13 @@ I start to have a life other than computers so I kinda begin to forget what I di
 
 *** To import zpool
     `sudo zpool import -d /dev/nbd0 -R /mnt zroot`
-*** Passwords
+** Impermanence 
+   I got [Impermanence]{https://github.com/nix-community/impermanence}, and it uses 2 persist mounts. Persist for actual data that is snapshoted, and cache for stuff that I don't wanna redownload or relogin, but not need a back up of. Right now, only `NixPort` has impermanence enabled, and it doesn't bother other NixConfiguration hosts on the setup. 
+
+   It's tmpfs setup with zfs datasets.
+** Passwords
     - root
-      I still don't know how to setup passwords declarativly, so just setup root password right after installation in a terminal prompt.
+      The root password is setup automatically because the users are immutable
     - user
       In NixOS, users are Mutual by default, so you can just `su` to change to root, and `passwd ladas552` to change password of user-Ladas552 when you can't login to the user.
 
