@@ -21,6 +21,7 @@
     ./cage/cagebreak.nix
     ./cage/ghostty.nix
     ./cosmic
+    ./gnome
     ./hyprland
     ./kde
     ./labwc
