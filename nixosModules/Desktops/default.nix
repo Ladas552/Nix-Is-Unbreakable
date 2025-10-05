@@ -20,7 +20,9 @@
     ./bspwm
     ./cage/cagebreak.nix
     ./cage/ghostty.nix
+    ./cosmic
     ./hyprland
+    ./kde
     ./labwc
     ./niri/bare
     # ./niri/flake
