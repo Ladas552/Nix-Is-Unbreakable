@@ -1,4 +1,8 @@
 ![nix](https://socialify.git.ci/Ladas552/Nix-Is-Unbreakable/image?font=Rokkitt&logo=https%3A%2F%2Fraw.githubusercontent.com%2FNixOS%2Fnixos-artwork%2Frefs%2Fheads%2Fmaster%2Flogo%2Fnix-snowflake-rainbow.svg&name=1&owner=1&pattern=Transparent&stargazers=1&theme=Dark)
+# Why archived?
+During my migration to [flake-parts](https://flake.parts/), I revamped the whole repo, so for people who like this config structure, but don't like flake-parts I archive this repository.
+
+Here is the flake-parts repo: https://github.com/Ladas552/Flake-Ocean
 
 # What is this?
 This is my multi host, modular Nix config. It declares configs for different programs using Nix language, such as:
@@ -42,6 +46,9 @@ I write comments on things, that might explain certain ways of doing things, or 
 
 Also, I have [Norg document](./nix.norg), containing notes and TODO for the config, and folder `/docs` for containing more specific instructions.
 
+I plan on writing Impermanence guide at https://ladas552.me/categories/nix/
+So stay tuned
+
 ## Directory structure
 
 ```mermaid
@@ -62,7 +69,7 @@ flowchart TD
     G -->|custom iso for reinstalling| H[NixIso]
     G -->|nix-on-droid config| I[NixMux]
     G -->|acer laptop| J[NixPort]
-    G -->|soon to be server| K[NixToks]
+    G -->|server| K[NixToks]
     G -->|experimenting host| L[NixVM]
     G -->|wsl for windows| M[NixWSL]
     N -->|importing all NixOS modules| O[default.nix]
